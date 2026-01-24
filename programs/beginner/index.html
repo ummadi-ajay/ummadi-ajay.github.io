@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MakerWorks - Beginner Level Program | Robotics & Coding for Kids in Mumbai</title>
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="MakerWorks - Beginner Level Program | Robotics & Coding for Kids in Mumbai">
-  <meta name="description" content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
-  <meta name="keywords" content="MakerWorks Beginner Level, robotics for kids Mumbai, coding for children, micro:bit classes Mumbai, STEM for kids, robotics projects, electronics for kids">
+  <meta name="description"
+    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
+  <meta name="keywords"
+    content="MakerWorks Beginner Level, robotics for kids Mumbai, coding for children, micro:bit classes Mumbai, STEM for kids, robotics projects, electronics for kids">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://makerworkslab.in/programs/beginner/">
   <meta property="og:title" content="MakerWorks - Beginner Level Program | Robotics & Coding for Kids in Mumbai">
-  <meta property="og:description" content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
+  <meta property="og:description"
+    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
   <meta property="og:image" content="https://makerworkslab.in/images/beginner-hero.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://makerworkslab.in/programs/beginner/">
   <meta property="twitter:title" content="MakerWorks - Beginner Level Program | Robotics & Coding for Kids in Mumbai">
-  <meta property="twitter:description" content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
+  <meta property="twitter:description"
+    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
   <meta property="twitter:image" content="https://makerworkslab.in/images/beginner-hero.jpg">
 
   <!-- Stylesheets -->
@@ -89,1410 +101,1700 @@
   }
   </script>
 
-<!-- Assuming a shared styles.css -->
-    <style>
-        /* General styles from main page for consistency */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background-color: #fff;
-            color: #000;
-            scroll-behavior: smooth;
-        }
-
-        /* Consistent header and navbar styles (copied from main page) */
-        header {
-            background-color: #f8f9fa;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: #0d6efd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            color: #0a58ca;
-        }
-
-        .navbar-nav .nav-link {
-            color: #000;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ff6600;
-        }
-
-        @media (max-width: 768px) {
-            .navbar-collapse {
-                background: #f8f9fa;
-                padding: 10px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-                margin-top: 10px;
-            }
-        }
-
-        section {
-            /* Reduced default padding for all sections */
-            padding: 80px 20px 50px;
-        }
-
-        /* Hero section specific to Beginner Level - Adjusted */
-        .beginner-hero {
-            background-color: #ff9900; /* Orange background from image */
-            color: white;
-            text-align: center;
-            padding: 60px 20px; /* Reduced padding */
-            min-height: 280px; /* Reduced min-height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .beginner-hero h1 {
-            font-size: 3rem; /* Reduced font size */
-            font-weight: 700;
-            margin-bottom: 10px; /* Reduced margin */
-            text-shadow: none;
-        }
-
-        .beginner-hero p {
-            font-size: 1.4rem; /* Reduced paragraph font size */
-            max-width: 800px; /* Slightly narrower text area */
-            line-height: 1.4;
-            margin-bottom: 30px; /* Reduced margin */
-            text-shadow: none;
-            font-weight: 400;
-        }
-
-        .beginner-hero .btn {
-            background-color: #fff;
-            color: #ff6600;
-            padding: 15px 30px; /* Reduced button padding */
-            font-size: 1.2rem; /* Reduced button text size */
-            border-radius: 10px; /* Slightly less rounded */
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Reduced shadow */
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px; /* Reduced gap */
-        }
-
-        .beginner-hero .btn:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
-
-        .beginner-hero .btn i {
-            font-size: 1.3rem; /* Reduced icon size */
-        }
-
-        /* Program Info Section - Adjusted */
-        .program-info-section {
-            background-color: #f8f9fa;
-            padding: 30px 20px; /* Reduced padding */
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .program-info-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px; /* Reduced padding */
-        }
-
-        .program-info-item .icon {
-            font-size: 3rem; /* Reduced icon size */
-            margin-bottom: 10px; /* Reduced margin */
-            color: #ff6600;
-        }
-
-        .program-info-item h4 {
-            font-size: 1.2rem; /* Reduced font size */
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 3px; /* Reduced margin */
-        }
-
-        .program-info-item p {
-            font-size: 0.95rem; /* Reduced font size */
-            color: #666;
-            line-height: 1.4;
-        }
-
-        /* Eligibility Section - Adjusted */
-        .eligibility-section {
-            padding: 60px 20px; /* Reduced padding */
-            background-color: #f8f9fa;
-        }
-
-        .eligibility-section h2 {
-            font-size: 2.2rem; /* Reduced font size */
-            font-weight: 700;
-            color: #333;
-            text-align: center;
-            margin-bottom: 40px; /* Reduced margin */
-        }
-
-        .eligibility-content {
-            max-width: 700px; /* Slightly narrower */
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px; /* Reduced padding */
-            border-radius: 10px; /* Slightly less rounded */
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05); /* Reduced shadow */
-        }
-
-        .eligibility-content ul li {
-            font-size: 1rem; /* Reduced font size */
-            margin-bottom: 10px; /* Reduced margin */
-            padding-left: 25px; /* Reduced padding */
-        }
-
-        .eligibility-content ul li::before {
-            font-size: 1.1rem; /* Adjusted icon size */
-        }
-
-        /* Program details section - Adjusted */
-        .program-details {
-            padding: 60px 0; /* Reduced padding */
-            background-color: #fff;
-        }
-
-        .program-details h2 {
-            font-size: 2.2rem; /* Reduced font size */
-            margin-bottom: 40px; /* Reduced margin */
-        }
-
-        .feature-item {
-            padding: 25px; /* Reduced padding */
-            border-radius: 10px; /* Slightly less rounded */
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08); /* Reduced shadow */
-        }
-
-        .feature-item .icon-container {
-            width: 80px; /* Reduced size */
-            height: 80px; /* Reduced size */
-            margin: 0 auto 15px; /* Adjusted margin */
-        }
-
-        .feature-item .icon {
-            font-size: 2.5rem; /* Reduced icon size */
-        }
-
-        .feature-item h3 {
-            font-size: 1.5rem; /* Reduced font size */
-            margin-bottom: 10px; /* Reduced margin */
-        }
-
-        .feature-item p {
-            font-size: 0.95rem; /* Reduced font size */
-        }
-
-        /* Why Choose This Course Section - Adjusted */
-        .why-choose-section {
-            padding: 60px 20px; /* Reduced padding */
-            background-color: #f8f9fa;
-        }
-
-        .why-choose-section h2 {
-            font-size: 2.2rem; /* Reduced font size */
-            margin-bottom: 50px; /* Reduced margin */
-        }
-
-        .why-choose-item {
-            padding: 25px; /* Reduced padding */
-            border-radius: 10px; /* Slightly less rounded */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Reduced shadow */
-        }
-
-        .why-choose-item .icon-container {
-            width: 80px; /* Reduced size */
-            height: 80px; /* Reduced size */
-            margin: 0 auto 15px; /* Adjusted margin */
-        }
-
-        .why-choose-item .icon {
-            font-size: 3rem; /* Reduced icon size */
-        }
-
-        .why-choose-item h3 {
-            font-size: 1.4rem; /* Reduced font size */
-            margin-bottom: 10px; /* Reduced margin */
-        }
-
-        .why-choose-item p {
-            font-size: 0.95rem; /* Reduced font size */
-        }
-
-        /* Parent Reviews Section - Adjusted */
-        .reviews-section {
-            padding: 60px 20px; /* Reduced padding */
-            background-color: #fff;
-        }
-
-        .reviews-section h2 {
-            font-size: 2.2rem; /* Reduced font size */
-            margin-bottom: 40px; /* Reduced margin */
-        }
-
-        .review-card {
-            padding: 25px; /* Reduced padding */
-            border-radius: 10px; /* Slightly less rounded */
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* Reduced shadow */
-        }
-
-        .review-card .quote-icon {
-            font-size: 2rem; /* Reduced icon size */
-            margin-bottom: 10px; /* Reduced margin */
-        }
-
-        .review-card p.review-text {
-            font-size: 0.95rem; /* Reduced font size */
-            margin-bottom: 15px; /* Reduced margin */
-        }
-
-        .review-card .reviewer-name {
-            font-size: 1rem; /* Reduced font size */
-        }
-
-        .review-card .reviewer-info {
-            font-size: 0.85rem; /* Reduced font size */
-        }
-
-        /* Pricing Section - Adjusted */
-        .pricing-section {
-            padding: 60px 0; /* Reduced padding */
-            background-color: #fff;
-        }
-
-        .pricing-section h2 {
-            font-size: 2.2rem; /* Reduced font size */
-            margin-bottom: 30px; /* Reduced margin */
-        }
-
-        .pricing-card {
-            padding: 30px; /* Reduced padding */
-            border-radius: 12px; /* Slightly less rounded */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Reduced shadow */
-        }
-
-        .pricing-card .price-value {
-            font-size: 3rem; /* Reduced font size */
-            margin-bottom: 10px; /* Reduced margin */
-        }
-
-        .pricing-card .price-value small {
-            font-size: 1rem; /* Reduced font size */
-        }
-
-        .pricing-card .description {
-            font-size: 1rem; /* Reduced font size */
-            margin-bottom: 25px; /* Reduced margin */
-        }
-
-        .pricing-card .btn-primary {
-            padding: 10px 25px; /* Reduced padding */
-            font-size: 1rem; /* Reduced font size */
-        }
-
-        /* Footer styling (copied from main page) */
-        footer {
-            background-color: #fff3e0;
-            padding-top: 40px; /* Reduced padding */
-        }
-
-        footer .card {
-            padding: 30px !important; /* Reduced padding */
-        }
-
-        footer .card h5 {
-            font-size: 1.3rem; /* Reduced font size */
-            margin-bottom: 1rem; /* Reduced margin */
-        }
-
-        footer .card p {
-            font-size: 0.9rem; /* Reduced font size */
-        }
-
-        footer .list-unstyled li {
-            margin-bottom: 5px; /* Reduced margin */
-        }
-
-        footer .list-unstyled li a {
-            font-size: 0.9rem; /* Reduced font size */
-        }
-
-        footer .social-icons a {
-            font-size: 1.3rem; /* Reduced icon size */
-            margin-right: 8px; /* Reduced margin */
-        }
-
-        .back-to-top {
-            bottom: 15px; /* Adjusted position */
-            right: 15px; /* Adjusted position */
-            padding: 10px 14px; /* Reduced padding */
-            font-size: 18px; /* Reduced font size */
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Reduced shadow */
-        }
-
-       section {
-  position: relative;
-}
-
-/* Gentle fade-in polish */
-[data-aos] {
-  transition-duration: 1s !important;
-}
-
-/* Better card hover for ALL cards */
-.program-info-item,
-.skill-card,
-.stats-card,
-.review-card,
-.pricing-card,
-.eligibility-content,
-.curriculum-item {
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-
-.program-info-item:hover,
-.skill-card:hover,
-.stats-card:hover,
-.review-card:hover,
-.pricing-card:hover,
-.curriculum-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-}
-
-/* Curriculum accordion hint */
-.curriculum-header h4::after {
-  content: "  (click to expand)";
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: #ff9900;
-}
-
-/* Better curriculum list bullets */
-.curriculum-content ul li {
-  position: relative;
-  padding-left: 18px;
-}
-
-.curriculum-content ul li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #ff6600;
-  font-weight: bold;
-}
-
-/* Theory cards equal height */
-.skill-card {
-  height: 100%;
-}
-
-/* Gallery hover zoom */
-section img {
-  transition: transform .4s ease, box-shadow .4s ease;
-}
-
-section img:hover {
-  transform: scale(1.04);
-  box-shadow: 0 20px 45px rgba(0,0,0,.25);
-}
-
-/* Review carousel polish */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1);
-}
-
-/* Pricing emphasis */
-.pricing-card {
-  border: 3px solid #ff9900;
-}
-
-/* Back-to-top smooth glow */
-.back-to-top {
-  background: linear-gradient(135deg,#ff9900,#ff6600);
-  color: #fff;
-  border-radius: 50%;
-}
-
-/* Mobile spacing improvements */
-@media (max-width:768px) {
-  section {
-    padding: 70px 15px 40px;
-  }
-
-  .beginner-hero h1 {
-    font-size: 2.3rem;
-  }
-
-  .beginner-hero p {
-    font-size: 1.1rem;
-  }
-}
-.curriculum-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.45s ease;
-}
-
-.curriculum-item.active .curriculum-content {
-  max-height: 2000px;
-}
-/* ========== REQUIRED BASE CARD STYLES ========== */
-.skill-card,
-.stats-card,
-.ui-card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-}
-
-.ui-icon {
-  font-size: 2.5rem;
-  color: #ff9900;
-  margin-bottom: 10px;
-}
-
-/* ========== CURRICULUM ACCORDION CORE ========== */
-.curriculum-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.45s ease;
-}
-
-.curriculum-item.active .curriculum-content {
-  max-height: 2000px;
-}
-
-.curriculum-header {
-  cursor: pointer;
-}
-
-.curriculum-item {
-  background: #ffffff;
-  border-radius: 16px;
-  border-left: 6px solid transparent;
-  padding: 26px 30px;
-}
-
-.curriculum-item.active {
-  border-left-color: #ff9900;
-  background: linear-gradient(180deg,#fff,#fffaf2);
-}
-
-    </style>
+  <!-- Assuming a shared styles.css -->
+  <style>
+    :root {
+      --primary: #ff6600;
+      --primary-dark: #e65c00;
+      --secondary: #0d6efd;
+      --text-dark: #1f2937;
+      --text-muted: #6b7280;
+      --light-bg: #f9fafb;
+      --white: #ffffff;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+    }
+
+    /* Modern Reset & Typography */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Header / Navbar (Polished) */
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .navbar-brand:hover {
+      color: var(--primary);
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .navbar-collapse {
+        background: #f8f9fa;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+      }
+    }
+
+    section {
+      /* Reduced default padding for all sections */
+      padding: 80px 20px 50px;
+    }
+
+    /* Hero section specific to Beginner Level - Adjusted */
+    .beginner-hero {
+      background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 120px 20px 100px;
+      overflow: hidden;
+      clip-path: ellipse(150% 100% at 50% 0%);
+      /* Subtle curve */
+    }
+
+    /* Decorative Background Pattern */
+    .beginner-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+      pointer-events: none;
+    }
+
+    .beginner-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .beginner-hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.95;
+      font-weight: 400;
+      text-shadow: none;
+    }
+
+    .beginner-hero .btn {
+      background-color: var(--white);
+      color: var(--primary);
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .beginner-hero .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.2);
+      background-color: var(--white);
+      color: var(--primary-dark);
+    }
+
+    .beginner-hero .btn i {
+      font-size: 1rem;
+    }
+
+    /* Program Info Section - Adjusted */
+    .program-info-section {
+      background-color: #f8f9fa;
+      padding: 30px 20px;
+      /* Reduced padding */
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .program-info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      /* Reduced padding */
+    }
+
+    .program-info-item .icon {
+      font-size: 3rem;
+      /* Reduced icon size */
+      margin-bottom: 10px;
+      /* Reduced margin */
+      color: #ff6600;
+    }
+
+    .program-info-item h4 {
+      font-size: 1.2rem;
+      /* Reduced font size */
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 3px;
+      /* Reduced margin */
+    }
+
+    .program-info-item p {
+      font-size: 0.95rem;
+      /* Reduced font size */
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* Eligibility Section - Adjusted */
+    .eligibility-section {
+      padding: 60px 20px;
+      /* Reduced padding */
+      background-color: #f8f9fa;
+    }
+
+    .eligibility-section h2 {
+      font-size: 2.2rem;
+      /* Reduced font size */
+      font-weight: 700;
+      color: #333;
+      text-align: center;
+      margin-bottom: 40px;
+      /* Reduced margin */
+    }
+
+    .eligibility-content {
+      max-width: 700px;
+      /* Slightly narrower */
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      /* Reduced padding */
+      border-radius: 10px;
+      /* Slightly less rounded */
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+      /* Reduced shadow */
+    }
+
+    .eligibility-content ul li {
+      font-size: 1rem;
+      /* Reduced font size */
+      margin-bottom: 10px;
+      /* Reduced margin */
+      padding-left: 25px;
+      /* Reduced padding */
+    }
+
+    .eligibility-content ul li::before {
+      font-size: 1.1rem;
+      /* Adjusted icon size */
+    }
+
+    /* Program details section - Adjusted */
+    .program-details {
+      padding: 60px 0;
+      /* Reduced padding */
+      background-color: #fff;
+    }
+
+    .program-details h2 {
+      font-size: 2.2rem;
+      /* Reduced font size */
+      margin-bottom: 40px;
+      /* Reduced margin */
+    }
+
+    .feature-item {
+      padding: 25px;
+      /* Reduced padding */
+      border-radius: 10px;
+      /* Slightly less rounded */
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+      /* Reduced shadow */
+    }
+
+    .feature-item .icon-container {
+      width: 80px;
+      /* Reduced size */
+      height: 80px;
+      /* Reduced size */
+      margin: 0 auto 15px;
+      /* Adjusted margin */
+    }
+
+    .feature-item .icon {
+      font-size: 2.5rem;
+      /* Reduced icon size */
+    }
+
+    .feature-item h3 {
+      font-size: 1.5rem;
+      /* Reduced font size */
+      margin-bottom: 10px;
+      /* Reduced margin */
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      /* Reduced font size */
+    }
+
+    /* Why Choose This Course Section - Adjusted */
+    .why-choose-section {
+      padding: 60px 20px;
+      /* Reduced padding */
+      background-color: #f8f9fa;
+    }
+
+    .why-choose-section h2 {
+      font-size: 2.2rem;
+      /* Reduced font size */
+      margin-bottom: 50px;
+      /* Reduced margin */
+    }
+
+    .why-choose-item {
+      padding: 25px;
+      /* Reduced padding */
+      border-radius: 10px;
+      /* Slightly less rounded */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      /* Reduced shadow */
+    }
+
+    .why-choose-item .icon-container {
+      width: 80px;
+      /* Reduced size */
+      height: 80px;
+      /* Reduced size */
+      margin: 0 auto 15px;
+      /* Adjusted margin */
+    }
+
+    .why-choose-item .icon {
+      font-size: 3rem;
+      /* Reduced icon size */
+    }
+
+    .why-choose-item h3 {
+      font-size: 1.4rem;
+      /* Reduced font size */
+      margin-bottom: 10px;
+      /* Reduced margin */
+    }
+
+    .why-choose-item p {
+      font-size: 0.95rem;
+      /* Reduced font size */
+    }
+
+    /* Parent Reviews Section - Adjusted */
+    .reviews-section {
+      padding: 60px 20px;
+      /* Reduced padding */
+      background-color: #fff;
+    }
+
+    .reviews-section h2 {
+      font-size: 2.2rem;
+      /* Reduced font size */
+      margin-bottom: 40px;
+      /* Reduced margin */
+    }
+
+    .review-card {
+      padding: 25px;
+      /* Reduced padding */
+      border-radius: 10px;
+      /* Slightly less rounded */
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      /* Reduced shadow */
+    }
+
+    .review-card .quote-icon {
+      font-size: 2rem;
+      /* Reduced icon size */
+      margin-bottom: 10px;
+      /* Reduced margin */
+    }
+
+    .review-card p.review-text {
+      font-size: 0.95rem;
+      /* Reduced font size */
+      margin-bottom: 15px;
+      /* Reduced margin */
+    }
+
+    .review-card .reviewer-name {
+      font-size: 1rem;
+      /* Reduced font size */
+    }
+
+    .review-card .reviewer-info {
+      font-size: 0.85rem;
+      /* Reduced font size */
+    }
+
+    /* Pricing Section - Adjusted */
+    .pricing-section {
+      padding: 60px 0;
+      /* Reduced padding */
+      background-color: #fff;
+    }
+
+    .pricing-section h2 {
+      font-size: 2.2rem;
+      /* Reduced font size */
+      margin-bottom: 30px;
+      /* Reduced margin */
+    }
+
+    .pricing-card {
+      padding: 30px;
+      /* Reduced padding */
+      border-radius: 12px;
+      /* Slightly less rounded */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      /* Reduced shadow */
+    }
+
+    .pricing-card .price-value {
+      font-size: 3rem;
+      /* Reduced font size */
+      margin-bottom: 10px;
+      /* Reduced margin */
+    }
+
+    .pricing-card .price-value small {
+      font-size: 1rem;
+      /* Reduced font size */
+    }
+
+    .pricing-card .description {
+      font-size: 1rem;
+      /* Reduced font size */
+      margin-bottom: 25px;
+      /* Reduced margin */
+    }
+
+    .pricing-card .btn-primary {
+      padding: 10px 25px;
+      /* Reduced padding */
+      font-size: 1rem;
+      /* Reduced font size */
+    }
+
+    /* Footer styling (copied from main page) */
+    footer {
+      background-color: #fff3e0;
+      padding-top: 40px;
+      /* Reduced padding */
+    }
+
+    footer .card {
+      padding: 30px !important;
+      /* Reduced padding */
+    }
+
+    footer .card h5 {
+      font-size: 1.3rem;
+      /* Reduced font size */
+      margin-bottom: 1rem;
+      /* Reduced margin */
+    }
+
+    footer .card p {
+      font-size: 0.9rem;
+      /* Reduced font size */
+    }
+
+    footer .list-unstyled li {
+      margin-bottom: 5px;
+      /* Reduced margin */
+    }
+
+    footer .list-unstyled li a {
+      font-size: 0.9rem;
+      /* Reduced font size */
+    }
+
+    footer .social-icons a {
+      font-size: 1.3rem;
+      /* Reduced icon size */
+      margin-right: 8px;
+      /* Reduced margin */
+    }
+
+    .back-to-top {
+      bottom: 15px;
+      /* Adjusted position */
+      right: 15px;
+      /* Adjusted position */
+      padding: 10px 14px;
+      /* Reduced padding */
+      font-size: 18px;
+      /* Reduced font size */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      /* Reduced shadow */
+    }
+
+    section {
+      position: relative;
+    }
+
+    /* Gentle fade-in polish */
+    [data-aos] {
+      transition-duration: 1s !important;
+    }
+
+    /* ================= CARD STYLES (Premium) ================= */
+    .program-info-item,
+    .skill-card,
+    .stats-card,
+    .review-card,
+    .pricing-card,
+    .curriculum-item,
+    .eligibility-content,
+    .ui-card,
+    .outcome-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      height: 100%;
+      /* Ensure equal height */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .program-info-item:hover,
+    .skill-card:hover,
+    .stats-card:hover,
+    .review-card:hover,
+    .pricing-card:hover,
+    .curriculum-item:hover,
+    .ui-card:hover,
+    .outcome-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(255, 102, 0, 0.2);
+    }
+
+    .skill-icon,
+    .icon,
+    .ui-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      background: rgba(255, 102, 0, 0.08);
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .program-info-item:hover .icon,
+    .skill-card:hover .skill-icon,
+    .ui-card:hover .ui-icon {
+      transform: scale(1.1) rotate(5deg);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Clean up specific card paddings */
+    .skill-card,
+    .stats-card,
+    .program-info-item,
+    .ui-card,
+    .outcome-card {
+      padding: 2rem;
+      text-align: center;
+      align-items: center;
+    }
+
+    .stats-card {
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary);
+      min-height: 140px;
+    }
+
+    .outcome-card {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .outcome-card h5 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .outcome-card ul li {
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+    }
+
+    /* Curriculum accordion hint */
+    .curriculum-header h4::after {
+      content: "  (click to expand)";
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #ff9900;
+    }
+
+    /* Better curriculum list bullets */
+    .curriculum-content ul li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .curriculum-content ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #ff6600;
+      font-weight: bold;
+    }
+
+    /* Theory cards equal height */
+    .skill-card {
+      height: 100%;
+    }
+
+    /* Gallery hover zoom */
+    section img {
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    section img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
+    }
+
+    /* Review carousel polish */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1);
+    }
+
+    /* Pricing emphasis */
+    .pricing-card {
+      border: 3px solid #ff9900;
+    }
+
+    /* Back-to-top smooth glow */
+    .back-to-top {
+      background: linear-gradient(135deg, #ff9900, #ff6600);
+      color: #fff;
+      border-radius: 50%;
+    }
+
+    /* Mobile spacing improvements */
+    @media (max-width:768px) {
+      section {
+        padding: 70px 15px 40px;
+      }
+
+      .beginner-hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .beginner-hero p {
+        font-size: 1.1rem;
+      }
+    }
+
+    .curriculum-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+
+    .curriculum-item.active .curriculum-content {
+      max-height: 2000px;
+    }
+
+    /* ========== REQUIRED BASE CARD STYLES ========== */
+    .skill-card,
+    .stats-card,
+    .ui-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    }
+
+    .ui-icon {
+      font-size: 2.5rem;
+      color: #ff9900;
+      margin-bottom: 10px;
+    }
+
+    /* ========== CURRICULUM ACCORDION CORE ========== */
+    .curriculum-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+
+    .curriculum-item.active .curriculum-content {
+      max-height: 2000px;
+    }
+
+    .curriculum-header {
+      cursor: pointer;
+    }
+
+    .curriculum-item {
+      background: #ffffff;
+      border-radius: 16px;
+      border-left: 6px solid transparent;
+      padding: 26px 30px;
+    }
+
+    .curriculum-item.active {
+      border-left-color: #ff9900;
+      background: linear-gradient(180deg, #fff, #fffaf2);
+    }
+  </style>
 </head>
+
 <body>
-     <header>
-  <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top px-3">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold text-primary d-flex align-items-center" href="/">MakerWorks</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top px-3">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-primary d-flex align-items-center" href="/">MakerWorks</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+          aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
-        <ul class="navbar-nav gap-3 fw-medium">
-          <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="/learn/">Learn</a></li>
-          <li class="nav-item"><a class="nav-link" href="/makers/">Makers</a></li>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+          <ul class="navbar-nav gap-3 fw-medium">
+            <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/learn/">Learn</a></li>
+            <li class="nav-item"><a class="nav-link" href="/makers/">Makers</a></li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Programs</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item active" aria-current="page" href="/programs/beginner/">Beginner Level</a></li>
-              <li><a class="dropdown-item" href="/programs/intermediate/">Intermediate Level</a></li>
-              <li><a class="dropdown-item" href="/programs/advanced/">Advanced Level</a></li>
-            </ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">Programs</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item active" aria-current="page" href="/programs/beginner/">Beginner Level</a>
+                </li>
+                <li><a class="dropdown-item" href="/programs/intermediate/">Intermediate Level</a></li>
+                <li><a class="dropdown-item" href="/programs/advanced/">Advanced Level</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">Competitions</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://wroindia.org/" target="_blank">WRO</a></li>
+                <li><a class="dropdown-item" href="https://www.vexrobotics.com/iq/competition/viqc-current-game"
+                    target="_blank">VEX IQ</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/gallery/">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <section class="beginner-hero">
+    <div data-aos="fade-up">
+      <h1>Maker Works Junior Program</h1>
+      <p>A fun-filled 2-year creative learning program for curious minds aged 7–10</p>
+      <a href="#program-curriculum" class="btn">Enroll Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="program-info-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12">
+          <div class="program-info-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="fas fa-user-graduate"></i></div>
+            <h4>Age Group</h4>
+            <p>Ages 7–10 years</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-info-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+            <h4>Duration</h4>
+            <p>2 Years (Weekend-Only Program)</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-info-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+            <h4>Sessions</h4>
+            <p>8 Creative Activities Per Month</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="eligibility-section">
+    <div class="container">
+      <h2>Eligibility for Beginner Level</h2>
+      <div class="eligibility-content" data-aos="fade-up">
+        <ul>
+          <li>No prior experience in electronics or coding is required. This course is designed for absolute beginners.
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Competitions</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://wroindia.org/" target="_blank">WRO</a></li>
-              <li><a class="dropdown-item" href="https://www.vexrobotics.com/iq/competition/viqc-current-game" target="_blank">VEX IQ</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
-          <li class="nav-item"><a class="nav-link" href="/gallery/">Gallery</a></li>
+          <li>Recommended for students aged 8-12 years.</li>
+          <li>A keen interest in learning, building, and exploring new technologies is a plus!</li>
+          <li>Access to a computer with internet connection for online resources and simulations (if applicable).</li>
         </ul>
       </div>
     </div>
-  </nav>
-</header>
+  </section>
 
+  <!-- STATS -->
+  <section class="container">
+    <div class="row g-4 text-center">
+      <div class="col-lg-3 col-6">
+        <div class="stats-card">40+ Classes</div>
+      </div>
+      <div class="col-lg-3 col-6">
+        <div class="stats-card">25+ Projects</div>
+      </div>
+      <div class="col-lg-3 col-6">
+        <div class="stats-card">micro:bit + Arduino</div>
+      </div>
+      <div class="col-lg-3 col-6">
+        <div class="stats-card">3D Printing</div>
+      </div>
+    </div>
+  </section>
 
-    <section class="beginner-hero">
-        <div data-aos="fade-up">
-            <h1>Maker Works Junior Program</h1>
-            <p>A fun-filled 2-year creative learning program for curious minds aged 7–10</p>
-            <a href="#program-curriculum" class="btn">Enroll Now <i class="fas fa-arrow-right"></i></a>
+  <!-- CURRICULUM -->
+  <!-- ================= THEORY SECTION ================= -->
+  <section class="container">
+    <h2>What Your Child Will Learn</h2>
+
+    <div class="row g-4 mt-4">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+          <h5>micro:bit & MakeCode Programming</h5>
+          <p>
+            Students learn programming using the BBC micro:bit and Microsoft MakeCode.
+            They start with visual block-based coding and gradually build logic using
+            inputs, variables, loops, conditions, and functions.
+          </p>
+          <ul>
+            <li>Basic programming concepts</li>
+            <li>Problem-solving with logic</li>
+            <li>Real-time hardware interaction</li>
+          </ul>
         </div>
-    </section>
+      </div>
 
-    <section class="program-info-section">
-        <div class="container">
+      <div class="col-lg-3 col-md-6">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+          <h5>Electronics & Sensors</h5>
+          <p>
+            Children explore how electricity works through hands-on experiments
+            involving LEDs, resistors, sensors, motors, and real circuits.
+          </p>
+          <ul>
+            <li>Current, voltage & resistance</li>
+            <li>Ohm’s Law (visual & practical)</li>
+            <li>Ultrasonic sensors & servo motors</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-cube"></i></div>
+          <h5>3D Designing & Printing</h5>
+          <p>
+            Students design real 3D objects that support their electronics projects,
+            helping them connect digital creativity with physical products.
+          </p>
+          <ul>
+            <li>3D shapes & measurements</li>
+            <li>Project enclosures</li>
+            <li>Introduction to 3D printing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h5>Thinking Like an Engineer</h5>
+          <p>
+            Beyond tools, students develop logical thinking, patience, creativity,
+            and confidence through guided trial-and-error learning.
+          </p>
+          <ul>
+            <li>Debugging mindset</li>
+            <li>Creative problem solving</li>
+            <li>Presentation & confidence</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SESSION-WISE BREAKUP ================= -->
+  <section class="container">
+    <h2>Session-wise Learning Breakdown (20 Modules)</h2>
+    <p class="mb-5 text-muted">
+      Our Beginner Program follows a carefully planned session-wise structure,
+      ensuring gradual learning, strong fundamentals, and hands-on confidence.
+    </p>
+
+    <div class="curriculum">
+
+      <!-- MODULE 1 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 1: Introduction to Computers & micro:bit</h4>
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>What is a computer & microcontroller</li>
+            <li>Introduction to BBC micro:bit</li>
+            <li>LED matrix & buttons exploration</li>
+            <li>First MakeCode program</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 2 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 2: MakeCode Interface & Basic Blocks</h4>
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>MakeCode editor overview</li>
+            <li>Basic blocks & event handling</li>
+            <li>Show text & icons on LED display</li>
+            <li>Mini LED animation project</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 3 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 3: Inputs & Sensors on micro:bit</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Button A & B programming</li>
+            <li>Shake, tilt & motion input</li>
+            <li>Light & temperature sensor usage</li>
+            <li>Reaction-based mini games</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 4 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 4: Variables & Data Storage</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Understanding variables</li>
+            <li>Creating & updating variables</li>
+            <li>Counters & score tracking</li>
+            <li>Score-based game project</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 5 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 5: Logic & Decision Making</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>If & if–else conditions</li>
+            <li>Comparison operators</li>
+            <li>Real-life decision logic</li>
+            <li>Smart condition-based program</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 6 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 6: Loops & Repetition</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Forever & repeat loops</li>
+            <li>Nested loops</li>
+            <li>Optimizing code using loops</li>
+            <li>LED animation challenge</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 7 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 7: Functions & Code Reusability</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Why functions are needed</li>
+            <li>Creating custom functions</li>
+            <li>Calling functions in programs</li>
+            <li>Structured coding project</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 8 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 8: Introduction to Electronics</h4>
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>What is electricity</li>
+            <li>Current, voltage & resistance</li>
+            <li>Understanding circuits</li>
+            <li>Basic safety rules</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 9 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 9: Ohm’s Law & LEDs</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Ohm’s Law explained simply</li>
+            <li>LED polarity & resistors</li>
+            <li>Brightness control</li>
+            <li>LED lighting project</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 10 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 10: Ultrasonic Sensor</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Distance measurement concept</li>
+            <li>Ultrasonic sensor wiring</li>
+            <li>Distance-based alerts</li>
+            <li>Smart parking demo</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 11 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 11: Servo Motor Control</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>What is a motor</li>
+            <li>Servo motor angles</li>
+            <li>Micro:bit + servo control</li>
+            <li>Automatic gate project</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 12 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 12: Combining Sensors & Motors</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Sensor + motor logic</li>
+            <li>Distance-controlled movement</li>
+            <li>Smart automation project</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 13 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 13: Introduction to 3D Designing</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>What is 3D design</li>
+            <li>Basic shapes & scaling</li>
+            <li>Designing name tags</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 14 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 14: 3D Models for Electronics</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Sensor holders</li>
+            <li>Project enclosures</li>
+            <li>Design optimization</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 15 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 15: Introduction to 3D Printing</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>How 3D printers work</li>
+            <li>Materials & safety</li>
+            <li>Printing student designs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 16 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 16: Interactive micro:bit Projects</h4>
+
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Game-based learning</li>
+            <li>Multi-input programs</li>
+            <li>Creative coding challenges</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 17 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 17: Smart Systems</h4>
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Smart alarms</li>
+            <li>Automation logic</li>
+            <li>Real-life problem solving</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 18 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 18: Capstone Project Planning</h4>
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Project idea selection</li>
+            <li>Design & coding plan</li>
+            <li>Component selection</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 19 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 19: Capstone Project Execution</h4>
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Building & testing</li>
+            <li>Debugging & improvements</li>
+            <li>Final project assembly</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MODULE 20 -->
+      <div class="curriculum-item">
+        <div class="curriculum-header">
+          <h4>Module 20: Demo Day & Certification</h4>
+        </div>
+        <div class="curriculum-content">
+          <ul>
+            <li>Project presentation</li>
+            <li>Parent demo day</li>
+            <li>Certificate distribution</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ================= END SESSION-WISE BREAKUP ================= -->
+
+  <!-- ================= LEARNING OUTCOMES ================= -->
+  <section class="container">
+    <h2>Learning Outcomes by the End of the Program</h2>
+
+    <div class="row g-4 mt-4">
+
+      <div class="col-md-4">
+        <div class="outcome-card">
+          <h5>Programming Outcomes</h5>
+          <ul class="mt-3">
+            <li>Write structured MakeCode programs</li>
+            <li>Use variables, loops & functions</li>
+            <li>Build interactive micro:bit projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="outcome-card">
+          <h5>Electronics Outcomes</h5>
+          <ul class="mt-3">
+            <li>Understand current, voltage & resistance</li>
+            <li>Apply Ohm’s Law practically</li>
+            <li>Use sensors & motors safely</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="outcome-card">
+          <h5>Design & Innovation Outcomes</h5>
+          <ul class="mt-3">
+            <li>Create 3D models for projects</li>
+            <li>Understand real-world applications</li>
+            <li>Present final capstone projects</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LEARNING JOURNEY ================= -->
+  <section class="container">
+    <h2>Your Child’s Learning Journey</h2>
+
+    <div class="row g-4 mt-4 text-center">
+
+      <div class="col-md-3">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-play"></i></div>
+          <h6>Year 1</h6>
+          <p>Foundations in coding & electronics</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h6>Hands-on Learning</h6>
+          <p>Weekly guided projects</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-tools"></i></div>
+          <h6>Build Phase</h6>
+          <p>Electronics + sensors + motors</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-award"></i></div>
+          <h6>Capstone</h6>
+          <p>Final working project & certificate</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ================= COMPLETION & CERTIFICATION ================= -->
+  <section class="container" id="certification">
+    <span class="badge bg-warning text-dark mb-3">
+      ✔ Junior Level Completed
+    </span>
+    <h2>Program Completion & Certification</h2>
+
+    <div class="row g-4 align-items-center">
+
+      <!-- Certificate Image -->
+      <div class="col-md-6">
+        <div class="skill-card text-center">
+          <img src="/images/certificates/junior-beginner-certificate.png" alt="MakerWorks Junior Beginner Certificate"
+            class="img-fluid rounded-4 shadow-sm" style="max-height:420px; object-fit:contain;">
+          <p class="mt-3 fw-semibold">
+            MakerWorks Junior – Beginner Level Certificate
+          </p>
+        </div>
+      </div>
+
+
+
+      <!-- Completion Highlights (NO THEORY) -->
+      <div class="col-md-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h5>Completed Junior Beginner Level</h5>
+
+          <ul class="mt-3">
+            <li>20 structured beginner modules completed</li>
+            <li>Hands-on coding, electronics & robotics projects</li>
+            <li>Independent capstone project successfully presented</li>
+            <li>Official certification from MakerWorks Robotics Lab</li>
+            <li>Eligible to move to Intermediate Level Program</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ================= GALLERY ================= -->
+  <section class="container">
+    <h2>Inside Our Classroom</h2>
+    <p class="text-muted mb-4">
+      A glimpse of students learning, building, and experimenting at MakerWorks.
+    </p>
+
+    <div class="row g-3">
+      <div class="col-md-4">
+        <img src="/images/gallery/microbit-class.jpg" class="img-fluid rounded-4 shadow-sm">
+      </div>
+      <div class="col-md-4">
+        <img src="/images/gallery/electronics-lab.jpg" class="img-fluid rounded-4 shadow-sm">
+      </div>
+      <div class="col-md-4">
+        <img src="/images/gallery/3d-printing.jpg" class="img-fluid rounded-4 shadow-sm">
+      </div>
+      <div class="col-md-6">
+        <img src="/images/gallery/student-projects.jpg" class="img-fluid rounded-4 shadow-sm">
+      </div>
+      <div class="col-md-6">
+        <img src="/images/gallery/demo-day.jpg" class="img-fluid rounded-4 shadow-sm">
+      </div>
+    </div>
+  </section>
+  <section class="reviews-section">
+    <div class="container">
+      <h2>What Parents Say About Us</h2>
+      <div id="parentReviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
             <div class="row justify-content-center">
-                <div class="col-md-4 col-sm-12">
-                    <div class="program-info-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon"><i class="fas fa-user-graduate"></i></div>
-                        <h4>Age Group</h4>
-                        <p>Ages 7–10 years</p>
-                    </div>
+              <div class="col-md-8">
+                <div class="review-card">
+                  <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                  <p class="review-text">"My child absolutely loves the Beginner Level program! They come home excited
+                    every day, eager to show me what they've built. It's amazing to see their confidence grow with each
+                    new concept they learn."</p>
+                  <div class="reviewer-info">
+                    <span class="reviewer-name">Mrs. Sharma</span><br>
+                    <span class="text-muted">Parent of a Beginner Level Student</span>
+                  </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="program-info-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-                        <h4>Duration</h4>
-                        <p>2 Years (Weekend-Only Program)</p>
-                    </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="review-card">
+                  <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                  <p class="review-text">"MakerWorks has truly ignited a passion for technology in my son. The hands-on
+                    approach and patient instructors make learning complex topics so much fun. Highly recommend for any
+                    curious child!"</p>
+                  <div class="reviewer-info">
+                    <span class="reviewer-name">Mr. Gupta</span><br>
+                    <span class="text-muted">Parent of a Beginner Level Student</span>
+                  </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="program-info-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-                        <h4>Sessions</h4>
-                        <p>8 Creative Activities Per Month</p>
-                    </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="review-card">
+                  <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                  <p class="review-text">"The Beginner Level program is fantastic! My daughter, who had no prior
+                    experience, is now confidently building circuits and understanding basic coding. The curriculum is
+                    well-structured and very engaging."</p>
+                  <div class="reviewer-info">
+                    <span class="reviewer-name">Ms. Khan</span><br>
+                    <span class="text-muted">Parent of a Beginner Level Student</span>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+        <button class="carousel-control-prev" type="button" data-bs-target="#parentReviewsCarousel"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#parentReviewsCarousel"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <section class="eligibility-section">
-        <div class="container">
-            <h2>Eligibility for Beginner Level</h2>
-            <div class="eligibility-content" data-aos="fade-up">
-                <ul>
-                    <li>No prior experience in electronics or coding is required. This course is designed for absolute beginners.</li>
-                    <li>Recommended for students aged 8-12 years.</li>
-                    <li>A keen interest in learning, building, and exploring new technologies is a plus!</li>
-                    <li>Access to a computer with internet connection for online resources and simulations (if applicable).</li>
-                </ul>
+  <section class="pricing-section">
+    <div class="container">
+      <h2>Ready to Start Your Maker Journey?</h2>
+      <div class="pricing-card" data-aos="zoom-in">
+        <h3>Beginner Level Program</h3>
+        <div class="price-value">₹9992 <small>/Month</small></div>
+        <p class="description">Unlock your potential with hands-on projects and expert guidance. Perfect for aspiring
+          young innovators!</p>
+        <a href="#" class="btn btn-primary">Enroll Now</a>
+      </div>
+    </div>
+  </section>
+  <section id="faq" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 display-5 fw-bold">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+
+        <!-- FAQ 1 -->
+        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
+          <h2 class="accordion-header" id="faqHeading1">
+            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+              What is the duration of the Beginner Level Program?
+            </button>
+          </h2>
+          <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              The program runs for 2 years with weekend-only sessions, providing a gradual introduction to coding,
+              robotics, and electronics for young beginners.
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- STATS -->
-<section class="container">
-<div class="row g-4 text-center">
-<div class="col-md-3"><div class="stats-card">40+ Classes</div></div>
-<div class="col-md-3"><div class="stats-card">25+ Projects</div></div>
-<div class="col-md-3"><div class="stats-card">micro:bit + Arduino</div></div>
-<div class="col-md-3"><div class="stats-card">3D Printing</div></div>
-</div>
-</section>
-
-<!-- CURRICULUM -->
-<!-- ================= THEORY SECTION ================= -->
-<section class="container">
-  <h2>What Your Child Will Learn</h2>
-
-  <div class="row g-4 mt-4">
-
-    <div class="col-md-6">
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-        <h5>micro:bit & MakeCode Programming</h5>
-        <p>
-          Students learn programming using the BBC micro:bit and Microsoft MakeCode.
-          They start with visual block-based coding and gradually build logic using
-          inputs, variables, loops, conditions, and functions.
-        </p>
-        <ul>
-          <li>Basic programming concepts</li>
-          <li>Problem-solving with logic</li>
-          <li>Real-time hardware interaction</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-        <h5>Electronics & Sensors</h5>
-        <p>
-          Children explore how electricity works through hands-on experiments
-          involving LEDs, resistors, sensors, motors, and real circuits.
-        </p>
-        <ul>
-          <li>Current, voltage & resistance</li>
-          <li>Ohm’s Law (visual & practical)</li>
-          <li>Ultrasonic sensors & servo motors</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-cube"></i></div>
-        <h5>3D Designing & Printing</h5>
-        <p>
-          Students design real 3D objects that support their electronics projects,
-          helping them connect digital creativity with physical products.
-        </p>
-        <ul>
-          <li>3D shapes & measurements</li>
-          <li>Project enclosures</li>
-          <li>Introduction to 3D printing</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-brain"></i></div>
-        <h5>Thinking Like an Engineer</h5>
-        <p>
-          Beyond tools, students develop logical thinking, patience, creativity,
-          and confidence through guided trial-and-error learning.
-        </p>
-        <ul>
-          <li>Debugging mindset</li>
-          <li>Creative problem solving</li>
-          <li>Presentation & confidence</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= SESSION-WISE BREAKUP ================= -->
-<section class="container">
-  <h2>Session-wise Learning Breakdown (20 Modules)</h2>
-  <p class="mb-5 text-muted">
-    Our Beginner Program follows a carefully planned session-wise structure,
-    ensuring gradual learning, strong fundamentals, and hands-on confidence.
-  </p>
-
-  <div class="curriculum">
-
-    <!-- MODULE 1 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 1: Introduction to Computers & micro:bit</h4>
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>What is a computer & microcontroller</li>
-          <li>Introduction to BBC micro:bit</li>
-          <li>LED matrix & buttons exploration</li>
-          <li>First MakeCode program</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 2 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 2: MakeCode Interface & Basic Blocks</h4>      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>MakeCode editor overview</li>
-          <li>Basic blocks & event handling</li>
-          <li>Show text & icons on LED display</li>
-          <li>Mini LED animation project</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 3 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 3: Inputs & Sensors on micro:bit</h4>
-  
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Button A & B programming</li>
-          <li>Shake, tilt & motion input</li>
-          <li>Light & temperature sensor usage</li>
-          <li>Reaction-based mini games</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 4 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 4: Variables & Data Storage</h4>
-       
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Understanding variables</li>
-          <li>Creating & updating variables</li>
-          <li>Counters & score tracking</li>
-          <li>Score-based game project</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 5 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 5: Logic & Decision Making</h4>
-        
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>If & if–else conditions</li>
-          <li>Comparison operators</li>
-          <li>Real-life decision logic</li>
-          <li>Smart condition-based program</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 6 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 6: Loops & Repetition</h4>
-        
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Forever & repeat loops</li>
-          <li>Nested loops</li>
-          <li>Optimizing code using loops</li>
-          <li>LED animation challenge</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 7 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 7: Functions & Code Reusability</h4>
-       
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Why functions are needed</li>
-          <li>Creating custom functions</li>
-          <li>Calling functions in programs</li>
-          <li>Structured coding project</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 8 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 8: Introduction to Electronics</h4>
+        <!-- FAQ 2 -->
+        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
+          <h2 class="accordion-header" id="faqHeading2">
+            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+              What age group is suitable for this program?
+            </button>
+          </h2>
+          <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              The Beginner Level Program is designed for kids aged 7–10 years who are curious about robotics, coding,
+              and electronics.
             </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>What is electricity</li>
-          <li>Current, voltage & resistance</li>
-          <li>Understanding circuits</li>
-          <li>Basic safety rules</li>
-        </ul>
-      </div>
-    </div>
+          </div>
+        </div>
 
-    <!-- MODULE 9 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 9: Ohm’s Law & LEDs</h4>
-    
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Ohm’s Law explained simply</li>
-          <li>LED polarity & resistors</li>
-          <li>Brightness control</li>
-          <li>LED lighting project</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 10 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 10: Ultrasonic Sensor</h4>
-   
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Distance measurement concept</li>
-          <li>Ultrasonic sensor wiring</li>
-          <li>Distance-based alerts</li>
-          <li>Smart parking demo</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 11 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 11: Servo Motor Control</h4>
-        
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>What is a motor</li>
-          <li>Servo motor angles</li>
-          <li>Micro:bit + servo control</li>
-          <li>Automatic gate project</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 12 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 12: Combining Sensors & Motors</h4>
-
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Sensor + motor logic</li>
-          <li>Distance-controlled movement</li>
-          <li>Smart automation project</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 13 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 13: Introduction to 3D Designing</h4>
-        
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>What is 3D design</li>
-          <li>Basic shapes & scaling</li>
-          <li>Designing name tags</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 14 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 14: 3D Models for Electronics</h4>
-       
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Sensor holders</li>
-          <li>Project enclosures</li>
-          <li>Design optimization</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 15 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 15: Introduction to 3D Printing</h4>
-      
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>How 3D printers work</li>
-          <li>Materials & safety</li>
-          <li>Printing student designs</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 16 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 16: Interactive micro:bit Projects</h4>
-        
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Game-based learning</li>
-          <li>Multi-input programs</li>
-          <li>Creative coding challenges</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 17 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 17: Smart Systems</h4>
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Smart alarms</li>
-          <li>Automation logic</li>
-          <li>Real-life problem solving</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 18 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 18: Capstone Project Planning</h4>
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Project idea selection</li>
-          <li>Design & coding plan</li>
-          <li>Component selection</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 19 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 19: Capstone Project Execution</h4>
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Building & testing</li>
-          <li>Debugging & improvements</li>
-          <li>Final project assembly</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- MODULE 20 -->
-    <div class="curriculum-item">
-      <div class="curriculum-header">
-        <h4>Module 20: Demo Day & Certification</h4>
-      </div>
-      <div class="curriculum-content">
-        <ul>
-          <li>Project presentation</li>
-          <li>Parent demo day</li>
-          <li>Certificate distribution</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- ================= END SESSION-WISE BREAKUP ================= -->
-
-<!-- ================= LEARNING OUTCOMES ================= -->
-<section class="container">
-  <h2>Learning Outcomes by the End of the Program</h2>
-
-  <div class="row g-4 mt-4">
-
-    <div class="col-md-4">
-      <div class="stats-card">
-        <h5>Programming Outcomes</h5>
-        <ul class="mt-3">
-          <li>Write structured MakeCode programs</li>
-          <li>Use variables, loops & functions</li>
-          <li>Build interactive micro:bit projects</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="stats-card">
-        <h5>Electronics Outcomes</h5>
-        <ul class="mt-3">
-          <li>Understand current, voltage & resistance</li>
-          <li>Apply Ohm’s Law practically</li>
-          <li>Use sensors & motors safely</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="stats-card">
-        <h5>Design & Innovation Outcomes</h5>
-        <ul class="mt-3">
-          <li>Create 3D models for projects</li>
-          <li>Understand real-world applications</li>
-          <li>Present final capstone projects</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= LEARNING JOURNEY ================= -->
-<section class="container">
-  <h2>Your Child’s Learning Journey</h2>
-
-  <div class="row g-4 mt-4 text-center">
-
-    <div class="col-md-3">
-      <div class="ui-card">
-        <div class="ui-icon"><i class="fas fa-play"></i></div>
-        <h6>Year 1</h6>
-        <p>Foundations in coding & electronics</p>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="ui-card">
-        <div class="ui-icon"><i class="fas fa-puzzle-piece"></i></div>
-        <h6>Hands-on Learning</h6>
-        <p>Weekly guided projects</p>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="ui-card">
-        <div class="ui-icon"><i class="fas fa-tools"></i></div>
-        <h6>Build Phase</h6>
-        <p>Electronics + sensors + motors</p>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="ui-card">
-        <div class="ui-icon"><i class="fas fa-award"></i></div>
-        <h6>Capstone</h6>
-        <p>Final working project & certificate</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ================= GALLERY ================= -->
-<section class="container">
-  <h2>Inside Our Classroom</h2>
-  <p class="text-muted mb-4">
-    A glimpse of students learning, building, and experimenting at MakerWorks.
-  </p>
-
-  <div class="row g-3">
-    <div class="col-md-4">
-      <img src="/images/gallery/microbit-class.jpg" class="img-fluid rounded-4 shadow-sm">
-    </div>
-    <div class="col-md-4">
-      <img src="/images/gallery/electronics-lab.jpg" class="img-fluid rounded-4 shadow-sm">
-    </div>
-    <div class="col-md-4">
-      <img src="/images/gallery/3d-printing.jpg" class="img-fluid rounded-4 shadow-sm">
-    </div>
-    <div class="col-md-6">
-      <img src="/images/gallery/student-projects.jpg" class="img-fluid rounded-4 shadow-sm">
-    </div>
-    <div class="col-md-6">
-      <img src="/images/gallery/demo-day.jpg" class="img-fluid rounded-4 shadow-sm">
-    </div>
-  </div>
-</section>
-    <section class="reviews-section">
-        <div class="container">
-            <h2>What Parents Say About Us</h2>
-            <div id="parentReviewsCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="review-card">
-                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                                    <p class="review-text">"My child absolutely loves the Beginner Level program! They come home excited every day, eager to show me what they've built. It's amazing to see their confidence grow with each new concept they learn."</p>
-                                    <div class="reviewer-info">
-                                        <span class="reviewer-name">Mrs. Sharma</span><br>
-                                        <span class="text-muted">Parent of a Beginner Level Student</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="review-card">
-                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                                    <p class="review-text">"MakerWorks has truly ignited a passion for technology in my son. The hands-on approach and patient instructors make learning complex topics so much fun. Highly recommend for any curious child!"</p>
-                                    <div class="reviewer-info">
-                                        <span class="reviewer-name">Mr. Gupta</span><br>
-                                        <span class="text-muted">Parent of a Beginner Level Student</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="review-card">
-                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                                    <p class="review-text">"The Beginner Level program is fantastic! My daughter, who had no prior experience, is now confidently building circuits and understanding basic coding. The curriculum is well-structured and very engaging."</p>
-                                    <div class="reviewer-info">
-                                        <span class="reviewer-name">Ms. Khan</span><br>
-                                        <span class="text-muted">Parent of a Beginner Level Student</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#parentReviewsCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#parentReviewsCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+        <!-- FAQ 3 -->
+        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
+          <h2 class="accordion-header" id="faqHeading3">
+            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+              Do students need any prior experience?
+            </button>
+          </h2>
+          <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              No prior experience is needed. This program is perfect for absolute beginners with no background in coding
+              or electronics.
             </div>
+          </div>
         </div>
-    </section>
 
-    <section class="pricing-section">
-        <div class="container">
-            <h2>Ready to Start Your Maker Journey?</h2>
-            <div class="pricing-card" data-aos="zoom-in">
-                <h3>Beginner Level Program</h3>
-                <div class="price-value">₹9992 <small>/Month</small></div>
-                <p class="description">Unlock your potential with hands-on projects and expert guidance. Perfect for aspiring young innovators!</p>
-                <a href="#" class="btn btn-primary">Enroll Now</a>
+        <!-- FAQ 4 -->
+        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
+          <h2 class="accordion-header" id="faqHeading4">
+            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+              What will my child learn in this program?
+            </button>
+          </h2>
+          <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Kids will learn basic electronics, block-based coding, logical thinking, simple circuit design, and how to
+              use the BBC Micro:bit for fun projects.
             </div>
-        </div>
-    </section>
-<section id="faq" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5 display-5 fw-bold">Frequently Asked Questions</h2>
-    <div class="accordion" id="faqAccordion">
-
-      <!-- FAQ 1 -->
-      <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-        <h2 class="accordion-header" id="faqHeading1">
-          <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
-            What is the duration of the Beginner Level Program?
-          </button>
-        </h2>
-        <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-muted">
-            The program runs for 2 years with weekend-only sessions, providing a gradual introduction to coding, robotics, and electronics for young beginners.
           </div>
         </div>
-      </div>
 
-      <!-- FAQ 2 -->
-      <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-        <h2 class="accordion-header" id="faqHeading2">
-          <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
-            What age group is suitable for this program?
-          </button>
-        </h2>
-        <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-muted">
-            The Beginner Level Program is designed for kids aged 7–10 years who are curious about robotics, coding, and electronics.
+        <!-- FAQ 5 -->
+        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
+          <h2 class="accordion-header" id="faqHeading5">
+            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+              Can my child practice at home?
+            </button>
+          </h2>
+          <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Yes! Project guides and online resources are provided so children can explore and reinforce their learning
+              at home.
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- FAQ 3 -->
-      <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-        <h2 class="accordion-header" id="faqHeading3">
-          <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
-            Do students need any prior experience?
-          </button>
-        </h2>
-        <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-muted">
-            No prior experience is needed. This program is perfect for absolute beginners with no background in coding or electronics.
+        <!-- FAQ 6 -->
+        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
+          <h2 class="accordion-header" id="faqHeading6">
+            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+              What materials or tools are needed?
+            </button>
+          </h2>
+          <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              All required kits, components, and Micro:bit controllers are provided by MakerWorks. Students just need
+              curiosity and enthusiasm to learn!
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- FAQ 4 -->
-      <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-        <h2 class="accordion-header" id="faqHeading4">
-          <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
-            What will my child learn in this program?
-          </button>
-        </h2>
-        <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-muted">
-            Kids will learn basic electronics, block-based coding, logical thinking, simple circuit design, and how to use the BBC Micro:bit for fun projects.
-          </div>
-        </div>
       </div>
-
-      <!-- FAQ 5 -->
-      <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-        <h2 class="accordion-header" id="faqHeading5">
-          <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
-            Can my child practice at home?
-          </button>
-        </h2>
-        <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-muted">
-            Yes! Project guides and online resources are provided so children can explore and reinforce their learning at home.
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ 6 -->
-      <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-        <h2 class="accordion-header" id="faqHeading6">
-          <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
-            What materials or tools are needed?
-          </button>
-        </h2>
-        <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-muted">
-            All required kits, components, and Micro:bit controllers are provided by MakerWorks. Students just need curiosity and enthusiasm to learn!
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
   <section class="container my-5" data-aos="fade-up">
-  <div class="row align-items-center">
-    <!-- Subscribe Left Column -->
-    <div class="col-lg-6 mb-4 mb-lg-0">
-      <h2>Subscribe for Updates</h2>
-      <p>Get the latest workshops, events, and news directly in your inbox.</p>
-      <form class="d-flex flex-column flex-sm-row gap-2 mt-3" 
-            action="YOUR_FORM_ACTION_URL" 
-            method="POST" 
-            target="_blank">
-        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
-        <button type="submit" class="btn btn-warning text-white">Subscribe</button>
-      </form>
-    </div>
+    <div class="row align-items-center">
+      <!-- Subscribe Left Column -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2>Subscribe for Updates</h2>
+        <p>Get the latest workshops, events, and news directly in your inbox.</p>
+        <form class="d-flex flex-column flex-sm-row gap-2 mt-3" action="YOUR_FORM_ACTION_URL" method="POST"
+          target="_blank">
+          <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-warning text-white">Subscribe</button>
+        </form>
+      </div>
 
-    <!-- Map Right Column -->
-    <div class="col-lg-6">
-      <h2>Find Us</h2>
-      <p>Visit MakerWorks Lab at our Malad East location, Mumbai.</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.48956725636!2d72.85801937497995!3d19.173807982050995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b796cadb56b5%3A0x68b4a7a75e5170e7!2sMakerWorks%20%7C%20Robotics%20%26%20Programing%20Classes%20for%20Kids!5e0!3m2!1sen!2sin!4v1756369570774!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <!-- Map Right Column -->
+      <div class="col-lg-6">
+        <h2>Find Us</h2>
+        <p>Visit MakerWorks Lab at our Malad East location, Mumbai.</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.48956725636!2d72.85801937497995!3d19.173807982050995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b796cadb56b5%3A0x68b4a7a75e5170e7!2sMakerWorks%20%7C%20Robotics%20%26%20Programing%20Classes%20for%20Kids!5e0!3m2!1sen!2sin!4v1756369570774!5m2!1sen!2sin"
+          width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
 
       </div>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
 
 
-    <footer class="pt-5" style="background-color: #fff3e0;">
-        <div class="container">
-            <div class="card shadow-lg rounded-4 p-4 border-0" style="background-color: #ffe5b4;">
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <h5 class="mt-3">Join The Maker Movement</h5>
-                        <p class="text-dark">Innovation from scratch!</p>
-                        <div class="social-icons">
-                            <a href="#" class="text-dark me-3"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-dark me-3"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-dark me-3"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="text-dark me-3"><i class="fab fa-youtube"></i></a>
-                            <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <h5>Quick Links</h5>
-                         <ul class="list-unstyled">
-                            <li><a href="/about/" class="text-dark text-decoration-none">About Us</a></li>
-                            <li><a href="/learn/" class="text-dark text-decoration-none">Learn</a></li>
-                            <li><a href="/projects/" class="text-dark text-decoration-none">Projects</a></li>
-                            <li><a href="/Makers" class="text-dark text-decoration-none">Makers</a></li>
-                            <li><a href="#" class="text-dark text-decoration-none">Privacy Policy</a></li>
-                            <li><a href="/blog/" class="text-dark text-decoration-none">Blog</a></li>
-                            <li><a href="#" class="text-dark text-decoration-none">Terms & Conditions</a></li>
-                        </ul>
-
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <h5>Get In Touch</h5>
-                       <p class="text-dark mb-1">Email: makerworkslab@gmail.com</p>
-                        <p class="text-dark mb-1">Phone: +91 9137114223</p>
-                        <p class="text-dark">Address: A-wing, Express Zone, Malad East, Mumbai, Maharashtra, India</p>
-                    </div>
-                </div>
-                <div class="text-center border-top pt-3 mt-3">
-                    <p class="mb-0 text-dark">© 2025 MakerWorks. All Rights Reserved.</p>
-                </div>
+  <footer class="pt-5" style="background-color: #fff3e0;">
+    <div class="container">
+      <div class="card shadow-lg rounded-4 p-4 border-0" style="background-color: #ffe5b4;">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="mt-3">Join The Maker Movement</h5>
+            <p class="text-dark">Innovation from scratch!</p>
+            <div class="social-icons">
+              <a href="#" class="text-dark me-3"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-dark me-3"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-dark me-3"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="text-dark me-3"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
             </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="/about/" class="text-dark text-decoration-none">About Us</a></li>
+              <li><a href="/learn/" class="text-dark text-decoration-none">Learn</a></li>
+              <li><a href="/projects/" class="text-dark text-decoration-none">Projects</a></li>
+              <li><a href="/Makers" class="text-dark text-decoration-none">Makers</a></li>
+              <li><a href="#" class="text-dark text-decoration-none">Privacy Policy</a></li>
+              <li><a href="/blog/" class="text-dark text-decoration-none">Blog</a></li>
+              <li><a href="#" class="text-dark text-decoration-none">Terms & Conditions</a></li>
+            </ul>
+
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Get In Touch</h5>
+            <p class="text-dark mb-1">Email: makerworkslab@gmail.com</p>
+            <p class="text-dark mb-1">Phone: +91 9137114223</p>
+            <p class="text-dark">Address: A-wing, Express Zone, Malad East, Mumbai, Maharashtra, India</p>
+          </div>
         </div>
-    </footer>
+        <div class="text-center border-top pt-3 mt-3">
+          <p class="mb-0 text-dark">© 2025 MakerWorks. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-  /* ================= AOS ================= */
-  AOS.init();
+      /* ================= AOS ================= */
+      AOS.init();
 
-  /* ================= BACK TO TOP ================= */
-  const backToTopButton = document.getElementById('backToTop');
+      /* ================= BACK TO TOP ================= */
+      const backToTopButton = document.getElementById('backToTop');
 
-  window.addEventListener('scroll', () => {
-    backToTopButton.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
+      window.addEventListener('scroll', () => {
+        backToTopButton.style.display = window.scrollY > 300 ? 'block' : 'none';
+      });
 
-  backToTopButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
 
-  /* ================= CURRICULUM ACCORDION ================= */
-  const modules = document.querySelectorAll(".curriculum-item");
+      /* ================= CURRICULUM ACCORDION ================= */
+      const modules = document.querySelectorAll(".curriculum-item");
 
-  modules.forEach(item => {
-    const header = item.querySelector(".curriculum-header");
-    header.addEventListener("click", () => {
-      item.classList.toggle("active");
-    });
-  });
+      modules.forEach(item => {
+        const header = item.querySelector(".curriculum-header");
+        header.addEventListener("click", () => {
+          item.classList.toggle("active");
+        });
+      });
 
-  /* Open first module by default */
-  if (modules.length > 0) {
-    modules[0].classList.add("active");
-  }
-
-  /* ================= SMOOTH SCROLL ================= */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+      /* Open first module by default */
+      if (modules.length > 0) {
+        modules[0].classList.add("active");
       }
-    });
-  });
 
-});
-</script>
+      /* ================= SMOOTH SCROLL ================= */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+          e.preventDefault();
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+    });
+  </script>
 </body>
+
 </html>
