@@ -20,10 +20,13 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+html,
 body {
   background-color: #fff;
   color: #000;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ===== Header & Navbar (Deprecated - See navbar.html) ===== */
