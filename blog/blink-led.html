@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino Blink LED Tutorial | MakerWorks Blog</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Arduino Blink LED Tutorial | MakerWorks Blog">
+    <meta name="description"
+        content="Learn the classic 'Hello World' of Arduino â€” making an LED blink with simple code. Step-by-step tutorial for beginners.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="blog-header">
+        <div class="container text-center">
+            <span class="badge bg-primary mb-3 rounded-pill px-3 py-2">Arduino</span>
+            <h1 class="display-4 fw-bold mb-3">Arduino Blink LED Tutorial</h1>
+            <div class="text-muted">
+                <i class="bi bi-calendar3 me-2"></i>July 22, 2025
+                <span class="mx-2">â€¢</span>
+                <i class="bi bi-person me-2"></i>MakerWorks Team
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="blogphotos/blink an led.webp" alt="Blink LED Tutorial" class="img-fluid w-100 mb-5">
+
+                <p class="lead">Welcome to the classic "Hello World" of Arduino! This tutorial will walk you through the
+                    simplest
+                    yet most fundamental project: making an LED blink. It's an excellent starting point for anyone
+                    new to Arduino and embedded systems, as it introduces basic concepts of circuit building and
+                    programming.</p>
+
+                <h2>What You'll Need:</h2>
+                <ul>
+                    <li><strong>Arduino board</strong> (Uno recommended)</li>
+                    <li>USB cable (for connecting Arduino to your computer)</li>
+                    <li><strong>Breadboard</strong></li>
+                    <li><strong>1 LED</strong> (any color)</li>
+                    <li><strong>1 x 220 Ohm Resistor</strong></li>
+                    <li>Jumper wires</li>
+                    <li>Arduino IDE (Software installed on your computer)</li>
+                </ul>
+
+                <h2>Circuit Diagram:</h2>
+                <p>Connecting the components is straightforward:</p>
+                <ol>
+                    <li>Connect the long leg (anode) of the LED to a <strong>220 Ohm resistor</strong>.</li>
+                    <li>Connect the other end of the resistor to Arduino's digital pin <strong>13</strong>.</li>
+                    <li>Connect the short leg (cathode) of the LED to the Arduino's <strong>GND (Ground) pin</strong>.
+                    </li>
+                </ol>
+                <small class="text-muted d-block text-center mt-2 mb-4">Typical circuit for blinking an LED with
+                    Arduino.</small>
+
+                <h2>Arduino Code (Sketch):</h2>
+                <p>Open your Arduino IDE and copy-paste the following code. This code will turn the LED on for 1
+                    second, then turn it off for 1 second, repeatedly.</p>
+                <pre><code class="language-arduino">
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 13 as an output.
+  pinMode(13, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);              // wait for a second (1000 milliseconds)
+  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);              // wait for a second
+}
+                </code></pre>
+
+                <h3>Explanation of the Code:</h3>
+                <ul>
+                    <li><code>setup()</code>: This function runs once when the sketch starts.
+                        <code>pinMode(13, OUTPUT);</code> configures
+                        digital pin 13 to act as an output pin, meaning it can send voltage out.</li>
+                    <li><code>loop()</code>: This function runs repeatedly after <code>setup()</code> finishes.
+                        <ul>
+                            <li><code>digitalWrite(13, HIGH);</code>: Sends a HIGH signal (5V) to pin 13, turning the
+                                LED on.
+                            </li>
+                            <li><code>delay(1000);</code>: Pauses the program for 1000 milliseconds (1 second).</li>
+                            <li><code>digitalWrite(13, LOW);</code>: Sends a LOW signal (0V) to pin 13, turning the LED
+                                off.
+                            </li>
+                            <li><code>delay(1000);</code>: Pauses for another 1 second.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2>Uploading the Code:</h2>
+                <ol>
+                    <li>Connect your Arduino board to your computer via the USB cable.</li>
+                    <li>In the Arduino IDE, go to <code>Tools > Board</code> and select your Arduino board (e.g.,
+                        "Arduino
+                        Uno").</li>
+                    <li>Go to <code>Tools > Port</code> and select the serial port connected to your Arduino.</li>
+                    <li>Click the "Upload" button (right arrow icon) in the Arduino IDE.</li>
+                </ol>
+
+                <p>Once uploaded, you should see your LED blinking! Congratulations, you've just completed your
+                    first Arduino project!</p>
+                <p>Stay tuned for more exciting projects and tutorials from MakerWorks!</p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/blog/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

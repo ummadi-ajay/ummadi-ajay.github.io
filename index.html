@@ -1,0 +1,2625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title & Meta -->
+  <title>MakerWorks - Robotics, Coding & Maker Space in Mumbai</title>
+  <meta name="description"
+    content="MakerWorks is Mumbai's leading robotics & coding academy and maker space. We teach kids & teens robotics, coding, AI, IoT, 3D printing and also build real-world projects and prototypes.">
+  <meta name="keywords"
+    content="coding classes for kids in Mumbai, robotics classes for children, kids programming Mumbai, microbit classes, Arduino classes Mumbai, AI for kids, IoT projects, 3D printing classes, best coding institute for kids, MakerWorks Mumbai, maker space Mumbai, robotics workshop for kids, STEM education Mumbai, coding academy, electronics classes for kids, Python for kids Mumbai">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.webp">
+
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="MakerWorks - Robotics, Coding & Maker Space in Mumbai">
+  <meta property="og:description"
+    content="Learn robotics, coding, AI, IoT, 3D design, and build real-world projects at MakerWorks in Mumbai.">
+  <meta property="og:image" content="https://makerworkslab.in/images/og-preview.png">
+  <meta property="og:url" content="https://makerworkslab.in">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MakerWorks - Robotics, Coding & Maker Space in Mumbai">
+  <meta name="twitter:description"
+    content="Robotics & coding classes for kids in Mumbai. Join MakerWorks to learn AI, IoT, 3D printing, Python, and build real-world projects.">
+  <meta name="twitter:image" content="https://makerworkslab.in/images/og-preview.png">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/components.js" defer></script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks offers robotics, coding, AI, IoT, and 3D design classes for kids in Mumbai.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19,A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9137114223",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        }]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks is a maker space in Mumbai where we build projects, prototypes, and robotics solutions using Arduino, Raspberry Pi, IoT, AI, and 3D printing.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 08:00-21:00",
+        "telephone": "+91-9137114223",
+        "sameAs": [
+          "https://x.com/makerworkslab",
+          " https://www.instagram.com/makerworkslab",
+          "https://www.youtube.com/@MakerWorkslab",
+          "https://www.linkedin.com/company/makerworkslab/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakerWorks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --secondary: #ff6600;
+      --dark: #1d1d1f;
+      --light: #ffffff;
+      --bg-offset: #fbfbfd;
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+
+    /* --- Refined Nav (Disabled to use components/navbar.html styles) --- */
+    /*
+    .navbar {
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255, 255, 255, 0.8) !important;
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 2rem;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar.floating {
+      margin-top: 1rem;
+      border-radius: 100px;
+      width: 90%;
+      left: 5%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .navbar-brand {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--dark) !important;
+      letter-spacing: -1px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--dark) !important;
+      padding: 0.5rem 1rem !important;
+      opacity: 0.7;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    */
+
+    /* --- Immersive Hero --- */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('images/Header.jpg') no-repeat center center/cover;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.9) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -3px;
+      color: var(--dark);
+      margin-bottom: 2rem;
+    }
+
+    .hero-desc {
+      font-size: 1.4rem;
+      color: #424245;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      font-weight: 500;
+    }
+
+    .btn-premium {
+      padding: 18px 40px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary-mw {
+      background: var(--dark);
+      color: var(--light);
+    }
+
+    .btn-primary-mw:hover {
+      background: #000;
+      color: var(--light);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-outline-mw {
+      border: 1px solid var(--glass-border);
+      color: var(--dark);
+      background: var(--glass);
+    }
+
+    .btn-outline-mw:hover {
+      background: var(--light);
+      transform: translateY(-5px);
+    }
+
+    /* --- Sections --- */
+    section {
+      padding: 120px 0;
+    }
+
+    .section-tag {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 3rem;
+      color: var(--dark);
+    }
+
+    /* --- Apple Bento Grid --- */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 220px;
+      gap: 20px;
+    }
+
+    .bento-item {
+      background: var(--bg-offset);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-item:hover {
+      background: var(--light);
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+    }
+
+    .bento-large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .bento-medium {
+      grid-column: span 2;
+    }
+
+    .bento-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .bento-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .bento-text {
+      font-size: 1rem;
+      color: #6e6e73;
+    }
+
+    /* --- Cards --- */
+    .card-premium {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 3rem 2.5rem;
+      height: 100%;
+      transition: var(--transition-smooth);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-premium:hover {
+      transform: translateY(-15px);
+      background: var(--light);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary);
+    }
+
+    .level-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 1.5rem 0;
+    }
+
+    /* --- Photo Cards (Trust) --- */
+    .photo-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/5;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 30px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), transparent);
+      color: #fff;
+    }
+
+    /* ============================================
+       RESPONSIVE MOBILE STYLES
+       ============================================ */
+
+    /* Tablets and smaller laptops */
+    @media (max-width: 991px) {
+
+      /* Hero Section */
+      .hero-title {
+        font-size: 3rem !important;
+      }
+
+      /* Bento Grid */
+      .bento-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .bento-item {
+        grid-column: span 1 !important;
+      }
+
+      /* Navigation (Disabled) */
+      /*
+      .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      */
+
+      /* Stats Cards */
+      .text-center:has(.counter) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Mobile phones (landscape and portrait) */
+    @media (max-width: 768px) {
+
+      /* Typography */
+      .section-title {
+        font-size: 2rem !important;
+      }
+
+      .display-1 {
+        font-size: 2.5rem !important;
+      }
+
+      .display-4 {
+        font-size: 1.8rem !important;
+      }
+
+      /* Hero Section */
+      .hero-title {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      /* Buttons */
+      .btn-premium {
+        padding: 14px 28px !important;
+        font-size: 0.9rem !important;
+      }
+
+      /* Cards */
+      .card-premium {
+        padding: 2rem 1.5rem !important;
+      }
+
+      .bento-item {
+        padding: 25px !important;
+      }
+
+      /* Blog Cards */
+      .blog-card-featured {
+        min-height: 400px !important;
+      }
+
+      .blog-card-secondary {
+        min-height: auto !important;
+        padding: 25px !important;
+      }
+
+      /* Achievement Stats */
+      .row.g-4.mt-4.mb-5 {
+        margin-top: 2rem !important;
+      }
+
+      /* Photo Cards */
+      .photo-card {
+        aspect-ratio: 16/9 !important;
+        margin-bottom: 1rem;
+      }
+
+      .photo-overlay {
+        padding: 20px !important;
+      }
+
+      /* Modal */
+      .modal-body {
+        padding: 25px !important;
+      }
+
+      .modal-header {
+        padding: 20px 25px !important;
+      }
+
+      /* FAQ */
+      .faq-item {
+        padding: 20px !important;
+      }
+
+      .accordion-body {
+        padding-left: 0 !important;
+      }
+
+      /* Footer */
+      .social-link {
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      /* Spacing */
+      section {
+        padding: 60px 0 !important;
+      }
+
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 576px) {
+
+      /* Typography */
+      .section-title {
+        font-size: 1.75rem !important;
+      }
+
+      .hero-title {
+        font-size: 2rem !important;
+      }
+
+      .fs-1 {
+        font-size: 1.5rem !important;
+      }
+
+      .fs-2 {
+        font-size: 1.3rem !important;
+      }
+
+      .fs-3 {
+        font-size: 1.2rem !important;
+      }
+
+      .fs-4 {
+        font-size: 1.1rem !important;
+      }
+
+      .fs-5 {
+        font-size: 1rem !important;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        min-height: auto !important;
+        padding: 100px 0 60px !important;
+      }
+
+      /* Buttons */
+      .btn-premium {
+        width: 100% !important;
+        justify-content: center !important;
+        margin-bottom: 10px;
+      }
+
+      .d-flex.gap-4 {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+
+      /* Stats Grid - Stack in single column */
+      .col-md-3.col-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Blog Featured Card */
+      .blog-card-featured {
+        min-height: 350px !important;
+      }
+
+      .blog-card-featured h3 {
+        font-size: 1.5rem !important;
+      }
+
+      /* Competition Cards */
+      .competition-card {
+        padding: 25px !important;
+      }
+
+      /* FAQ Icons */
+      .icon-wrapper {
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      .faq-item .accordion-button {
+        font-size: 1rem !important;
+      }
+
+      /* Contact Cards in Footer */
+      a[href^="tel"],
+      a[href^="mailto"],
+      .d-block.mb-3 {
+        padding: 12px 15px !important;
+      }
+
+      /* Social Media Icons */
+      .social-link {
+        width: 42px !important;
+        height: 42px !important;
+      }
+
+      /* Map */
+      iframe[height="300"] {
+        height: 250px !important;
+      }
+
+      /* Modal Code Blocks */
+      pre {
+        font-size: 0.8rem !important;
+        padding: 15px !important;
+      }
+
+      .modal-title {
+        font-size: 1.3rem !important;
+      }
+
+      /* Badges */
+      .badge {
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+      }
+
+      /* Spacing */
+      section {
+        padding: 40px 0 !important;
+      }
+
+      .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+
+      .row.g-4,
+      .row.g-5 {
+        row-gap: 2rem !important;
+      }
+
+
+      /* Program Cards */
+      .level-price {
+        font-size: 2rem !important;
+      }
+
+      /* Remove 3D transforms on mobile for performance */
+      .card-premium:hover,
+      .bento-item:hover,
+      .photo-card:hover {
+        transform: translateY(-8px) !important;
+      }
+
+      /* Disable custom cursor on mobile */
+      .cursor-dot,
+      .cursor-outline {
+        display: none !important;
+      }
+
+      /* Footer adjustments */
+      .footer-links a {
+        font-size: 0.9rem;
+      }
+
+      /* Operating Hours Card */
+      div[style*="Operating Hours"] {
+        padding: 15px !important;
+      }
+
+      /* Mini Stats in Footer */
+      .row.g-3.mb-4 .col-6 {
+        flex: 0 0 50% !important;
+      }
+    }
+
+    /* Extra small devices (very old phones) */
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 1.75rem !important;
+      }
+
+      .section-title {
+        font-size: 1.5rem !important;
+      }
+
+      .btn-premium {
+        padding: 12px 20px !important;
+        font-size: 0.85rem !important;
+      }
+
+      .card-premium {
+        padding: 1.5rem 1rem !important;
+      }
+
+      .social-link {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 0.9rem !important;
+      }
+    }
+
+    /* Landscape mode fixes for mobile */
+    @media (max-height: 600px) and (orientation: landscape) {
+      .hero-section {
+        min-height: auto !important;
+        padding: 80px 0 40px !important;
+      }
+
+      section {
+        padding: 50px 0 !important;
+      }
+    }
+
+    /* Touch-friendly improvements */
+    @media (hover: none) and (pointer: coarse) {
+
+      /* Increase tap targets */
+      .btn-premium,
+      .nav-link,
+      .social-link,
+      .footer-links a {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Remove hover effects that don't work on touch */
+      .card-premium:hover,
+      .bento-item:hover,
+      .competition-card:hover,
+      .photo-card:hover {
+        transform: none !important;
+      }
+
+      /* Make cards tappable with slight visual feedback */
+      .card-premium:active,
+      .bento-item:active,
+      .btn-premium:active {
+        opacity: 0.9;
+        transform: scale(0.98);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="navbar-placeholder"></div>
+
+
+  <main>
+    <section class="hero-section position-relative overflow-hidden">
+      <div class="hero-overlay"></div>
+      <!-- Animated Hero Graphics -->
+      <div class="hero-shapes position-absolute w-100 h-100 top-0 start-0 overflow-hidden"
+        style="z-index: 0; pointer-events: none;">
+        <div class="position-absolute"
+          style="width: 500px; height: 500px; background: radial-gradient(circle, rgba(13, 110, 253, 0.15) 0%, transparent 70%); top: -100px; left: -100px; border-radius: 50%; filter: blur(60px); animation: float 8s ease-in-out infinite;">
+        </div>
+        <div class="position-absolute"
+          style="width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 102, 0, 0.1) 0%, transparent 70%); bottom: -50px; right: -50px; border-radius: 50%; filter: blur(60px); animation: float 10s ease-in-out infinite reverse;">
+        </div>
+      </div>
+
+      <div class="hero-content position-relative" style="z-index: 2;" data-aos="fade-up">
+        <span class="section-tag mb-3 d-inline-block">Mumbai's Best Makerworks Space</span>
+        <h1 class="hero-title fw-800 mb-4" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1;">Innovate.
+          Build. Inspire.</h1>
+        <p class="hero-desc mb-5 mx-auto" style="font-size: clamp(1rem, 2vw, 1.25rem); max-width: 650px;">Welcome to the
+          future of engineering. Master Robotics, AI, and Hands-on Making through high-performance projects.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="https://wa.me/919137114223?text=Hello!%20I%20am%20interested%20in%20joining%20MakerWorks%20Mumbai.%20Could%20you%20please%20share%20more%20information%20about%20your%20programs?"
+            class="btn-premium btn-primary-mw px-4 py-3">
+            START JOURNEY <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+          <a href="#about" class="btn-premium btn-outline-mw px-4 py-3">
+            EXPLORE LAB
+          </a>
+        </div>
+      </div>
+      <style>
+        @keyframes float {
+
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+      </style>
+    </section>
+
+    <section id="about" class="container position-relative py-5">
+      <!-- Background Graphic -->
+      <div class="position-absolute start-0 top-50 translate-middle-y opacity-25 d-none d-lg-block"
+        style="left: -10% !important; z-index: -1;">
+        <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#0D6EFD"
+            d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.3C93.5,8.6,82.2,21.4,70.5,30.4C58.9,39.4,46.8,44.7,35.3,47.4C23.8,50.1,12.9,50.3,1.9,47C-9.1,43.7,-20.2,36.9,-30,29.9C-39.7,22.9,-48.1,15.7,-53.4,6.3C-58.7,-3.1,-60.9,-14.7,-57.2,-25.2C-53.5,-35.7,-43.9,-45.1,-32.8,-53.6C-21.7,-62.1,-9.1,-69.7,4.8,-78C18.7,-86.3,30.5,-95.3,44.7,-76.4Z"
+            transform="translate(100 100) scale(1.1)" opacity="0.1" />
+        </svg>
+      </div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-right">
+          <span class="section-tag">Philosophy</span>
+          <h2 class="section-title">Ideas grow when you act.</h2>
+          <p class="fs-5 text-muted mb-5">
+            We focus on innovative making not just building, but understanding the architecture of thought that bridges
+            digital logic and physical reality.
+          </p>
+          <div class="d-flex align-items-center gap-4">
+            <h3 class="display-4 fw-800 text-primary">#IBI</h3>
+            <p class="fw-bold">Innovate.<br>Build. Inspire.</p>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-up">
+          <div class="bento-grid">
+            <div class="bento-item bento-large">
+              <i class="bi bi-cpu bento-icon"></i>
+              <h4 class="bento-title">Mastery</h4>
+              <p class="bento-text">Complex circuitry to sensor arrays—every lesson is a physical creation.</p>
+            </div>
+            <div class="bento-item">
+              <i class="bi bi-robot bento-icon"></i>
+              <h4 class="bento-title">VEX IQ</h4>
+            </div>
+            <div class="bento-item">
+              <i class="bi bi-stars bento-icon"></i>
+              <h4 class="bento-title">AI Labs</h4>
+            </div>
+            <div class="bento-item bento-medium">
+              <i class="bi bi-rocket bento-icon"></i>
+              <h4 class="bento-title">Global Impact</h4>
+              <p class="bento-text">Competing on world stages at WRO and Mekathlon.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="programs" class="position-relative py-5" style="background-color: #fff;">
+      <div class="container py-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="d-inline-block py-2 px-3 rounded-pill fw-bold text-uppercase mb-3"
+            style="background: #eef2ff; color: #4f46e5; font-size: 0.75rem; letter-spacing: 2px;">
+            Curriculum
+          </span>
+          <h2 class="display-4 fw-bold mb-3" style="font-family: 'Bricolage Grotesque', sans-serif; color: #111827;">
+            Programs for the Next Gen
+          </h2>
+          <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">
+            Choose your path to innovation with our carefully designed three-tier program structure.
+          </p>
+        </div>
+
+        <div class="row g-4 align-items-stretch justify-content-center">
+          <!-- Beginner Card (Blue Style) -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="h-100 p-4 rounded-5 d-flex flex-column position-relative"
+              style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, #ffffff 50%); border: 2px solid #e0f2fe; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+
+              <div class="mb-4 d-flex justify-content-between align-items-start">
+                <div class="p-3 rounded-4 d-flex align-items-center justify-content-center"
+                  style="background: #fff; width: 64px; height: 64px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #f3f4f6;">
+                  <i class="bi bi-lightbulb-fill fs-3 text-primary"></i>
+                </div>
+              </div>
+
+              <h3 class="fw-bold h2 mb-2 text-dark">Beginner</h3>
+              <p class="text-muted small mb-4" style="min-height: 48px;">Spark curiosity with foundational making
+                basics.</p>
+
+              <div class="mb-4">
+                <span class="display-6 fw-bold text-dark">₹9,992</span>
+                <span class="text-muted small">/mo</span>
+              </div>
+
+              <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Basic programming concepts</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Problem-solving with logic</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Real-time hardware interaction</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Current, Voltage & Resistance</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Ohm’s Law & Circuits</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Ultrasonic sensors & Servos</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">3D Designing & Printing</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Creative Project Building</span>
+                </li>
+              </ul>
+
+              <div class="mt-auto">
+                <a href="/programs/beginner/"
+                  class="btn w-100 rounded-pill fw-bold py-3 icon-link justify-content-center"
+                  style="background: #e0f2fe; color: #0284c7; border: none; transition: all 0.2s;"
+                  onmouseover="this.style.background='#bae6fd'" onmouseout="this.style.background='#e0f2fe'">
+                  View Details <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intermediate Card (Purple Style) -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="h-100 p-4 rounded-5 d-flex flex-column position-relative"
+              style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.03) 0%, #ffffff 50%); border: 2px solid #f3e8ff; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+
+              <div class="mb-4 d-flex justify-content-between align-items-start">
+                <div class="p-3 rounded-4 d-flex align-items-center justify-content-center"
+                  style="background: #fff; width: 64px; height: 64px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #f3f4f6;">
+                  <i class="bi bi-gear-wide-connected fs-3" style="color: #9333ea;"></i>
+                </div>
+                <span class="badge rounded-pill px-3 py-2 fw-bold"
+                  style="background: #f3e8ff; color: #9333ea; font-size: 0.75rem;">
+                  POPULAR
+                </span>
+              </div>
+
+              <h3 class="fw-bold h2 mb-2 text-dark">Intermediate</h3>
+              <p class="text-muted small mb-4" style="min-height: 48px;">Innovate with sensors, code & robots.</p>
+
+              <div class="mb-4">
+                <span class="display-6 fw-bold text-dark">₹14,992</span>
+                <span class="text-muted small">/mo</span>
+              </div>
+
+              <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Arduino C++ Programming</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Sensor Integration & Data</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Real-world Embedded Apps</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">IoT Fundamentals & Protocols</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Cloud Integration (Blynk/ThingSpeak)</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Smart Home Automation</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Robotics Kinematics & Control</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Computer Vision Basics</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">AI/ML Fundamentals</span>
+                </li>
+              </ul>
+
+              <div class="mt-auto">
+                <a href="/programs/intermediate/"
+                  class="btn w-100 rounded-pill fw-bold py-3 icon-link justify-content-center"
+                  style="background: #f3e8ff; color: #9333ea; border: none; transition: all 0.2s;"
+                  onmouseover="this.style.background='#e9d5ff'" onmouseout="this.style.background='#f3e8ff'">
+                  View Details <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Card (Orange/Red Style) -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="h-100 p-4 rounded-5 d-flex flex-column position-relative"
+              style="background: linear-gradient(135deg, rgba(225, 29, 72, 0.03) 0%, #ffffff 50%); border: 2px solid #ffe4e6; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+
+              <div class="mb-4 d-flex justify-content-between align-items-start">
+                <div class="p-3 rounded-4 d-flex align-items-center justify-content-center"
+                  style="background: #fff; width: 64px; height: 64px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #f3f4f6;">
+                  <i class="bi bi-rocket-takeoff-fill fs-3" style="color: #e11d48;"></i>
+                </div>
+              </div>
+
+              <h3 class="fw-bold h2 mb-2 text-dark">Advanced</h3>
+              <p class="text-muted small mb-4" style="min-height: 48px;">Master complexity, AI & full-stack dev.</p>
+
+              <div class="mb-4">
+                <span class="display-6 fw-bold text-dark">₹19,992</span>
+                <span class="text-muted small">/mo</span>
+              </div>
+
+              <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">ROS 2 Navigation Stack</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Kinematics & Dynamics</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Autonomous Mapping (SLAM)</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">OpenCV & Image Processing</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Neural Networks (TensorFlow)</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Edge AI Implementation</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">FreeRTOS & Real-time Systems</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">PCB Design & Fabrication</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">GitHub Portfolio & Docs</span>
+                </li>
+              </ul>
+
+              <div class="mt-auto">
+                <a href="/programs/advanced/"
+                  class="btn w-100 rounded-pill fw-bold py-3 icon-link justify-content-center"
+                  style="background: #ffe4e6; color: #e11d48; border: none; transition: all 0.2s;"
+                  onmouseover="this.style.background='#fecdd3'" onmouseout="this.style.background='#ffe4e6'">
+                  View Details <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competitions" style="position: relative; overflow: hidden;">
+      <!-- Animated Background -->
+      <div
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(13, 110, 253, 0.03) 0%, rgba(255, 102, 0, 0.03) 100%); z-index: 0;">
+      </div>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-tag"
+            style="background: linear-gradient(135deg, #0d6efd, #ff6600); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Global
+            Stage</span>
+          <h2 class="section-title">Where we shine.</h2>
+          <p class="fs-5 text-muted mb-0" style="max-width: 700px; margin: 0 auto;">Competing at the highest levels of
+            global robotics and technology competitions</p>
+        </div>
+
+        <div class="row g-4 mt-4">
+          <!-- Coolest Projects -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="competition-card h-100"
+              style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(255, 255, 255, 0.95) 50%); border: 2px solid rgba(13, 110, 253, 0.1); border-radius: 28px; padding: 35px; position: relative; overflow: hidden; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+              <!-- Gradient Border Effect -->
+              <div
+                style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(135deg, #0d6efd, #ff6600); border-radius: 28px; opacity: 0; transition: opacity 0.6s ease; z-index: -1;">
+              </div>
+
+              <!-- Logo Container -->
+              <div
+                style="background: white; border-radius: 16px; padding: 15px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1);">
+                <img src="images/coolest.webp" alt="Coolest Projects"
+                  style="height: 50px; object-fit: contain; display: block;">
+              </div>
+
+              <h4 class="bento-title" style="font-size: 1.4rem; margin-bottom: 16px; font-weight: 800;">Coolest Projects
+              </h4>
+
+              <!-- Premium Badge -->
+              <div
+                style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(13, 110, 253, 0.15), rgba(13, 110, 253, 0.08)); backdrop-filter: blur(10px); border: 1.5px solid rgba(13, 110, 253, 0.3); border-radius: 100px; padding: 8px 18px; margin-bottom: 20px;">
+                <i class="bi bi-trophy-fill" style="color: #0d6efd; font-size: 1rem;"></i>
+                <span style="color: #0d6efd; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;">WINNER
+                  NATIONALS</span>
+              </div>
+
+              <p class="bento-text" style="font-size: 0.95rem; line-height: 1.7; color: #6e6e73; margin-bottom: 24px;">A
+                global technology showcase for young people. Students display their innovative projects and digital
+                creations to the world.</p>
+
+              <!-- Premium Button -->
+              <a href="/competetions/coolest/" class="competition-link"
+                style="display: inline-flex; align-items: center; gap: 8px; color: #0d6efd; font-weight: 700; text-decoration: none; padding: 12px 24px; background: rgba(13, 110, 253, 0.08); border-radius: 100px; transition: all 0.4s ease; font-size: 0.9rem;">
+                Learn More
+                <i class="bi bi-arrow-right" style="transition: transform 0.4s ease;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- WRO -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="competition-card h-100"
+              style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 255, 255, 0.95) 50%); border: 2px solid rgba(255, 102, 0, 0.1); border-radius: 28px; padding: 35px; position: relative; overflow: hidden; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+              <!-- Gradient Border Effect -->
+              <div
+                style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(135deg, #ff6600, #0d6efd); border-radius: 28px; opacity: 0; transition: opacity 0.6s ease; z-index: -1;">
+              </div>
+
+              <!-- Logo Container -->
+              <div
+                style="background: white; border-radius: 16px; padding: 15px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.1);">
+                <img src="images/wro_logo.webp" alt="WRO" style="height: 50px; object-fit: contain; display: block;">
+              </div>
+
+              <h4 class="bento-title" style="font-size: 1.4rem; margin-bottom: 16px; font-weight: 800;">WRO</h4>
+
+              <!-- Premium Badge -->
+              <div
+                style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.1)); backdrop-filter: blur(10px); border: 1.5px solid rgba(192, 192, 192, 0.4); border-radius: 100px; padding: 8px 18px; margin-bottom: 20px;">
+                <i class="bi bi-award-fill" style="color: #C0C0C0; font-size: 1rem;"></i>
+                <span style="color: #6c757d; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;">SILVER
+                  MEDAL</span>
+              </div>
+
+              <p class="bento-text" style="font-size: 0.95rem; line-height: 1.7; color: #6e6e73; margin-bottom: 24px;">A
+                global robotics competition fostering creativity and problem-solving through challenging robotics
+                categories.</p>
+
+              <!-- Premium Button -->
+              <a href="/competetions/wro/" class="competition-link"
+                style="display: inline-flex; align-items: center; gap: 8px; color: #ff6600; font-weight: 700; text-decoration: none; padding: 12px 24px; background: rgba(255, 102, 0, 0.08); border-radius: 100px; transition: all 0.4s ease; font-size: 0.9rem;">
+                Learn More
+                <i class="bi bi-arrow-right" style="transition: transform 0.4s ease;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- VEX IQ -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="competition-card h-100"
+              style="background: linear-gradient(135deg, rgba(111, 66, 193, 0.05) 0%, rgba(255, 255, 255, 0.95) 50%); border: 2px solid rgba(111, 66, 193, 0.1); border-radius: 28px; padding: 35px; position: relative; overflow: hidden; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+              <!-- Gradient Border Effect -->
+              <div
+                style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(135deg, #6f42c1, #0d6efd); border-radius: 28px; opacity: 0; transition: opacity 0.6s ease; z-index: -1;">
+              </div>
+
+              <!-- Logo Container -->
+              <div
+                style="background: white; border-radius: 16px; padding: 15px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(111, 66, 193, 0.1);">
+                <img src="images/vex_iq_logo.webp" alt="VEX IQ"
+                  style="height: 50px; object-fit: contain; display: block;">
+              </div>
+
+              <h4 class="bento-title" style="font-size: 1.4rem; margin-bottom: 16px; font-weight: 800;">VEX IQ</h4>
+
+              <!-- Premium Badge -->
+              <div
+                style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(111, 66, 193, 0.15), rgba(111, 66, 193, 0.08)); backdrop-filter: blur(10px); border: 1.5px solid rgba(111, 66, 193, 0.3); border-radius: 100px; padding: 8px 18px; margin-bottom: 20px;">
+                <i class="bi bi-star-fill" style="color: #6f42c1; font-size: 1rem;"></i>
+                <span style="color: #6f42c1; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;">2ND
+                  PLACE</span>
+              </div>
+
+              <p class="bento-text" style="font-size: 0.95rem; line-height: 1.7; color: #6e6e73; margin-bottom: 24px;">
+                Middle school students design, build, and program robots for game-based engineering challenges.</p>
+
+              <!-- Premium Button -->
+              <a href="/competetions/vex/" class="competition-link"
+                style="display: inline-flex; align-items: center; gap: 8px; color: #6f42c1; font-weight: 700; text-decoration: none; padding: 12px 24px; background: rgba(111, 66, 193, 0.08); border-radius: 100px; transition: all 0.4s ease; font-size: 0.9rem;">
+                Learn More
+                <i class="bi bi-arrow-right" style="transition: transform 0.4s ease;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mekathlon -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="competition-card h-100"
+              style="background: linear-gradient(135deg, rgba(220, 53, 69, 0.05) 0%, rgba(255, 255, 255, 0.95) 50%); border: 2px solid rgba(220, 53, 69, 0.1); border-radius: 28px; padding: 35px; position: relative; overflow: hidden; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+              <!-- Gradient Border Effect -->
+              <div
+                style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(135deg, #dc3545, #ff6600); border-radius: 28px; opacity: 0; transition: opacity 0.6s ease; z-index: -1;">
+              </div>
+
+              <!-- Logo Container -->
+              <div
+                style="background: white; border-radius: 16px; padding: 15px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(220, 53, 69, 0.1);">
+                <img src="images/mekathalon.webp" alt="Mekathlon"
+                  style="height: 50px; object-fit: contain; display: block;">
+              </div>
+
+              <h4 class="bento-title" style="font-size: 1.4rem; margin-bottom: 16px; font-weight: 800;">Mekathlon</h4>
+
+              <!-- Premium Badge -->
+              <div
+                style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(220, 53, 69, 0.15), rgba(220, 53, 69, 0.08)); backdrop-filter: blur(10px); border: 1.5px solid rgba(220, 53, 69, 0.3); border-radius: 100px; padding: 8px 18px; margin-bottom: 20px;">
+                <i class="bi bi-medal-fill" style="color: #dc3545; font-size: 1rem;"></i>
+                <span style="color: #dc3545; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;">RUNNER
+                  UP</span>
+              </div>
+
+              <p class="bento-text" style="font-size: 0.95rem; line-height: 1.7; color: #6e6e73; margin-bottom: 24px;">
+                An international science and robotics competition featuring line followers, racer robos, and soccer
+                bots.</p>
+
+              <!-- Premium Button -->
+              <a href="/competetions/mekathalon/" class="competition-link"
+                style="display: inline-flex; align-items: center; gap: 8px; color: #dc3545; font-weight: 700; text-decoration: none; padding: 12px 24px; background: rgba(220, 53, 69, 0.08); border-radius: 100px; transition: all 0.4s ease; font-size: 0.9rem;">
+                Learn More
+                <i class="bi bi-arrow-right" style="transition: transform 0.4s ease;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* Competition Card Hover Effects */
+        .competition-card:hover {
+          transform: translateY(-12px) scale(1.02);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 40px currentColor;
+          border-color: transparent !important;
+        }
+
+        .competition-card:hover>div:first-child {
+          opacity: 1;
+        }
+
+        .competition-link:hover {
+          background: rgba(13, 110, 253, 0.15) !important;
+          padding-left: 28px;
+          padding-right: 20px;
+        }
+
+        .competition-link:hover i {
+          transform: translateX(5px);
+        }
+
+        /* Glow animation on hover */
+        @keyframes glow-pulse {
+
+          0%,
+          100% {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 40px rgba(13, 110, 253, 0.3);
+          }
+
+          50% {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 60px rgba(13, 110, 253, 0.5);
+          }
+        }
+
+        .competition-card:hover {
+          animation: glow-pulse 2s infinite;
+        }
+      </style>
+    </section>
+
+    <section id="achievements"
+      style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
+      <!-- Decorative Background Elements -->
+      <div
+        style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(13, 110, 253, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0;">
+      </div>
+      <div
+        style="position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 102, 0, 0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0;">
+      </div>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-tag"
+            style="background: linear-gradient(135deg, #0d6efd, #ff6600); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Proven
+            Impact</span>
+          <h2 class="section-title">The Proof of Excellence.</h2>
+          <p class="text-muted fs-5 mt-3" style="max-width: 700px; margin: 0 auto;">Championship victories that
+            demonstrate our commitment to excellence and innovation in robotics education.</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="row g-4 mt-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-3 col-6">
+            <div class="text-center h-100 d-flex flex-column justify-content-center"
+              style="background: white; padding: 30px 20px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s ease; border: 1px solid rgba(255, 215, 0, 0.2);">
+              <i class="bi bi-trophy-fill"
+                style="font-size: 2.5rem; background: linear-gradient(135deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;"></i>
+              <h3 class="fw-bold mb-0"
+                style="font-size: 3rem; background: linear-gradient(135deg, #FFD700, #FFA500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -1px;">
+                <span class="counter" data-target="5">0</span>
+              </h3>
+              <p class="text-secondary fw-semibold mb-0 mt-2 text-uppercase"
+                style="font-size: 0.85rem; letter-spacing: 1px;">Awards Won</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="text-center h-100 d-flex flex-column justify-content-center"
+              style="background: white; padding: 30px 20px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s ease; border: 1px solid rgba(13, 110, 253, 0.2);">
+              <i class="bi bi-people-fill"
+                style="font-size: 2.5rem; background: linear-gradient(135deg, #0d6efd, #0099ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;"></i>
+              <h3 class="fw-bold mb-0"
+                style="font-size: 3rem; background: linear-gradient(135deg, #0d6efd, #0099ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px;">
+                <span class="counter" data-target="50">5</span>+
+              </h3>
+              <p class="text-secondary fw-semibold mb-0 mt-2 text-uppercase"
+                style="font-size: 0.85rem; letter-spacing: 1px;">Team Members</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="text-center h-100 d-flex flex-column justify-content-center"
+              style="background: white; padding: 30px 20px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s ease; border: 1px solid rgba(255, 102, 0, 0.2);">
+              <i class="bi bi-flag-fill"
+                style="font-size: 2.5rem; background: linear-gradient(135deg, #ff6600, #ff8533); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;"></i>
+              <h3 class="fw-bold mb-0"
+                style="font-size: 3rem; background: linear-gradient(135deg, #ff6600, #ff8533); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px;">
+                <span class="counter" data-target="4">25</span>
+              </h3>
+              <p class="text-secondary fw-semibold mb-0 mt-2 text-uppercase"
+                style="font-size: 0.85rem; letter-spacing: 1px;">Competitions</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="text-center h-100 d-flex flex-column justify-content-center"
+              style="background: white; padding: 30px 20px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s ease; border: 1px solid rgba(111, 66, 193, 0.2);">
+              <i class="bi bi-star-fill"
+                style="font-size: 2.5rem; background: linear-gradient(135deg, #6f42c1, #a855f7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;"></i>
+              <h3 class="fw-bold mb-0"
+                style="font-size: 3rem; background: linear-gradient(135deg, #6f42c1, #a855f7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px;">
+                <span class="counter" data-target="100">4</span>%
+              </h3>
+              <p class="text-secondary fw-semibold mb-0 mt-2 text-uppercase"
+                style="font-size: 0.85rem; letter-spacing: 1px;">Success Rate</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-4">
+          <div class="row g-4 mt-4">
+            <!-- Coolest Projects -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <a href="competetions/coolest/index.html" class="text-decoration-none">
+                <div class="photo-card h-100 position-relative"
+                  style="border-radius: 20px; overflow: hidden; height: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                  <img src="competetions/coolest/images/takingmedal.webp" alt="Coolest Projects Team"
+                    class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease; object-position: top;">
+                  <div class="position-absolute bottom-0 start-0 end-0 p-4"
+                    style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    <h5 class="text-white fw-bold mb-1">Coolest Projects</h5>
+                    <span class="badge bg-primary rounded-pill">Winner Nationals</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- WRO -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <a href="competetions/wro/index.html" class="text-decoration-none">
+                <div class="photo-card h-100 position-relative"
+                  style="border-radius: 20px; overflow: hidden; height: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                  <img src="competetions/wro/images/winners.webp" alt="WRO Team" class="w-100 h-100 object-fit-cover"
+                    style="transition: transform 0.6s ease; object-position: top;">
+                  <div class="position-absolute bottom-0 start-0 end-0 p-4"
+                    style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    <h5 class="text-white fw-bold mb-1">WRO</h5>
+                    <span class="badge bg-warning text-dark rounded-pill">Silver Medal</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- VEX IQ -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <a href="competetions/vex/index.html" class="text-decoration-none">
+                <div class="photo-card h-100 position-relative"
+                  style="border-radius: 20px; overflow: hidden; height: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                  <img src="competetions/vex/images/winners.webp" alt="VEX IQ Team" class="w-100 h-100 object-fit-cover"
+                    style="transition: transform 0.6s ease; object-position: top;">
+                  <div class="position-absolute bottom-0 start-0 end-0 p-4"
+                    style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    <h5 class="text-white fw-bold mb-1">VEX IQ</h5>
+                    <span class="badge bg-info text-dark rounded-pill">2nd Place</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Mekathlon -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <a href="competetions/mekathalon/index.html" class="text-decoration-none">
+                <div class="photo-card h-100 position-relative"
+                  style="border-radius: 20px; overflow: hidden; height: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                  <img src="competetions/mekathalon/images/images/Mekathalon/IMG-20251130-WA0003.webp"
+                    alt="Mekathlon Team" class="w-100 h-100 object-fit-cover"
+                    style="transition: transform 0.6s ease; object-position: top;">
+                  <div class="position-absolute bottom-0 start-0 end-0 p-4"
+                    style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    <h5 class="text-white fw-bold mb-1">Mekathlon</h5>
+                    <span class="badge bg-danger rounded-pill">Runner Up</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* Achievement Stats Hover Effects */
+        .text-center:has(.counter):hover {
+          transform: translateY(-8px) scale(1.03);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        /* Photo Card Enhanced Hover */
+        .photo-card:hover img {
+          transform: scale(1.08);
+        }
+
+        .photo-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25) !important;
+        }
+      </style>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5" style="background: #f8f9fa;">
+      <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <span class="section-tag"
+            style="background: linear-gradient(135deg, #0d6efd, #6610f2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Visual
+            Journey</span>
+          <h2 class="section-title fw-bold">Moments of Glory</h2>
+          <p class="text-muted mt-2">Capturing the spirit of innovation and teamwork across our competitions.</p>
+        </div>
+
+        <div class="row g-3">
+
+          <!-- Gallery Item 2 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
+            <a href="competetions/coolest/images/DSC04599.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/coolest/images/DSC04599.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 1/1; transition: transform 0.5s ease;" alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 3 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+            <a href="competetions/coolest/images/DSC05020.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/coolest/images/DSC05020.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 1/1; transition: transform 0.5s ease;" alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 4 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
+            <a href="competetions/coolest/images/DSC05310.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/coolest/images/DSC05310.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 1/1; transition: transform 0.5s ease;" alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+
+
+          <!-- Gallery Item 7 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+            <a href="competetions/vex/images/PXL_20260117_061522885.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/vex/images/PXL_20260117_061522885.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 1/1; transition: transform 0.5s ease;" alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 8 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="450">
+            <a href="competetions/vex/images/PXL_20260117_061528557.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/vex/images/PXL_20260117_061528557.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 1/1; transition: transform 0.5s ease;" alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+
+          <!-- Gallery Item 9 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="500">
+            <a href="competetions/mekathalon/images/images/Mekathalon/PXL_20251129_034634674.webp"
+              data-fancybox="gallery" class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/mekathalon/images/images/Mekathalon/PXL_20251129_034634674.webp"
+                class="w-100 h-100 object-fit-cover" style="aspect-ratio: 1/1; transition: transform 0.5s ease;"
+                alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 10 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="550">
+            <a href="competetions/mekathalon/images/images/Mekathalon/IMG-20251130-WA0003.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/mekathalon/images/images/Mekathalon/IMG-20251130-WA0003.webp"
+                class="w-100 h-100 object-fit-cover" style="aspect-ratio: 1/1; transition: transform 0.5s ease;"
+                alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 11 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="600">
+            <a href="competetions/coolest/images/DSC05315.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/coolest/images/DSC05315.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 1/1; transition: transform 0.5s ease;" alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 12 -->
+          <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="650">
+            <a href="competetions/vex/images/PXL_20260117_061515933.webp" data-fancybox="gallery"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="competetions/vex/images/PXL_20260117_061515933.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 1/1; transition: transform 0.5s ease;" alt="Competition Moment">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 bg-dark bg-opacity-50 transition-opacity">
+                <i class="bi bi-zoom-in text-white fs-2"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <style>
+        .gallery-item:hover img {
+          transform: scale(1.08);
+        }
+
+        .gallery-item:hover .overlay {
+          opacity: 1 !important;
+        }
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+      <script>
+        Fancybox.bind("[data-fancybox]", {
+          // Your custom options
+        });
+      </script>
+    </section>
+
+    <!-- Student Showcase Gallery -->
+    <section id="student-showcase" class="py-5 bg-white">
+      <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <span class="section-tag"
+            style="background: linear-gradient(135deg, #FFD700, #FFA500); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Makers
+            in Action</span>
+          <h2 class="section-title fw-bold">Student Showcase</h2>
+          <p class="text-muted mt-2">Glimpses of focus, learning, and creation inside our labs.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Gallery Item 1 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <a href="gallery/galleryphotos/Arjun working on Mekathalon robot.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/Arjun working on Mekathalon robot.webp"
+                class="w-100 h-100 object-fit-cover" style="aspect-ratio: 4/3; transition: transform 0.5s ease;"
+                alt="Arjun working on Mekathalon robot">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-camera me-2"></i>Mekathalon Prep</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 2 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+            <a href="gallery/galleryphotos/Avyaan showing his project.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/Avyaan showing his project.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 4/3; transition: transform 0.5s ease;" alt="Avyaan showing his project">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-lightbulb me-2"></i>Project Demo</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 3 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <a href="gallery/galleryphotos/Ayukt working on bluetooth control robot.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/Ayukt working on bluetooth control robot.webp"
+                class="w-100 h-100 object-fit-cover" style="aspect-ratio: 4/3; transition: transform 0.5s ease;"
+                alt="Ayukt working on bluetooth control robot">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-bluetooth me-2"></i>Bluetooth Control</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 4 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+            <a href="gallery/galleryphotos/bhargav showing completed project.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/bhargav showing completed project.webp"
+                class="w-100 h-100 object-fit-cover" style="aspect-ratio: 4/3; transition: transform 0.5s ease;"
+                alt="bhargav showing completed project">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-check-circle me-2"></i>Project Complete</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 5 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <a href="gallery/galleryphotos/ivan learning.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/ivan learning.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 4/3; transition: transform 0.5s ease;" alt="ivan learning">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-book me-2"></i>Active Learning</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 6 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <a href="gallery/galleryphotos/kiara working on wro project.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/kiara working on wro project.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 4/3; transition: transform 0.5s ease;" alt="kiara working on wro project">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-gear me-2"></i>WRO Work</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 7 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <a href="gallery/galleryphotos/our wro team.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/our wro team.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 4/3; transition: transform 0.5s ease;" alt="our wro team">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-people me-2"></i>Team Spirit</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 8 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <a href="gallery/galleryphotos/pranav working on colour sorter.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/pranav working on colour sorter.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 4/3; transition: transform 0.5s ease;" alt="pranav working on colour sorter">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-palette me-2"></i>Colour Sorter</p>
+              </div>
+            </a>
+          </div>
+          <!-- Gallery Item 9 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <a href="gallery/galleryphotos/purv learning Micro bit.webp" data-fancybox="showcase"
+              class="gallery-item d-block overflow-hidden rounded-4 position-relative">
+              <img src="gallery/galleryphotos/purv learning Micro bit.webp" class="w-100 h-100 object-fit-cover"
+                style="aspect-ratio: 4/3; transition: transform 0.5s ease;" alt="purv learning Micro bit">
+              <div
+                class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4 opacity-0 bg-dark bg-opacity-25 transition-opacity">
+                <p class="text-white fw-medium mb-0 small"><i class="bi bi-cpu me-2"></i>Micro:bit Logic</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blogs" class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-tag">Knowledge Base</span>
+        <h2 class="section-title">Engineering Logs</h2>
+        <p class="text-muted fs-5 mt-3" style="max-width: 700px; margin: 0 auto;">Dive deep into exciting projects and
+          learn the fundamentals of hardware, robotics, and IoT.</p>
+      </div>
+      <div class="row g-4 mt-4">
+        <!-- Featured Blog - Home Automation -->
+        <div class="col-lg-8" data-aos="fade-up">
+          <div class="blog-card-featured w-100 rounded-5 overflow-hidden shadow-lg position-relative d-flex flex-column"
+            style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.08) 0%, rgba(255, 102, 0, 0.05) 100%); transition: all 0.4s ease;">
+            <!-- Featured Badge -->
+            <div class="position-absolute top-0 start-0 p-4" style="z-index: 2;">
+              <span class="badge rounded-pill shadow-sm"
+                style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 10px 24px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;">
+                <i class="bi bi-star-fill me-1"></i> FEATURED
+              </span>
+            </div>
+
+            <!-- Background Image -->
+            <div class="blog-bg-image position-absolute top-0 start-0 w-100"
+              style="height: 65%; background: url('images/IoT-based-Home-Automation-using-Blynk-App-and-Raspberry-Pi.jpg') center/cover no-repeat; z-index: 0;">
+              <div class="position-absolute bottom-0 start-0 w-100 h-100"
+                style="background: linear-gradient(0deg, #ffffff 10%, rgba(255,255,255,0.8) 30%, transparent 100%);">
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="blog-content position-relative p-4 p-md-5 mt-auto" style="z-index: 1;">
+              <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+                <span class="badge rounded-pill bg-primary bg-opacity-10 text-primary px-3 py-2 fw-semibold">
+                  <i class="bi bi-cpu me-1"></i> IoT
+                </span>
+                <span class="badge rounded-pill bg-warning bg-opacity-10 text-warning px-3 py-2 fw-semibold">
+                  <i class="bi bi-code-slash me-1"></i> Python
+                </span>
+                <span class="text-secondary small fw-medium ms-auto">
+                  <i class="bi bi-clock me-1"></i> 8 min read
+                </span>
+              </div>
+              <h3 class="fw-bold mb-3 text-dark" style="font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2;">Home
+                Automation with Raspberry Pi</h3>
+              <p class="text-muted mb-4 d-none d-md-block">Master IoT by building a complete home automation system.
+                Control your home from anywhere in the world.</p>
+              <button class="btn-premium btn-primary-mw w-100 w-md-auto" data-bs-toggle="modal"
+                data-bs-target="#blog2Modal">
+                Read Full Article <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+          <style>
+            .blog-card-featured {
+              min-height: 500px;
+            }
+
+            @media (max-width: 768px) {
+              .blog-card-featured {
+                min-height: 400px;
+              }
+            }
+          </style>
+        </div>
+
+        <!-- Secondary Blogs -->
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="row g-4 h-100">
+            <!-- Arduino LED Blog -->
+            <div class="col-12">
+              <div class="blog-card-secondary"
+                style="background: white; border-radius: 24px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 235px; display: flex; flex-direction: column; position: relative; overflow: hidden; border: 2px solid rgba(13, 110, 253, 0.1);">
+                <!-- Icon Background -->
+                <div
+                  style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(13, 110, 253, 0.08) 0%, transparent 70%); border-radius: 50%;">
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <span class="badge"
+                      style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 5px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem;">
+                      <i class="bi bi-lightning me-1"></i> Beginner
+                    </span>
+                    <span style="color: #6c757d; font-size: 0.8rem;">
+                      <i class="bi bi-clock me-1"></i> 5 min
+                    </span>
+                  </div>
+                  <h4 class="fs-4 fw-800 mb-3" style="line-height: 1.3;">Arduino LED Basics</h4>
+                  <p class="text-muted small mb-4" style="line-height: 1.6;">The "Hello World" of hardware engineering.
+                    Master the fundamentals of digital pins and circuits.</p>
+                  <button class="btn btn-link link-primary p-0 mt-auto" data-bs-toggle="modal"
+                    data-bs-target="#blog1Modal" style="font-weight: 700; text-decoration: none;">
+                    Open Log <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top 5 Sensors Blog -->
+            <div class="col-12">
+              <div class="blog-card-secondary"
+                style="background: white; border-radius: 24px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 235px; display: flex; flex-direction: column; position: relative; overflow: hidden; border: 2px solid rgba(255, 102, 0, 0.1);">
+                <!-- Icon Background -->
+                <div
+                  style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(255, 102, 0, 0.08) 0%, transparent 70%); border-radius: 50%;">
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <span class="badge"
+                      style="background: rgba(255, 102, 0, 0.1); color: #ff6600; padding: 5px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem;">
+                      <i class="bi bi-speedometer2 me-1"></i> Hardware
+                    </span>
+                    <span style="color: #6c757d; font-size: 0.8rem;">
+                      <i class="bi bi-clock me-1"></i> 6 min
+                    </span>
+                  </div>
+                  <h4 class="fs-4 fw-800 mb-3" style="line-height: 1.3;">Top 5 Sensors</h4>
+                  <p class="text-muted small mb-4" style="line-height: 1.6;">Essential components for every modern IoT
+                    project. Learn about must-have sensors.</p>
+                  <button class="btn btn-link link-primary p-0 mt-auto" data-bs-toggle="modal"
+                    data-bs-target="#blog3Modal" style="font-weight: 700; text-decoration: none;">
+                    Open Log <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* Blog Card Hover Effects */
+        .blog-card-featured:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-card-secondary:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card-secondary:hover .btn-link {
+          transform: translateX(5px);
+        }
+
+        .btn-link {
+          transition: transform 0.3s ease;
+        }
+      </style>
+    </section>
+
+    <!-- ================== MODALS ================== -->
+
+    <!-- Blog 1 Modal -->
+    <div class="modal fade" id="blog1Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" style="border-radius: 30px; border: none; overflow: hidden;">
+          <div class="modal-header"
+            style="background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%); color: white; padding: 30px 40px; border: none;">
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge"
+                  style="background: rgba(255, 255, 255, 0.2); color: white; padding: 5px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem;">
+                  <i class="bi bi-lightning me-1"></i> Beginner
+                </span>
+                <span style="color: rgba(255, 255, 255, 0.9); font-size: 0.85rem;">
+                  <i class="bi bi-clock me-1"></i> 5 min read
+                </span>
+              </div>
+              <h5 class="modal-title fs-3 fw-800 mb-0">Blink an LED with Arduino</h5>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              style="opacity: 0.9;"></button>
+          </div>
+          <div class="modal-body" style="padding: 40px; background: #f8f9fa;">
+            <!-- Introduction -->
+            <div class="mb-5">
+              <p style="font-size: 1.1rem; line-height: 1.8; color: #495057;">The "Blink" project is the most popular
+                beginner project in Arduino. It's often referred to as the "Hello World" of hardware programming because
+                it teaches the very basics of controlling a microcontroller and interacting with electronic components.
+              </p>
+            </div>
+
+            <!-- Why This Project Matters -->
+            <div class="mb-5">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-lightbulb-fill" style="font-size: 1.5rem; color: #0d6efd;"></i>
+                <h6 class="fw-800 mb-0" style="font-size: 1.3rem;">Why This Project Matters</h6>
+              </div>
+              <p style="line-height: 1.8; color: #6c757d;">It introduces you to how digital pins work, how timing is
+                controlled with code, and how circuits carry current to an output device such as an LED. Without this
+                knowledge, more complex projects like robotics, IoT, or automation will be hard to build.</p>
+            </div>
+
+            <!-- What You Need -->
+            <div class="mb-5">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-box-seam-fill" style="font-size: 1.5rem; color: #ff6600;"></i>
+                <h6 class="fw-800 mb-0" style="font-size: 1.3rem;">What You Need</h6>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div
+                    style="background: white; padding: 15px 20px; border-radius: 12px; border-left: 4px solid #0d6efd;">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>Arduino Uno board
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    style="background: white; padding: 15px 20px; border-radius: 12px; border-left: 4px solid #0d6efd;">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>1 LED (any color)
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    style="background: white; padding: 15px 20px; border-radius: 12px; border-left: 4px solid #0d6efd;">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>1 resistor (220Ω recommended)
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    style="background: white; padding: 15px 20px; border-radius: 12px; border-left: 4px solid #0d6efd;">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>Breadboard and jumper wires
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div
+                    style="background: white; padding: 15px 20px; border-radius: 12px; border-left: 4px solid #0d6efd;">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>USB cable to connect Arduino to your
+                    computer
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Circuit Setup -->
+            <div class="mb-5">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-diagram-3-fill" style="font-size: 1.5rem; color: #6f42c1;"></i>
+                <h6 class="fw-800 mb-0" style="font-size: 1.3rem;">Circuit Setup</h6>
+              </div>
+              <div style="background: white; padding: 25px; border-radius: 16px; border: 2px solid #e9ecef;">
+                <ol style="margin-bottom: 0; padding-left: 20px; line-height: 2;">
+                  <li style="margin-bottom: 10px;"><strong>Insert</strong> the LED into the breadboard.</li>
+                  <li style="margin-bottom: 10px;"><strong>Connect</strong> the longer leg (anode) to digital pin 13 via
+                    the resistor.</li>
+                  <li style="margin-bottom: 10px;"><strong>Connect</strong> the shorter leg (cathode) to the Arduino GND
+                    pin.</li>
+                  <li><strong>Plug</strong> the Arduino into your computer and upload the code.</li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Code -->
+            <div class="mb-5">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-code-square" style="font-size: 1.5rem; color: #198754;"></i>
+                  <h6 class="fw-800 mb-0" style="font-size: 1.3rem;">Code</h6>
+                </div>
+                <button class="btn btn-sm btn-outline-primary" onclick="copyCode('blog1Code')"
+                  style="border-radius: 100px; font-weight: 600;">
+                  <i class="bi bi-clipboard me-1"></i> Copy Code
+                </button>
+              </div>
+              <pre id="blog1Code"
+                style="background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 16px; overflow-x: auto; margin-bottom: 0;"><code style="font-family: 'Consolas', 'Monaco', monospace; font-size: 0.95rem;">void setup() {
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  digitalWrite(13, HIGH);
+  delay(1000);
+  digitalWrite(13, LOW);
+  delay(1000);
+}</code></pre>
+              <div
+                style="background: white; padding: 20px; border-radius: 0 0 16px 16px; border: 2px solid #e9ecef; border-top: none;">
+                <p class="mb-0" style="line-height: 1.8;"><strong style="color: #0d6efd;">Explanation:</strong> The LED
+                  turns ON for 1 second, OFF for 1 second, repeatedly. This shows how to write, upload, and execute code
+                  on Arduino.</p>
+              </div>
+            </div>
+
+            <!-- Things to Try Next -->
+            <div class="mb-3">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-stars" style="font-size: 1.5rem; color: #ffc107;"></i>
+                <h6 class="fw-800 mb-0" style="font-size: 1.3rem;">Things to Try Next</h6>
+              </div>
+              <div class="row g-3">
+                <div class="col-12">
+                  <div
+                    style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(255, 102, 0, 0.03)); padding: 20px; border-radius: 12px; border-left: 4px solid #ffc107;">
+                    <i class="bi bi-arrow-right-circle-fill me-2" style="color: #ffc107;"></i>Change the delay to make
+                    it blink faster or slower.
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div
+                    style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(255, 102, 0, 0.03)); padding: 20px; border-radius: 12px; border-left: 4px solid #ffc107;">
+                    <i class="bi bi-arrow-right-circle-fill me-2" style="color: #ffc107;"></i>Use two LEDs to blink
+                    alternately.
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div
+                    style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(255, 102, 0, 0.03)); padding: 20px; border-radius: 12px; border-left: 4px solid #ffc107;">
+                    <i class="bi bi-arrow-right-circle-fill me-2" style="color: #ffc107;"></i>Create a pattern like SOS
+                    in Morse code.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Closing Note -->
+            <div
+              style="background: linear-gradient(135deg, #0d6efd, #0b5ed7); color: white; padding: 25px; border-radius: 16px; margin-top: 30px;">
+              <i class="bi bi-rocket-takeoff-fill" style="font-size: 2rem; opacity: 0.8; margin-bottom: 10px;"></i>
+              <p class="mb-0" style="font-size: 1.05rem; line-height: 1.7;">Completing this project gives you confidence
+                to move on to sensors, motors, and real-world IoT projects.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 2 Modal -->
+    <div class="modal fade" id="blog2Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-header">
+            <h5 class="modal-title">Home Automation with Raspberry Pi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Imagine switching off your lights with your phone while sitting in another room—or even another
+              country.
+              That’s the power of IoT with Raspberry Pi. This project focuses on how a small computer can automate
+              your
+              home appliances with simple hardware and software setup.</p>
+
+            <h6>Required Components</h6>
+            <ul>
+              <li>Raspberry Pi (any version with Wi-Fi)</li>
+              <li>Relay module (to control appliances)</li>
+              <li>Smartphone with Blynk app</li>
+              <li>Wires, breadboard, and basic tools</li>
+              <li>Appliances like light bulbs or fans</li>
+            </ul>
+
+            <h6>How It Works</h6>
+            <p>The relay acts as a digital switch controlled by the Raspberry Pi’s GPIO pins. When the Pi receives
+              a
+              command from the smartphone app, it sends signals to the relay, turning devices ON or OFF instantly.
+            </p>
+
+            <h6>Setup Steps</h6>
+            <ol>
+              <li>Install Raspberry Pi OS and connect your Pi to Wi-Fi.</li>
+              <li>Install the Blynk app on your phone and create a project.</li>
+              <li>Wire the relay to a GPIO pin of the Pi.</li>
+              <li>Write a Python script to connect the Pi with Blynk.</li>
+              <li>Upload and run the script—your home automation is live!</li>
+            </ol>
+
+            <h6>Applications</h6>
+            <ul>
+              <li>Control lights and fans remotely.</li>
+              <li>Automate irrigation systems for gardens.</li>
+              <li>Schedule devices to turn on/off at set times.</li>
+              <li>Save electricity by monitoring usage patterns.</li>
+            </ul>
+
+            <p>With home automation, you not only save energy but also improve convenience and safety. Once this
+              foundation is ready, you can add voice assistants like Alexa or Google Home for advanced features.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 3 Modal -->
+    <div class="modal fade" id="blog3Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-header">
+            <h5 class="modal-title">Top 5 Sensors for Arduino & Pi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Sensors are the eyes and ears of your IoT projects. They let your microcontroller or Raspberry Pi
+              gather
+              real-world data and respond smartly. Here are five must-have sensors for beginners and advanced
+              makers
+              alike.</p>
+
+            <h6>1. PIR Motion Sensor</h6>
+            <p>Detects movement of humans or animals. Perfect for security alarms, automatic lights, or
+              interactive
+              installations.</p>
+
+            <h6>2. DHT11 Temperature & Humidity Sensor</h6>
+            <p>A simple sensor that measures environmental conditions. Common in weather stations, greenhouses, or
+              smart
+              homes.</p>
+
+            <h6>3. Ultrasonic Sensor (HC-SR04)</h6>
+            <p>Measures distance using sound waves. Used in obstacle avoidance robots, parking assistance, or
+              liquid
+              level
+              detection.</p>
+
+            <h6>4. IR Sensor</h6>
+            <p>Infrared sensors detect objects or signals from remotes. Often used in line-following robots or TV
+              remotes.
+            </p>
+
+            <h6>5. Gas Sensor (MQ series)</h6>
+            <p>Detects gases like LPG, CO, or smoke. Essential for safety systems in kitchens, industries, or
+              labs.</p>
+
+            <h6>Why These Sensors?</h6>
+            <p>Together, these five sensors cover motion, environment, distance, object detection, and safety.
+              They form
+              the backbone of most IoT and robotics projects.</p>
+
+            <h6>Projects You Can Try</h6>
+            <ul>
+              <li>Smart doorbell with PIR + camera.</li>
+              <li>Weather dashboard using DHT11.</li>
+              <li>Obstacle avoiding car with ultrasonic sensor.</li>
+              <li>Fire alarm using gas sensor + buzzer.</li>
+            </ul>
+
+            <p>By experimenting with these sensors, you’ll learn how machines interact with the physical
+              world—opening
+              the
+              door to endless creative possibilities in electronics and IoT.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="faq" class="container">
+      <div class="row g-5">
+        <div class="col-lg-4" data-aos="fade-right">
+          <div style="position: sticky; top: 100px;">
+            <span class="section-tag">FAQ</span>
+            <h2 class="section-title">Common Inquiries.</h2>
+            <p class="text-muted fs-5">Everything you need to know about joining MakerWorks Mumbai.</p>
+
+            <!-- CTA Card -->
+            <div class="mt-5"
+              style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.08), rgba(255, 102, 0, 0.05)); padding: 30px; border-radius: 24px; border: 2px solid rgba(13, 110, 253, 0.1);">
+              <i class="bi bi-headset" style="font-size: 2.5rem; color: #0d6efd; margin-bottom: 15px;"></i>
+              <h5 class="fw-800 mb-2">Still have questions?</h5>
+              <p class="text-muted mb-3" style="line-height: 1.7;">Our team is here to help you get started on your
+                innovation journey.</p>
+              <a href="https://wa.me/919137114223?text=Hello!%20I%20have%20some%20questions%20about%20MakerWorks.%20Can%20you%20help%20me?"
+                class="btn-premium btn-primary-mw w-100 justify-content-center">
+                <i class="bi bi-whatsapp me-2"></i> Chat with Us
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8" data-aos="fade-left">
+          <div class="accordion accordion-flush" id="faqAccordion">
+            <!-- FAQ 1 -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-people-fill" style="font-size: 1.3rem; color: #0d6efd;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">What age group can join?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    Our programs are specifically designed for kids and teens aged <strong>8–17 years</strong>, covering
+                    beginner to advanced engineering tracks. We tailor the curriculum to match each age group's learning
+                    capabilities and interests.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-trophy-fill" style="font-size: 1.3rem; color: #ff6600;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">Do I need prior experience?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    <strong>Not at all!</strong> We start from the absolute fundamentals of electronics and logic,
+                    building up to complex robotics. Our expert instructors guide you step-by-step, ensuring you
+                    understand every concept thoroughly.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(111, 66, 193, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-box-seam-fill" style="font-size: 1.3rem; color: #6f42c1;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">Are kits provided?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    Yes! All necessary hardware kits, components, and software licenses are provided during the programs
+                    at our lab. You don't need to purchase anything separately to get started with your learning
+                    journey.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 - New -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq4" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(32, 201, 151, 0.1), rgba(32, 201, 151, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-clock-fill" style="font-size: 1.3rem; color: #20c997;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">What is the class schedule?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    We offer flexible schedules including weekday evenings and weekend batches. Classes are typically
+                    90-120 minutes long, held twice or thrice a week depending on the program level.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq5" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(220, 53, 69, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-award-fill" style="font-size: 1.3rem; color: #dc3545;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">Do you provide certificates?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    Yes! Upon successful completion of each level, students receive a certificate of achievement.
+                    Additionally, we prepare students for international competitions where they can earn global
+                    recognition.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 - New -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq6" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-geo-alt-fill" style="font-size: 1.3rem; color: #ffc107;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">Where is the lab located?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    Our state-of-the-art lab is located in <strong>Malad East, Mumbai</strong>. It's a creative space
+                    designed to inspire young makers with all the latest tools and technology.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 7 - New -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq7" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(214, 51, 132, 0.1), rgba(214, 51, 132, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-calendar-check-fill" style="font-size: 1.3rem; color: #d63384;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">Can I join for a trial period?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    While we don't offer one-time demo sessions, we provide an <strong>Experimental Month</strong>. New
+                    students can enroll for a single month (with applicable fees) to experience our curriculum and lab
+                    environment before committing to a full program level.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 8 - New -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq8" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(25, 135, 84, 0.1), rgba(25, 135, 84, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-lightbulb-fill" style="font-size: 1.3rem; color: #198754;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">Is there a focus on individual projects?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    Yes, while we have a structured curriculum, we strongly encourage <strong>personal
+                      innovation</strong>. Students often work on their own unique ideas and school projects with
+                    personalized guidance from our mentors.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 9 - New -->
+            <div class="faq-item"
+              style="background: white; border-radius: 20px; padding: 25px 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 2px solid transparent;">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-transparent text-dark fs-5 fw-bold shadow-none p-0 d-flex align-items-center gap-3"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faq9" style="border: none;">
+                  <div class="icon-wrapper"
+                    style="width: 50px; height: 50px; background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-flag-fill" style="font-size: 1.3rem; color: #0d6efd;"></i>
+                  </div>
+                  <span style="flex-grow: 1;">Which competitions do you participate in?</span>
+                  <i class="bi bi-chevron-down"
+                    style="font-size: 1.2rem; color: #6c757d; transition: transform 0.3s ease;"></i>
+                </button>
+              </h2>
+              <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 pt-4 pb-0">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
+                    We actively train our students for prestigious national and international competitions like
+                    <strong>WRO (World Robot Olympiad)</strong>, <strong>VEX IQ Robotics</strong>, <strong>Coolest
+                      Projects</strong>, and <strong>Mekathlon</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* FAQ Accordion Enhancements */
+        .faq-item:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+          border-color: rgba(13, 110, 253, 0.2) !important;
+        }
+
+        .accordion-button:not(.collapsed) .bi-chevron-down {
+          transform: rotate(180deg);
+        }
+
+        .accordion-button:not(.collapsed) {
+          color: #0d6efd !important;
+        }
+
+        .accordion-button:focus {
+          box-shadow: none !important;
+        }
+
+        @media (max-width: 991px) {
+          .col-lg-4>div {
+            position: static !important;
+          }
+        }
+      </style>
+    </section>
+
+    <section class="container" data-aos="fade-up">
+      <div class="card-premium p-4 p-md-5 position-relative overflow-hidden"
+        style="background: var(--dark); color: var(--light); border-radius: 40px; text-align: center;">
+
+        <!-- Graphical Background Pattern -->
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+          style="background-image: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.05) 1px, transparent 1px), radial-gradient(circle at 90% 90%, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5; pointer-events: none;">
+        </div>
+        <div class="position-absolute top-50 start-50 translate-middle"
+          style="width: 80%; height: 80%; background: radial-gradient(circle, rgba(13, 110, 253, 0.15), transparent 70%); filter: blur(60px); pointer-events: none;">
+        </div>
+
+        <div class="position-relative" style="z-index: 2;">
+          <h2 class="section-title text-white mb-2 fw-800" style="font-size: clamp(2rem, 5vw, 3.5rem);">Ready to Build?
+          </h2>
+          <p class="fs-5 text-white-50 mb-5 mx-auto" style="max-width: 600px;">Experience the future of making at our
+            Malad Lab. Join a community of innovators today.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="https://wa.me/919137114223" class="btn-premium btn-primary-mw px-5 py-3 shadow-lg"
+              style="background: var(--light); color: var(--dark); border: none;">
+              <i class="bi bi-whatsapp me-2"></i> WHATSAPP US
+            </a>
+            <a href="tel:+919137114223" class="btn-premium btn-outline-mw px-5 py-3"
+              style="border-color: rgba(255,255,255,0.3); color: white; background: transparent;">
+              CALL +91 9137114223
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+
+
+
+    // Interactive Effects
+    const interactive = document.querySelectorAll('.card-premium, .bento-item, .btn-premium, .photo-card');
+    interactive.forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        if (el.classList.contains('btn-premium')) {
+          el.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+        } else {
+          el.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-8px)`;
+        }
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
+      });
+    });
+
+    // Animated Counter for Stats - Achievement Section
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 60fps
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.ceil(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target;
+        }
+      };
+
+      updateCounter();
+    }
+
+    // Intersection Observer for Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    let hasAnimated = false;
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          counters.forEach(counter => {
+            animateCounter(counter);
+          });
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    // Observe the achievements section
+    const achievementsSection = document.getElementById('achievements');
+    if (achievementsSection) {
+      counterObserver.observe(achievementsSection);
+    }
+
+    // Copy Code Functionality
+    function copyCode(elementId) {
+      const codeElement = document.getElementById(elementId);
+      const code = codeElement.textContent;
+
+      navigator.clipboard.writeText(code).then(() => {
+        // Visual feedback
+        const button = event.target.closest('button');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<i class="bi bi-check-lg me-1"></i> Copied!';
+        button.style.background = 'linear-gradient(135deg, #198754, #157347)';
+        button.style.color = 'white';
+        button.style.borderColor = '#198754';
+
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.style.background = '';
+          button.style.color = '';
+          button.style.borderColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy code:', err);
+        alert('Failed to copy code. Please try again.');
+      });
+    }
+
+    // Make copyCode function globally accessible
+    window.copyCode = copyCode;
+  </script>
+</body>
+
+</html>

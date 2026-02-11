@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build a Wi-Fi Weather Station | MakerWorks Blog</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Build a Wi-Fi Weather Station | MakerWorks Blog">
+    <meta name="description"
+        content="Create your own Wi-Fi weather station using ESP8266 and DHT11/22 sensors. View temperature and humidity on a web browser.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="blog-header">
+        <div class="container text-center">
+            <span class="badge bg-success mb-3 rounded-pill px-3 py-2">IoT & ESP8266</span>
+            <h1 class="display-4 fw-bold mb-3">Build a Wi-Fi Weather Station</h1>
+            <div class="text-muted">
+                <i class="bi bi-calendar3 me-2"></i>October 12, 2025
+                <span class="mx-2">â€¢</span>
+                <i class="bi bi-person me-2"></i>MakerWorks Team
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+
+                <img src="blogphotos/wifi_weather_station.webp" alt="Wi-Fi Weather Station" class="img-fluid w-100 mb-5">
+
+                <p class="lead">Monitoring the weather is a classic maker project. But why stop at displaying it on a
+                    small LCD? In this tutorial, we'll build a <strong>Wi-Fi Weather Station</strong> using an ESP8266
+                    (NodeMCU) that serves a web page you can access from any phone or computer on your network!</p>
+
+                <h2>How it Works</h2>
+                <p>The ESP8266 will connect to your home Wi-Fi and act as a web server. When you type its IP address
+                    into your browser, it will send back an HTML page containing the current temperature and humidity
+                    readings from a DHT sensor.</p>
+
+                <h2>What You'll Need:</h2>
+                <ul>
+                    <li><strong>NodeMCU ESP8266</strong> Board</li>
+                    <li><strong>DHT11 or DHT22</strong> Sensor</li>
+                    <li>Jumper Wires & Breadboard</li>
+                    <li>Arduino IDE (with ESP8266 board support installed)</li>
+                </ul>
+
+                <h2>Wiring</h2>
+                <ul>
+                    <li><strong>DHT VCC</strong> -> NodeMCU <strong>3.3V</strong></li>
+                    <li><strong>DHT GND</strong> -> NodeMCU <strong>GND</strong></li>
+                    <li><strong>DHT DATA</strong> -> NodeMCU <strong>D1 (GPIO 5)</strong></li>
+                </ul>
+
+                <h2>The Code</h2>
+                <p>We'll use the `ESP8266WebServer` library. Make sure you also install the `DHT sensor library` by
+                    Adafruit from the Library Manager.</p>
+
+                <pre><code class="language-arduino">
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;ESP8266WebServer.h&gt;
+#include &lt;DHT.h&gt;
+
+// Replace with your Network Credentials
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+#define DHTPIN 5     // Digital pin D1
+#define DHTTYPE DHT11   // DHT 11
+
+DHT dht(DHTPIN, DHTTYPE);
+ESP8266WebServer server(80);
+
+void handleRoot() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature(); // Celsius
+
+  String html = "&lt;!DOCTYPE html&gt;&lt;html&gt;";
+  html += "&lt;head&gt;&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;";
+  html += "&lt;style&gt;body{font-family: sans-serif; text-align: center; margin-top: 50px;}";
+  html += "h1{color: #444;} .sensor{font-size: 2rem; margin: 20px;}&lt;/style&gt;&lt;/head&gt;";
+  html += "&lt;body&gt;&lt;h1&gt;ESP8266 Weather Station&lt;/h1&gt;";
+  
+  if (isnan(h) || isnan(t)) {
+    html += "&lt;p&gt;Failed to read from DHT sensor!&lt;/p&gt;";
+  } else {
+    html += "&lt;div class=\"sensor\"&gt;&lt;b&gt;Temp:&lt;/b&gt; " + String(t) + " &deg;C&lt;/div&gt;";
+    html += "&lt;div class=\"sensor\"&gt;&lt;b&gt;Humidity:&lt;/b&gt; " + String(h) + " %&lt;/div&gt;";
+  }
+  
+  html += "&lt;/body&gt;&lt;/html&gt;";
+  
+  server.send(200, "text/html", html);
+}
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+  
+  // Connect to Wi-Fi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  
+  Serial.println("");
+  Serial.print("Connected! IP Address: ");
+  Serial.println(WiFi.localIP());
+
+  server.on("/", handleRoot);
+  server.begin();
+}
+
+void loop() {
+  server.handleClient();
+}
+                </code></pre>
+
+                <h2>Running the Project</h2>
+                <ol>
+                    <li>Upload the code to your ESP8266.</li>
+                    <li>Open the Serial Monitor (115200 baud).</li>
+                    <li>Wait for the connection message. Copy the <strong>IP Address</strong> shown (e.g.,
+                        192.168.1.15).</li>
+                    <li>Enter that IP address into your phone or computer's web browser.</li>
+                    <li>Voila! You should see the live temperature and humidity.</li>
+                </ol>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/blog/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

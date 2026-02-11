@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino Weather Station Project | MakerWorks</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Arduino Weather Station Project | MakerWorks">
+    <meta name="description"
+        content="Build your own compact Weather Station using Arduino to monitor temperature, humidity, and pressure. A great project for learning about sensors.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="project-header">
+        <div class="container text-center">
+            <span class="badge bg-light text-primary mb-3 rounded-pill px-3 py-2">Sensors & Display</span>
+            <h1 class="display-4 fw-bold mb-3">Arduino Weather Station</h1>
+            <div class="text-white-50">
+                <i class="bi bi-cpu me-2"></i>Arduino Uno
+                <span class="mx-2">•</span>
+                <i class="bi bi-bar-chart me-2"></i>Beginner Level
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="projectimages/weatherstation.webp" alt="Arduino Weather Station" class="img-fluid w-100 mb-5">
+
+                <p class="lead">Build your own compact <strong>Weather Station</strong> using Arduino! This project
+                    allows you to monitor real-time environmental data such as <strong>temperature, humidity, and
+                        atmospheric pressure</strong>. The readings are displayed on a <strong>16x2 LCD</strong> for
+                    easy viewing, making it a great educational project for understanding sensor data acquisition and
+                    display.</p>
+
+                <h2>Components Used:</h2>
+                <ul>
+                    <li><strong>Arduino Uno</strong> microcontroller board</li>
+                    <li><strong>DHT11</strong> or <strong>DHT22 Temperature and Humidity Sensor</strong></li>
+                    <li><strong>BMP180 Barometric Pressure Sensor</strong> (can also measure temperature and altitude)
+                    </li>
+                    <li><strong>16x2 LCD Display with I2C module</strong> (highly recommended for simpler wiring)</li>
+                    <li>Breadboard</li>
+                    <li>Jumper Wires</li>
+                    <li>Power supply for Arduino</li>
+                </ul>
+
+                <h2>How it Works:</h2>
+                <p>The Arduino communicates with the DHT11/DHT22 sensor to get temperature and humidity readings.
+                    Simultaneously, it interfaces with the BMP180 sensor via the I2C protocol to obtain atmospheric
+                    pressure and another temperature reading. All this collected data is then formatted and displayed on
+                    the 16x2 LCD screen, updating periodically.</p>
+
+                <h3>Circuit Connections:</h3>
+                <ul>
+                    <li><strong>DHT11/DHT22:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `Data` pin to Arduino
+                        Digital Pin (e.g., 7).</li>
+                    <li><strong>BMP180:</strong> This is an I2C device. `VCC` to Arduino 5V, `GND` to Arduino GND, `SDA`
+                        to Arduino A4, `SCL` to Arduino A5.</li>
+                    <li><strong>16x2 LCD with I2C:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `SDA` to Arduino
+                        A4, `SCL` to Arduino A5. (Notice both I2C devices share A4/A5).</li>
+                </ul>
+
+                <h2>Arduino Code Snippet (Core Logic):</h2>
+                <pre><code class="language-arduino">
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_Sensor.h&gt; // Required for DHT sensor library
+#include &lt;DHT.h&gt;             // DHT sensor library
+#include &lt;Adafruit_BMP085.h&gt; // BMP180/BMP085 sensor library
+#include &lt;LiquidCrystal_I2C.h&gt; // I2C LCD library
+
+// Define DHT sensor type and pin
+#define DHTPIN 7
+#define DHTTYPE DHT11 // Or DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
+// Initialize BMP sensor
+Adafruit_BMP085 bmp;
+
+// Initialize LCD with I2C address and dimensions
+LiquidCrystal_I2C lcd(0x27, 16, 2); // Adjust address if needed (0x3F or 0x27)
+
+void setup() {
+  Serial.begin(9600);
+  lcd.init();
+  lcd.backlight();
+  dht.begin();
+
+  if (!bmp.begin()) {
+    Serial.println("Could not find a valid BMP085 sensor, check wiring!");
+    while(1);
+  }
+  Serial.println("BMP085 sensor found!");
+  lcd.print("Weather Station");
+  lcd.setCursor(0,1);
+  lcd.print("Initializing...");
+  delay(2000);
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t_dht = dht.readTemperature(); // Temperature from DHT
+
+  if (isnan(h) || isnan(t_dht)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+
+  // Get temperature and pressure from BMP180
+  float t_bmp = bmp.readTemperature(); // Temperature from BMP180
+  float p = bmp.readPressure();
+
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Temp: ");
+  lcd.print(t_dht); // Or t_bmp, depends on preference
+  lcd.print((char)223); // Degree symbol
+  lcd.print("C Hum:");
+  lcd.print(h);
+  lcd.print("%");
+
+  lcd.setCursor(0,1);
+  lcd.print("Pressure:");
+  lcd.print(p / 100.0F); // Convert Pa to hPa/mbar
+  lcd.print("hPa");
+
+  delay(5000); // Update every 5 seconds
+}
+                </code></pre>
+
+                <h2>Applications:</h2>
+                <p>This project is a perfect foundation for home environmental monitoring, smart garden systems, or even
+                    building a small personal weather station that logs data to a computer or cloud platform (with
+                    additional modules like ESP8266 for Wi-Fi).</p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/projects/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

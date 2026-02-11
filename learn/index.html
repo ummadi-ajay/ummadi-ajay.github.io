@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakerWorks - Learn | Robotics & Coding Classes for Kids in Mumbai</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="MakerWorks - Learn | Robotics & Coding Classes for Kids in Mumbai">
+    <meta name="description"
+        content="Discover MakerWorks Learn programs for kids and teens in Mumbai. Explore robotics, coding, AI, IoT, and maker courses designed to spark creativity and hands-on learning.">
+    <meta name="keywords"
+        content="MakerWorks learn, robotics classes Mumbai, coding classes for kids, STEM learning for children, maker space Mumbai, Arduino classes, Raspberry Pi workshops, AI for kids, 3D printing classes">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makerworkslab.in/learn/">
+    <meta property="og:title" content="MakerWorks - Learn | Robotics & Coding Classes for Kids in Mumbai">
+    <meta property="og:description"
+        content="Discover MakerWorks Learn programs for kids and teens in Mumbai. Explore robotics, coding, AI, IoT, and maker courses designed to spark creativity and hands-on learning.">
+    <meta property="og:image" content="https://makerworkslab.in/images/learn-hero.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://makerworkslab.in/learn/">
+    <meta property="twitter:title" content="MakerWorks - Learn | Robotics & Coding Classes for Kids in Mumbai">
+    <meta property="twitter:description"
+        content="Discover MakerWorks Learn programs for kids and teens in Mumbai. Explore robotics, coding, AI, IoT, and maker courses designed to spark creativity and hands-on learning.">
+    <meta property="twitter:image" content="https://makerworkslab.in/images/learn-hero.jpg">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/components.js" defer></script>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks offers robotics, coding, AI, IoT, and 3D design classes for kids in Mumbai.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19,A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9137114223",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        }]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks is a maker space in Mumbai where we build projects, prototypes, and robotics solutions using Arduino, Raspberry Pi, IoT, AI, and 3D printing.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 08:00-21:00",
+        "telephone": "+91-9137114223",
+        "sameAs": [
+          "https://x.com/makerworkslab",
+          " https://www.instagram.com/makerworkslab",
+          "https://www.youtube.com/@MakerWorkslab",
+          "https://www.linkedin.com/company/makerworkslab/"
+        ]
+      }
+    ]
+  }
+  </script>
+    <style>
+        /* Refined Custom Styles for Learning Levels Section */
+        #learning-levels {
+            background-color: #f8f9fa;
+            /* Very light grey background for the section */
+            padding-top: 80px;
+            /* More padding top */
+            padding-bottom: 80px;
+            /* More padding bottom */
+        }
+
+        /* Card Styling */
+        .level-card {
+            border: 1px solid #e0e0e0;
+            /* Softer, light grey border */
+            border-radius: 1rem !important;
+            /* Nicer rounded corners */
+            box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+            /* More pronounced, but softer shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            /* Smooth transition for hover */
+            overflow: visible;
+            /* Important for the floating icon */
+        }
+
+        .level-card:hover {
+            transform: translateY(-10px);
+            /* More noticeable lift on hover */
+            box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
+            /* Stronger shadow on hover */
+        }
+
+        /* Card Header Styling */
+        .level-card .card-header {
+            background-color: transparent !important;
+            /* Keep header background transparent */
+            padding: 2.5rem 1.5rem 1.5rem;
+            /* Adjust padding for visual balance */
+            text-align: center;
+            border-bottom: none;
+            /* Remove default border */
+            position: relative;
+            /* For icon positioning */
+        }
+
+        /* Floating Icon Styling */
+        .level-icon {
+            font-size: 3.8rem;
+            /* Larger icon size */
+            color: #fff;
+            /* White icon color by default */
+            background-color: var(--bs-primary);
+            /* Default background will be primary color */
+            position: absolute;
+            top: -45px;
+            /* Position half outside the card top */
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            /* Perfect circle */
+            width: 90px;
+            /* Fixed size */
+            height: 90px;
+            /* Fixed size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+            /* Stronger shadow for the icon */
+            border: 6px solid #f8f9fa;
+            /* Thick border matching section background to lift it visually */
+            z-index: 10;
+            /* Ensure icon is on top */
+        }
+
+        /* Specific Icon Colors based on Level */
+        .level-card.beginner .level-icon {
+            background-color: #0d6efd;
+            /* Bootstrap primary */
+        }
+
+        .level-card.intermediate .level-icon {
+            background-color: #ffc107;
+            /* Bootstrap warning */
+        }
+
+        .level-card.advance .level-icon {
+            background-color: #dc3545;
+            /* Bootstrap danger */
+        }
+
+        /* Card Title and Subtitle */
+        .level-card .card-title {
+            font-size: 2rem;
+            /* Larger and more prominent level name */
+            font-weight: 700;
+            /* Bolder */
+            margin-top: 2.5rem;
+            /* Space below icon */
+            margin-bottom: 0.5rem;
+            color: #343a40;
+            /* Dark grey for text */
+        }
+
+        .level-card .card-subtitle {
+            color: #6c757d;
+            /* Muted grey for tagline */
+            font-size: 1.05rem;
+            /* Slightly larger tagline */
+            margin-bottom: 1.5rem;
+            /* More space below tagline */
+        }
+
+        /* Card Body and Feature List */
+        .level-card .card-body {
+            padding: 1.5rem 2rem;
+            /* More horizontal padding */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .level-card .program-features {
+            list-style: none;
+            /* Remove default bullet points */
+            padding: 0;
+            margin-bottom: 2rem;
+            /* More space above the button */
+        }
+
+        .level-card .program-features li {
+            display: flex;
+            /* Flexbox for icon and text alignment */
+            align-items: center;
+            font-size: 1.05rem;
+            color: #495057;
+            /* Darker text for readability */
+            margin-bottom: 0.8rem;
+            /* Good spacing between list items */
+            line-height: 1.4;
+            /* Improve line height */
+        }
+
+        .level-card .program-features .bi-check-circle-fill {
+            color: #28a745;
+            /* Bootstrap success green for checkmarks */
+            margin-right: 0.8rem;
+            /* Space between icon and text */
+            font-size: 1.2rem;
+            /* Slightly larger checkmark */
+            flex-shrink: 0;
+            /* Prevent icon from shrinking */
+        }
+
+        /* Button Styling */
+        .level-card .btn {
+            margin-top: auto;
+            /* Push button to the bottom of the card */
+            font-weight: bold;
+            border-radius: 0.6rem;
+            /* Rounded button corners */
+            padding: 0.75rem 1.5rem;
+            /* Generous button padding */
+            font-size: 1.1rem;
+            /* Larger button text */
+            transition: all 0.2s ease-in-out;
+            /* Smooth transition for hover effects */
+        }
+
+        /* Specific Button Colors for each level */
+        .level-card.beginner .btn-outline-primary {
+            color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .level-card.beginner .btn-outline-primary:hover {
+            background-color: #0d6efd;
+            color: white;
+            box-shadow: 0 0.25rem 0.5rem rgba(13, 110, 253, 0.3);
+            /* Subtle shadow on hover */
+        }
+
+        .level-card.intermediate .btn-outline-warning {
+            color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .level-card.intermediate .btn-outline-warning:hover {
+            background-color: #ffc107;
+            color: white;
+            box-shadow: 0 0.25rem 0.5rem rgba(255, 193, 7, 0.3);
+        }
+
+        .level-card.advance .btn-outline-danger {
+            color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .level-card.advance .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+            box-shadow: 0 0.25rem 0.5rem rgba(220, 53, 69, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+
+
+
+    <main>
+        <section class="learn-hero text-center py-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold text-primary">Unlock Your Potential. Learn, Create, Innovate.</h1>
+                <p class="lead text-dark-emphasis mt-3">At MakerWorks, we empower the next generation of innovators with
+                    hands-on STEM skills and creative problem-solving.</p>
+                <a href="#learning-levels" class="btn btn-primary btn-lg mt-4 shadow-sm">Explore Our Programs</a>
+            </div>
+        </section>
+
+        <section id="learning-levels" class="py-5">
+            <div class="container text-center">
+                <h2 class="mb-2 text-dark-emphasis fw-bold">Our Curated Programs at</h2>
+                <h1 class="mb-5 display-4 fw-bold text-primary">The MakerWorks Lab</h1>
+
+                <div class="row g-4 justify-content-center">
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 level-card beginner d-flex flex-column">
+                            <div class="card-header">
+                                <div class="level-icon"><i class="bi bi-lightbulb"></i></div>
+                                <h4 class="card-title">Beginner Level</h4>
+                                <p class="card-subtitle">Spark curiosity with foundational making!</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="program-features">
+                                    <li><i class="bi bi-check-circle-fill"></i> Basic Electronics & Circuits</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Logical Sequencing & Reasoning</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Variables & Loops</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Circuit Design & Simulation</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Block-based Coding (Scratch Jr, Scratch)
+                                    </li>
+                                    <li><i class="bi bi-check-circle-fill"></i> BBC Micro:bit Controller</li>
+                                </ul>
+                                <a href="/programs/beginner/" class="btn btn-outline-primary w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 level-card intermediate d-flex flex-column">
+                            <div class="card-header">
+                                <div class="level-icon"><i class="bi bi-gear"></i></div>
+                                <h4 class="card-title">Intermediate Level</h4>
+                                <p class="card-subtitle">Build, program, and innovate with purpose!</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="program-features">
+                                    <li><i class="bi bi-check-circle-fill"></i> Arduino & C++ Programming</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Sensors & Actuators</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> MIT App Inventor (Mobile Apps)</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Build Ground Robots</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Aerial Robotics & Build RC Plane</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Python Programming Fundamentals</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Raspberry Pi based Robots</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Computer Vision with Raspberry Pi</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> AI & ML Basics</li>
+                                </ul>
+                                <a href="/programs/intermediate/" class="btn btn-outline-warning w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 level-card advance d-flex flex-column">
+                            <div class="card-header">
+                                <div class="level-icon"><i class="bi bi-rocket"></i></div>
+                                <h4 class="card-title">Advanced Level</h4>
+                                <p class="card-subtitle">Master cutting-edge tech & build your portfolio!</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="program-features">
+                                    <li><i class="bi bi-check-circle-fill"></i> Advanced Python Programming</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Aerial Robotics & Build Drones</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Android App Development</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Advanced Computer Vision</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Advanced AI & ML Concepts</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Full Stack Web Development</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Game Development (Unity/Pygame)</li>
+                                </ul>
+                                <a href="/programs/advanced/" class="btn btn-outline-danger w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="py-5 bg-white">
+            <div class="container text-center">
+                <h2 class="mb-5 display-5 fw-bold">Skills You Gain</h2>
+                <div class="row g-4 justify-content-center">
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/electronics.webp" class="card-img-top"
+                                alt="Electronics components and circuit board">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Electronics & Circuit Design</h5>
+                                <p class="card-text text-muted">Understand components, build circuits, and learn to
+                                    prototype with breadboards and sensors.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/pogramming.webp" class="card-img-top"
+                                alt="Scratch programming interface with colorful blocks">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Block-Based Coding</h5>
+                                <p class="card-text text-muted">Create animations, games, and interactive stories using
+                                    Scratch Jr, Scratch, and Micro:bit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/appdesign.webp" class="card-img-top"
+                                alt="Mobile phone displaying a simple app interface">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Mobile App Development</h5>
+                                <p class="card-text text-muted">Design and build real Android apps using MIT App
+                                    Inventor with drag-and-drop logic.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/robotics.webp" class="card-img-top"
+                                alt="Robotics kit and a small robot hand">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Robotics & Automation</h5>
+                                <p class="card-text text-muted">Learn to build, program, and control robots for various
+                                    tasks and competitive challenges.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/3ddesign.webp" class="card-img-top"
+                                alt="3D printer creating a plastic object">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">3D Design & Fabrication</h5>
+                                <p class="card-text text-muted">Transform ideas into physical prototypes using 3D
+                                    modeling software and 3D printing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/lasercutting.webp" class="card-img-top"
+                                alt="Laser cutting a design on material">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Laser Cutting & Fabrication</h5>
+                                <p class="card-text text-muted">Learn to design, cut, and fabricate precise shapes using
+                                    laser cutting technology for creative and practical projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 display-5 fw-bold">Why Choose MakerWorks?</h2>
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6">
+                        <img src="images/Header.webp" class="img-fluid rounded shadow-lg"
+                            alt="Students collaborating in a MakerWorks lab">
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="bi bi-robot fs-3 text-primary me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Hands-On & Project-Based Learning</h5>
+                                    <p class="text-muted mb-0">Learn by doing! Our curriculum focuses on practical
+                                        projects that bring concepts to life.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="bi bi-person-fill-gear fs-3 text-primary me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Expert Mentors & Small Class Sizes</h5>
+                                    <p class="text-muted mb-0">Benefit from personalized guidance from experienced
+                                        educators and industry professionals.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="bi bi-people-fill fs-3 text-primary me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Collaborative Community</h5>
+                                    <p class="text-muted mb-0">Join a vibrant community of young makers, fostering
+                                        teamwork and shared learning.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="bi bi-lightbulb-fill fs-3 text-primary me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Future-Ready Skills</h5>
+                                    <p class="text-muted mb-0">Develop critical thinking, problem-solving, and
+                                        innovation skills essential for the 21st century.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-primary text-white py-5 text-center">
+            <div class="container">
+                <h2 class="mb-3 display-5 fw-bold">Ready to Start Your Maker Journey?</h2>
+                <p class="lead mb-4">Join MakerWorks and transform your ideas into reality!</p>
+                <a href="https://wa.me/919137114223" class="btn btn-light btn-lg shadow-sm">Get Started Today!</a>
+            </div>
+        </section>
+
+        <section id="gallery" class="bg-white py-5">
+            <div class="container text-center">
+                <h2 class="mb-5 display-5 fw-bold">Our Maker Space in Action</h2>
+                <div class="row g-3 justify-content-center">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="images/Lab.webp" class="img-fluid rounded shadow-sm gallery-img"
+                            data-bs-toggle="modal" data-bs-target="#imgModal" data-bs-img-src="images/Lab.webp"
+                            alt="Students working in a modern robotics lab">
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <img src="images/workshop.webp" class="img-fluid rounded shadow-sm gallery-img"
+                            data-bs-toggle="modal" data-bs-target="#imgModal" data-bs-img-src="images/workshop.webp"
+                            alt="Kids engaged in a hands-on workshop building projects">
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <img src="images/Aurdino.webp" class="img-fluid rounded shadow-sm gallery-img"
+                            data-bs-toggle="modal" data-bs-target="#imgModal" data-bs-img-src="images/Arduino.webp"
+                            alt="Close-up of an Arduino board connected to electronics">
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <img src="images/Team.webp" class="img-fluid rounded shadow-sm gallery-img"
+                            data-bs-toggle="modal" data-bs-target="#imgModal" data-bs-img-src="images/kids_coding.webp"
+                            alt="Children learning to code on computers">
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <img src="images/ro.webp" class="img-fluid rounded shadow-sm gallery-img" data-bs-toggle="modal"
+                            data-bs-target="#imgModal" data-bs-img-src="images/robot_showcase.webp"
+                            alt="Students presenting their built robots">
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <img src="images/Header.webp" class="img-fluid rounded shadow-sm gallery-img"
+                            data-bs-toggle="modal" data-bs-target="#imgModal"
+                            data-bs-img-src="images/group_project.webp"
+                            alt="A group of students collaborating on a technology project">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row justify-content-center">
+            <h2 class="text-center mb-4">Upcoming Workshops & Events</h2>
+            <p class="text-center mb-5">Stay updated with our schedule and join the sessions you like!</p>
+
+            <div class="col-lg-10">
+                <div class="card shadow-lg rounded-4 overflow-hidden border-0">
+                    <div class="card-body p-0">
+                        <iframe
+                            src="https://calendar.google.com/calendar/embed?src=makerworkslab%40gmail.com&ctz=Asia/Kolkata"
+                            style="border:0; width:100%; height:600px;" frameborder="0" scrolling="no" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+
+
+
+</body>
+
+</html>

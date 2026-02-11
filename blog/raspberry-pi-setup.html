@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting Started with Raspberry Pi | MakerWorks Blog</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Getting Started with Raspberry Pi | MakerWorks Blog">
+    <meta name="description"
+        content="A complete beginner's guide to setting up your Raspberry Pi. From flashing the OS to your first boot and terminal commands.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="blog-header">
+        <div class="container text-center">
+            <span class="badge bg-danger mb-3 rounded-pill px-3 py-2">Raspberry Pi</span>
+            <h1 class="display-4 fw-bold mb-3">Getting Started with Raspberry Pi</h1>
+            <div class="text-muted">
+                <i class="bi bi-calendar3 me-2"></i>August 12, 2025
+                <span class="mx-2">â€¢</span>
+                <i class="bi bi-person me-2"></i>MakerWorks Team
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="blogphotos/rasperry pi.webp" alt="Raspberry Pi Setup" class="img-fluid w-100 mb-5">
+
+                <p class="lead">The <strong>Raspberry Pi</strong> is a tiny, affordable single-board computer that you
+                    can use for everything
+                    from learning programming to building complex automation projects, or even creating a fully
+                    functional desktop PC. Let's get yours set up!</p>
+
+                <h2>What You'll Need:</h2>
+                <ul>
+                    <li><strong>Raspberry Pi Board</strong> (e.g., Pi 4, Pi 5, Pi Zero W)</li>
+                    <li><strong>SD card</strong> (16GB or larger, Class 10/U1 recommended for speed)</li>
+                    <li><strong>Power supply</strong> appropriate for your Pi model (USB-C for newer Pis, micro USB for
+                        older)
+                    </li>
+                    <li><strong>Monitor</strong> with HDMI input</li>
+                    <li><strong>HDMI cable</strong> (mini-HDMI or micro-HDMI to standard HDMI, depending on Pi model)
+                    </li>
+                    <li><strong>USB Keyboard and Mouse</strong></li>
+                    <li>Computer with an <strong>SD card reader</strong> (or a USB SD card adapter)</li>
+                    <li>Ethernet cable or Wi-Fi (most modern Pis have built-in Wi-Fi)</li>
+                </ul>
+
+                <h2>Step 1: Install Raspberry Pi OS</h2>
+                <p>Raspberry Pi OS (formerly Raspbian) is the official operating system for the Raspberry Pi.</p>
+                <ol>
+                    <li>Download <strong>Raspberry Pi Imager</strong> from the official Raspberry Pi website (<a
+                            href="https://www.raspberrypi.com/software/" target="_blank">raspberrypi.com/software/</a>).
+                        This tool makes flashing the OS easy.
+                    </li>
+                    <li>Insert your <strong>SD card</strong> into your computer's SD card reader.</li>
+                    <li>Open Raspberry Pi Imager.
+                        <ul>
+                            <li>Click "Choose Device" and select your Raspberry Pi model.</li>
+                            <li>Click "Choose OS" and select "Raspberry Pi OS (64-bit)" (or "Raspberry Pi OS Lite"
+                                if you prefer a headless setup without a desktop environment).</li>
+                            <li>Click "Choose Storage" and select your SD card. <strong>Be careful to select the correct
+                                    drive!</strong></li>
+                            <li>(Optional but Recommended) Click the gear icon to set up SSH, Wi-Fi, and locale
+                                settings before writing. This is very useful for headless setups.</li>
+                        </ul>
+                    </li>
+                    <li>Click "<strong>Write</strong>" and confirm. The Imager will download the OS, write it to the SD
+                        card, and
+                        verify it. This process can take a while.</li>
+                </ol>
+                <small class="text-muted d-block text-center mt-2 mb-4">Raspberry Pi Imager in action, simplifying OS
+                    installation.</small>
+
+                <h2>Step 2: Initial Boot and Basic Setup</h2>
+                <ol>
+                    <li>Once the Imager finishes, safely eject the SD card from your computer and insert it into the
+                        <strong>SD card slot</strong> on your Raspberry Pi.
+                    </li>
+                    <li>Connect your monitor, keyboard, and mouse to the Raspberry Pi.</li>
+                    <li>Finally, connect the <strong>power supply</strong>. The Pi should automatically boot up.</li>
+                    <li>The first boot will usually launch a setup wizard. Follow the on-screen prompts to:
+                        <ul>
+                            <li>Set your <strong>country, language, and time zone</strong>.</li>
+                            <li><strong>Change the default password</strong> (highly recommended for security).</li>
+                            <li>Connect to your <strong>Wi-Fi network</strong>.</li>
+                            <li>Update the software (this might take some time).</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h2>Step 3: Update and Explore the Terminal</h2>
+                <p>Even if you did updates during the setup, it's good practice to update regularly. Open a
+                    <strong>terminal</strong> (usually by clicking the black icon on the taskbar or pressing
+                    <code>Ctrl+Alt+T</code>) and
+                    run:
+                </p>
+                <pre><code class="language-bash">
+sudo apt update         # Fetches the latest list of available packages
+sudo apt full-upgrade   # Installs available updates for all packages
+sudo reboot             # Reboots your Raspberry Pi after updates
+                </code></pre>
+                <p>The terminal is a powerful tool for controlling your Pi. Here are some basic commands:</p>
+                <ul>
+                    <li><code>ls</code>: List files and directories in the current location.</li>
+                    <li><code>cd [directory_name]</code>: Change directory (e.g., <code>cd Desktop</code>).</li>
+                    <li><code>pwd</code>: Print working directory (shows your current location).</li>
+                    <li><code>mkdir [new_folder_name]</code>: Make a new directory.</li>
+                    <li><code>rm [file_name]</code>: Remove (delete) a file. Use <code>rm -r [folder_name]</code> to
+                        remove a folder and
+                        its contents.</li>
+                    <li><code>nano [file_name]</code>: Open a simple text editor.</li>
+                    <li><code>startx</code>: If you're using a Lite OS and want to start the desktop environment (if
+                        installed).</li>
+                    <li><code>sudo poweroff</code>: Safely shut down your Pi.</li>
+                </ul>
+
+                <p>You've successfully set up your Raspberry Pi! You're now ready to dive into programming, hardware
+                    projects, and the vast world of DIY electronics.</p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/blog/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

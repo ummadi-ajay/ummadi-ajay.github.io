@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakerWorks - Gallery | Robotics & Coding Projects for Kids in Mumbai</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="MakerWorks - Gallery | Robotics & Coding Projects for Kids in Mumbai">
+    <meta name="description"
+        content="Explore the MakerWorks Gallery to see robotics, coding, and STEM projects created by kids and teens in Mumbai. Get inspired by our events, people, and finished projects.">
+    <meta name="keywords"
+        content="MakerWorks gallery, robotics projects Mumbai, coding projects for kids, STEM projects for children, maker space Mumbai, Arduino projects, Raspberry Pi projects, IoT projects for kids, AI projects for kids, 3D printing gallery">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makerworkslab.in/gallery/">
+    <meta property="og:title" content="MakerWorks - Gallery | Robotics & Coding Projects for Kids in Mumbai">
+    <meta property="og:description"
+        content="Explore the MakerWorks Gallery to see robotics, coding, and STEM projects created by kids and teens in Mumbai. Get inspired by our events, people, and finished projects.">
+    <meta property="og:image" content="https://makerworkslab.in/images/gallery-hero.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://makerworkslab.in/gallery/">
+    <meta property="twitter:title" content="MakerWorks - Gallery | Robotics & Coding Projects for Kids in Mumbai">
+    <meta property="twitter:description"
+        content="Explore the MakerWorks Gallery to see robotics, coding, and STEM projects created by kids and teens in Mumbai. Get inspired by our events, people, and finished projects.">
+    <meta property="twitter:image" content="https://makerworkslab.in/images/gallery-hero.jpg">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/components.js" defer></script>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks offers robotics, coding, AI, IoT, and 3D design classes for kids in Mumbai.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19,A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9137114223",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        }]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks is a maker space in Mumbai where we build projects, prototypes, and robotics solutions using Arduino, Raspberry Pi, IoT, AI, and 3D printing.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 08:00-21:00",
+        "telephone": "+91-9137114223",
+        "sameAs": [
+          "https://x.com/makerworkslab",
+          " https://www.instagram.com/makerworkslab",
+          "https://www.youtube.com/@MakerWorkslab",
+          "https://www.linkedin.com/company/makerworkslab/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #000;
+            scroll-behavior: smooth;
+            padding-top: 70px;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #0d6efd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #0a58ca;
+        }
+
+        .navbar-nav .nav-link {
+            color: #000;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff6600;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                background: #f8f9fa;
+                padding: 10px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+            }
+
+            body {
+                padding-top: 60px;
+            }
+        }
+
+        footer .card {
+            background-color: #ffe5b4 !important;
+            border: none !important;
+        }
+
+        footer .card h5 {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        footer .card p {
+            color: #555;
+        }
+
+        footer .list-unstyled li a {
+            color: #555 !important;
+            transition: color 0.3s ease;
+        }
+
+        footer .list-unstyled li a:hover {
+            color: #ff6600 !important;
+        }
+
+        .social-icons a {
+            color: #000;
+            margin-right: 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #0d6efd;
+        }
+
+        footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 12px 16px;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* --- Gallery Specific Styles --- */
+        .site-header-gallery {
+            background: #333;
+            color: #fff;
+            padding: 80px 0 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .site-header-gallery h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .site-header-gallery p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 15px auto 0;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery-filters {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-btn {
+            background-color: #eee;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover {
+            background-color: #ddd;
+        }
+
+        .filter-btn.active {
+            background-color: #ff6600;
+            color: #fff;
+            border-color: #ff6600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: -10px;
+        }
+
+
+        .gallery-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            margin: 10px;
+            width: calc(33.333% - 20px);
+        }
+
+        @media (max-width: 992px) {
+            .gallery-item {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: calc(100% - 20px);
+            }
+        }
+
+        /* Hover Effect: Lift Card */
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item>div:first-child {
+            height: 400px !important;
+            /* Taller to show Faces + Projects */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            /* Fill the taller container */
+            object-fit: cover;
+            object-position: top center;
+            /* Focus on faces, but height allows project visibility */
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Hover Effect: Zoom Image */
+        .gallery-item:hover img {
+            transform: scale(1.15);
+            /* Slightly bigger zoom */
+        }
+
+        .gallery-item .caption {
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #f9f9f9;
+            color: #555;
+            font-size: 1em;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            /* Ensure caption stays on top of zoomed image if overflow issues occur */
+        }
+
+        /* BasicLightbox Styles (Unchanged mostly) */
+        .basicLightbox {
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .basicLightbox__placeholder {
+            display: contents;
+        }
+
+        .basicLightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .basicLightbox .lightbox-caption {
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 8px 8px;
+            margin-top: -8px;
+            position: relative;
+            z-index: 1;
+            max-width: 90vw;
+        }
+
+        .basicLightbox .lightbox-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 2.5em;
+            cursor: pointer;
+            z-index: 10001;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .basicLightbox .lightbox-close-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .site-header-gallery h1 {
+                font-size: 2.2em;
+            }
+
+            .site-header-gallery p {
+                font-size: 1em;
+            }
+
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .basicLightbox .lightbox-close-btn {
+                font-size: 2em;
+                top: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        /* Removing Duplicate Styles later in the file if any */
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+
+    <style>
+        .nav-link:hover {
+            opacity: 1 !important;
+            transform: translateY(-2px);
+        }
+
+        .dropdown-item {
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1)) !important;
+            transform: translateX(5px);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 20px;
+                margin-top: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+
+
+    <!-- Modern Gallery Hero Section -->
+    <section
+        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative; overflow: hidden; padding: 120px 0 80px; margin-top: 70px;">
+        <!-- Decorative Elements -->
+        <div
+            style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; z-index: 0;">
+        </div>
+        <div
+            style="position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: rgba(255, 255, 255, 0.08); border-radius: 50%; z-index: 0;">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="text-center text-white" data-aos="fade-up">
+                <div class="mb-3">
+                    <span
+                        style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); padding: 8px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                        <i class="bi bi-images me-2"></i>Our Gallery
+                    </span>
+                </div>
+                <h1
+                    style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.2;">
+                    MakerWorks Gallery
+                </h1>
+                <p style="font-size: 1.2rem; opacity: 0.95; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                    A visual journey through our finished projects, behind-the-scenes moments, memorable events, and the
+                    passionate people who make it all happen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <main class="gallery-container">
+        <!-- Gallery Filters -->
+        <nav class="gallery-filters" data-aos="fade-up"
+            style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); margin-bottom: 50px;">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <button class="filter-btn active" data-filter="all"
+                    style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 12px 28px; border-radius: 100px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
+                    <i class="bi bi-grid-3x3-gap me-2"></i>All
+                </button>
+                <button class="filter-btn" data-filter="products"
+                    style="background: white; color: #667eea; border: 2px solid #667eea; padding: 12px 28px; border-radius: 100px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease;">
+                    <i class="bi bi-star me-2"></i>Finished Products
+                </button>
+                <button class="filter-btn" data-filter="events"
+                    style="background: white; color: #667eea; border: 2px solid #667eea; padding: 12px 28px; border-radius: 100px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease;">
+                    <i class="bi bi-calendar-event me-2"></i>Events
+                </button>
+                <button class="filter-btn" data-filter="people"
+                    style="background: white; color: #667eea; border: 2px solid #667eea; padding: 12px 28px; border-radius: 100px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease;">
+                    <i class="bi bi-people me-2"></i>People Working
+                </button>
+            </div>
+        </nav>
+
+        <section class="gallery-grid">
+            <!-- Gallery Item: Arjun -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/Arjun working on Mekathalon robot.webp"
+                        alt="Arjun Working on Mekathlon Robot">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-robot me-2" style="color: #667eea;"></i>Arjun Working on Mekathlon Robot
+                </div>
+            </div>
+
+            <!-- Gallery Item: Avyaan -->
+            <div class="gallery-item" data-category="products" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/Avyaan showing his project.webp" alt="Avyaan Showing His Project">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-star me-1"></i>Product
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-trophy me-2" style="color: #667eea;"></i>Avyaan Showing His Project
+                </div>
+            </div>
+
+            <!-- Gallery Item: Ayukt -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/Ayukt working on bluetooth control robot.webp"
+                        alt="Ayukt Working on Bluetooth Robot">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-bluetooth me-2" style="color: #667eea;"></i>Ayukt Working on Bluetooth Robot
+                </div>
+            </div>
+
+            <!-- Gallery Item: Avyan VEX -->
+            <div class="gallery-item" data-category="products" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/avyan with his vex robot.webp" alt="Avyan with his VEX Robot">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-star me-1"></i>Product
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-robot me-2" style="color: #667eea;"></i>Avyan with his VEX Robot
+                </div>
+            </div>
+
+            <!-- Gallery Item: Avyukt Hackathon -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/avyukt buiding  hackathon robot.webp" alt="Avyukt Building Hackathon Robot">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-tools me-2" style="color: #667eea;"></i>Avyukt Building Hackathon Robot
+                </div>
+            </div>
+
+            <!-- Gallery Item: Bhargav -->
+            <div class="gallery-item" data-category="products" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/bhargav showing completed project.webp"
+                        alt="Bhargav Showing Completed Project">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-star me-1"></i>Product
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-award me-2" style="color: #667eea;"></i>Bhargav Showing Completed Project
+                </div>
+            </div>
+
+            <!-- Gallery Item: Divyana & Ivvan -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/divyana and ivvan building their competition robot.webp"
+                        alt="Building Competition Robot">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-people me-2" style="color: #667eea;"></i>Divyana & Ivvan Building Robot
+                </div>
+            </div>
+
+            <!-- Gallery Item: Ivan -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/ivan learning.webp" alt="Ivan Learning">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-book me-2" style="color: #667eea;"></i>Ivan Learning Concepts
+                </div>
+            </div>
+
+            <!-- Gallery Item: Jiaan -->
+            <div class="gallery-item" data-category="products" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/jiaan showing his project.webp" alt="Jiaan Showing His Project">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-star me-1"></i>Product
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-award me-2" style="color: #667eea;"></i>Jiaan Showing His Project
+                </div>
+            </div>
+
+            <!-- Gallery Item: Kiara -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/kiara working on wro project.webp" alt="Kiara Working on WRO Project">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-gear me-2" style="color: #667eea;"></i>Kiara Working on WRO Project
+                </div>
+            </div>
+
+            <!-- Gallery Item: Kimaya & Divyana -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/kimaya and divyana learning about motors.webp"
+                        alt="Kimaya and Divyana Learning about Motors">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-fan me-2" style="color: #667eea;"></i>Learning About Motors
+                </div>
+            </div>
+
+            <!-- Gallery Item: Kimaya 3D -->
+            <div class="gallery-item" data-category="products" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/kimaya showing her 3d print.webp" alt="Kimaya Showing Her 3D Print">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-star me-1"></i>Product
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-box-seam me-2" style="color: #667eea;"></i>Kimaya Showing Her 3D Print
+                </div>
+            </div>
+
+            <!-- Gallery Item: Lakshiv -->
+            <div class="gallery-item" data-category="products" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/lakshiv showing his completed projected.webp"
+                        alt="Lakshiv Showing His Completed Project">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-star me-1"></i>Product
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-check-circle me-2" style="color: #667eea;"></i>Lakshiv Showing His Project
+                </div>
+            </div>
+
+            <!-- Gallery Item: Mentor -->
+            <div class="gallery-item" data-category="events" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/our mentor teaching about 3d concepts.webp"
+                        alt="Mentor Teaching 3D Concepts">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-calendar-event me-1"></i>Events
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-easel me-2" style="color: #667eea;"></i>Mentor Teaching 3D Concepts
+                </div>
+            </div>
+
+            <!-- Gallery Item: VEX Team -->
+            <div class="gallery-item" data-category="events" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/our vex team.webp" alt="Our VEX Team">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-calendar-event me-1"></i>Events
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-people-fill me-2" style="color: #667eea;"></i>Our VEX Team
+                </div>
+            </div>
+
+            <!-- Gallery Item: WRO Team -->
+            <div class="gallery-item" data-category="events" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/our wro team.webp" alt="Our WRO Team">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-calendar-event me-1"></i>Events
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-trophy me-2" style="color: #667eea;"></i>Our WRO Team
+                </div>
+            </div>
+
+            <!-- Gallery Item: Pranav & Tejasva -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/pranav and tejsva learning about planes.webp"
+                        alt="Pranav and Tejasva Learning">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-airplane me-2" style="color: #667eea;"></i>Pranav & Tejasva Learning Aero
+                </div>
+            </div>
+
+            <!-- Gallery Item: Pranav Colour Sorter -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/pranav working on colour sorter.webp" alt="Pranav Working on Colour Sorter">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-palette me-2" style="color: #667eea;"></i>Pranav Working on Colour Sorter
+                </div>
+            </div>
+
+            <!-- Gallery Item: Prep for Competition -->
+            <div class="gallery-item" data-category="events" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/preparation for competition.webp" alt="Preparation for Competition">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-calendar-event me-1"></i>Events
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-tools me-2" style="color: #667eea;"></i>Preparation for Competition
+                </div>
+            </div>
+
+            <!-- Gallery Item: Purv -->
+            <div class="gallery-item" data-category="people" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/purv learning Micro bit.webp" alt="Purv Learning Micro:bit">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-person-workspace me-1"></i>People
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-cpu me-2" style="color: #667eea;"></i>Purv Learning Micro:bit
+                </div>
+            </div>
+
+            <!-- Gallery Item: Tanay -->
+            <div class="gallery-item" data-category="products" data-aos="zoom-in">
+                <div style="position: relative; overflow: hidden; height: 280px;">
+                    <img src="galleryphotos/tanay showing his 3d print.webp" alt="Tanay Showing His 3D Print">
+                    <div class="category-badge"
+                        style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                        <i class="bi bi-star me-1"></i>Product
+                    </div>
+                </div>
+                <div class="caption">
+                    <i class="bi bi-cube me-2" style="color: #667eea;"></i>Tanay Showing His 3D Print
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Workshops Section -->
+        <section class="container my-5" data-aos="fade-up" style="margin-top: 80px !important;">
+            <div class="text-center mb-5">
+                <div class="mb-3">
+                    <span
+                        style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); color: #667eea; padding: 8px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid rgba(102, 126, 234, 0.2);">
+                        <i class="bi bi-calendar-week me-2"></i>Events Calendar
+                    </span>
+                </div>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #1d1d1f; margin-bottom: 1rem;">
+                    Upcoming Workshops & Events</h2>
+                <p style="font-size: 1.1rem; color: #6c757d; max-width: 600px; margin: 0 auto;">Stay updated with our
+                    schedule and join the sessions you like!</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div
+                        style="background: white; padding: 30px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 1px solid rgba(102, 126, 234, 0.1);">
+                        <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+                            <div
+                                style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-calendar-check" style="color: white; font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0" style="font-weight: 700; color: #1d1d1f;">Event Schedule</h5>
+                                <p class="mb-0 small text-muted">View all upcoming workshops and classes</p>
+                            </div>
+                        </div>
+                        <div class="ratio ratio-16x9"
+                            style="border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                            <iframe
+                                src="https://calendar.google.com/calendar/embed?src=makerworkslab%40gmail.com&ctz=Asia/Kolkata"
+                                style="border:0;" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Gallery Item Hover Effects */
+            .gallery-item:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2) !important;
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.1);
+            }
+
+            .gallery-item:hover>div:first-child>div:nth-child(2) {
+                opacity: 1;
+            }
+
+            /* Filter Button Hover */
+            .filter-btn:not(.active):hover {
+                background: linear-gradient(135deg, #667eea, #764ba2) !important;
+                color: white !important;
+                border-color: transparent !important;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4) !important;
+            }
+
+            .filter-btn.active {
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5) !important;
+            }
+        </style>
+    </main>
+
+
+
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+
+
+
+    <!-- Back to top handled in components.js structure -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script>
+
+        // Back to top Logic moved to components.js
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.gallery-item img').forEach(item => {
+                item.addEventListener('click', () => {
+                    const imageUrl = item.src;
+                    const captionText = item.nextElementSibling && item.nextElementSibling.classList.contains('caption')
+                        ? item.nextElementSibling.textContent
+                        : '';
+
+                    const instance = basicLightbox.create(`
+                        <div class="lightbox-content">
+                            <img src="${imageUrl}" alt="${captionText}">
+                            <div class="lightbox-caption">${captionText}</div>
+                            <button class="lightbox-close-btn"><i class="fas fa-times"></i></button>
+                        </div>
+                    `, {
+                        onShow: (instance) => {
+                            const closeButton = instance.element().querySelector('.lightbox-close-btn');
+                            if (closeButton) {
+                                closeButton.addEventListener('click', () => instance.close());
+                            }
+                            const captionElement = instance.element().querySelector('.lightbox-caption');
+                            if (captionElement) {
+                                captionElement.addEventListener('click', () => instance.close());
+                            }
+                        }
+                    });
+                    instance.show();
+                });
+            });
+
+            const galleryGrid = document.querySelector('.gallery-grid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            let iso;
+
+            function initializeIsotope() {
+                if (galleryGrid && typeof Isotope !== 'undefined') {
+                    iso = new Isotope(galleryGrid, {
+                        itemSelector: '.gallery-item',
+                        layoutMode: 'fitRows',
+                        transitionDuration: '0.5s'
+                    });
+
+                    filterButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            filterButtons.forEach(btn => btn.classList.remove('active'));
+                            button.classList.add('active');
+                            const filterValue = button.dataset.filter;
+                            if (filterValue === 'all') {
+                                iso.arrange({ filter: '*' });
+                            } else {
+                                iso.arrange({ filter: `[data-category="${filterValue}"]` });
+                            }
+                        });
+                    });
+                }
+            }
+
+            // This function checks if all images have finished loading.
+            function imagesLoaded(container, callback) {
+                var imgElems = container.querySelectorAll('img');
+                var loadedCount = 0;
+                var imgTotal = imgElems.length;
+
+                // If there are no images, just run the callback.
+                if (imgTotal === 0) {
+                    callback();
+                    return;
+                }
+
+                function onImageLoad() {
+                    loadedCount++;
+                    if (loadedCount === imgTotal) {
+                        callback();
+                    }
+                }
+
+                // Attach event listeners to each image.
+                for (var i = 0; i < imgTotal; i++) {
+                    var img = imgElems[i];
+                    if (img.complete) {
+                        // If the image is already loaded, run the load handler immediately.
+                        onImageLoad();
+                    } else {
+                        // Otherwise, wait for the 'load' or 'error' event.
+                        img.addEventListener('load', onImageLoad, { once: true });
+                        img.addEventListener('error', onImageLoad, { once: true });
+                    }
+                }
+            }
+
+            // Call the imagesLoaded helper function, which will then call initializeIsotope.
+            imagesLoaded(galleryGrid, initializeIsotope);
+        });
+    </script>
+</body>
+
+</html>

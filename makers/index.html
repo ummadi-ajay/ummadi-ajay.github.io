@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakerWorks - Makers | Robotics & Coding Projects for Kids in Mumbai</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="MakerWorks - Makers | Robotics & Coding Projects for Kids in Mumbai">
+  <meta name="description"
+    content="Meet the makers of MakerWorks! Explore robotics, coding, and STEM projects created by our talented students and mentors in Mumbai.">
+  <meta name="keywords"
+    content="MakerWorks makers, robotics students Mumbai, coding students, STEM projects for kids, maker space Mumbai, Arduino projects, Raspberry Pi projects, AI projects, IoT projects, 3D printing projects">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makerworkslab.in/makers/">
+  <meta property="og:title" content="MakerWorks - Makers | Robotics & Coding Projects for Kids in Mumbai">
+  <meta property="og:description"
+    content="Meet the makers of MakerWorks! Explore robotics, coding, and STEM projects created by our talented students and mentors in Mumbai.">
+  <meta property="og:image" content="https://makerworkslab.in/images/makers-hero.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://makerworkslab.in/makers/">
+  <meta property="twitter:title" content="MakerWorks - Makers | Robotics & Coding Projects for Kids in Mumbai">
+  <meta property="twitter:description"
+    content="Meet the makers of MakerWorks! Explore robotics, coding, and STEM projects created by our talented students and mentors in Mumbai.">
+  <meta property="twitter:image" content="https://makerworkslab.in/images/makers-hero.jpg">
+
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/components.js" defer></script>
+
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks offers robotics, coding, AI, IoT, and 3D design classes for kids in Mumbai.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19,A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9137114223",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        }]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks is a maker space in Mumbai where we build projects, prototypes, and robotics solutions using Arduino, Raspberry Pi, IoT, AI, and 3D printing.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 08:00-21:00",
+        "telephone": "+91-9137114223",
+        "sameAs": [
+          "https://x.com/makerworkslab",
+          " https://www.instagram.com/makerworkslab",
+          "https://www.youtube.com/@MakerWorkslab",
+          "https://www.linkedin.com/company/makerworkslab/"
+        ]
+      }
+    ]
+  }
+</script>
+
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --secondary: #ff6600;
+      --dark: #1d1d1f;
+      --light: #ffffff;
+      --bg-offset: #fbfbfd;
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+
+
+    /* Modern Nav (Disabled) */
+    /*
+    .navbar {
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255, 255, 255, 0.8) !important;
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 2rem;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar-brand {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--dark) !important;
+      letter-spacing: -1px;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--dark) !important;
+      padding: 0.5rem 1rem !important;
+      opacity: 0.7;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    */
+
+    /* --- Button Styles --- */
+    .btn-premium {
+      padding: 18px 40px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary-mw {
+      background: var(--dark);
+      color: var(--light);
+    }
+
+    .btn-primary-mw:hover {
+      background: #000;
+      color: var(--light);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-outline-mw {
+      border: 1px solid var(--glass-border);
+      color: var(--dark);
+      background: var(--glass);
+    }
+
+    .btn-outline-mw:hover {
+      background: var(--light);
+      transform: translateY(-5px);
+    }
+
+
+    /* Sections */
+    section {
+      padding: 100px 0 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--dark);
+    }
+
+    /* Search Section */
+    #search-section {
+      display: block;
+      background: var(--bg-offset);
+      padding: 2rem 0;
+      margin-top: 70px;
+    }
+
+    #profileSearch {
+      border-radius: 50px;
+      padding: 15px 25px;
+      border: 2px solid var(--glass-border);
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    #profileSearch:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+      outline: none;
+    }
+
+    #searchButton {
+      border-radius: 50px;
+      padding: 15px 35px;
+      font-weight: 700;
+      background: var(--primary);
+      border: none;
+      transition: var(--transition-smooth);
+    }
+
+    #searchButton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    }
+
+    /* Modern Profile Cards */
+    .profile-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      transition: var(--transition-smooth);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .profile-card:hover {
+      transform: translateY(-10px);
+      background: var(--light);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      border-color: var(--glass-border);
+    }
+
+    .profile-card .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      margin: 0 auto 20px;
+      border: 4px solid var(--primary);
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 30px rgba(13, 110, 253, 0.2);
+    }
+
+    .profile-card:hover .profile-img {
+      transform: scale(1.1);
+      border-color: var(--secondary);
+      box-shadow: 0 15px 40px rgba(255, 102, 0, 0.3);
+    }
+
+    .profile-card h5 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+
+    .profile-card p.title {
+      font-size: 0.95rem;
+      color: #6e6e73;
+      margin-bottom: 15px;
+    }
+
+    /* Modern Tags */
+    .profile-card .tags {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .profile-card .tags .tag,
+    .profile-card .tags .badge {
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05));
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(13, 110, 253, 0.2);
+      transition: var(--transition-smooth);
+    }
+
+    .profile-card .tags .badge.bg-primary {
+      background: var(--primary) !important;
+      color: white !important;
+      border: none;
+    }
+
+    .profile-card .tags .badge.bg-success {
+      background: #28a745 !important;
+      color: white !important;
+      border: none;
+    }
+
+    .profile-card .tags .badge.bg-warning {
+      background: #ffc107 !important;
+      color: #000 !important;
+      border: none;
+    }
+
+    .profile-card .tags .badge.bg-danger {
+      background: #dc3545 !important;
+      color: white !important;
+      border: none;
+    }
+
+    .profile-card .tags .badge.bg-info {
+      background: #17a2b8 !important;
+      color: white !important;
+      border: none;
+    }
+
+    .profile-card .tags .badge.bg-dark {
+      background: #343a40 !important;
+      color: white !important;
+      border: none;
+    }
+
+    .profile-card .tags .badge.bg-secondary {
+      background: #6c757d !important;
+      color: white !important;
+      border: none;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--dark);
+      color: var(--light);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: var(--transition-smooth);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    }
+
+    .social-icons a {
+      color: #000;
+      margin-right: 15px;
+      font-size: 1.3rem;
+      transition: var(--transition-smooth);
+    }
+
+    .social-icons a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* MOBILE RESPONSIVE STYLES */
+
+    /* Tablets */
+    @media (max-width: 991px) {
+      /*
+      .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      */
+
+      section {
+        padding: 80px 0 !important;
+      }
+
+      .section-title {
+        font-size: 2.5rem !important;
+        margin-bottom: 40px !important;
+      }
+    }
+
+    /* Mobile phones */
+    @media (max-width: 768px) {
+      * {
+        max-width: 100% !important;
+      }
+
+      section {
+        padding: 60px 15px !important;
+      }
+
+      #search-section {
+        margin-top: 60px !important;
+        padding: 1.5rem 0 !important;
+      }
+
+      .input-group {
+        flex-direction: column !important;
+      }
+
+      #profileSearch {
+        padding: 12px 20px !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 10px !important;
+        width: 100% !important;
+      }
+
+      #searchButton {
+        padding: 12px 25px !important;
+        width: 100% !important;
+      }
+
+      .section-title {
+        font-size: 2rem !important;
+        margin-bottom: 30px !important;
+      }
+
+      .profile-card {
+        padding: 20px 15px !important;
+        margin-bottom: 20px !important;
+      }
+
+      .profile-card .profile-img {
+        width: 100px !important;
+        height: 100px !important;
+        margin-bottom: 15px !important;
+      }
+
+      .profile-card h5 {
+        font-size: 1.2rem !important;
+      }
+
+      .profile-card p.title {
+        font-size: 0.9rem !important;
+      }
+
+      .profile-card .tags .tag,
+      .profile-card .tags .badge {
+        font-size: 0.75rem !important;
+        padding: 5px 10px !important;
+      }
+
+      .back-to-top {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 20px !important;
+        bottom: 20px !important;
+        right: 20px !important;
+      }
+
+      footer .card {
+        padding: 2rem 1.5rem !important;
+      }
+
+      footer h5 {
+        font-size: 1.1rem !important;
+      }
+
+      footer p,
+      footer a {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    /* Small mobile */
+    @media (max-width: 576px) {
+      section {
+        padding: 40px 15px !important;
+      }
+
+      .section-title {
+        font-size: 1.75rem !important;
+      }
+
+      .profile-card {
+        padding: 15px 10px !important;
+      }
+
+      .profile-card .profile-img {
+        width: 90px !important;
+        height: 90px !important;
+      }
+
+      .profile-card h5 {
+        font-size: 1.1rem !important;
+      }
+
+      .profile-card p.title {
+        font-size: 0.85rem !important;
+      }
+
+      .profile-card .tags {
+        gap: 5px !important;
+      }
+
+      .profile-card .tags .tag,
+      .profile-card .tags .badge {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+      }
+
+      .row>* {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+      }
+
+      footer .card {
+        padding: 1.5rem 1rem !important;
+      }
+    }
+
+    /* Extra small  */
+    @media (max-width: 400px) {
+      .section-title {
+        font-size: 1.5rem !important;
+      }
+
+      .profile-card .profile-img {
+        width: 80px !important;
+        height: 80px !important;
+      }
+
+      .back-to-top {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 18px !important;
+      }
+    }
+
+    /* Prevent overflow */
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden !important;
+      }
+
+      * {
+        word-wrap: break-word !important;
+      }
+
+      .container,
+      .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        overflow-x: hidden !important;
+      }
+
+      .d-flex {
+        flex-wrap: wrap !important;
+      }
+
+      .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
+
+    /* Touch-friendly */
+    @media (hover: none) and (pointer: coarse) {
+      .profile-card:hover {
+        transform: none !important;
+      }
+
+      .profile-card:active {
+        opacity: 0.9;
+        transform: scale(0.98);
+      }
+    }
+
+    .team-section {
+      content-visibility: auto;
+      contain-intrinsic-size: 500px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="navbar-placeholder"></div>
+
+
+
+
+
+  <main>
+    <section id="search-section" class="py-4 bg-light">
+      <div class="container">
+        <div class="input-group">
+          <input type="text" id="profileSearch" class="form-control"
+            placeholder="Search for a team member or student...">
+          <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mentors" class="py-5 bg-light team-section">
+      <div class="container">
+        <h2 class="section-title">Our Mentors</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col">
+            <div class="profile-card">
+              <img src="studentphotos/Vinay.webp" alt="Mentor Profile Picture" class="profile-img" fetchpriority="high"
+                decoding="async">
+              <h5>Vinay Ummadi</h5>
+              <p class="title text-muted">AI ,Machine Learning and python Mentor</p>
+              <div class="tags">
+                <span class="tag">AI</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Education</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="profile-card">
+              <img src="studentphotos/Abhay.webp" alt="Mentor Profile Picture" class="profile-img" fetchpriority="high"
+                decoding="async">
+              <h5>Abhay Waghmare</h5>
+              <p class="title text-muted">IoT & Embedded Systems Mentor</p>
+              <div class="tags">
+                <span class="tag">Desingning</span>
+                <span class="tag">creative </span>
+                <span class="tag">Hardware</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="profile-card">
+              <img src="https://via.placeholder.com/150/00CED1/FFFFFF?text=M3" alt="Mentor Profile Picture"
+                class="profile-img" fetchpriority="high" decoding="async">
+              <h5>Vamsi Polane</h5>
+              <p class="title text-muted">Creative Computing Mentor</p>
+              <div class="tags">
+                <span class="tag"> Coding</span>
+                <span class="tag">Game Dev</span>
+                <span class="tag">Digital Art</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BEGINNER SECTION ========== -->
+    <section id="beginners-showcase" class="py-5 team-section">
+      <div class="container">
+        <h2 class="section-title">Tinker Level</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <!-- Aadvik -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/aadvik singh.webp" class="profile-img" decoding="async">
+              <h5>Aadvik Singh</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Aarav -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/arrav prajapati.webp" class="profile-img" decoding="async"
+                style="transform: rotate(90deg) scale(1.2);">
+              <h5>Arrav Prajapati</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Aarum -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/aarum.webp" class="profile-img" decoding="async">
+              <h5>Aarum</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Arjun -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/arjun mahajan.webp" class="profile-img" decoding="async">
+              <h5>Arjun Mahajan</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Athrav -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/athrav.webp" class="profile-img" decoding="async">
+              <h5>Atharv Agarwal </h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Bhargav -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/Bhargav.webp" class="profile-img" decoding="async">
+              <h5>Bhargav Sarilla</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Divyana -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/divyana.webp" class="profile-img" decoding="async">
+              <h5>Divyana Ernade</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Geet -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/geet salla.webp" class="profile-img" decoding="async">
+              <h5>Geet Salla</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Ivaan -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/Ivaan jain.webp" class="profile-img" decoding="async"
+                style="transform: rotate(90deg) scale(1.2);">
+              <h5>Ivaan Jain</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Jiaan -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/jiaan patel.webp" class="profile-img" decoding="async">
+              <h5>Jiaan Patel</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Kimaya -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/Kimaya.webp" class="profile-img" decoding="async">
+              <h5>Kimaya Jain</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Maanvi -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/Maanvi pandey.webp" class="profile-img" decoding="async">
+              <h5>Maanvi Pandey</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Nitant -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/nitant.webp" class="profile-img" decoding="async">
+              <h5>Nitant</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Shaurya -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/shaurya maru.webp" class="profile-img" decoding="async">
+              <h5>Shaurya Maru</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Shenaya -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/shenaya chakraborty.webp" class="profile-img"
+                decoding="async">
+              <h5>Shenaya Chakraborty</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Shristi -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/sristhi poddar.webp" class="profile-img" decoding="async"
+                style="transform: rotate(90deg) scale(1.2);">
+              <h5>Sristhi Poddar</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Vihaan -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/vihaan joshi.webp" class="profile-img" decoding="async">
+              <h5>Vihaan Joshi</h5>
+              <p class="title text-muted">Beginner Student</p>
+              <div class="tags"><span class="badge bg-success">Micro:bit</span><span
+                  class="badge bg-warning text-dark">Electronics</span><span class="badge bg-primary">3D
+                  Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intermediate-creators" class="py-5 bg-light team-section">
+      <div class="container">
+        <h2 class="section-title">Innovative Level</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <!-- Aarya -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/arya1.webp" class="profile-img" decoding="async">
+              <h5>Aarya</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Aashman -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/aashman siresalewal.webp" class="profile-img"
+                decoding="async" style="transform: rotate(90deg) scale(1.2);">
+              <h5>Aashman Siresalewal</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Avyan Bjohan -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/avyan bhojnagarwala.webp" class="profile-img"
+                decoding="async">
+              <h5>Avyan Bhojnagarwala</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Avyukt Chokhani -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/avyukt chokhani.webp" class="profile-img"
+                decoding="async">
+              <h5>Avyukt Chokhani</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Avyukt Jain -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/avyukt jain.webp" class="profile-img" decoding="async">
+              <h5>Avyukt Jain</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Dhanak -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/dhanak seth.webp" class="profile-img" decoding="async">
+              <h5>Dhanak Seth</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Jash -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/jash2.webp" class="profile-img" decoding="async">
+              <h5>Jash Soni</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Jash Kyal -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/jash kyal.webp" class="profile-img" decoding="async">
+              <h5>Jash Kyal</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Lakshiv -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/lakshiq.webp" class="profile-img" decoding="async">
+              <h5>Lakshiv Kaushal</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Mahi -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/Mahi.webp" class="profile-img" decoding="async">
+              <h5>Mahi Jain</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Nirvaan -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/nirvaan1.webp" class="profile-img" decoding="async">
+              <h5>Nirvaan</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Pranav -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/pranav.webp" class="profile-img" decoding="async">
+              <h5>Pranav Shah</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Purv Tapria -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/purv taparia.webp" class="profile-img" decoding="async">
+              <h5>Purv Taparia</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Shlok -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/shlok raut.webp" class="profile-img" decoding="async">
+              <h5>Shlok Raut</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Sidhaardh -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/siddardh.webp" class="profile-img" decoding="async">
+              <h5>Siddardh</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Tejash -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/tejsva.webp" class="profile-img" decoding="async">
+              <h5>Tejsva Tibrewala</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Tritesh -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/Tritesh.webp" class="profile-img" decoding="async">
+              <h5>Tritesh</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+          <!-- Vivaan -->
+          <div class="col">
+            <div class="profile-card"><img src="studentphotos/vivvan.webp" class="profile-img" decoding="async">
+              <h5>Vivvan Saraf</h5>
+              <p class="title text-muted">Intermediate Student</p>
+              <div class="tags"><span class="badge bg-info text-dark">Arduino</span><span
+                  class="badge bg-secondary">C</span><span class="badge bg-warning text-dark">Electronics</span><span
+                  class="badge bg-primary">3D Design</span><span class="badge bg-danger">Programming</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== PORTFOLIO SECTION ========== -->
+    <section id="portfolio-students" class="py-5 team-section">
+      <div class="container">
+        <h2 class="section-title">Portfolio Level</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <!-- Ansh -->
+          <div class="col">
+            <div class="profile-card">
+              <img src="studentphotos/ansh2.webp" class="profile-img" decoding="async">
+              <h5>Ansh Hegde</h5>
+              <p class="title text-muted">Portfolio Student</p>
+              <div class="tags">
+                <span class="badge bg-primary">Python</span>
+                <span class="badge bg-primary">3D Design</span>
+                <span class="badge bg-danger">Programming</span>
+                <span class="badge bg-warning text-dark">Electronics</span>
+              </div>
+            </div>
+          </div>
+          <!-- Kiara -->
+          <div class="col">
+            <div class="profile-card">
+              <img src="studentphotos/kiara bhandari.webp" class="profile-img" decoding="async">
+              <h5>Kiara Bhandari</h5>
+              <p class="title text-muted">Portfolio Student</p>
+              <div class="tags">
+                <span class="badge bg-primary">Python</span>
+                <span class="badge bg-primary">3D Design</span>
+                <span class="badge bg-danger">Programming</span>
+                <span class="badge bg-warning text-dark">Electronics</span>
+              </div>
+            </div>
+          </div>
+          <!-- Shubh -->
+          <div class="col">
+            <div class="profile-card">
+              <img src="studentphotos/subh gupta.webp" class="profile-img" decoding="async">
+              <h5>Subh Gupta</h5>
+              <p class="title text-muted">Portfolio Student</p>
+              <div class="tags">
+                <span class="badge bg-primary">Python</span>
+                <span class="badge bg-primary">3D Design</span>
+                <span class="badge bg-danger">Programming</span>
+                <span class="badge bg-warning text-dark">Electronics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+
+
+
+
+  <!-- Back to top handled in components.js -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+
+    // Back to top Logic moved to components.js
+
+
+    // Search functionality for profile cards
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.getElementById('profileSearch');
+      // Get all sections that contain profile cards
+      const teamSections = document.querySelectorAll('.team-section');
+
+      // Initialize data attributes for each profile card on load
+      document.querySelectorAll('.profile-card').forEach(card => {
+        card.setAttribute('data-name', card.querySelector('h5').innerText.toLowerCase());
+        card.setAttribute('data-title', card.querySelector('p.title').innerText.toLowerCase());
+
+        const tagsElement = card.querySelector('.tags');
+        if (tagsElement) {
+          const tagText = Array.from(tagsElement.querySelectorAll('.tag')).map(tag => tag.innerText.toLowerCase()).join(' ');
+          card.setAttribute('data-tags', tagText);
+        }
+      });
+
+      function filterProfiles() {
+        const searchTerm = searchInput.value.toLowerCase().trim(); // Trim whitespace
+
+        teamSections.forEach(section => {
+          let sectionHasVisibleCards = false;
+          const columnsInRow = section.querySelectorAll('.row.g-4 > .col'); // Select direct columns containing cards
+
+          columnsInRow.forEach(column => {
+            const card = column.querySelector('.profile-card');
+            if (card) {
+              const name = card.getAttribute('data-name');
+              const title = card.getAttribute('data-title');
+              const tags = card.getAttribute('data-tags') || '';
+
+              if (name.includes(searchTerm) || title.includes(searchTerm) || tags.includes(searchTerm)) {
+                column.style.display = 'block'; // Show the column
+                sectionHasVisibleCards = true;
+              } else {
+                column.style.display = 'none'; // Hide the column
+              }
+            }
+          });
+
+          // Hide/show the entire section (including its title)
+          // If no search term, always show the section
+          if (searchTerm === '' || sectionHasVisibleCards) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+      }
+
+      // Attach the filter function to input changes
+      searchInput.addEventListener('keyup', filterProfiles);
+      // Optionally, also attach to a click event on the search button
+      document.getElementById('searchButton').addEventListener('click', filterProfiles);
+
+      // Initial filter call in case of pre-filled input or on page load
+      filterProfiles();
+    });
+  </script>
+</body>
+
+</html>

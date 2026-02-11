@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai">
+  <meta name="description"
+    content="Explore innovative robotics, coding, and STEM projects created by students and mentors at MakerWorks, Mumbai. Learn, build, and get inspired!">
+  <meta name="keywords"
+    content="MakerWorks projects, robotics projects Mumbai, coding projects, STEM projects for kids, Arduino projects, Raspberry Pi projects, IoT projects, AI projects, 3D printing projects">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makerworkslab.in/projects/">
+  <meta property="og:title" content="MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai">
+  <meta property="og:description"
+    content="Explore innovative robotics, coding, and STEM projects created by students and mentors at MakerWorks, Mumbai. Learn, build, and get inspired!">
+  <meta property="og:image" content="https://makerworkslab.in/images/projects-hero.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://makerworkslab.in/projects/">
+  <meta property="twitter:title" content="MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai">
+  <meta property="twitter:description"
+    content="Explore innovative robotics, coding, and STEM projects created by students and mentors at MakerWorks, Mumbai. Learn, build, and get inspired!">
+  <meta property="twitter:image" content="https://makerworkslab.in/images/projects-hero.jpg">
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks offers robotics, coding, AI, IoT, and 3D design classes for kids in Mumbai.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19,A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9137114223",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        }]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks is a maker space in Mumbai where we build projects, prototypes, and robotics solutions using Arduino, Raspberry Pi, IoT, AI, and 3D printing.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 08:00-21:00",
+        "telephone": "+91-9137114223",
+        "sameAs": [
+          "https://x.com/makerworkslab",
+          " https://www.instagram.com/makerworkslab",
+          "https://www.youtube.com/@MakerWorkslab",
+          "https://www.linkedin.com/company/makerworkslab/"
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --secondary: #ff6600;
+      --dark: #1d1d1f;
+      --light: #ffffff;
+      --bg-offset: #fbfbfd;
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Custom Cursor (High-End) --- */
+    .cursor-dot,
+    .cursor-outline {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 9999;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary);
+    }
+
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--primary);
+      opacity: 0.3;
+    }
+
+    @media (max-width: 991px) {
+
+      .cursor-dot,
+      .cursor-outline {
+        display: none;
+      }
+    }
+
+    /* Custom styles for modal content */
+    .modal-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .modal-body pre {
+      background-color: #282c34;
+      color: #abb2bf;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+      font-size: 0.95em;
+      line-height: 1.4;
+      tab-size: 4;
+    }
+
+    .modal-body h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #ff6600;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .modal-body h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #333;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .modal-body ul,
+    .modal-body ol {
+      margin-bottom: 1rem;
+      padding-left: 25px;
+      line-height: 1.6;
+    }
+
+    .modal-body p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      color: #444;
+    }
+
+    .modal-body strong {
+      color: #333;
+    }
+
+    .modal-body small {
+      font-style: italic;
+      color: #777;
+      display: block;
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Style for the project hero section */
+    .project-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/projects_hero.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 8rem 0 4rem;
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    .project-hero h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+    }
+
+    .project-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Project cards with modern design */
+    .card {
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      transition: var(--transition-smooth);
+      overflow: hidden;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+
+    .card-img-top {
+      transition: var(--transition-smooth);
+    }
+
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    /* Premium buttons */
+    .btn-outline-primary {
+      border-radius: 100px;
+      font-weight: 700;
+      padding: 10px 24px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-outline-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+    }
+
+    /* ============================================
+       RESPONSIVE MOBILE STYLES
+       ============================================ */
+
+    /* Tablets and smaller laptops */
+    @media (max-width: 991px) {
+
+      /* Navigation */
+      .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    /* Mobile phones (landscape and portrait) */
+    @media (max-width: 768px) {
+
+      /* Typography */
+      .project-hero h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .project-hero p {
+        font-size: 1rem !important;
+      }
+
+      .project-hero {
+        padding: 6rem 0 3rem !important;
+      }
+
+      /* Cards */
+      .card {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Modal */
+      .modal-body {
+        padding: 25px !important;
+      }
+
+      .modal-header {
+        padding: 20px 25px !important;
+      }
+
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 576px) {
+
+      /* Typography */
+      .project-hero h1 {
+        font-size: 2rem !important;
+      }
+
+      .fs-5 {
+        font-size: 1rem !important;
+      }
+
+      /* Hero Section */
+      .project-hero {
+        padding: 100px 0 60px !important;
+      }
+
+      /* Modal Code Blocks */
+      pre {
+        font-size: 0.8rem !important;
+        padding: 15px !important;
+      }
+
+      .modal-title {
+        font-size: 1.3rem !important;
+      }
+
+      /* Badges */
+      .badge {
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+      }
+
+      .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+
+      .row.g-4 {
+        row-gap: 2rem !important;
+      }
+
+      /* Remove 3D transforms on mobile for performance */
+      .card:hover {
+        transform: translateY(-8px) !important;
+      }
+
+      /* Disable custom cursor on mobile */
+      .cursor-dot,
+      .cursor-outline {
+        display: none !important;
+      }
+    }
+
+    /* Extra small devices (very old phones) */
+    @media (max-width: 400px) {
+      .project-hero h1 {
+        font-size: 1.75rem !important;
+      }
+
+      .btn-outline-primary {
+        padding: 8px 18px !important;
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Landscape mode fixes for mobile */
+    @media (max-height: 600px) and (orientation: landscape) {
+      .project-hero {
+        padding: 80px 0 40px !important;
+      }
+    }
+
+    /* Touch-friendly improvements */
+    @media (hover: none) and (pointer: coarse) {
+
+      /* Increase tap targets */
+      .btn-outline-primary,
+      .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Remove hover effects that don't work on touch */
+      .card:hover {
+        transform: none !important;
+      }
+
+      /* Make cards tappable with slight visual feedback */
+      .card:active,
+      .btn-outline-primary:active {
+        opacity: 0.9;
+        transform: scale(0.98);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <style>
+    .nav-link:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px);
+    }
+
+    .dropdown-item {
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1)) !important;
+      transform: translateX(5px);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav"
+      style="backdrop-filter: blur(20px) saturate(180%); background: rgba(255, 255, 255, 0.8) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding: 1rem 2rem; transition: all 0.3s ease;">
+      <div class="container-fluid px-lg-5">
+        <a class="navbar-brand" href="/"
+          style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.6rem; color: #1d1d1f !important; letter-spacing: -1px;">MAKERWORKS</a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarMain">
+          <span class="bi bi-list fs-1"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+          <ul class="navbar-nav gap-3 align-items-center">
+            <li class="nav-item"><a class="nav-link" href="/about/"
+                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">About</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/learn/"
+                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Learn</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/makers/"
+                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Makers</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Programs</a>
+              <ul class="dropdown-menu border-0 shadow-lg rounded-4 p-3"
+                style="background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);">
+                <li><a class="dropdown-item rounded-3 mb-1" href="/programs/beginner/">Beginner
+                    Level</a></li>
+                <li><a class="dropdown-item rounded-3 mb-1" href="/programs/intermediate/">Intermediate
+                    Level</a></li>
+                <li><a class="dropdown-item rounded-3" href="/programs/advanced/">Advanced Level</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Competitions</a>
+              <ul class="dropdown-menu border-0 shadow-lg rounded-4 p-3"
+                style="background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);">
+                <li><a class="dropdown-item rounded-3 mb-1" href="https://wroindia.org/" target="_blank">WRO</a></li>
+                <li><a class="dropdown-item rounded-3"
+                    href="https://www.vexrobotics.com/iq/competition/viqc-current-game" target="_blank">VEX IQ</a></li>
+                <li><a class="dropdown-item rounded-3" href="/competetions/MEKATHALON/" target="_blank">MEKATHALON</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="/projects/"
+                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Projects</a>
+            </li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/blog/"
+                style="font-weight: 600; color: #0d6efd !important; padding: 0.5rem 1rem !important; opacity: 1; transition: all 0.3s ease;">Blog</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/gallery/"
+                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Gallery</a>
+            </li>
+
+            <li class="nav-item ps-lg-3">
+              <a href="tel:+919137114223" class="btn"
+                style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 10px 24px; border-radius: 100px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+                BOOK TRIAL
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <style>
+    .nav-link:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px);
+    }
+
+    .dropdown-item {
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1)) !important;
+      transform: translateX(5px);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+
+
+  <!-- Modern Hero Section -->
+  <section class="project-hero"
+    style="position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 50%, #ff6600 100%);">
+    <!-- Animated Background Elements -->
+    <div
+      style="position: absolute; top: -50px; left: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: floatBubble 8s ease-in-out infinite;">
+    </div>
+    <div
+      style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: rgba(255,255,255,0.08); border-radius: 50%; animation: floatBubble 10s ease-in-out infinite reverse;">
+    </div>
+    <div
+      style="position: absolute; top: 50%; left: 10%; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border-radius: 50%; animation: floatBubble 6s ease-in-out infinite;">
+    </div>
+
+    <!-- Grid Pattern Overlay -->
+    <div
+      style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;">
+    </div>
+
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <span
+        style="display: inline-block; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); padding: 8px 24px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">
+        <i class="bi bi-robot me-2"></i>Innovation Hub
+      </span>
+      <h1
+        style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 24px; letter-spacing: -2px;">
+        Our Creative<br><span
+          style="background: linear-gradient(90deg, #fff, rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Projects</span>
+      </h1>
+      <p
+        style="font-size: 1.25rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 32px; line-height: 1.7;">
+        Explore innovative robotics, coding, and STEM projects built with Arduino, Raspberry Pi, and cutting-edge
+        technologies.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#projects-grid" class="btn"
+          style="background: white; color: #0d6efd; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          <i class="bi bi-grid-3x3-gap-fill"></i> Browse Projects
+        </a>
+        <a href="tel:+919137114223" class="btn"
+          style="background: transparent; color: white; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s ease;">
+          <i class="bi bi-telephone-fill"></i> Get Started
+        </a>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+        <div
+          style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+          <h4 style="color: white; font-weight: 800; font-size: 1.8rem; margin-bottom: 4px;">20+</h4>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0;">Projects</p>
+        </div>
+        <div
+          style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+          <h4 style="color: white; font-weight: 800; font-size: 1.8rem; margin-bottom: 4px;">5+</h4>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0;">Categories</p>
+        </div>
+        <div
+          style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+          <h4 style="color: white; font-weight: 800; font-size: 1.8rem; margin-bottom: 4px;">100%</h4>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0;">Hands-on</p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @keyframes floatBubble {
+
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-30px) rotate(5deg);
+        }
+      }
+    </style>
+  </section>
+
+  <!-- Projects Section Header -->
+  <section id="projects-grid" class="container py-5">
+    <div class="text-center mb-5">
+      <span
+        style="display: inline-block; background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(255, 102, 0, 0.1)); padding: 8px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; color: #0d6efd; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">
+        Get Making
+      </span>
+      <h2
+        style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 2.8rem; font-weight: 800; color: #1d1d1f; letter-spacing: -1px;">
+        All Projects</h2>
+      <p class="text-muted" style="max-width: 500px; margin: 16px auto 0;">Discover our collection of innovative STEM
+        projects built by students and mentors</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Project Card 1: Obstacle Avoiding Robot -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <!-- Image Container -->
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/obstacle Avoiding robot.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Obstacle Avoiding Robot">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <!-- Badge -->
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <!-- Difficulty -->
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <!-- Content -->
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Obstacle Avoiding
+              Robot</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">A smart car that uses
+              an ultrasonic sensor to detect and avoid obstacles autonomously.</p>
+            <!-- Tech Stack -->
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Arduino
+                Uno</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">HC-SR04</span>
+              <span
+                style="background: rgba(255, 102, 0, 0.1); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Motors</span>
+            </div>
+            <button class="w-100"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;"
+              data-bs-toggle="modal" data-bs-target="#obstacleModal">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2: Home Automation System -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/Home automation System.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Home Automation System">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-half me-1"></i>Intermediate
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Home Automation System
+            </h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Control home appliances
+              using a mobile phone via Bluetooth and Arduino relay system.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">HC-05
+                BT</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Relay</span>
+              <span
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Android</span>
+            </div>
+            <button class="w-100"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;"
+              data-bs-toggle="modal" data-bs-target="#automationModal">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3: Weather Station -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/weatherstation.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Arduino Weather Station">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Arduino Weather
+              Station</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Monitor real-time
+              temperature, humidity, and pressure data with sensor feedback.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">DHT11</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">BMP180</span>
+              <span
+                style="background: rgba(255, 102, 0, 0.1); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">LCD</span>
+            </div>
+            <button class="w-100"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;"
+              data-bs-toggle="modal" data-bs-target="#weatherModal">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 4: Smart Dustbin -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/Gallary Smart Dustbin.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Smart Dustbin">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Smart Dustbin</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Automatically opens its
+              lid when someone approaches—perfect for hygiene.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">HC-SR04</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Servo</span>
+              <span
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">IoT</span>
+            </div>
+            <button class="w-100"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;"
+              data-bs-toggle="modal" data-bs-target="#dustbinModal">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Card Hover Styles -->
+    <style>
+      .project-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .project-card button:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+      }
+    </style>
+  </section>
+
+  <div class="modal fade" id="obstacleModal" tabindex="-1" aria-labelledby="obstacleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obstacleModalLabel">Obstacle Avoiding Robot</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="projectimages\obstacle Avoiding robot.webp" alt="Obstacle Avoiding Robot Project">
+          <p>The **Obstacle Avoiding Robot** is an exciting beginner-level robotics project that demonstrates
+            autonomous
+            navigation. This robot uses an **ultrasonic sensor (HC-SR04)** to detect objects in its path and an
+            **Arduino Uno** to process the sensor data, commanding its **DC motors** to change direction and avoid
+            collisions. It's a fantastic introduction to sensors, motor control, and basic robotics programming.</p>
+
+          <h2>Components Used:</h2>
+          <ul>
+            <li><strong>Arduino Uno</strong> microcontroller board</li>
+            <li><strong>HC-SR04 Ultrasonic Sensor</strong></li>
+            <li>**L298N Motor Driver Module**</li>
+            <li>**2 x DC Motors**</li>
+            <li>Robot Chassis / Wheels</li>
+            <li>Breadboard</li>
+            <li>Jumper Wires</li>
+            <li>9V Battery or Power Bank (for motor power)</li>
+          </ul>
+
+          <h2>How it Works:</h2>
+          <p>The HC-SR04 ultrasonic sensor constantly emits ultrasonic sound waves and measures the time it takes for
+            the echo to return. The Arduino uses this time to calculate the distance to any object in front of the
+            robot. If an obstacle is detected within a predefined range (e.g., 20 cm), the Arduino stops the robot,
+            looks left and right to find a clear path, and then moves in the direction with the greatest distance.</p>
+
+          <h3>Circuit Connections:</h3>
+          <img src="projectimages/obstacle_robot_circuit.webp" alt="Obstacle Avoiding Robot Circuit Diagram">
+          <small>Simplified circuit diagram for the Obstacle Avoiding Robot.</small>
+          <ul>
+            <li><strong>HC-SR04:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `Trig` to Arduino Digital Pin X,
+              `Echo` to Arduino Digital Pin Y.</li>
+            <li><strong>L298N:</strong> Connect `ENA/ENB` to Arduino PWM pins for speed control, `IN1/IN2/IN3/IN4` to
+              Arduino Digital Pins for direction control. `OUT1/OUT2` connect to Motor 1, `OUT3/OUT4` connect to Motor
+              2. Provide external power to the L298N.</li>
+          </ul>
+
+          <h2>Arduino Code Snippet (Core Logic):</h2>
+          <pre><code class="language-arduino">
+#define trigPin 9
+#define echoPin 8
+#define motorPin1_L 2 // Left Motor IN1
+#define motorPin2_L 3 // Left Motor IN2
+#define motorPin1_R 4 // Right Motor IN1
+#define motorPin2_R 5 // Right Motor IN2
+#define enableL 6 // Left Motor Enable (PWM)
+#define enableR 7 // Right Motor Enable (PWM)
+
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(motorPin1_L, OUTPUT);
+  pinMode(motorPin2_L, OUTPUT);
+  pinMode(motorPin1_R, OUTPUT);
+  pinMode(motorPin2_R, OUTPUT);
+  pinMode(enableL, OUTPUT);
+  pinMode(enableR, OUTPUT);
+  Serial.begin(9600);
+  // Set initial speed
+  analogWrite(enableL, 150); // Adjust speed (0-255)
+  analogWrite(enableR, 150);
+}
+
+void loop() {
+  distance = calculateDistance();
+
+  if (distance <= 20) { // If obstacle is within 20cm
+    stopRobot();
+    delay(500);
+    turnRight(); // Try turning right
+    delay(700); // Turn for a short duration
+    distance = calculateDistance();
+    if (distance <= 20) { // Still an obstacle, try turning left
+      stopRobot();
+      delay(500);
+      turnLeft();
+      delay(1400); // Turn longer to try another direction
+      distance = calculateDistance();
+      if (distance <= 20) { // Still no clear path, turn around
+        stopRobot();
+        delay(500);
+        turnAround();
+        delay(1000);
+      }
+    }
+  }
+  moveForward(); // Keep moving forward if no obstacle
+}
+
+// Function to calculate distance
+int calculateDistance() {
+  // ... (Full function sends pulse and reads echo, returns distance in cm)
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+  return distance;
+}
+
+// Motor control functions (moveForward, stopRobot, turnLeft, turnRight, turnAround)
+void moveForward() {
+  digitalWrite(motorPin1_L, HIGH); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, HIGH); digitalWrite(motorPin2_R, LOW);
+}
+void stopRobot() {
+  digitalWrite(motorPin1_L, LOW); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, LOW); digitalWrite(motorPin2_R, LOW);
+}
+void turnRight() {
+  digitalWrite(motorPin1_L, HIGH); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, LOW); digitalWrite(motorPin2_R, HIGH); // Right motor backward
+}
+void turnLeft() {
+  digitalWrite(motorPin1_L, LOW); digitalWrite(motorPin2_L, HIGH); // Left motor backward
+  digitalWrite(motorPin1_R, HIGH); digitalWrite(motorPin2_R, LOW);
+}
+void turnAround() {
+  digitalWrite(motorPin1_L, HIGH); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, LOW); digitalWrite(motorPin2_R, HIGH);
+}
+                    </code></pre>
+          <small>Simplified Arduino code for obstacle avoidance logic.</small>
+
+          <h2>Applications:</h2>
+          <p>This project lays the groundwork for more advanced autonomous robots, robotic vacuum cleaners, and
+            automated guided vehicles (AGVs) in industrial settings.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="automationModal" tabindex="-1" aria-labelledby="automationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="automationModalLabel">Home Automation System</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="projectimages\Home automation System.webp" alt="Home Automation System Project">
+          <p>This **Home Automation System** allows you to control your household appliances (like lights, fans, etc.)
+            remotely using your smartphone via **Bluetooth**. Built with **Arduino**, it's a practical and
+            cost-effective way to introduce smart features into your living space, enhancing convenience and energy
+            efficiency.</p>
+
+          <h2>Components Used:</h2>
+          <ul>
+            <li><strong>Arduino Uno</strong> microcontroller board</li>
+            <li><strong>HC-05 Bluetooth Module</strong> (or HC-06)</li>
+            <li>**1, 2, or 4-Channel Relay Module** (depending on how many appliances you want to control)</li>
+            <li>Smartphone with a compatible Android application (e.g., built with MIT App Inventor or a generic
+              Bluetooth terminal app)</li>
+            <li>AC appliances (lamps, fans, etc.) for demonstration (use caution with mains voltage)</li>
+            <li>Jumper Wires</li>
+            <li>Power supply for Arduino</li>
+          </ul>
+
+          <h2>How it Works:</h2>
+          <p>The Arduino receives commands wirelessly from your smartphone via the HC-05 Bluetooth module. Based on
+            the
+            received commands (e.g., a character like 'A' for light on, 'a' for light off), the Arduino then triggers
+            the appropriate relay. Relays act as electrically operated switches, safely controlling the higher voltage
+            AC current flowing to your appliances.</p>
+
+          <h3>Circuit Connections:</h3>
+          <img src="images/home_automation_circuit.webp" alt="Home Automation System Circuit Diagram">
+          <small>Simplified circuit diagram for Home Automation with Arduino and Bluetooth.</small>
+          <ul>
+            <li><strong>HC-05 Bluetooth Module:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `TX` to Arduino RX
+              (pin 0), `RX` to Arduino TX (pin 1). (Note: For programming Arduino, disconnect TX/RX or use a software
+              serial setup).</li>
+            <li><strong>Relay Module:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND. `IN1`, `IN2`, etc., to
+              Arduino
+              Digital Pins (e.g., 2, 3, 4). Appliances connect to the relay's Normally Open (NO) and Common (COM)
+              terminals.</li>
+          </ul>
+
+          <h2>Arduino Code Snippet (Simplified):</h2>
+          <pre><code class="language-arduino">
+char command; // Variable to store incoming command
+
+void setup() {
+  Serial.begin(9600); // Initialize serial communication with Bluetooth module
+  pinMode(2, OUTPUT); // Pin for Relay 1 (e.g., Light)
+  pinMode(3, OUTPUT); // Pin for Relay 2 (e.g., Fan)
+  // Set initial state (all off)
+  digitalWrite(2, HIGH); // Relays are often active LOW
+  digitalWrite(3, HIGH);
+}
+
+void loop() {
+  if (Serial.available() > 0) { // Check if data is available from Bluetooth
+    command = Serial.read();    // Read the incoming character
+
+    switch (command) {
+      case 'A': // Command to turn Light ON
+        digitalWrite(2, LOW); // Activate Relay 1
+        Serial.println("Light ON");
+        break;
+      case 'a': // Command to turn Light OFF
+        digitalWrite(2, HIGH); // Deactivate Relay 1
+        Serial.println("Light OFF");
+        break;
+      case 'B': // Command to turn Fan ON
+        digitalWrite(3, LOW); // Activate Relay 2
+        Serial.println("Fan ON");
+        break;
+      case 'b': // Command to turn Fan OFF
+        digitalWrite(3, HIGH); // Deactivate Relay 2
+        Serial.println("Fan OFF");
+        break;
+      default:
+        // Optional: Handle unknown commands
+        break;
+    }
+  }
+}
+                    </code></pre>
+          <small>Core Arduino code for Bluetooth-controlled relays.</small>
+
+          <h2>Applications:</h2>
+          <p>Beyond basic home appliance control, this project can be expanded into more complex smart home systems,
+            integrating with other sensors (e.g., light sensors to turn on lights automatically), and even moving
+            towards Wi-Fi based IoT solutions.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="weatherModal" tabindex="-1" aria-labelledby="weatherModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="weatherModalLabel">Arduino Weather Station</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="projectimages\weatherstation.webp" alt="Arduino Weather Station Project">
+          <p>Build your own compact **Weather Station** using Arduino! This project allows you to monitor real-time
+            environmental data such as **temperature, humidity, and atmospheric pressure**. The readings are displayed
+            on a **16x2 LCD** for easy viewing, making it a great educational project for understanding sensor data
+            acquisition and display.</p>
+
+          <h2>Components Used:</h2>
+          <ul>
+            <li><strong>Arduino Uno</strong> microcontroller board</li>
+            <li>**DHT11** or **DHT22 Temperature and Humidity Sensor**</li>
+            <li>**BMP180 Barometric Pressure Sensor** (can also measure temperature and altitude)</li>
+            <li>**16x2 LCD Display with I2C module** (highly recommended for simpler wiring)</li>
+            <li>Breadboard</li>
+            <li>Jumper Wires</li>
+            <li>Power supply for Arduino</li>
+          </ul>
+
+          <h2>How it Works:</h2>
+          <p>The Arduino communicates with the DHT11/DHT22 sensor to get temperature and humidity readings.
+            Simultaneously, it interfaces with the BMP180 sensor via the I2C protocol to obtain atmospheric pressure
+            and
+            another temperature reading. All this collected data is then formatted and displayed on the 16x2 LCD
+            screen,
+            updating periodically.</p>
+
+          <h3>Circuit Connections:</h3>
+          <img src="images/weather_station_circuit.webp" alt="Arduino Weather Station Circuit Diagram">
+          <small>Simplified circuit diagram for Arduino Weather Station with DHT11, BMP180, and I2C LCD.</small>
+          <ul>
+            <li><strong>DHT11/DHT22:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `Data` pin to Arduino Digital
+              Pin (e.g., 7).</li>
+            <li><strong>BMP180:</strong> This is an I2C device. `VCC` to Arduino 5V, `GND` to Arduino GND, `SDA` to
+              Arduino A4, `SCL` to Arduino A5.</li>
+            <li><strong>16x2 LCD with I2C:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `SDA` to Arduino A4,
+              `SCL` to Arduino A5. (Notice both I2C devices share A4/A5).</li>
+          </ul>
+
+          <h2>Arduino Code Snippet (Core Logic):</h2>
+          <pre><code class="language-arduino">
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_Sensor.h&gt; // Required for DHT sensor library
+#include &lt;DHT.h&gt;             // DHT sensor library
+#include &lt;Adafruit_BMP085.h&gt; // BMP180/BMP085 sensor library
+#include &lt;LiquidCrystal_I2C.h&gt; // I2C LCD library
+
+// Define DHT sensor type and pin
+#define DHTPIN 7
+#define DHTTYPE DHT11 // Or DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
+// Initialize BMP sensor
+Adafruit_BMP085 bmp;
+
+// Initialize LCD with I2C address and dimensions
+LiquidCrystal_I2C lcd(0x27, 16, 2); // Adjust address if needed (0x3F or 0x27)
+
+void setup() {
+  Serial.begin(9600);
+  lcd.init();
+  lcd.backlight();
+  dht.begin();
+
+  if (!bmp.begin()) {
+    Serial.println("Could not find a valid BMP085 sensor, check wiring!");
+    while(1);
+  }
+  Serial.println("BMP085 sensor found!");
+  lcd.print("Weather Station");
+  lcd.setCursor(0,1);
+  lcd.print("Initializing...");
+  delay(2000);
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t_dht = dht.readTemperature(); // Temperature from DHT
+
+  if (isnan(h) || isnan(t_dht)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+
+  // Get temperature and pressure from BMP180
+  float t_bmp = bmp.readTemperature(); // Temperature from BMP180
+  float p = bmp.readPressure();
+
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Temp: ");
+  lcd.print(t_dht); // Or t_bmp, depends on preference
+  lcd.print((char)223); // Degree symbol
+  lcd.print("C Hum:");
+  lcd.print(h);
+  lcd.print("%");
+
+  lcd.setCursor(0,1);
+  lcd.print("Pressure:");
+  lcd.print(p / 100.0F); // Convert Pa to hPa/mbar
+  lcd.print("hPa");
+
+  delay(5000); // Update every 5 seconds
+}
+                    </code></pre>
+          <small>Core Arduino code for reading sensors and displaying on LCD.</small>
+
+          <h2>Applications:</h2>
+          <p>This project is a perfect foundation for home environmental monitoring, smart garden systems, or even
+            building a small personal weather station that logs data to a computer or cloud platform (with additional
+            modules like ESP8266 for Wi-Fi).</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="dustbinModal" tabindex="-1" aria-labelledby="dustbinModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dustbinModalLabel">Smart Dustbin</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="projectimages\Gallary Smart Dustbin.webp" alt="Smart Dustbin Project">
+          <p>The **Smart Dustbin** is an innovative hygiene-focused project that automatically opens its lid when it
+            detects a hand approaching. This touchless operation promotes better sanitation and reduces the spread of
+            germs, making it ideal for public spaces, kitchens, and labs. It's a simple yet effective application of
+            sensors and actuators with **Arduino**.</p>
+
+          <h2>Components Used:</h2>
+          <ul>
+            <li><strong>Arduino Uno</strong> microcontroller board</li>
+            <li>**HC-SR04 Ultrasonic Sensor**</li>
+            <li>**SG90 Servo Motor**</li>
+            <li>Small dustbin (or a container to simulate one)</li>
+            <li>Cardboard or plastic lid (to be controlled by servo)</li>
+            <li>Breadboard</li>
+            <li>Jumper Wires</li>
+            <li>5V Power Supply (USB or battery pack)</li>
+          </ul>
+
+          <h2>How it Works:</h2>
+          <p>The ultrasonic sensor continuously measures the distance to objects in front of it. When a hand (or any
+            object) comes within a set range (e.g., 15-20 cm), the Arduino receives this information. It then sends a
+            signal to the servo motor, which rotates to open the dustbin lid. After a short delay (allowing the user
+            to
+            deposit waste), the servo rotates back, closing the lid.</p>
+
+          <h3>Circuit Connections:</h3>
+          <img src="images/smart_dustbin_circuit.webp" alt="Smart Dustbin Circuit Diagram">
+          <small>Simplified circuit diagram for Smart Dustbin with Arduino, Ultrasonic Sensor, and Servo.</small>
+          <ul>
+            <li><strong>HC-SR04:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `Trig` to Arduino Digital Pin X,
+              `Echo` to Arduino Digital Pin Y.</li>
+            <li><strong>SG90 Servo Motor:</strong> `VCC` (Red wire) to Arduino 5V, `GND` (Brown wire) to Arduino GND,
+              `Signal` (Orange/Yellow wire) to Arduino Digital Pin (e.g., 9).</li>
+          </ul>
+
+          <h2>Arduino Code Snippet (Core Logic):</h2>
+          <pre><code class="language-arduino">
+#include &lt;Servo.h&gt; // Include the Servo library
+
+#define trigPin 9 // Ultrasonic sensor Trig pin
+#define echoPin 8 // Ultrasonic sensor Echo pin
+#define servoPin 3 // Servo motor signal pin (PWM pin recommended)
+
+Servo myServo; // Create a servo object
+
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  myServo.attach(servoPin); // Attach the servo to its pin
+  myServo.write(0); // Ensure lid starts closed (adjust angle if needed for your setup)
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Clear the trigPin by setting it LOW for 2 microseconds
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  // Set the trigPin HIGH for 10 microseconds to send pulse
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Read the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPin, HIGH);
+
+  // Calculate the distance: Speed of sound = 0.034 cm/microsecond
+  // Distance = (Travel Time * Speed of Sound) / 2 (for round trip)
+  distance = duration * 0.034 / 2;
+
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  if (distance <= 20) { // If object is within 20 cm
+    myServo.write(90); // Open the lid (adjust angle for your setup)
+    delay(2000);       // Keep lid open for 2 seconds
+  } else {
+    myServo.write(0); // Close the lid
+  }
+  delay(100); // Small delay before next reading
+}
+                    </code></pre>
+          <small>Core Arduino code for the Smart Dustbin.</small>
+
+          <h2>Applications:</h2>
+          <p>This concept can be extended to automated dispensers, smart pet feeders, or even sensor-activated entry
+            systems, demonstrating the versatility of simple proximity detection and motion control.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer style="background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
+    <!-- Decorative Background Elements -->
+    <div
+      style="position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(13, 110, 253, 0.05) 0%, transparent 70%); border-radius: 50%; z-index: 0;">
+    </div>
+    <div
+      style="position: absolute; bottom: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255, 102, 0, 0.04) 0%, transparent 70%); border-radius: 50%; z-index: 0;">
+    </div>
+
+    <div class="container py-5" style="position: relative; z-index: 1;">
+      <!-- Top Section -->
+      <div class="row g-5 mb-5">
+        <!-- Brand & About -->
+        <div class="col-lg-4">
+          <div class="mb-4">
+            <a class="navbar-brand mb-3 d-block" href="/"
+              style="font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0d6efd, #ff6600); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              MAKERWORKS
+            </a>
+            <p class="text-muted mb-4" style="line-height: 1.8; font-size: 1rem;">Mumbai's premier engineering lab for
+              young minds aged 8-17. We transform curiosity into innovation through hands-on robotics, coding, and
+              STEM
+              education.</p>
+          </div>
+
+          <!-- Stats Mini -->
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div
+                style="background: white; padding: 15px; border-radius: 16px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+                <h4 class="fw-800 mb-0" style="color: #0d6efd; font-size: 1.5rem;">12+</h4>
+                <p class="text-muted small mb-0">Awards</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div
+                style="background: white; padding: 15px; border-radius: 16px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+                <h4 class="fw-800 mb-0" style="color: #ff6600; font-size: 1.5rem;">50+</h4>
+                <p class="text-muted small mb-0">Students</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div>
+            <h6 class="fw-bold mb-3"
+              style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #495057;">Connect With
+              Us
+            </h6>
+            <div class="d-flex gap-3">
+              <a href="https://x.com/makerworkslab" class="social-link" target="_blank" rel="noopener"
+                style="width: 45px; height: 45px; background: linear-gradient(135deg, #1DA1F2, #0d8bd9); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);">
+                <i class="fab fa-x-twitter" style="font-size: 1.2rem;"></i>
+              </a>
+              <a href="https://www.instagram.com/makerworkslab" class="social-link" target="_blank" rel="noopener"
+                style="width: 45px; height: 45px; background: linear-gradient(135deg, #E1306C, #C13584); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);">
+                <i class="fab fa-instagram" style="font-size: 1.2rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/company/makerworkslab/" class="social-link" target="_blank"
+                rel="noopener"
+                style="width: 45px; height: 45px; background: linear-gradient(135deg, #0077B5, #005885); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);">
+                <i class="fab fa-linkedin-in" style="font-size: 1.2rem;"></i>
+              </a>
+              <a href="https://www.youtube.com/@MakerWorksLab" class="social-link" target="_blank" rel="noopener"
+                style="width: 45px; height: 45px; background: linear-gradient(135deg, #FF0000, #CC0000); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);">
+                <i class="fab fa-youtube" style="font-size: 1.2rem;"></i>
+              </a>
+              <a href="https://wa.me/919137114223" class="social-link" target="_blank" rel="noopener"
+                style="width: 45px; height: 45px; background: linear-gradient(135deg, #25D366, #20BA5A); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);">
+                <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programs -->
+        <div class="col-lg-2">
+          <h6 class="fw-bold mb-4"
+            style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; color: #212529;">Programs</h6>
+          <ul class="list-unstyled footer-links">
+            <li class="mb-3">
+              <a href="/programs/beginner/" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-lightbulb" style="color: #0d6efd; font-size: 1rem;"></i>
+                <span>Beginner Level</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/programs/intermediate/" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-gear" style="color: #0d6efd; font-size: 1rem;"></i>
+                <span>Intermediate</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/programs/advanced/" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-rocket" style="color: #0d6efd; font-size: 1rem;"></i>
+                <span>Advanced Level</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/programs/robotics/" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-robot" style="color: #ff6600; font-size: 1rem;"></i>
+                <span>VEX Robotics</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/programs/ai/" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-stars" style="color: #6f42c1; font-size: 1rem;"></i>
+                <span>AI & ML Labs</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2">
+          <h6 class="fw-bold mb-4"
+            style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; color: #212529;">Quick Links
+          </h6>
+          <ul class="list-unstyled footer-links">
+            <li class="mb-3">
+              <a href="/#about" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-arrow-right-short" style="color: #0d6efd;"></i>
+                <span>About Us</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/#achievements" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-arrow-right-short" style="color: #0d6efd;"></i>
+                <span>Achievements</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/#competitions" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-arrow-right-short" style="color: #0d6efd;"></i>
+                <span>Competitions</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/#blogs" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-arrow-right-short" style="color: #0d6efd;"></i>
+                <span>Resources</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/#faq" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-arrow-right-short" style="color: #0d6efd;"></i>
+                <span>FAQ</span>
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="/gallery/" class="text-decoration-none d-flex align-items-center gap-2"
+                style="color: #6c757d; transition: all 0.3s ease;">
+                <i class="bi bi-arrow-right-short" style="color: #0d6efd;"></i>
+                <span>Gallery</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact & Location -->
+        <div class="col-lg-4">
+          <h6 class="fw-bold mb-4"
+            style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; color: #212529;">Get In Touch
+          </h6>
+
+          <!-- Contact Info Cards -->
+          <div class="mb-4">
+            <a href="tel:+919137114223" class="text-decoration-none d-block mb-3"
+              style="background: white; padding: 15px 20px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: all 0.3s ease; border-left: 4px solid #0d6efd;">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05)); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <i class="bi bi-telephone-fill" style="color: #0d6efd; font-size: 1.1rem;"></i>
+                </div>
+                <div>
+                  <p class="mb-0 small text-muted">Call Us</p>
+                  <p class="mb-0 fw-bold" style="color: #212529;">+91 9137114223</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="mailto:makerworkslab@gmail.com" class="text-decoration-none d-block mb-3"
+              style="background: white; padding: 15px 20px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: all 0.3s ease; border-left: 4px solid #ff6600;">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05)); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <i class="bi bi-envelope-fill" style="color: #ff6600; font-size: 1.1rem;"></i>
+                </div>
+                <div>
+                  <p class="mb-0 small text-muted">Email Us</p>
+                  <p class="mb-0 fw-bold" style="color: #212529; font-size: 0.9rem;">makerworkslab@gmail.com</p>
+                </div>
+              </div>
+            </a>
+
+            <div class="d-block mb-3"
+              style="background: white; padding: 15px 20px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 4px solid #6f42c1;">
+              <div class="d-flex align-items-start gap-3">
+                <div
+                  style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(111, 66, 193, 0.05)); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-geo-alt-fill" style="color: #6f42c1; font-size: 1.1rem;"></i>
+                </div>
+                <div>
+                  <p class="mb-0 small text-muted">Visit Us</p>
+                  <p class="mb-0 fw-bold" style="color: #212529; line-height: 1.6;">Malad East, Mumbai, India</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operating Hours -->
+          <div
+            style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.08), rgba(255, 102, 0, 0.05)); padding: 20px; border-radius: 14px; border: 2px solid rgba(13, 110, 253, 0.1);">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="bi bi-clock-fill" style="color: #0d6efd; font-size: 1.2rem;"></i>
+              <h6 class="mb-0 fw-bold" style="font-size: 0.9rem;">Operating Hours</h6>
+            </div>
+            <p class="mb-2 small"><strong>Mon - Fri:</strong> 4:00 PM - 8:00 PM</p>
+            <p class="mb-0 small"><strong>Sat - Sun:</strong> 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div style="background: white; padding: 20px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="bi bi-map-fill" style="color: #0d6efd; font-size: 1.3rem;"></i>
+              <h6 class="mb-0 fw-bold">Find Us on Map</h6>
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.48956725636!2d72.85801937497995!3d19.173807982050995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b796cadb56b5%3A0x68b4a7a75e5170e7!2sMakerWorks%20%7C%20Robotics%20%26%20Programing%20Classes%20for%20Kids!5e0!3m2!1sen!2sin!4v1756369570774!5m2!1sen!2sin"
+              width="100%" height="300" style="border:0; border-radius: 16px;" allowfullscreen=""
+              loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="border-top pt-4">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0 text-muted small">© 2025 MakerWorks Lab. All Rights Reserved. | Pioneering Engineering
+              Education</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="d-inline-flex gap-3">
+              <a href="/privacy-policy/" class="text-muted small text-decoration-none"
+                style="transition: color 0.3s ease;">Privacy Policy</a>
+              <span class="text-muted">•</span>
+              <a href="/terms/" class="text-muted small text-decoration-none" style="transition: color 0.3s ease;">Terms
+                of Service</a>
+              <span class="text-muted">•</span>
+              <a href="/sitemap.xml" class="text-muted small text-decoration-none"
+                style="transition: color 0.3s ease;">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Footer Link Hover Effects */
+      .footer-links a:hover {
+        color: #0d6efd !important;
+        transform: translateX(5px);
+      }
+
+      .footer-links a i {
+        transition: transform 0.3s ease;
+      }
+
+      .footer-links a:hover i {
+        transform: scale(1.2);
+      }
+
+      /* Social Link Hover */
+      .social-link:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      /* Contact Card Hover */
+      a[href^="tel"]:hover,
+      a[href^="mailto"]:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      /* Bottom Links Hover */
+      .col-md-6 a:hover {
+        color: #0d6efd !important;
+      }
+    </style>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/component-loader.js"></script>
+  <script>
+
+    // Initialize Highlight.js to parse and highlight code blocks
+    document.addEventListener('DOMContentLoaded', (event) => {
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+      }
+    });
+
+    // Scroll Logic
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('floating');
+      } else {
+        nav.classList.remove('floating');
+      }
+    });
+
+    // Optional: Close navbar on link click (if it doesn't do so by default on mobile)
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarMain');
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+            toggle: false
+          });
+          bsCollapse.hide();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

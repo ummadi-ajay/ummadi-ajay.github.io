@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coolest Projects - MakerWorks | Global Technology Showcase</title>
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="Join MakerWorks at Coolest Projects - a global technology showcase for young people to display their innovative projects and digital creations.">
+    <meta name="keywords"
+        content="Coolest Projects, technology showcase, coding for kids, robotics competition, innovation, MakerWorks Mumbai">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Coolest Projects - MakerWorks">
+    <meta property="og:description" content="A global technology showcase for young innovators">
+    <meta property="og:image" content="https://makerworkslab.in/images/coolest-og.jpg">
+    <meta property="og:url" content="https://makerworkslab.in/competitions/coolest/">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --secondary: #ff6600;
+            --dark: #1d1d1f;
+            --light: #ffffff;
+            --bg-offset: #fbfbfd;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --radius-xl: 24px;
+            --radius-lg: 16px;
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            cursor: none;
+        }
+
+        @media (max-width: 991px) {
+            body {
+                cursor: auto;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+
+        @media (max-width: 991px) {
+
+            .cursor-dot,
+            .cursor-outline {
+                display: none;
+            }
+        }
+
+        /* Buttons */
+        .btn-premium {
+            padding: 12px 30px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary-mw {
+            background: var(--dark);
+            color: var(--light);
+            border: none;
+        }
+
+        .btn-primary-mw:hover {
+            background: #000;
+            color: var(--light);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero */
+        .coolest-hero {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 140px 20px 120px;
+            overflow: hidden;
+            border-radius: 0 0 50px 50px;
+        }
+
+        .coolest-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .coolest-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            letter-spacing: -2px;
+        }
+
+        .coolest-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .coolest-hero .btn {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .coolest-hero .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        /* Card Styles */
+        .info-card,
+        .category-card,
+        .benefit-card,
+        .timeline-card {
+            background: var(--light);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+        }
+
+        .info-card:hover,
+        .category-card:hover,
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), #0a58ca);
+        }
+
+        .icon-box i {
+            font-size: 2rem;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav"
+            style="backdrop-filter: blur(20px) saturate(180%); background: #ffffff !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding: 1rem 2rem; transition: all 0.3s ease;">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand" href="/"
+                    style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.6rem; color: #1d1d1f !important; letter-spacing: -1px;">MAKERWORKS</a>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMain">
+                    <span class="bi bi-list fs-1"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+                    <ul class="navbar-nav gap-3 align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="/about/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">About</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/learn/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Learn</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/makers/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Makers</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Programs</a>
+                            <ul class="dropdown-menu border-0 shadow-lg rounded-4 p-3"
+                                style="background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);">
+                                <li><a class="dropdown-item rounded-3 mb-1" href="/programs/beginner/">Beginner
+                                        Level</a></li>
+                                <li><a class="dropdown-item rounded-3 mb-1" href="/programs/intermediate/">Intermediate
+                                        Level</a></li>
+                                <li><a class="dropdown-item rounded-3" href="/programs/advanced/">Advanced Level</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Competitions</a>
+                            <ul class="dropdown-menu border-0 shadow-lg rounded-4 p-3"
+                                style="background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);">
+                                <li><a class="dropdown-item rounded-3 mb-1" href="https://wroindia.org/"
+                                        target="_blank">WRO</a></li>
+                                <li><a class="dropdown-item rounded-3"
+                                        href="https://www.vexrobotics.com/iq/competition/viqc-current-game"
+                                        target="_blank">VEX IQ</a></li>
+                                <li><a class="dropdown-item rounded-3" href="/competetions/MEKATHALON/"
+                                        target="_blank">MEKATHALON</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/projects/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Projects</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/blog/"
+                                style="font-weight: 600; color: #0d6efd !important; padding: 0.5rem 1rem !important; opacity: 1; transition: all 0.3s ease;">Blog</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/gallery/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Gallery</a>
+                        </li>
+
+                        <li class="nav-item ps-lg-3">
+                            <a href="tel:+919137114223" class="btn"
+                                style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 10px 24px; border-radius: 100px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+                                BOOK TRIAL
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <style>
+        .nav-link:hover {
+            opacity: 1 !important;
+            transform: translateY(-2px);
+        }
+
+        .dropdown-item {
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1)) !important;
+            transform: translateX(5px);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 20px;
+                margin-top: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        /* Enable hover dropdowns on desktop */
+        @media (min-width: 992px) {
+            .navbar .dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
+        }
+    </style>
+
+    <!-- HERO -->
+    <section class="coolest-hero" style="position: relative; overflow: hidden; min-height: 90vh; display: flex; align-items: center;
+               background: linear-gradient(135deg, #0c3483 0%, #1e4ba8 25%, #6f42c1 50%, #ff6b9d 75%, #ff8fa3 100%);">
+        <!-- Animated Background Particles -->
+        <div style="position: absolute; inset: 0; overflow: hidden; pointer-events: none;">
+            <div class="particle" style="position: absolute; width: 300px; height: 300px; border-radius: 50%; 
+                 background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent); 
+                 top: 10%; left: 5%; animation: float 8s ease-in-out infinite;"></div>
+            <div class="particle" style="position: absolute; width: 200px; height: 200px; border-radius: 50%; 
+                 background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent); 
+                 top: 60%; right: 10%; animation: float 10s ease-in-out infinite reverse;"></div>
+            <div class="particle" style="position: absolute; width: 250px; height: 250px; border-radius: 50%; 
+                 background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent); 
+                 bottom: 20%; left: 50%; animation: float 12s ease-in-out infinite;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="row align-items-center g-5">
+                <!-- Left Content -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <!-- Badge -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.15); 
+                                backdrop-filter: blur(10px); padding: 0.5rem 1.25rem; border-radius: 50px; margin-bottom: 1.5rem;
+                                border: 1px solid rgba(255, 255, 255, 0.2); animation: slideDown 0.8s ease;">
+                        <span
+                            style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; animation: pulse 2s ease infinite;"></span>
+                        <span style="color: white; font-weight: 600; font-size: 0.9rem;">🌟 Global Technology
+                            Showcase</span>
+                    </div>
+
+                    <!-- Main Heading with Gradient -->
+                    <h1 style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; margin-bottom: 1.5rem; 
+                                line-height: 1.1; letter-spacing: -3px; animation: fadeInUp 1s ease;">
+                        <span style="background: linear-gradient(135deg, #ffffff 0%, #ff6b9d 100%); 
+                                     -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+                                     background-clip: text; display: block;">Coolest</span>
+                        <span style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); 
+                                     -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+                                     background-clip: text; display: block;">Projects</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: rgba(255, 255, 255, 0.95); 
+                               margin-bottom: 2rem; animation: fadeInUp 1.2s ease;">
+                        Where <strong style="color: #ffd700;">20,000+ young innovators</strong> from around the world
+                        showcase their <strong>digital creations</strong> and compete for global recognition
+                    </p>
+
+                    <!-- Stats Pills -->
+                    <div
+                        style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; animation: fadeInUp 1.4s ease;">
+                        <div
+                            style="background: rgba(255, 215, 0, 0.2); backdrop-filter: blur(10px); 
+                                    padding: 0.75rem 1.5rem; border-radius: 50px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                            <i class="bi bi-trophy-fill me-2" style="color: #ffd700;"></i>
+                            <span style="color: white; font-weight: 700;">Award Winner 2025</span>
+                        </div>
+                        <div
+                            style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
+                                    padding: 0.75rem 1.5rem; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <i class="bi bi-globe2 me-2" style="color: white;"></i>
+                            <span style="color: white; font-weight: 700;">Global Event</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; animation: fadeInUp 1.6s ease;">
+                        <a href="#register" class="btn" style="background: linear-gradient(135deg, #ffd700, #ffed4e); 
+                           color: #1d1d1f; padding: 1.2rem 2.5rem; font-size: 1.1rem; border-radius: 50px; 
+                           font-weight: 700; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4); 
+                           border: none; transition: all 0.3s ease; text-decoration: none; display: inline-flex; 
+                           align-items: center; gap: 0.75rem;">
+                            Register Your Project
+                            <i class="bi bi-arrow-right"
+                                style="font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                        </a>
+                        <a href="#about" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); 
+                           color: white; padding: 1.2rem 2.5rem; font-size: 1.1rem; border-radius: 50px; 
+                           font-weight: 600; border: 2px solid rgba(255, 255, 255, 0.3); 
+                           transition: all 0.3s ease; text-decoration: none; display: inline-flex; 
+                           align-items: center; gap: 0.75rem;">
+                            <i class="bi bi-play-circle"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div style="position: relative;">
+                        <!-- Floating Card with Image -->
+                        <div
+                            style="position: relative; border-radius: 24px; overflow: hidden; 
+                                    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3); animation: floatImage 6s ease-in-out infinite;">
+                            <img src="Images/HEADER.webp" alt="Coolest Projects Event"
+                                style="width: 100%; height: auto; display: block; border-radius: 24px;">
+
+                            <!-- Overlay Badge -->
+                            <div
+                                style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #ff6b9d, #ff4d7d); 
+                                        backdrop-filter: blur(10px); padding: 1rem 1.5rem; border-radius: 16px; 
+                                        border: 2px solid rgba(255, 255, 255, 0.2); box-shadow: 0 10px 30px rgba(255, 77, 125, 0.4);">
+                                <div style="color: white; font-size: 2rem; font-weight: 900; line-height: 1;">20,000+
+                                </div>
+                                <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.85rem; font-weight: 600;">
+                                    Participants</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Elements -->
+                        <div style="position: absolute; bottom: -20px; left: -20px; background: linear-gradient(135deg, #6f42c1, #59359a); 
+                                    padding: 1.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(111, 66, 193, 0.4);
+                                    animation: floatSlow 5s ease-in-out infinite; z-index: 10;">
+                            <i class="bi bi-star-fill" style="font-size: 2rem; color: #ffd700;"></i>
+                        </div>
+                        <div style="position: absolute; top: -15px; left: -15px; background: linear-gradient(135deg, #ff6600, #cc5200); 
+                                    padding: 1.2rem; border-radius: 50%; box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
+                                    animation: floatSlow 7s ease-in-out infinite reverse; z-index: 10;">
+                            <i class="bi bi-code-slash" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translate(0, 0);
+                }
+
+                50% {
+                    transform: translate(30px, -30px);
+                }
+            }
+
+            @keyframes floatImage {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            @keyframes floatSlow {
+
+                0%,
+                100% {
+                    transform: translateY(0) rotate(0deg);
+                }
+
+                50% {
+                    transform: translateY(-15px) rotate(5deg);
+                }
+            }
+
+            @keyframes pulse {
+
+                0%,
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+
+                50% {
+                    opacity: 0.6;
+                    transform: scale(1.2);
+                }
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .coolest-hero a:hover .bi-arrow-right {
+                transform: translateX(5px);
+            }
+
+            .coolest-hero a:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5) !important;
+            }
+        </style>
+    </section>
+    <!-- ABOUT COOLEST PROJECTS -->
+    <section style="background: linear-gradient(180deg, var(--bg-offset) 0%, white 100%); padding: 50px 0;">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5">
+                <span class="badge" style="background: linear-gradient(135deg, #6f42c1, #59359a); padding: 0.6rem 1.5rem; 
+                      font-size: 0.85rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; 
+                      margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);">
+                    <i class="bi bi-info-circle-fill me-2"></i>About the Event
+                </span>
+                <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem;">What is Coolest Projects?</h2>
+                <p class="text-muted" style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                    The world's leading technology showcase for young innovators, organized by the <strong>Raspberry Pi
+                        Foundation</strong>
+                </p>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="100">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05)); 
+                                padding: 2rem; border-radius: 20px; text-align: center; border: 2px solid rgba(13, 110, 253, 0.1);">
+                        <i class="bi bi-globe2" style="font-size: 2.5rem; color: #0d6efd; margin-bottom: 1rem;"></i>
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #0d6efd; margin-bottom: 0.5rem;">6+
+                        </div>
+                        <div style="font-size: 0.9rem; color: #6c757d; font-weight: 600;">Countries</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="200">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05)); 
+                                padding: 2rem; border-radius: 20px; text-align: center; border: 2px solid rgba(255, 102, 0, 0.1);">
+                        <i class="bi bi-people-fill"
+                            style="font-size: 2.5rem; color: #ff6600; margin-bottom: 1rem;"></i>
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #ff6600; margin-bottom: 0.5rem;">20K+
+                        </div>
+                        <div style="font-size: 0.9rem; color: #6c757d; font-weight: 600;">Participants</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="300">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(111, 66, 193, 0.05)); 
+                                padding: 2rem; border-radius: 20px; text-align: center; border: 2px solid rgba(111, 66, 193, 0.1);">
+                        <i class="bi bi-lightning-fill"
+                            style="font-size: 2.5rem; color: #6f42c1; margin-bottom: 1rem;"></i>
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #6f42c1; margin-bottom: 0.5rem;">7-17
+                        </div>
+                        <div style="font-size: 0.9rem; color: #6c757d; font-weight: 600;">Age Range</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="400">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(25, 135, 84, 0.1), rgba(25, 135, 84, 0.05)); 
+                                padding: 2rem; border-radius: 20px; text-align: center; border: 2px solid rgba(25, 135, 84, 0.1);">
+                        <i class="bi bi-star-fill" style="font-size: 2.5rem; color: #198754; margin-bottom: 1rem;"></i>
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #198754; margin-bottom: 0.5rem;">FREE
+                        </div>
+                        <div style="font-size: 0.9rem; color: #6c757d; font-weight: 600;">To Participate</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <!-- Video -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; 
+                                box-shadow: 0 15px 40px rgba(0,0,0,0.15);">
+                        <iframe
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 20px;"
+                            src="https://www.youtube.com/embed/U1BYsFKuJ7U" title="Coolest Projects India 2025"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 style="color: #1d1d1f; font-weight: 800; margin-bottom: 1.5rem; font-size: 1.8rem;">
+                        <i class="bi bi-trophy-fill me-2" style="color: #ffd700;"></i>Why Winning Matters
+                    </h3>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div style="background: white; padding: 1.25rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+                                        display: flex; gap: 1rem; align-items: start; border-left: 4px solid #0d6efd;">
+                                <i class="bi bi-patch-check-fill"
+                                    style="color: #0d6efd; font-size: 1.8rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <h6 style="font-weight: 700; margin-bottom: 0.5rem; color: #1d1d1f;">Massive Global
+                                        Scale</h6>
+                                    <p style="margin: 0; font-size: 0.9rem; color: #6c757d;">Compete with
+                                        <strong>20,000+ participants</strong> from around the world
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div style="background: white; padding: 1.25rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+                                        display: flex; gap: 1rem; align-items: start; border-left: 4px solid #ff6600;">
+                                <i class="bi bi-award-fill"
+                                    style="color: #ff6600; font-size: 1.8rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <h6 style="font-weight: 700; margin-bottom: 0.5rem; color: #1d1d1f;">Expert
+                                        Evaluation</h6>
+                                    <p style="margin: 0; font-size: 0.9rem; color: #6c757d;">Judged by <strong>Raspberry
+                                            Pi Foundation</strong> experts and industry leaders</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div style="background: white; padding: 1.25rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+                                        display: flex; gap: 1rem; align-items: start; border-left: 4px solid #6f42c1;">
+                                <i class="bi bi-gem" style="color: #6f42c1; font-size: 1.8rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <h6 style="font-weight: 700; margin-bottom: 0.5rem; color: #1d1d1f;">Selective
+                                        Recognition</h6>
+                                    <p style="margin: 0; font-size: 0.9rem; color: #6c757d;">Only <strong>top-tier
+                                            projects</strong> receive awards from hundreds of entries</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAKERWORKS ACHIEVEMENT SECTION -->
+    <section
+        style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%); position: relative; overflow: hidden;">
+        <div class="container" style="position: relative; z-index: 1; padding: 50px 20px;">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div style="text-align: center;">
+                        <!-- Award Photo with Frame -->
+                        <div style="position: relative; display: inline-block; margin-bottom: 2rem;">
+                            <div
+                                style="position: absolute; inset: -15px; background: linear-gradient(135deg, #b8860b, #daa520); 
+                                        border-radius: 24px; transform: rotate(-3deg); box-shadow: 0 20px 60px rgba(184, 134, 11, 0.4);">
+                            </div>
+                            <div style="position: relative; border-radius: 20px; overflow: hidden; border: 5px solid white; 
+                                        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3); max-width: 400px;">
+                                <img src="Images/taking the winner award.webp" alt="MakerWorks Award Winner"
+                                    style="width: 100%; height: auto; display: block; object-fit: cover;">
+                            </div>
+                        </div>
+
+                        <!-- Floating Medal Badge -->
+                        <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; 
+                                        border: 4px solid white; box-shadow: 0 10px 30px rgba(184, 134, 11, 0.5); 
+                                        background: white; transform: rotate(10deg);">
+                                <img src="Images/medals.webp" alt="Winner Medals"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+
+                        <h2
+                            style="font-size: 3.5rem; font-weight: 900; color: #1d1d1f; margin: 1.5rem 0; letter-spacing: -2px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);">
+                            Award Winner 2025
+                        </h2>
+                        <div
+                            style="display: inline-block; background: linear-gradient(135deg, #b8860b, #daa520); 
+                                    padding: 0.8rem 2rem; border-radius: 50px; box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);">
+                            <span
+                                style="color: white; font-weight: 800; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase;">
+                                <i class="bi bi-star-fill me-2"></i>Official Recognition
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div
+                        style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 3rem; border-radius: 28px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); border: 3px solid rgba(184, 134, 11, 0.3);">
+                        <h3 style="color: #1d1d1f; font-weight: 800; margin-bottom: 1.5rem; font-size: 2rem;">
+                            <i class="bi bi-trophy-fill me-2" style="color: #b8860b;"></i>MakerWorks Wins at Coolest
+                            Projects!
+                        </h3>
+
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: #b8860b; font-size: 1.4rem; margin-bottom: 1rem; font-weight: 700;">
+                                <i class="bi bi-calendar-event me-2"></i>Coolest Projects India 2025
+                            </h4>
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: #2c3e50;">
+                                We are thrilled to announce that <strong>MakerWorks received a prestigious
+                                    award</strong> at <strong>Coolest Projects India 2025</strong> held in Hyderabad on
+                                September 20, 2025! Our students showcased innovative projects that impressed judges and
+                                participants alike.
+                            </p>
+                        </div>
+
+                        <div
+                            style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.08), rgba(13, 110, 253, 0.03)); padding: 1.5rem; border-radius: 16px; border-left: 4px solid #0d6efd; margin-bottom: 2rem;">
+                            <h5 style="color: #0d6efd; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 700;">
+                                <i class="bi bi-newspaper me-2"></i>Featured on Raspberry Pi Foundation Blog
+                            </h5>
+                            <p style="font-size: 1.05rem; color: #2c3e50; line-height: 1.7; margin-bottom: 1rem;">
+                                Our achievement was officially recognized and featured in the <strong>Raspberry Pi
+                                    Foundation's official blog</strong>, highlighting our role in fostering young
+                                innovators across India.
+                            </p>
+                            <a href="https://www.raspberrypi.org/blog/young-creators-build-a-bright-future-at-coolest-projects-india-2025/"
+                                target="_blank" rel="noopener"
+                                style="display: inline-flex; align-items: center; gap: 0.5rem; color: #0d6efd; font-weight: 600; text-decoration: none;">
+                                Read Full Blog Post <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                            <div
+                                style="background: rgba(255, 215, 0, 0.1); padding: 1.2rem; border-radius: 14px; text-align: center; border: 2px solid rgba(184, 134, 11, 0.2);">
+                                <div style="font-size: 2rem; font-weight: 800; color: #b8860b;">250+</div>
+                                <div style="font-size: 0.9rem; color: #6c757d; font-weight: 600;">Participants</div>
+                            </div>
+                            <div
+                                style="background: rgba(13, 110, 253, 0.1); padding: 1.2rem; border-radius: 14px; text-align: center; border: 2px solid rgba(13, 110, 253, 0.2);">
+                                <div style="font-size: 2rem; font-weight: 800; color: #0d6efd;">118</div>
+                                <div style="font-size: 0.9rem; color: #6c757d; font-weight: 600;">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- TEAM SECTION -->
+    <section style="background: white; padding: 50px 0;">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5">
+                <span class="badge" style="background: linear-gradient(135deg, #0d6efd, #0a58ca); padding: 0.6rem 1.5rem; 
+                      font-size: 0.85rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; 
+                      margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);">
+                    <i class="bi bi-people-fill me-2"></i>Our Team
+                </span>
+                <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem;">Student Innovators</h2>
+                <p class="text-muted" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+                    Meet the talented minds who represented MakerWorks at Coolest Projects India 2025
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Team Member 1 -->
+                <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-center team-member" style="transition: all 0.3s ease;">
+                        <div style="width: 140px; height: 140px; margin: 0 auto 1rem; border-radius: 50%; 
+                                    overflow: hidden; box-shadow: 0 8px 25px rgba(13, 110, 253, 0.2); 
+                                    border: 4px solid white; position: relative; transition: all 0.3s ease;">
+                            <img src="Images/avyukt demonstrating.webp" alt="Avyukt"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13, 110, 253, 0.7), transparent); 
+                                        opacity: 0; transition: opacity 0.3s ease;" class="team-overlay"></div>
+                        </div>
+                        <h6 style="font-weight: 700; margin-bottom: 0.25rem; color: #1d1d1f;">Avyukt</h6>
+                        <p style="color: #0d6efd; font-size: 0.85rem; margin: 0; font-weight: 600;">Innovator</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-center team-member" style="transition: all 0.3s ease;">
+                        <div style="width: 140px; height: 140px; margin: 0 auto 1rem; border-radius: 50%; 
+                                    overflow: hidden; box-shadow: 0 8px 25px rgba(255, 102, 0, 0.2); 
+                                    border: 4px solid white; position: relative; transition: all 0.3s ease;">
+                            <img src="Images/divyanashowingproject.webp" alt="Divyana"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(255, 102, 0, 0.7), transparent); 
+                                        opacity: 0; transition: opacity 0.3s ease;" class="team-overlay"></div>
+                        </div>
+                        <h6 style="font-weight: 700; margin-bottom: 0.25rem; color: #1d1d1f;">Divyana</h6>
+                        <p style="color: #ff6600; font-size: 0.85rem; margin: 0; font-weight: 600;">Tinkerer</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-center team-member" style="transition: all 0.3s ease;">
+                        <div style="width: 140px; height: 140px; margin: 0 auto 1rem; border-radius: 50%; 
+                                    overflow: hidden; box-shadow: 0 8px 25px rgba(111, 66, 193, 0.2); 
+                                    border: 4px solid white; position: relative; transition: all 0.3s ease;">
+                            <img src="Images/tritesh demonstratin the project.webp" alt="Tritesh"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(111, 66, 193, 0.7), transparent); 
+                                        opacity: 0; transition: opacity 0.3s ease;" class="team-overlay"></div>
+                        </div>
+                        <h6 style="font-weight: 700; margin-bottom: 0.25rem; color: #1d1d1f;">Tritesh</h6>
+                        <p style="color: #6f42c1; font-size: 0.85rem; margin: 0; font-weight: 600;">Tinkerer</p>
+                    </div>
+                </div>
+
+                <!-- Award Winner -->
+                <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-center team-member" style="transition: all 0.3s ease;">
+                        <div style="width: 140px; height: 140px; margin: 0 auto 1rem; border-radius: 50%; 
+                                    overflow: hidden; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4); 
+                                    border: 4px solid #ffd700; position: relative; transition: all 0.3s ease;">
+                            <img src="Images/taking the winner award.webp" alt="Winner"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                            <div style="position: absolute; top: -5px; right: -5px; width: 35px; height: 35px; 
+                                        background: linear-gradient(135deg, #ffd700, #ffed4e); border-radius: 50%; 
+                                        display: flex; align-items: center; justify-content: center; z-index: 10;
+                                        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);">
+                                <i class="bi bi-trophy-fill" style="color: #1d1d1f; font-size: 0.9rem;"></i>
+                            </div>
+                        </div>
+                        <h6 style="font-weight: 700; margin-bottom: 0.25rem; color: #1d1d1f;">MakerWorks</h6>
+                        <p style="color: #ffd700; font-size: 0.85rem; margin: 0; font-weight: 600;">2025 Winner</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Stats -->
+            <div class="row g-3 mt-5" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-6 col-md-3">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05)); 
+                                padding: 1.5rem; border-radius: 16px; text-align: center; border: 2px solid rgba(255, 215, 0, 0.2);">
+                        <i class="bi bi-trophy-fill"
+                            style="font-size: 2rem; color: #ffd700; margin-bottom: 0.5rem;"></i>
+                        <div style="font-size: 1.8rem; font-weight: 900; color: #ffd700;">1</div>
+                        <div style="font-size: 0.8rem; color: #6c757d; font-weight: 600;">Award Won</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05)); 
+                                padding: 1.5rem; border-radius: 16px; text-align: center; border: 2px solid rgba(13, 110, 253, 0.2);">
+                        <i class="bi bi-lightbulb-fill"
+                            style="font-size: 2rem; color: #0d6efd; margin-bottom: 0.5rem;"></i>
+                        <div style="font-size: 1.8rem; font-weight: 900; color: #0d6efd;">2</div>
+                        <div style="font-size: 0.8rem; color: #6c757d; font-weight: 600;">Projects</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05)); 
+                                padding: 1.5rem; border-radius: 16px; text-align: center; border: 2px solid rgba(255, 102, 0, 0.2);">
+                        <i class="bi bi-people-fill"
+                            style="font-size: 2rem; color: #ff6600; margin-bottom: 0.5rem;"></i>
+                        <div style="font-size: 1.8rem; font-weight: 900; color: #ff6600;">3</div>
+                        <div style="font-size: 0.8rem; color: #6c757d; font-weight: 600;">Students</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(111, 66, 193, 0.05)); 
+                                padding: 1.5rem; border-radius: 16px; text-align: center; border: 2px solid rgba(111, 66, 193, 0.2);">
+                        <i class="bi bi-star-fill" style="font-size: 2rem; color: #6f42c1; margin-bottom: 0.5rem;"></i>
+                        <div style="font-size: 1.8rem; font-weight: 900; color: #6f42c1;">100%</div>
+                        <div style="font-size: 0.8rem; color: #6c757d; font-weight: 600;">Dedication</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .team-member:hover div[style*="border-radius: 50%"] {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25) !important;
+            }
+
+            .team-member:hover img {
+                transform: scale(1.1);
+            }
+
+            .team-member:hover .team-overlay {
+                opacity: 1;
+            }
+        </style>
+    </section>
+    <!-- EVENT HIGHLIGHTS -->
+    <section class="container" data-aos="fade-up" style="padding: 50px 0;">
+        <div class="text-center mb-5">
+            <span class="badge" style="background: linear-gradient(135deg, #ff6b9d, #ff4d7d); padding: 0.6rem 1.5rem; 
+                  font-size: 0.85rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; 
+                  margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);">
+                <i class="bi bi-stars me-2"></i>Featured Projects
+            </span>
+            <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.8rem; font-weight: 800;">2025 Showcase
+                Highlights</h2>
+            <p class="text-center text-muted mb-4" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+                Innovative projects that stood out at Coolest Projects India 2025, Hyderabad
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- EchoCharm Spellbox -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="highlight-card" style="background: white; border-radius: 20px; overflow: hidden; 
+                            box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: all 0.4s ease; height: 100%;">
+                    <div style="position: relative; overflow: hidden; height: 220px;">
+                        <img src="Images/echocharmspellbox.webp" alt="EchoCharm Spellbox"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div
+                            style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #0d6efd, #0a58ca); 
+                                    padding: 0.5rem 1rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);">
+                            <i class="bi bi-magic" style="color: white; font-size: 0.9rem;"></i>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h5 style="color: #0d6efd; font-weight: 700; margin-bottom: 1rem; font-size: 1.3rem;">
+                            <i class="bi bi-rocket-takeoff me-2"></i>EchoCharm Spellbox
+                        </h5>
+                        <p style="color: #6c757d; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                            An interactive magical creation using <strong>Raspberry Pi</strong> and speaker technology
+                            to bring the famous Harry Potter artifact to life.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automatic Seed Sowbot -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="highlight-card" style="background: white; border-radius: 20px; overflow: hidden; 
+                            box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: all 0.4s ease; height: 100%;">
+                    <div style="position: relative; overflow: hidden; height: 220px;">
+                        <img src="Images/automaticseedsowbot.webp" alt="Automatic Seed Sowbot"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div
+                            style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #ff6600, #cc5200); 
+                                    padding: 0.5rem 1rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);">
+                            <i class="bi bi-cpu-fill" style="color: white; font-size: 0.9rem;"></i>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h5 style="color: #ff6600; font-weight: 700; margin-bottom: 1rem; font-size: 1.3rem;">
+                            <i class="bi bi-robot me-2"></i>Automatic Seed Sowbot
+                        </h5>
+                        <p style="color: #6c757d; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                            A practical hardware invention using <strong>AI and camera technology</strong> to quickly
+                            sort seeds, tackling real-world agricultural challenges.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Featured Project -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="highlight-card" style="background: white; border-radius: 20px; overflow: hidden; 
+                            box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: all 0.4s ease; height: 100%;">
+                    <div style="position: relative; overflow: hidden; height: 220px;">
+                        <img src="Images/divyanashowingproject.webp" alt="Student Innovation"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div
+                            style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #6f42c1, #59359a); 
+                                    padding: 0.5rem 1rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);">
+                            <i class="bi bi-lightbulb-fill" style="color: white; font-size: 0.9rem;"></i>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h5 style="color: #6f42c1; font-weight: 700; margin-bottom: 1rem; font-size: 1.3rem;">
+                            <i class="bi bi-stars me-2"></i>Young Innovators
+                        </h5>
+                        <p style="color: #6c757d; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                            Students from across India showcased <strong>creative solutions</strong> spanning robotics,
+                            web development, AI/ML, and interactive games.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <style>
+            .highlight-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2) !important;
+            }
+
+            .highlight-card:hover img {
+                transform: scale(1.1);
+            }
+        </style>
+    </section>
+    <!-- GALLERY SECTION -->
+    <section style="background: linear-gradient(180deg, var(--bg-offset) 0%, white 100%); padding: 50px 0;">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5">
+                <span class="badge"
+                    style="background: linear-gradient(135deg, #ff6b9d, #ff4d7d); padding: 0.6rem 1.5rem; font-size: 0.85rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);">
+                    <i class="bi bi-camera-fill me-2"></i>Event Gallery
+                </span>
+                <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.8rem; font-weight: 800;">Highlights
+                    from 2025</h2>
+                <p class="text-center text-muted mb-4" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+                    Relive the energy, innovation, and excitement from Coolest Projects India 2025
+                </p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <!-- Featured Large Image -->
+                <div class="col-lg-7" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item featured-item" style="height: 550px; position: relative;">
+                        <img src="Images/HEADER.webp" alt="Coolest Projects India 2025 Main Event">
+                        <!-- Floating Badge -->
+                        <div
+                            style="position: absolute; top: 20px; left: 20px; background: rgba(255, 215, 0, 0.95); backdrop-filter: blur(10px); padding: 0.75rem 1.25rem; border-radius: 50px; z-index: 5; box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);">
+                            <i class="bi bi-star-fill me-2" style="color: #1d1d1f;"></i>
+                            <span style="color: #1d1d1f; font-weight: 700; font-size: 0.9rem;">Featured Event</span>
+                        </div>
+                        <div class="gallery-overlay"
+                            style="background: linear-gradient(0deg, rgba(255, 107, 157, 0.95) 0%, rgba(255, 107, 157, 0.6) 40%, transparent 100%);">
+                            <div class="gallery-content">
+                                <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;"><i
+                                        class="bi bi-calendar-event me-2"></i>Main Event Day</h3>
+                                <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">Coolest Projects India 2025,
+                                    Hyderabad</p>
+                                <p style="font-size: 0.9rem; opacity: 0.9;"><i
+                                        class="bi bi-geo-alt-fill me-1"></i>September 20, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Images Stack -->
+                <div class="col-lg-5">
+                    <div class="row g-4">
+                        <div class="col-12" data-aos="zoom-in" data-aos-delay="150">
+                            <div class="gallery-item" style="height: 265px;">
+                                <img src="Images/taking the winner award.webp" alt="Award Winner">
+                                <div class="gallery-overlay"
+                                    style="background: linear-gradient(0deg, rgba(255, 215, 0, 0.95) 0%, rgba(255, 215, 0, 0.6) 40%, transparent 100%);">
+                                    <div class="gallery-content">
+                                        <h4><i class="bi bi-trophy-fill me-2"></i>Award Moment</h4>
+                                        <p>MakerWorks receives recognition</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="gallery-item" style="height: 265px;">
+                                <img src="Images/medals.webp" alt="Winner Medals">
+                                <div class="gallery-overlay"
+                                    style="background: linear-gradient(0deg, rgba(111, 66, 193, 0.95) 0%, rgba(111, 66, 193, 0.6) 40%, transparent 100%);">
+                                    <div class="gallery-content">
+                                        <h4><i class="bi bi-award-fill me-2"></i>Medals & Awards</h4>
+                                        <p>Celebrating excellence</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid of Smaller Images -->
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="gallery-item" style="height: 280px;">
+                        <img src="Images/avyukt demonstrating.webp" alt="Student Demonstrating">
+                        <div class="gallery-overlay"
+                            style="background: linear-gradient(0deg, rgba(13, 110, 253, 0.95) 0%, transparent 100%);">
+                            <div class="gallery-content">
+                                <h5><i class="bi bi-mic-fill me-2"></i>Presentations</h5>
+                                <p>Students showcasing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item" style="height: 280px;">
+                        <img src="Images/divyanashowingproject.webp" alt="Project Demo">
+                        <div class="gallery-overlay"
+                            style="background: linear-gradient(0deg, rgba(255, 102, 0, 0.95) 0%, transparent 100%);">
+                            <div class="gallery-content">
+                                <h5><i class="bi bi-lightbulb-fill me-2"></i>Innovation</h5>
+                                <p>Projects in action</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="350">
+                    <div class="gallery-item" style="height: 280px;">
+                        <img src="Images/group team.webp" alt="Team Collaboration">
+                        <div class="gallery-overlay"
+                            style="background: linear-gradient(0deg, rgba(25, 135, 84, 0.95) 0%, transparent 100%);">
+                            <div class="gallery-content">
+                                <h5><i class="bi bi-people-fill me-2"></i>Community</h5>
+                                <p>Young makers unite</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gallery-item" style="height: 280px;">
+                        <img src="Images/competetion.webp" alt="Competition">
+                        <div class="gallery-overlay"
+                            style="background: linear-gradient(0deg, rgba(220, 53, 69, 0.95) 0%, transparent 100%);">
+                            <div class="gallery-content">
+                                <h5><i class="bi bi-stars me-2"></i>Showcase</h5>
+                                <p>Best of the best</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .gallery-item {
+                position: relative;
+                overflow: hidden;
+                border-radius: 20px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                background: #000;
+            }
+
+            .featured-item {
+                border-radius: 24px;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                filter: brightness(0.95);
+            }
+
+            .gallery-overlay {
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                transition: all 0.5s ease;
+                display: flex;
+                align-items: flex-end;
+                padding: 2rem;
+            }
+
+            .gallery-content {
+                color: white;
+                transform: translateY(30px);
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                width: 100%;
+            }
+
+            .gallery-content h3,
+            .gallery-content h4,
+            .gallery-content h5 {
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .gallery-content h5 {
+                font-size: 1.2rem;
+            }
+
+            .gallery-content p {
+                margin: 0;
+                opacity: 0.95;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            }
+
+            .gallery-item:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.15);
+                filter: brightness(0.85);
+            }
+
+            .gallery-item:hover .gallery-overlay {
+                opacity: 1;
+            }
+
+            .gallery-item:hover .gallery-content {
+                transform: translateY(0);
+            }
+
+            /* Responsive */
+            @media (max-width: 991px) {
+                .gallery-item {
+                    height: 320px !important;
+                }
+
+                .featured-item {
+                    height: 400px !important;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .gallery-item {
+                    height: 280px !important;
+                    border-radius: 16px;
+                }
+
+                .featured-item {
+                    height: 350px !important;
+                }
+
+                .gallery-overlay {
+                    padding: 1.5rem;
+                }
+
+                .gallery-content h3 {
+                    font-size: 1.5rem !important;
+                }
+
+                .gallery-content h5 {
+                    font-size: 1.1rem !important;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .gallery-item {
+                    height: 250px !important;
+                }
+
+                .featured-item {
+                    height: 300px !important;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- REGISTRATION CTA -->
+    <section id="register"
+        style="background: linear-gradient(135deg, #ff6b9d 0%, #ffd700 100%); color: white; position: relative; overflow: hidden;">
+        <!-- Animated Particles -->
+        <div style="position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: 0.15;">
+            <div style="position: absolute; width: 400px; height: 400px; border-radius: 50%; 
+                 background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent); 
+                 top: -100px; right: -100px;"></div>
+            <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; 
+                 background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent); 
+                 bottom: -80px; left: -80px;"></div>
+        </div>
+
+        <div class="container" data-aos="fade-up" style="position: relative; z-index: 2;">
+            <div class="row align-items-center g-5">
+                <!-- Left Content -->
+                <div class="col-lg-6">
+                    <!-- Floating Badge -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; 
+                                background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(10px); 
+                                padding: 0.6rem 1.5rem; border-radius: 50px; margin-bottom: 1.5rem;
+                                border: 1px solid rgba(255, 255, 255, 0.3); animation: pulse 3s ease infinite;">
+                        <i class="bi bi-rocket-takeoff-fill" style="font-size: 1.1rem;"></i>
+                        <span
+                            style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">2026
+                            Registration Open</span>
+                    </div>
+
+                    <h2
+                        style="margin-bottom: 1.5rem; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.2; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+                        Ready to Join the<br>
+                        <span style="background: linear-gradient(135deg, #ffffff 0%, #fffacd 100%); 
+                                     -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Next
+                            Generation</span>
+                        of Innovators?
+                    </h2>
+
+                    <p style="font-size: 1.15rem; margin-bottom: 2.5rem; opacity: 0.95; line-height: 1.7;">
+                        <strong>MakerWorks</strong> will guide you every step of the way—from registration to
+                        presentation. Join our <strong>award-winning community</strong> of young makers!
+                    </p>
+
+                    <!-- Benefits Grid -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div
+                                style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
+                                        padding: 1rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <i class="bi bi-gift-fill"
+                                    style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+                                <div style="font-weight: 700; font-size: 0.9rem;">Free Registration</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div
+                                style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
+                                        padding: 1rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <i class="bi bi-person-workspace"
+                                    style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+                                <div style="font-weight: 700; font-size: 0.9rem;">Expert Mentorship</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div
+                                style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
+                                        padding: 1rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <i class="bi bi-easel-fill"
+                                    style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+                                <div style="font-weight: 700; font-size: 0.9rem;">Presentation Prep</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div
+                                style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
+                                        padding: 1rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <i class="bi bi-headset"
+                                    style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+                                <div style="font-weight: 700; font-size: 0.9rem;">24/7 Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Contact Card -->
+                <div class="col-lg-6">
+                    <div style="background: white; padding: 2.5rem; border-radius: 28px; color: var(--dark); 
+                                box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3); position: relative; overflow: hidden;">
+                        <!-- Decorative Element -->
+                        <div style="position: absolute; top: 0; right: 0; width: 150px; height: 150px; 
+                                    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), transparent); 
+                                    border-radius: 0 28px 0 100%;"></div>
+
+                        <div style="position: relative; z-index: 2;">
+                            <div style="display: inline-flex; align-items: center; gap: 0.5rem; 
+                                        background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(255, 215, 0, 0.1)); 
+                                        padding: 0.5rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                                <i class="bi bi-star-fill" style="color: #ffd700; font-size: 0.9rem;"></i>
+                                <span style="font-weight: 700; font-size: 0.85rem; color: #ff6b9d;">Award-Winning
+                                    Program</span>
+                            </div>
+
+                            <h3 style="margin-bottom: 1rem; color: #1d1d1f; font-weight: 800; font-size: 2rem;">
+                                Get Started Today
+                            </h3>
+                            <p class="text-muted mb-4" style="font-size: 1rem;">
+                                Contact us to register your project and join our community of innovators
+                            </p>
+
+                            <div class="d-grid gap-3">
+                                <a href="tel:+919137114223" class="btn btn-lg cta-button"
+                                    style="background: linear-gradient(135deg, #0d6efd, #0a58ca); color: white; 
+                                           border-radius: 16px; padding: 1.2rem 1.5rem; font-weight: 700; border: none;
+                                           box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3); text-decoration: none;
+                                           transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
+                                    <i class="bi bi-telephone-fill" style="font-size: 1.2rem;"></i>
+                                    <span>Call: +91 9137114223</span>
+                                </a>
+
+                                <a href="https://wa.me/919137114223" class="btn btn-lg cta-button"
+                                    style="background: linear-gradient(135deg, #25D366, #20ba5a); color: white; 
+                                           border-radius: 16px; padding: 1.2rem 1.5rem; font-weight: 700; border: none;
+                                           box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); text-decoration: none;
+                                           transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
+                                    <i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i>
+                                    <span>WhatsApp Us</span>
+                                </a>
+
+                                <a href="mailto:makerworkslab@gmail.com" class="btn btn-lg cta-button"
+                                    style="background: linear-gradient(135deg, #6c757d, #545a62); color: white; 
+                                           border-radius: 16px; padding: 1.2rem 1.5rem; font-weight: 700; border: none;
+                                           box-shadow: 0 8px 25px rgba(108, 117, 125, 0.3); text-decoration: none;
+                                           transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
+                                    <i class="bi bi-envelope-fill" style="font-size: 1.2rem;"></i>
+                                    <span>makerworkslab@gmail.com</span>
+                                </a>
+                            </div>
+
+                            <!-- Quick Stats -->
+                            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(0,0,0,0.05);">
+                                <div class="row g-3 text-center">
+                                    <div class="col-4">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #ff6b9d;">100+</div>
+                                        <div style="font-size: 0.75rem; color: #6c757d; font-weight: 600;">Students
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #ffd700;">2025</div>
+                                        <div style="font-size: 0.75rem; color: #6c757d; font-weight: 600;">Winner</div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #0d6efd;">5+</div>
+                                        <div style="font-size: 0.75rem; color: #6c757d; font-weight: 600;">Years</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .cta-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+            }
+        </style>
+    </section>
+
+    <!-- FAQ -->
+    <section style="background: linear-gradient(180deg, white 0%, var(--bg-offset) 100%); padding: 50px 0;">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5">
+                <span class="badge"
+                    style="background: linear-gradient(135deg, #ff6b9d, #ff4d7d); padding: 0.6rem 1.5rem; font-size: 0.85rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);">
+                    <i class="bi bi-patch-question-fill me-2"></i>FAQ
+                </span>
+                <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.8rem; font-weight: 800;">Got Questions?
+                </h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+                    Find answers to the most common questions about Coolest Projects
+                </p>
+            </div>
+
+            <div class="accordion" id="faqAccordion" style="max-width: 900px; margin: 0 auto;">
+                <!-- Question 1 -->
+                <div class="accordion-item mb-4 border-0"
+                    style="border-radius: 20px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq1"
+                            style="padding: 1.5rem 2rem; font-size: 1.15rem; font-weight: 700; background: white; border-left: 4px solid #0d6efd;">
+                            <div
+                                style="width: 45px; height: 45px; min-width: 45px; background: linear-gradient(135deg, #0d6efd, #0a58ca); 
+                                        border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1.25rem;">
+                                <i class="bi bi-people-fill" style="color: white; font-size: 1.3rem;"></i>
+                            </div>
+                            <span>What age groups can participate?</span>
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body"
+                            style="padding: 1.5rem 2rem 2rem 6.75rem; color: #6c757d; font-size: 1rem; line-height: 1.7;">
+                            Coolest Projects is open to all young people <strong>aged 7-17 years old</strong>. Projects
+                            are evaluated in age-appropriate categories to ensure fair recognition.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="accordion-item mb-4 border-0"
+                    style="border-radius: 20px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq2"
+                            style="padding: 1.5rem 2rem; font-size: 1.15rem; font-weight: 700; background: white; border-left: 4px solid #ff6600;">
+                            <div
+                                style="width: 45px; height: 45px; min-width: 45px; background: linear-gradient(135deg, #ff6600, #cc5200); 
+                                        border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1.25rem;">
+                                <i class="bi bi-building" style="color: white; font-size: 1.3rem;"></i>
+                            </div>
+                            <span>Do I need to be a MakerWorks student to participate?</span>
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body"
+                            style="padding: 1.5rem 2rem 2rem 6.75rem; color: #6c757d; font-size: 1rem; line-height: 1.7;">
+                            <strong>No!</strong> While we help MakerWorks students prepare their projects, any young
+                            person with a technology project can participate. We're here to support <strong>all young
+                                innovators</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="accordion-item mb-4 border-0"
+                    style="border-radius: 20px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq3"
+                            style="padding: 1.5rem 2rem; font-size: 1.15rem; font-weight: 700; background: white; border-left: 4px solid #6f42c1;">
+                            <div
+                                style="width: 45px; height: 45px; min-width: 45px; background: linear-gradient(135deg, #6f42c1, #59359a); 
+                                        border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1.25rem;">
+                                <i class="bi bi-lightbulb-fill" style="color: white; font-size: 1.3rem;"></i>
+                            </div>
+                            <span>What kind of projects can I showcase?</span>
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body"
+                            style="padding: 1.5rem 2rem 2rem 6.75rem; color: #6c757d; font-size: 1rem; line-height: 1.7;">
+                            <strong>Any technology-based project!</strong> This includes games, websites, mobile apps,
+                            hardware projects, robotics, AI/ML, animations, and more. If it involves technology and
+                            creativity, it belongs at Coolest Projects!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="accordion-item mb-4 border-0"
+                    style="border-radius: 20px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq4"
+                            style="padding: 1.5rem 2rem; font-size: 1.15rem; font-weight: 700; background: white; border-left: 4px solid #198754;">
+                            <div
+                                style="width: 45px; height: 45px; min-width: 45px; background: linear-gradient(135deg, #198754, #146c43); 
+                                        border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1.25rem;">
+                                <i class="bi bi-award-fill" style="color: white; font-size: 1.3rem;"></i>
+                            </div>
+                            <span>Is this a competition?</span>
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body"
+                            style="padding: 1.5rem 2rem 2rem 6.75rem; color: #6c757d; font-size: 1rem; line-height: 1.7;">
+                            <strong>No!</strong> Coolest Projects is a <strong>showcase, not a competition</strong>.
+                            While there are awards for outstanding projects, the focus is on celebrating creativity,
+                            learning, and sharing your work with others.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="accordion-item mb-4 border-0"
+                    style="border-radius: 20px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq5"
+                            style="padding: 1.5rem 2rem; font-size: 1.15rem; font-weight: 700; background: white; border-left: 4px solid #ffd700;">
+                            <div
+                                style="width: 45px; height: 45px; min-width: 45px; background: linear-gradient(135deg, #ffd700, #ffed4e); 
+                                        border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1.25rem;">
+                                <i class="bi bi-cash-coin" style="color: #1d1d1f; font-size: 1.3rem;"></i>
+                            </div>
+                            <span>How much does it cost to participate?</span>
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body"
+                            style="padding: 1.5rem 2rem 2rem 6.75rem; color: #6c757d; font-size: 1rem; line-height: 1.7;">
+                            Registration is <strong>completely FREE!</strong> MakerWorks provides support and guidance
+                            to help you prepare your project for the showcase at no cost.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA at bottom -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <p class="text-muted mb-3" style="font-size: 1.1rem;">Still have questions?</p>
+                <a href="#register" style="display: inline-flex; align-items: center; gap: 0.75rem; 
+                   background: linear-gradient(135deg, #ff6b9d, #ff4d7d); color: white; 
+                   padding: 1rem 2rem; border-radius: 50px; font-weight: 700; text-decoration: none;
+                   box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3); transition: all 0.3s ease;">
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <span>Contact Us</span>
+                </a>
+            </div>
+        </div>
+
+        <style>
+            .accordion-button:not(.collapsed) {
+                background-color: #f8f9fa !important;
+                box-shadow: none !important;
+            }
+
+            .accordion-button:focus {
+                box-shadow: none !important;
+            }
+
+            .accordion-item:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+            }
+        </style>
+    </section>
+
+
+
+    <!-- FOOTER - Loaded from component -->
+    <div id="footer-placeholder"></div>
+
+    <button class="btn-premium btn-primary-mw" id="backToTop"
+        style="position: fixed; bottom: 40px; right: 40px; width: 60px; height: 60px; border-radius: 50%; opacity: 0; visibility: hidden; z-index: 1000; border: none; display: flex; align-items: center; justify-content: center;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            AOS.init({ duration: 1000, once: true, offset: 100 });
+
+            // Custom Cursor
+            const dot = document.querySelector('.cursor-dot');
+            const outline = document.querySelector('.cursor-outline');
+            if (dot && outline) {
+                document.addEventListener('mousemove', (e) => {
+                    dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                    outline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                });
+            }
+
+            // Scroll Logic
+            const nav = document.getElementById('mainNav');
+            const btt = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    if (nav) nav.classList.add('floating');
+                    if (btt) {
+                        btt.style.opacity = '1';
+                        btt.style.visibility = 'visible';
+                    }
+                } else {
+                    if (nav) nav.classList.remove('floating');
+                    if (btt) {
+                        btt.style.opacity = '0';
+                        btt.style.visibility = 'hidden';
+                    }
+                }
+            });
+
+            if (btt) {
+                btt.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+
+    <!-- Component Loader - Loads navbar and footer -->
+
+</body>
+
+</html>

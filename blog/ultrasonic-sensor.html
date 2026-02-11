@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Measuring Distance with Ultrasonic Sensor | MakerWorks Blog</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Measuring Distance with Ultrasonic Sensor | MakerWorks Blog">
+    <meta name="description"
+        content="Learn how to measure distance with the HC-SR04 ultrasonic sensor and Arduino. Perfect for obstacle avoiding robots.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="blog-header">
+        <div class="container text-center">
+            <span class="badge bg-primary mb-3 rounded-pill px-3 py-2">Arduino</span>
+            <h1 class="display-4 fw-bold mb-3">Measuring Distance with Ultrasonic Sensor</h1>
+            <div class="text-muted">
+                <i class="bi bi-calendar3 me-2"></i>September 2, 2025
+                <span class="mx-2">•</span>
+                <i class="bi bi-person me-2"></i>MakerWorks Team
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="blogphotos/ultrasonic_sensor.webp" alt="Ultrasonic Sensor Tutorial"
+                    class="img-fluid w-100 mb-5">
+
+                <p class="lead">The <strong>HC-SR04 Ultrasonic Sensor</strong> is like a bat's echolocation for your
+                    Arduino. It emits sound
+                    waves and listens for the echo to determine the distance of an object. This is perfect for
+                    obstacle avoidance robots, parking sensors, and security alarms.</p>
+
+                <h2>How it Works:</h2>
+                <p>The sensor has two main parts: a transmitter (Trig) and a receiver (Echo). The transmitter sends
+                    out a high-frequency sound pulse, and if it hits an object, it bounces back to the receiver. By
+                    measuring the time it takes for the echo to return, we can calculate the distance.</p>
+                <p><em>Formula: Distance = (Time x Speed of Sound) / 2</em></p>
+
+                <h2>What You'll Need:</h2>
+                <ul>
+                    <li>Arduino board</li>
+                    <li><strong>HC-SR04 Ultrasonic Sensor</strong></li>
+                    <li>Breadboard & Jumper wires</li>
+                </ul>
+
+                <h2>Circuit Diagram:</h2>
+                <ul>
+                    <li><strong>VCC</strong> to Arduino <strong>5V</strong></li>
+                    <li><strong>GND</strong> to Arduino <strong>GND</strong></li>
+                    <li><strong>Trig</strong> to Arduino Digital Pin <strong>9</strong></li>
+                    <li><strong>Echo</strong> to Arduino Digital Pin <strong>10</strong></li>
+                </ul>
+
+                <h2>Arduino Code:</h2>
+                <pre><code class="language-arduino">
+const int trigPin = 9;
+const int echoPin = 10;
+
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT);  // Sets the echoPin as an Input
+  Serial.begin(9600);       // Starts the serial communication
+}
+
+void loop() {
+  // Clears the trigPin
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPin, HIGH);
+
+  // Calculating the distance
+  distance = duration * 0.034 / 2;
+
+  // Prints the distance on the Serial Monitor
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  
+  delay(100);
+}
+                </code></pre>
+                <p>Upload the code and open the <strong>Serial Monitor</strong> (Tools > Serial Monitor) to see the
+                    distance
+                    measurements in real-time!</p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/blog/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

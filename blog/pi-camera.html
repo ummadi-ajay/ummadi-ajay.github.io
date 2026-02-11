@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using Camera with Pi | MakerWorks Blog</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Using Camera with Pi | MakerWorks Blog">
+    <meta name="description"
+        content="Learn how to connect and use the Raspberry Pi Camera Module to capture photos and videos.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="blog-header">
+        <div class="container text-center">
+            <span class="badge bg-danger mb-3 rounded-pill px-3 py-2">Raspberry Pi</span>
+            <h1 class="display-4 fw-bold mb-3">Using Camera with Pi</h1>
+            <div class="text-muted">
+                <i class="bi bi-calendar3 me-2"></i>August 19, 2025
+                <span class="mx-2">â€¢</span>
+                <i class="bi bi-person me-2"></i>MakerWorks Team
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="blogphotos/pi with camera.webp" alt="Raspberry Pi Camera Module" class="img-fluid w-100 mb-5">
+
+                <p class="lead">Add vision to your Raspberry Pi projects! This tutorial shows you how to connect and use
+                    the
+                    <strong>official Raspberry Pi Camera Module</strong> to capture photos, record videos, and even
+                    stream live
+                    footage. This is essential for surveillance systems, robotics, and computer vision applications.
+                </p>
+
+                <h2>What You'll Need:</h2>
+                <ul>
+                    <li><strong>Raspberry Pi board</strong> (any model with a CSI camera connector, which is most of
+                        them!)</li>
+                    <li><strong>Raspberry Pi Camera Module</strong> (V1, V2, or High Quality Camera). The ribbon cable
+                        usually
+                        comes with the camera.</li>
+                    <li>Latest <strong>Raspberry Pi OS</strong> installed and updated on your Pi.</li>
+                </ul>
+
+                <h2>Step 1: Connect the Camera Module to Your Pi</h2>
+                <p>This is a delicate but straightforward step. Ensure your Raspberry Pi is <strong>powered off</strong>
+                    before
+                    you begin.</p>
+                <ol>
+                    <li>Locate the <strong>CSI (Camera Serial Interface) camera port</strong> on your Pi. It's a long,
+                        white or
+                        black connector, usually near the HDMI ports.</li>
+                    <li>Gently pull up on the small plastic clips/edges on both sides of the connector. Do not pull
+                        too hard, just enough to release the clasp.</li>
+                    <li>Carefully insert the <strong>ribbon cable</strong> from the camera module into the connector.
+                        Ensure the
+                        <strong>silver metallic contacts</strong> on the ribbon cable are facing the <strong>HDMI port
+                            side</strong> (for
+                        Raspberry Pi 4/5) or <strong>away from the Ethernet port</strong> (for older Pis like Pi 3/2).
+                        Make sure
+                        it's straight and fully inserted.
+                    </li>
+                    <li>Once inserted, gently push the plastic clips back down to secure the cable firmly in place.
+                    </li>
+                </ol>
+                <small class="text-muted d-block text-center mt-2 mb-4">Properly connecting the ribbon cable to the CSI
+                    port on your Raspberry Pi.</small>
+
+                <h2>Step 2: Enable the Camera Interface in Raspberry Pi OS</h2>
+                <p>The camera interface is usually disabled by default for security and resource management.</p>
+                <ol>
+                    <li>Power on your Raspberry Pi.</li>
+                    <li>Open a <strong>terminal</strong> (Ctrl+Alt+T or click the terminal icon).</li>
+                    <li>Run the Raspberry Pi configuration tool:
+                        <pre><code class="language-bash">
+sudo raspi-config
+                        </code></pre>
+                    </li>
+                    <li>In the <code>raspi-config</code> menu, navigate using arrow keys:
+                        <ul>
+                            <li>Select "<strong>3 Interface Options</strong>"</li>
+                            <li>Select "<strong>P1 Camera</strong>"</li>
+                            <li>Select "<strong>Yes</strong>" to enable the camera interface.</li>
+                        </ul>
+                    </li>
+                    <li>Exit <code>raspi-config</code> (Tab to <code>&lt;Finish&gt;</code>, Enter). You'll likely be
+                        prompted to <strong>reboot</strong> your
+                        Pi. Select "Yes" to reboot.</li>
+                </ol>
+
+                <h2>Step 3: Capturing Images and Video</h2>
+                <p>After rebooting, your camera should be ready! Newer versions of Raspberry Pi OS (Bullseye and
+                    later) use <code>libcamera</code> tools. Older versions used <code>raspistill</code> and
+                    <code>raspivid</code>.</p>
+
+                <h3>For <code>libcamera</code> tools (Recommended for newer OS - Raspberry Pi OS Bullseye or later):
+                </h3>
+                <p>These commands are run in the terminal.</p>
+                <ul>
+                    <li><strong>Capture a still image:</strong>
+                        <pre><code class="language-bash">
+libcamera-still -o my_first_image.jpg
+                        </code></pre>
+                        <p>This will capture an image and save it as <code>my_first_image.jpg</code> in your current
+                            directory.
+                        </p>
+                    </li>
+                    <li><strong>Record a video (e.g., 5 seconds long):</strong>
+                        <pre><code class="language-bash">
+libcamera-vid -o my_first_video.h264 --t 5000
+                        </code></pre>
+                        <p>The <code>--t 5000</code> specifies the duration in milliseconds (5000ms = 5 seconds). The
+                            video
+                            will be saved as <code>my_first_video.h264</code>.</p>
+                    </li>
+                    <li><strong>View a live preview (without saving):</strong>
+                        <pre><code class="language-bash">
+libcamera-preview
+                        </code></pre>
+                    </li>
+                </ul>
+
+                <h3>For <code>raspistill</code>/<code>raspivid</code> (Older OS - up to Raspberry Pi OS Buster):</h3>
+                <ul>
+                    <li><strong>Capture a still image:</strong>
+                        <pre><code class="language-bash">
+raspistill -o image.jpg
+                        </code></pre>
+                        <p>Captures an image and saves it.</p>
+                    </li>
+                    <li><strong>Record a video (e.g., 10 seconds long):</strong>
+                        <pre><code class="language-bash">
+raspivid -o video.h264 -t 10000
+                        </code></pre>
+                        <p>Records a video for 10 seconds.</p>
+                    </li>
+                </ul>
+
+                <p>The Raspberry Pi Camera Module opens up incredible possibilities for surveillance, time-lapse
+                    photography, security systems, and even basic computer vision projects! Have fun exploring its
+                    capabilities!</p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/blog/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

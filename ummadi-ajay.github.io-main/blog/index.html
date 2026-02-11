@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakerWorks - Blog | Robotics, Coding & STEM Learning for Kids in Mumbai</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="MakerWorks - Blog | Robotics, Coding & STEM Learning for Kids in Mumbai">
+    <meta name="description"
+        content="Read the MakerWorks Blog for tips, tutorials, and updates on robotics, coding, AI, IoT, 3D printing, and STEM learning for kids and teens in Mumbai. Stay inspired and learn with us.">
+    <meta name="keywords"
+        content="MakerWorks blog, robotics blog, coding blog for kids, STEM learning, AI tutorials for kids, IoT projects for kids, 3D printing tutorials, Arduino blog, Raspberry Pi blog, STEM education Mumbai">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makerworkslab.in/blog/">
+    <meta property="og:title" content="MakerWorks - Blog | Robotics, Coding & STEM Learning for Kids in Mumbai">
+    <meta property="og:description"
+        content="Read the MakerWorks Blog for tips, tutorials, and updates on robotics, coding, AI, IoT, 3D printing, and STEM learning for kids and teens in Mumbai. Stay inspired and learn with us.">
+    <meta property="og:image" content="https://makerworkslab.in/images/blog-hero.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://makerworkslab.in/blog/">
+    <meta property="twitter:title" content="MakerWorks - Blog | Robotics, Coding & STEM Learning for Kids in Mumbai">
+    <meta property="twitter:description"
+        content="Read the MakerWorks Blog for tips, tutorials, and updates on robotics, coding, AI, IoT, 3D printing, and STEM learning for kids and teens in Mumbai. Stay inspired and learn with us.">
+    <meta property="twitter:image" content="https://makerworkslab.in/images/blog-hero.jpg">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks offers robotics, coding, AI, IoT, and 3D design classes for kids in Mumbai.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19,A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9137114223",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        }]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks is a maker space in Mumbai where we build projects, prototypes, and robotics solutions using Arduino, Raspberry Pi, IoT, AI, and 3D printing.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 08:00-21:00",
+        "telephone": "+91-9137114223",
+        "sameAs": [
+          "https://x.com/makerworkslab",
+          " https://www.instagram.com/makerworkslab",
+          "https://www.youtube.com/@MakerWorkslab",
+          "https://www.linkedin.com/company/makerworkslab/"
+        ]
+      }
+    ]
+  }
+  </script>
+    </script>
+    <style>
+        /* Optional: Add some styling for the modal content to match your blog's aesthetic */
+        .modal-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: block;
+            /* Ensures centering if needed */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modal-body pre {
+            background-color: #282c34;
+            /* Dark background for code blocks */
+            color: #abb2bf;
+            /* Light text for code */
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            /* For long code lines */
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            /* Monospaced font for code */
+            font-size: 0.95em;
+            line-height: 1.4;
+            tab-size: 4;
+        }
+
+        .modal-body h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #ff6600;
+            /* Orange color for subheadings */
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .modal-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .modal-body ul,
+        .modal-body ol {
+            margin-bottom: 1rem;
+            padding-left: 25px;
+            line-height: 1.6;
+        }
+
+        .modal-body p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .modal-body small {
+            font-style: italic;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav"
+            style="backdrop-filter: blur(20px) saturate(180%); background: rgba(255, 255, 255, 0.8) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding: 1rem 2rem; transition: all 0.3s ease;">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand" href="/"
+                    style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.6rem; color: #1d1d1f !important; letter-spacing: -1px;">MAKERWORKS</a>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMain">
+                    <span class="bi bi-list fs-1"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+                    <ul class="navbar-nav gap-3 align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="/about/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">About</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/learn/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Learn</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/makers/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Makers</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Programs</a>
+                            <ul class="dropdown-menu border-0 shadow-lg rounded-4 p-3"
+                                style="background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);">
+                                <li><a class="dropdown-item rounded-3 mb-1" href="/programs/beginner/">Beginner
+                                        Level</a></li>
+                                <li><a class="dropdown-item rounded-3 mb-1" href="/programs/intermediate/">Intermediate
+                                        Level</a></li>
+                                <li><a class="dropdown-item rounded-3" href="/programs/advanced/">Advanced Level</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Competitions</a>
+                            <ul class="dropdown-menu border-0 shadow-lg rounded-4 p-3"
+                                style="background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);">
+                                <li><a class="dropdown-item rounded-3 mb-1" href="https://wroindia.org/"
+                                        target="_blank">WRO</a></li>
+                                <li><a class="dropdown-item rounded-3"
+                                        href="https://www.vexrobotics.com/iq/competition/viqc-current-game"
+                                        target="_blank">VEX IQ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/projects/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Projects</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/blog/"
+                                style="font-weight: 600; color: #0d6efd !important; padding: 0.5rem 1rem !important; opacity: 1; transition: all 0.3s ease;">Blog</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/gallery/"
+                                style="font-weight: 600; color: #1d1d1f !important; padding: 0.5rem 1rem !important; opacity: 0.7; transition: all 0.3s ease;">Gallery</a>
+                        </li>
+
+                        <li class="nav-item ps-lg-3">
+                            <a href="tel:+919137114223" class="btn"
+                                style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 10px 24px; border-radius: 100px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+                                BOOK TRIAL
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <style>
+        .nav-link:hover {
+            opacity: 1 !important;
+            transform: translateY(-2px);
+        }
+
+        .dropdown-item {
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1)) !important;
+            transform: translateX(5px);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 20px;
+                margin-top: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+
+
+    <!-- Modern Blog Hero Section -->
+    <section
+        style="position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, #1d1d1f 0%, #0d6efd 50%, #6f42c1 100%); margin-top: 56px;">
+        <!-- Animated Background Elements -->
+        <div
+            style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.08); border-radius: 50%; animation: floatBubble 8s ease-in-out infinite;">
+        </div>
+        <div
+            style="position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%; animation: floatBubble 10s ease-in-out infinite reverse;">
+        </div>
+        <div
+            style="position: absolute; top: 40%; right: 15%; width: 120px; height: 120px; background: rgba(255, 102, 0, 0.2); border-radius: 50%; animation: floatBubble 6s ease-in-out infinite;">
+        </div>
+
+        <!-- Code Pattern Overlay -->
+        <div
+            style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.6;">
+        </div>
+
+        <div class="container text-center" style="position: relative; z-index: 2;">
+            <span
+                style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); padding: 8px 24px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">
+                <i class="bi bi-journal-code me-2"></i>Learning Hub
+            </span>
+            <h1
+                style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 24px; letter-spacing: -2px;">
+                Arduino & Raspberry Pi<br><span
+                    style="background: linear-gradient(90deg, #ff6600, #ffb366); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tutorials</span>
+            </h1>
+            <p
+                style="font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 32px; line-height: 1.7;">
+                Explore beginner tutorials, automation projects, IoT hacks, and step-by-step guides for makers.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#blog-articles" class="btn"
+                    style="background: white; color: #0d6efd; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <i class="bi bi-book-half"></i> Browse Articles
+                </a>
+                <a href="/projects/" class="btn"
+                    style="background: transparent; color: white; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s ease;">
+                    <i class="bi bi-grid-3x3-gap"></i> View Projects
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+                <div
+                    style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+                    <h4 style="color: white; font-weight: 800; font-size: 1.6rem; margin-bottom: 4px;">6+</h4>
+                    <p style="color: rgba(255,255,255,0.75); font-size: 0.8rem; margin: 0;">Tutorials</p>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+                    <h4 style="color: white; font-weight: 800; font-size: 1.6rem; margin-bottom: 4px;">2</h4>
+                    <p style="color: rgba(255,255,255,0.75); font-size: 0.8rem; margin: 0;">Platforms</p>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+                    <h4 style="color: white; font-weight: 800; font-size: 1.6rem; margin-bottom: 4px;">Free</h4>
+                    <p style="color: rgba(255,255,255,0.75); font-size: 0.8rem; margin: 0;">Resources</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @keyframes floatBubble {
+
+                0%,
+                100% {
+                    transform: translateY(0) rotate(0deg);
+                }
+
+                50% {
+                    transform: translateY(-25px) rotate(3deg);
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Blog Articles Section -->
+    <section id="blog-articles" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%); padding: 80px 0;">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <span
+                    style="display: inline-block; background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1)); padding: 8px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; color: #0d6efd; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">
+                    Latest Articles
+                </span>
+                <h2
+                    style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 2.5rem; font-weight: 800; color: #1d1d1f; letter-spacing: -1px;">
+                    Learn & Build</h2>
+                <p class="text-muted" style="max-width: 500px; margin: 16px auto 0;">Step-by-step tutorials to master
+                    Arduino and Raspberry Pi programming</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Blog Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-modern"
+                        style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05);">
+                        <div style="position: relative; overflow: hidden; height: 200px;">
+                            <img src="blogphotos/blink an led.webp"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                                alt="Blink LED">
+                            <div
+                                style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);">
+                            </div>
+                            <span
+                                style="position: absolute; top: 16px; left: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 5px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">
+                                <i class="bi bi-cpu me-1"></i>Arduino
+                            </span>
+                            <span
+                                style="position: absolute; bottom: 16px; left: 16px; color: white; font-size: 0.8rem; opacity: 0.9;">
+                                <i class="bi bi-clock me-1"></i>5 min read
+                            </span>
+                        </div>
+                        <div style="padding: 24px;">
+                            <h5 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; color: #1d1d1f;">
+                                Arduino Blink LED Tutorial</h5>
+                            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Learn
+                                the classic "Hello World" of Arduino — making an LED blink with simple code.</p>
+                            <a href="#" class="d-flex align-items-center gap-2"
+                                style="color: #0d6efd; font-weight: 700; text-decoration: none; transition: all 0.3s ease;"
+                                data-bs-toggle="modal" data-bs-target="#blinkLedModal">
+                                Read Tutorial <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-modern"
+                        style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05);">
+                        <div style="position: relative; overflow: hidden; height: 200px;">
+                            <img src="blogphotos/controlling motors with aurdino.webp"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                                alt="Motor Control">
+                            <div
+                                style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);">
+                            </div>
+                            <span
+                                style="position: absolute; top: 16px; left: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 5px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">
+                                <i class="bi bi-cpu me-1"></i>Arduino
+                            </span>
+                            <span
+                                style="position: absolute; bottom: 16px; left: 16px; color: white; font-size: 0.8rem; opacity: 0.9;">
+                                <i class="bi bi-clock me-1"></i>8 min read
+                            </span>
+                        </div>
+                        <div style="padding: 24px;">
+                            <h5 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; color: #1d1d1f;">
+                                Controlling Motors with Arduino</h5>
+                            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">From DC
+                                to Servo motors, this guide helps you spin them all using Arduino.</p>
+                            <a href="#" class="d-flex align-items-center gap-2"
+                                style="color: #0d6efd; font-weight: 700; text-decoration: none; transition: all 0.3s ease;"
+                                data-bs-toggle="modal" data-bs-target="#motorControlModal">
+                                Read Tutorial <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-modern"
+                        style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05);">
+                        <div style="position: relative; overflow: hidden; height: 200px;">
+                            <img src="blogphotos/16x2 LCD Display.webp"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                                alt="LCD Display">
+                            <div
+                                style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);">
+                            </div>
+                            <span
+                                style="position: absolute; top: 16px; left: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 5px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">
+                                <i class="bi bi-cpu me-1"></i>Arduino
+                            </span>
+                            <span
+                                style="position: absolute; bottom: 16px; left: 16px; color: white; font-size: 0.8rem; opacity: 0.9;">
+                                <i class="bi bi-clock me-1"></i>6 min read
+                            </span>
+                        </div>
+                        <div style="padding: 24px;">
+                            <h5 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; color: #1d1d1f;">
+                                Interface 16x2 LCD with Arduino</h5>
+                            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Display
+                                any message or sensor data using LCDs and I2C modules.</p>
+                            <a href="#" class="d-flex align-items-center gap-2"
+                                style="color: #0d6efd; font-weight: 700; text-decoration: none; transition: all 0.3s ease;"
+                                data-bs-toggle="modal" data-bs-target="#lcdInterfaceModal">
+                                Read Tutorial <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-modern"
+                        style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05);">
+                        <div style="position: relative; overflow: hidden; height: 200px;">
+                            <img src="blogphotos/rasperry pi.webp"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                                alt="Pi Setup">
+                            <div
+                                style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);">
+                            </div>
+                            <span
+                                style="position: absolute; top: 16px; left: 16px; background: linear-gradient(135deg, #c51a4a, #ff6600); color: white; padding: 5px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">
+                                <i class="bi bi-motherboard me-1"></i>Raspberry Pi
+                            </span>
+                            <span
+                                style="position: absolute; bottom: 16px; left: 16px; color: white; font-size: 0.8rem; opacity: 0.9;">
+                                <i class="bi bi-clock me-1"></i>10 min read
+                            </span>
+                        </div>
+                        <div style="padding: 24px;">
+                            <h5 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; color: #1d1d1f;">
+                                Getting Started with Raspberry Pi</h5>
+                            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Install
+                                OS, setup Wi-Fi and explore the terminal for the first time.</p>
+                            <a href="#" class="d-flex align-items-center gap-2"
+                                style="color: #0d6efd; font-weight: 700; text-decoration: none; transition: all 0.3s ease;"
+                                data-bs-toggle="modal" data-bs-target="#piSetupModal">
+                                Read Tutorial <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-modern"
+                        style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05);">
+                        <div style="position: relative; overflow: hidden; height: 200px;">
+                            <img src="blogphotos/pi with camera.webp"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                                alt="Pi Camera Module">
+                            <div
+                                style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);">
+                            </div>
+                            <span
+                                style="position: absolute; top: 16px; left: 16px; background: linear-gradient(135deg, #c51a4a, #ff6600); color: white; padding: 5px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">
+                                <i class="bi bi-motherboard me-1"></i>Raspberry Pi
+                            </span>
+                            <span
+                                style="position: absolute; bottom: 16px; left: 16px; color: white; font-size: 0.8rem; opacity: 0.9;">
+                                <i class="bi bi-clock me-1"></i>7 min read
+                            </span>
+                        </div>
+                        <div style="padding: 24px;">
+                            <h5 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; color: #1d1d1f;">Using
+                                Camera with Pi</h5>
+                            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Connect
+                                the Pi Camera module and capture photos or stream live video.</p>
+                            <a href="#" class="d-flex align-items-center gap-2"
+                                style="color: #0d6efd; font-weight: 700; text-decoration: none; transition: all 0.3s ease;"
+                                data-bs-toggle="modal" data-bs-target="#piCameraModal">
+                                Read Tutorial <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-modern"
+                        style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05);">
+                        <div style="position: relative; overflow: hidden; height: 200px;">
+                            <img src="blogphotos/IoT-based-Home-Automation-using-Blynk-App-and-Raspberry-Pi.webp"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                                alt="IoT with Pi">
+                            <div
+                                style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);">
+                            </div>
+                            <span
+                                style="position: absolute; top: 16px; left: 16px; background: linear-gradient(135deg, #c51a4a, #ff6600); color: white; padding: 5px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">
+                                <i class="bi bi-motherboard me-1"></i>Raspberry Pi
+                            </span>
+                            <span
+                                style="position: absolute; bottom: 16px; left: 16px; color: white; font-size: 0.8rem; opacity: 0.9;">
+                                <i class="bi bi-clock me-1"></i>12 min read
+                            </span>
+                        </div>
+                        <div style="padding: 24px;">
+                            <h5 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; color: #1d1d1f;">IoT
+                                Automation with Raspberry Pi</h5>
+                            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Build
+                                IoT systems with Node-RED, sensors, and web-based controls.</p>
+                            <a href="#" class="d-flex align-items-center gap-2"
+                                style="color: #0d6efd; font-weight: 700; text-decoration: none; transition: all 0.3s ease;"
+                                data-bs-toggle="modal" data-bs-target="#iotAutomationModal">
+                                Read Tutorial <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Hover Styles -->
+        <style>
+            .blog-card-modern:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
+            }
+
+            .blog-card-modern:hover img {
+                transform: scale(1.08);
+            }
+
+            .blog-card-modern a:hover {
+                gap: 12px !important;
+            }
+
+            .blog-card-modern a:hover i {
+                transform: translateX(4px);
+            }
+        </style>
+    </section>
+
+
+
+    <footer class="pt-5">
+        <div class="container">
+            <div class="card shadow-lg rounded-4 p-4 border-0" style="background-color: #ffe5b4;">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h5 class="mt-3">Join The Maker Movement</h5>
+                        <p class="text-dark">Innovation from scratch!</p>
+                        <div class="social-icons">
+                            <a href="https://x.com/makerworkslab" class="text-dark" target="_blank"><i
+                                    class="fab fa-x-twitter"></i></a>
+                            <a href="https://www.instagram.com/makerworkslab" class="text-dark" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/makerworkslab/" class="text-dark"
+                                target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/@MakerWorkslab" class="text-dark" target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/about/" class="text-dark text-decoration-none">About Us</a></li>
+                            <li><a href="/learn/" class="text-dark text-decoration-none">Learn</a></li>
+                            <li><a href="/projects/" class="text-dark text-decoration-none">Projects</a></li>
+                            <li><a href="/Makers" class="text-dark text-decoration-none">Makers</a></li>
+                            <li><a href="#" class="text-dark text-decoration-none">Privacy Policy</a></li>
+                            <li><a href="/blog/" class="text-dark text-decoration-none">Blog</a></li>
+                            <li><a href="#" class="text-dark text-decoration-none">Terms & Conditions</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <h5>Get In Touch</h5>
+                        <p class="text-dark mb-1">Email: themumbaicodinglab@gmail.com</p>
+                        <p class="text-dark mb-1">Phone: +91 9493989713</p>
+                        <p class="text-dark">Address: A-wing, Express Zone, Malad East, Mumbai, Maharashtra, India</p>
+                    </div>
+                </div>
+
+                <div class="text-center border-top pt-3 mt-3">
+                    <p class="mb-0 text-dark">© 2025 MakerWorks. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="blinkLedModal" tabindex="-1" aria-labelledby="blinkLedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blinkLedModalLabel">Arduino Blink LED Tutorial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/blink an led.webp" alt="Blink LED Tutorial">
+                    <p class="text-muted mb-4">Published on July 22, 2025 by MakerWorks Team</p>
+
+                    <p>Welcome to the classic "Hello World" of Arduino! This tutorial will walk you through the simplest
+                        yet most fundamental project: making an LED blink. It's an excellent starting point for anyone
+                        new to Arduino and embedded systems, as it introduces basic concepts of circuit building and
+                        programming.</p>
+
+                    <h2>What You'll Need:</h2>
+                    <ul>
+                        <li>**Arduino board** (Uno recommended)</li>
+                        <li>USB cable (for connecting Arduino to your computer)</li>
+                        <li>**Breadboard**</li>
+                        <li>**1 LED** (any color)</li>
+                        <li>**1 x 220 Ohm Resistor**</li>
+                        <li>Jumper wires</li>
+                        <li>Arduino IDE (Software installed on your computer)</li>
+                    </ul>
+
+                    <h2>Circuit Diagram:</h2>
+                    <p>Connecting the components is straightforward:</p>
+                    <ol>
+                        <li>Connect the long leg (anode) of the LED to a **220 Ohm resistor**.</li>
+                        <li>Connect the other end of the resistor to Arduino's digital pin **13**.</li>
+                        <li>Connect the short leg (cathode) of the LED to the Arduino's **GND (Ground) pin**.</li>
+                    </ol>
+                    <img src="images/blink_led_circuit.webp" alt="Blink LED Circuit Diagram">
+                    <small class="text-muted d-block text-center">Typical circuit for blinking an LED with
+                        Arduino.</small>
+
+                    <h2>Arduino Code (Sketch):</h2>
+                    <p>Open your Arduino IDE and copy-paste the following code. This code will turn the LED on for 1
+                        second, then turn it off for 1 second, repeatedly.</p>
+                    <pre><code class="language-arduino">
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 13 as an output.
+  pinMode(13, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);              // wait for a second (1000 milliseconds)
+  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);              // wait for a second
+}
+                </code></pre>
+                    <p><strong>Explanation of the Code:</strong></p>
+                    <ul>
+                        <li>`setup()`: This function runs once when the sketch starts. `pinMode(13, OUTPUT);` configures
+                            digital pin 13 to act as an output pin, meaning it can send voltage out.</li>
+                        <li>`loop()`: This function runs repeatedly after `setup()` finishes.
+                            <ul>
+                                <li>`digitalWrite(13, HIGH);`: Sends a HIGH signal (5V) to pin 13, turning the LED on.
+                                </li>
+                                <li>`delay(1000);`: Pauses the program for 1000 milliseconds (1 second).</li>
+                                <li>`digitalWrite(13, LOW);`: Sends a LOW signal (0V) to pin 13, turning the LED off.
+                                </li>
+                                <li>`delay(1000);`: Pauses for another 1 second.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h2>Uploading the Code:</h2>
+                    <ol>
+                        <li>Connect your Arduino board to your computer via the USB cable.</li>
+                        <li>In the Arduino IDE, go to `Tools > Board` and select your Arduino board (e.g., "Arduino
+                            Uno").</li>
+                        <li>Go to `Tools > Port` and select the serial port connected to your Arduino.</li>
+                        <li>Click the "Upload" button (right arrow icon) in the Arduino IDE.</li>
+                    </ol>
+
+                    <p>Once uploaded, you should see your LED blinking! Congratulations, you've just completed your
+                        first Arduino project!</p>
+                    <p>Stay tuned for more exciting projects and tutorials from MakerWorks!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="motorControlModal" tabindex="-1" aria-labelledby="motorControlModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="motorControlModalLabel">Controlling Motors with Arduino</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/controlling motors with aurdino.webp" alt="Motor Control Tutorial">
+                    <p class="text-muted mb-4">Published on July 29, 2025 by MakerWorks Team</p>
+
+                    <p>Motors are the muscles of robotics and automation. This guide will teach you how to control
+                        various types of motors using your Arduino, including **DC motors**, **servo motors**, and
+                        **stepper motors**.</p>
+
+                    <h2>Types of Motors:</h2>
+                    <ul>
+                        <li>**DC Motors:** Simple, continuous rotation. Ideal for applications where precise positioning
+                            isn't critical, like driving wheels. Requires a **motor driver** (e.g., L298N, L9110S) for
+                            speed and direction control as Arduino pins can't supply enough current directly.</li>
+                        <li>**Servo Motors:** Offer precise angular control, usually within a 0-180 degree range.
+                            Commonly used in robotics for specific movements, such as robot arms, steering mechanisms,
+                            or camera gimbals.</li>
+                        <li>**Stepper Motors:** Provide very precise step-by-step movement, making them perfect for
+                            applications requiring accurate positioning and repeatable motion, like 3D printers or CNC
+                            machines.</li>
+                    </ul>
+
+                    <h2>Controlling a DC Motor (Basic):</h2>
+                    <p>To control a DC motor's direction and speed, you'll typically use an H-bridge motor driver.</p>
+                    <h3>What You'll Need:</h3>
+                    <ul>
+                        <li>Arduino board</li>
+                        <li>**L298N Motor Driver Module** (or similar H-bridge driver)</li>
+                        <li>**DC Motor** (e.g., a small 3-6V motor)</li>
+                        <li>External Power Supply (e.g., 9V battery pack or power adapter for the motor)</li>
+                        <li>Jumper wires</li>
+                    </ul>
+                    <h3>Circuit Diagram (DC Motor with L298N):</h3>
+                    <p>Connect your Arduino's digital pins to the IN pins of the L298N, and an Arduino PWM pin to the EN
+                        pin for speed control. Connect your motor to the OUT pins of the L298N, and provide external
+                        power to the driver.</p>
+                    <img src="images/dc_motor_circuit.webp" alt="DC Motor Control Circuit">
+                    <small class="text-muted d-block text-center">Basic wiring for a DC motor with an L298N
+                        driver.</small>
+
+                    <h3>Arduino Code (DC Motor Example):</h3>
+                    <pre><code class="language-arduino">
+// L298N Motor Driver Pin Definitions
+const int enA = 9;  // Enable pin for Motor A (Connect to Arduino PWM pin)
+const int in1 = 10; // Input 1 for Motor A
+const int in2 = 11; // Input 2 for Motor A
+
+void setup() {
+  // Set all motor control pins as outputs
+  pinMode(enA, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+}
+
+void loop() {
+  // Rotate motor in one direction (e.g., clockwise)
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 200); // Set speed to ~78% of max (0-255)
+  delay(2000); // Run for 2 seconds
+
+  // Stop the motor
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 0); // Speed 0 = stop
+  delay(1000); // Stop for 1 second
+
+  // Rotate motor in the opposite direction (e.g., counter-clockwise)
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  analogWrite(enA, 200);
+  delay(2000); // Run for 2 seconds
+
+  // Stop the motor again
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 0);
+  delay(1000); // Stop for 1 second
+}
+                </code></pre>
+                    <p><strong>Explanation:</strong></p>
+                    <ul>
+                        <li>`analogWrite(enA, speed)`: Controls the motor speed using Pulse Width Modulation (PWM) on
+                            the enable pin. `0` is off, `255` is full speed.</li>
+                        <li>`digitalWrite(in1, HIGH/LOW)` and `digitalWrite(in2, HIGH/LOW)`: These control pins
+                            determine the direction of the motor's rotation.</li>
+                    </ul>
+
+                    <h2>Controlling a Servo Motor:</h2>
+                    <p>Servo motors are much simpler, requiring only one signal pin, power, and ground. The Arduino
+                        `Servo.h` library makes control very easy.</p>
+                    <h3>What You'll Need:</h3>
+                    <ul>
+                        <li>Arduino board</li>
+                        <li>**Servo Motor** (e.g., SG90 mini servo)</li>
+                        <li>Jumper wires</li>
+                    </ul>
+                    <h3>Arduino Code (Servo Example):</h3>
+                    <pre><code class="language-arduino">
+#include &lt;Servo.h&gt; // Include the Servo library
+
+Servo myServo;  // Create a servo object
+
+void setup() {
+  myServo.attach(9); // Attach the servo to digital pin 9
+}
+
+void loop() {
+  myServo.write(0);   // Move servo to 0 degrees
+  delay(1000);
+  myServo.write(90);  // Move servo to 90 degrees
+  delay(1000);
+  myServo.write(180); // Move servo to 180 degrees
+  delay(1000);
+}
+                </code></pre>
+                    <p>This is just a brief overview. Controlling different motors involves specific libraries and
+                        setup. Explore more details for stepper motors and advanced control techniques in dedicated
+                        tutorials!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="lcdInterfaceModal" tabindex="-1" aria-labelledby="lcdInterfaceModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lcdInterfaceModalLabel">Interface 16x2 LCD with Arduino</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/16x2 LCD Display.webp" alt="LCD Display Tutorial">
+                    <p class="text-muted mb-4">Published on August 5, 2025 by MakerWorks Team</p>
+
+                    <p>Display custom messages or sensor data on a **16x2 LCD (Liquid Crystal Display)** using your
+                        Arduino. We'll cover both the traditional direct wiring method and the much simpler **I2C
+                        module** method.</p>
+
+                    <h2>Why an LCD?</h2>
+                    <p>LCDs are invaluable for projects that need to provide immediate visual feedback without a
+                        computer, such as displaying temperature, sensor readings, countdown timers, or simple status
+                        messages.</p>
+
+                    <h2>Method 1: Direct Wiring (Many Connections)</h2>
+                    <p>This method involves connecting many pins directly from the LCD to the Arduino. While
+                        educational, it consumes a significant number of Arduino's digital pins.</p>
+                    <h3>What You'll Need:</h3>
+                    <ul>
+                        <li>Arduino board</li>
+                        <li>**16x2 LCD Module**</li>
+                        <li>**10k Ohm Potentiometer** (for contrast adjustment)</li>
+                        <li>**220 Ohm Resistor** (for backlight current limiting)</li>
+                        <li>Breadboard & plenty of Jumper Wires</li>
+                    </ul>
+                    <h3>Wiring (Simplified Overview):</h3>
+                    <p>A direct 16x2 LCD connection typically uses 10-12 Arduino pins. This can quickly use up valuable
+                        pins for more complex projects.</p>
+                    <img src="images/lcd_direct_wiring.webp" alt="LCD Direct Wiring Diagram">
+                    <small class="text-muted d-block text-center">Example of direct 16x2 LCD wiring (Note: detailed
+                        wiring diagram is complex and requires specific pin mappings).</small>
+
+                    <h2>Method 2: Using an I2C Module (Recommended - Simpler)</h2>
+                    <p>The **I2C (Inter-Integrated Circuit) backpack module** is a small board that attaches to the back
+                        of your 16x2 LCD. It acts as an interface, allowing you to control the LCD using only **two
+                        Arduino data pins (SDA and SCL)**, plus power (VCC) and ground (GND).</p>
+                    <h3>What You'll Need:</h3>
+                    <ul>
+                        <li>Arduino board</li>
+                        <li>**16x2 LCD Module with I2C Backpack** (this is usually sold as one unit, or you can buy the
+                            backpack separately)</li>
+                        <li>Jumper wires</li>
+                        <li>**LiquidCrystal_I2C Library** (install via Arduino IDE Library Manager)</li>
+                    </ul>
+                    <h3>Circuit Diagram (I2C Module):</h3>
+                    <p>This method is far cleaner and saves many Arduino pins for other sensors or components.</p>
+                    <ul>
+                        <li>**LCD SDA pin** (from I2C module) to Arduino **A4 (SDA)**</li>
+                        <li>**LCD SCL pin** (from I2C module) to Arduino **A5 (SCL)**</li>
+                        <li>**LCD VCC** (from I2C module) to Arduino **5V**</li>
+                        <li>**LCD GND** (from I2C module) to Arduino **GND**</li>
+                    </ul>
+                    <img src="images/lcd_i2c_wiring.webp" alt="LCD I2C Wiring Diagram">
+                    <small class="text-muted d-block text-center">Simple wiring for a 16x2 LCD with an I2C
+                        module.</small>
+
+                    <h3>Arduino Code (I2C Module Example):</h3>
+                    <p>First, install the `LiquidCrystal_I2C` library via **Sketch > Include Library > Manage
+                        Libraries...** in the Arduino IDE.</p>
+                    <pre><code class="language-arduino">
+#include &lt;Wire.h&gt;             // Required for I2C communication
+#include &lt;LiquidCrystal_I2C.h&gt; // Include the I2C LCD library
+
+// Set the LCD I2C address. Common addresses are 0x27 or 0x3F.
+// You might need to run an I2C scanner sketch to find the correct address for your module.
+// For a 16 columns and 2 rows display:
+LiquidCrystal_I2C lcd(0x27, 16, 2); // (I2C address, columns, rows)
+
+void setup() {
+  lcd.init();      // Initialize the LCD
+  lcd.backlight(); // Turn on the backlight (if your module has one)
+
+  // Print a message to the LCD
+  lcd.print("Hello, Maker!");
+  lcd.setCursor(0, 1); // Set cursor to the beginning of the second line (column 0, row 1)
+  lcd.print("MakerWorks!");
+}
+
+void loop() {
+  // You can update the display here based on sensor readings, button presses, etc.
+  // Example: Display elapsed time
+  // lcd.setCursor(0, 0);
+  // lcd.print("Time: ");
+  // lcd.print(millis() / 1000); // Display seconds
+}
+                </code></pre>
+                    <p>Using the I2C module is highly recommended for its simplicity and reduced pin usage, making it
+                        ideal for most Arduino projects involving LCDs!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="piSetupModal" tabindex="-1" aria-labelledby="piSetupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="piSetupModalLabel">Getting Started with Raspberry Pi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/rasperry pi.webp" alt="Raspberry Pi Setup">
+                    <p class="text-muted mb-4">Published on August 12, 2025 by MakerWorks Team</p>
+
+                    <p>The **Raspberry Pi** is a tiny, affordable single-board computer that you can use for everything
+                        from learning programming to building complex automation projects, or even creating a fully
+                        functional desktop PC. Let's get yours set up!</p>
+
+                    <h2>What You'll Need:</h2>
+                    <ul>
+                        <li>**Raspberry Pi Board** (e.g., Pi 4, Pi 5, Pi Zero W)</li>
+                        <li>**SD card** (16GB or larger, Class 10/U1 recommended for speed)</li>
+                        <li>**Power supply** appropriate for your Pi model (USB-C for newer Pis, micro USB for older)
+                        </li>
+                        <li>**Monitor** with HDMI input</li>
+                        <li>**HDMI cable** (mini-HDMI or micro-HDMI to standard HDMI, depending on Pi model)</li>
+                        <li>**USB Keyboard and Mouse**</li>
+                        <li>Computer with an **SD card reader** (or a USB SD card adapter)</li>
+                        <li>Ethernet cable or Wi-Fi (most modern Pis have built-in Wi-Fi)</li>
+                    </ul>
+
+                    <h2>Step 1: Install Raspberry Pi OS</h2>
+                    <p>Raspberry Pi OS (formerly Raspbian) is the official operating system for the Raspberry Pi.</p>
+                    <ol>
+                        <li>Download **Raspberry Pi Imager** from the official Raspberry Pi website (<a
+                                href="https://www.raspberrypi.com/software/"
+                                target="_blank">raspberrypi.com/software/</a>). This tool makes flashing the OS easy.
+                        </li>
+                        <li>Insert your **SD card** into your computer's SD card reader.</li>
+                        <li>Open Raspberry Pi Imager.
+                            <ul>
+                                <li>Click "Choose Device" and select your Raspberry Pi model.</li>
+                                <li>Click "Choose OS" and select "Raspberry Pi OS (64-bit)" (or "Raspberry Pi OS Lite"
+                                    if you prefer a headless setup without a desktop environment).</li>
+                                <li>Click "Choose Storage" and select your SD card. **Be careful to select the correct
+                                    drive!**</li>
+                                <li>(Optional but Recommended) Click the gear icon to set up SSH, Wi-Fi, and locale
+                                    settings before writing. This is very useful for headless setups.</li>
+                            </ul>
+                        </li>
+                        <li>Click "**Write**" and confirm. The Imager will download the OS, write it to the SD card, and
+                            verify it. This process can take a while.</li>
+                    </ol>
+                    <img src="images/pi_imager_screenshot.webp" alt="Raspberry Pi Imager Screenshot">
+                    <small class="text-muted d-block text-center">Raspberry Pi Imager in action, simplifying OS
+                        installation.</small>
+
+                    <h2>Step 2: Initial Boot and Basic Setup</h2>
+                    <ol>
+                        <li>Once the Imager finishes, safely eject the SD card from your computer and insert it into the
+                            **SD card slot** on your Raspberry Pi.</li>
+                        <li>Connect your monitor, keyboard, and mouse to the Raspberry Pi.</li>
+                        <li>Finally, connect the **power supply**. The Pi should automatically boot up.</li>
+                        <li>The first boot will usually launch a setup wizard. Follow the on-screen prompts to:
+                            <ul>
+                                <li>Set your **country, language, and time zone**.</li>
+                                <li>**Change the default password** (highly recommended for security).</li>
+                                <li>Connect to your **Wi-Fi network**.</li>
+                                <li>Update the software (this might take some time).</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h2>Step 3: Update and Explore the Terminal</h2>
+                    <p>Even if you did updates during the setup, it's good practice to update regularly. Open a
+                        **terminal** (usually by clicking the black icon on the taskbar or pressing `Ctrl+Alt+T`) and
+                        run:</p>
+                    <pre><code class="language-bash">
+sudo apt update         # Fetches the latest list of available packages
+sudo apt full-upgrade   # Installs available updates for all packages
+sudo reboot             # Reboots your Raspberry Pi after updates
+                </code></pre>
+                    <p>The terminal is a powerful tool for controlling your Pi. Here are some basic commands:</p>
+                    <ul>
+                        <li>`ls`: List files and directories in the current location.</li>
+                        <li>`cd [directory_name]`: Change directory (e.g., `cd Desktop`).</li>
+                        <li>`pwd`: Print working directory (shows your current location).</li>
+                        <li>`mkdir [new_folder_name]`: Make a new directory.</li>
+                        <li>`rm [file_name]`: Remove (delete) a file. Use `rm -r [folder_name]` to remove a folder and
+                            its contents.</li>
+                        <li>`nano [file_name]`: Open a simple text editor.</li>
+                        <li>`startx`: If you're using a Lite OS and want to start the desktop environment (if
+                            installed).</li>
+                        <li>`sudo poweroff`: Safely shut down your Pi.</li>
+                    </ul>
+
+                    <p>You've successfully set up your Raspberry Pi! You're now ready to dive into programming, hardware
+                        projects, and the vast world of DIY electronics.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="piCameraModal" tabindex="-1" aria-labelledby="piCameraModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="piCameraModalLabel">Using Camera with Pi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/pi with camera.webp" alt="Raspberry Pi Camera Module">
+                    <p class="text-muted mb-4">Published on August 19, 2025 by MakerWorks Team</p>
+
+                    <p>Add vision to your Raspberry Pi projects! This tutorial shows you how to connect and use the
+                        **official Raspberry Pi Camera Module** to capture photos, record videos, and even stream live
+                        footage. This is essential for surveillance systems, robotics, and computer vision applications.
+                    </p>
+
+                    <h2>What You'll Need:</h2>
+                    <ul>
+                        <li>**Raspberry Pi board** (any model with a CSI camera connector, which is most of them!)</li>
+                        <li>**Raspberry Pi Camera Module** (V1, V2, or High Quality Camera). The ribbon cable usually
+                            comes with the camera.</li>
+                        <li>Latest **Raspberry Pi OS** installed and updated on your Pi.</li>
+                    </ul>
+
+                    <h2>Step 1: Connect the Camera Module to Your Pi</h2>
+                    <p>This is a delicate but straightforward step. Ensure your Raspberry Pi is **powered off** before
+                        you begin.</p>
+                    <ol>
+                        <li>Locate the **CSI (Camera Serial Interface) camera port** on your Pi. It's a long, white or
+                            black connector, usually near the HDMI ports.</li>
+                        <li>Gently pull up on the small plastic clips/edges on both sides of the connector. Do not pull
+                            too hard, just enough to release the clasp.</li>
+                        <li>Carefully insert the **ribbon cable** from the camera module into the connector. Ensure the
+                            **silver metallic contacts** on the ribbon cable are facing the **HDMI port side** (for
+                            Raspberry Pi 4/5) or **away from the Ethernet port** (for older Pis like Pi 3/2). Make sure
+                            it's straight and fully inserted.</li>
+                        <li>Once inserted, gently push the plastic clips back down to secure the cable firmly in place.
+                        </li>
+                    </ol>
+                    <img src="images/pi_camera_connection.webp" alt="Raspberry Pi Camera Connection">
+                    <small class="text-muted d-block text-center">Properly connecting the ribbon cable to the CSI port
+                        on your Raspberry Pi.</small>
+
+                    <h2>Step 2: Enable the Camera Interface in Raspberry Pi OS</h2>
+                    <p>The camera interface is usually disabled by default for security and resource management.</p>
+                    <ol>
+                        <li>Power on your Raspberry Pi.</li>
+                        <li>Open a **terminal** (Ctrl+Alt+T or click the terminal icon).</li>
+                        <li>Run the Raspberry Pi configuration tool:
+                            <pre><code class="language-bash">
+sudo raspi-config
+                        </code></pre>
+                        </li>
+                        <li>In the `raspi-config` menu, navigate using arrow keys:
+                            <ul>
+                                <li>Select "**3 Interface Options**"</li>
+                                <li>Select "**P1 Camera**"</li>
+                                <li>Select "**Yes**" to enable the camera interface.</li>
+                            </ul>
+                        </li>
+                        <li>Exit `raspi-config` (Tab to `<Finish>`, Enter). You'll likely be prompted to **reboot** your
+                                Pi. Select "Yes" to reboot.</li>
+                    </ol>
+
+                    <h2>Step 3: Capturing Images and Video</h2>
+                    <p>After rebooting, your camera should be ready! Newer versions of Raspberry Pi OS (Bullseye and
+                        later) use `libcamera` tools. Older versions used `raspistill` and `raspivid`.</p>
+
+                    <h3>For `libcamera` tools (Recommended for newer OS - Raspberry Pi OS Bullseye or later):</h3>
+                    <p>These commands are run in the terminal.</p>
+                    <ul>
+                        <li>**Capture a still image:**
+                            <pre><code class="language-bash">
+libcamera-still -o my_first_image.jpg
+                        </code></pre>
+                            <p>This will capture an image and save it as `my_first_image.jpg` in your current directory.
+                            </p>
+                        </li>
+                        <li>**Record a video (e.g., 5 seconds long):**
+                            <pre><code class="language-bash">
+libcamera-vid -o my_first_video.h264 --t 5000
+                        </code></pre>
+                            <p>The `--t 5000` specifies the duration in milliseconds (5000ms = 5 seconds). The video
+                                will be saved as `my_first_video.h264`.</p>
+                        </li>
+                        <li>**View a live preview (without saving):**
+                            <pre><code class="language-bash">
+libcamera-preview
+                        </code></pre>
+                        </li>
+                    </ul>
+
+                    <h3>For `raspistill`/`raspivid` (Older OS - up to Raspberry Pi OS Buster):</h3>
+                    <ul>
+                        <li>**Capture a still image:**
+                            <pre><code class="language-bash">
+raspistill -o image.jpg
+                        </code></code
+                        ><p>Captures an image and saves it.</p>
+                    </li>
+                    <li>**Record a video (e.g., 10 seconds long):**
+                        <pre><code class="language-bash">
+raspivid -o video.h264 -t 10000
+                        </code></pre>
+                            <p>Records a video for 10 seconds.</p>
+                        </li>
+                    </ul>
+
+                    <p>The Raspberry Pi Camera Module opens up incredible possibilities for surveillance, time-lapse
+                        photography, security systems, and even basic computer vision projects! Have fun exploring its
+                        capabilities!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="iotAutomationModal" tabindex="-1" aria-labelledby="iotAutomationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="iotAutomationModalLabel">IoT Automation with Raspberry Pi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/IoT-based-Home-Automation-using-Blynk-App-and-Raspberry-Pi.webp"
+                        alt="IoT Automation with Raspberry Pi">
+                    <p class="text-muted mb-4">Published on August 26, 2025 by MakerWorks Team</p>
+
+                    <p>Transform your **Raspberry Pi** into a powerful **IoT (Internet of Things) hub** for home
+                        automation, environmental monitoring, smart gardening, and more! This guide introduces you to
+                        the concepts of IoT automation, building web-based controls, and integrating sensors for
+                        creating intelligent systems.</p>
+
+                    <h2>What is IoT Automation?</h2>
+                    <p>IoT automation involves connecting physical devices (like sensors that measure temperature, or
+                        actuators like smart lights) to the internet. These devices can then collect and exchange data,
+                        allowing them to be controlled remotely (via a smartphone app or web dashboard) or automatically
+                        based on pre-programmed conditions (e.g., turn on lights when it gets dark).</p>
+
+                    <h2>Key Components of an IoT System:</h2>
+                    <ul>
+                        <li>**Raspberry Pi:** Serves as your central processing unit and gateway, connecting your
+                            physical devices to the internet.</li>
+                        <li>**Sensors:** Devices that collect data from the physical world (e.g., **DHT11/DHT22** for
+                            temperature/humidity, **PIR sensor** for motion detection, **LDR** for light levels).</li>
+                        <li>**Actuators:** Devices that perform actions based on commands or sensor data (e.g.,
+                            **Relays** to control mains-powered lights/appliances, **Servo motors** for opening/closing
+                            vents).</li>
+                        <li>**Communication Protocols:** How devices talk to each other and the internet (e.g.,
+                            **Wi-Fi**, **MQTT** - Message Queuing Telemetry Transport for lightweight messaging).</li>
+                        <li>**IoT Platform/Dashboard:** A software interface for controlling devices, visualizing data,
+                            and setting up automation rules. Popular choices include **Node-RED**, **Home Assistant**,
+                            **Blynk**, **Adafruit IO**, and **Thingspeak**.</li>
+                    </ul>
+
+                    <h2>Project Idea: Smart Home Temperature Monitor with Node-RED</h2>
+                    <p>Let's build a simple system to read temperature and humidity from a sensor and display it on a
+                        web dashboard using Node-RED.</p>
+                    <h3>What You'll Need:</h3>
+                    <ul>
+                        <li>Raspberry Pi (with Raspberry Pi OS installed and networked)</li>
+                        <li>**DHT11 or DHT22 Temperature & Humidity Sensor**</li>
+                        <li>Breadboard & Jumper wires</li>
+                        <li>**Node-RED** installed on your Raspberry Pi</li>
+                    </ul>
+
+                    <h3>Step 1: Wire the DHT Sensor</h3>
+                    <p>Connect your DHT sensor to the Raspberry Pi's GPIO pins:</p>
+                    <ul>
+                        <li>**DHT VCC** to Raspberry Pi **3.3V** or **5V** pin (check DHT module for voltage
+                            compatibility)</li>
+                        <li>**DHT GND** to Raspberry Pi **GND** pin</li>
+                        <li>**DHT Data pin** to a Raspberry Pi **GPIO pin** (e.g., GPIO 4 - Physical Pin 7)</li>
+                    </ul>
+                    <img src="images/dht11_pi_wiring.webp" alt="DHT11 to Raspberry Pi Wiring Diagram">
+                    <small class="text-muted d-block text-center">Basic wiring for a DHT11 sensor to Raspberry Pi
+                        GPIO.</small>
+
+                    <h3>Step 2: Install/Start Node-RED on your Raspberry Pi</h3>
+                    <p>Node-RED is a fantastic visual programming tool specifically designed for the Internet of Things.
+                        It often comes pre-installed on Raspberry Pi OS Full. If not, you can install it easily:</p>
+                    <pre><code class="language-bash">
+# This script will install Node.js, npm, and Node-RED
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+                </code></pre>
+                    <p>Once installed, start Node-RED with:</p>
+                    <pre><code class="language-bash">
+node-red-start
+                </code></pre>
+                    <p>You can then access the Node-RED flow editor in your web browser by navigating to:
+                        `http://[your-pi-ip-address]:1880` (e.g., `http://192.168.1.100:1880`).</p>
+
+                    <h3>Step 3: Create a Node-RED Flow for Temperature Monitoring</h3>
+                    <p>In the Node-RED editor:</p>
+                    <ol>
+                        <li>**Install `node-red-node-pi-gpio` and `node-red-dashboard`:** Go to `Menu (top right) >
+                            Manage palette > Install` and search for these nodes.</li>
+                        <li>Drag an **`rpi-dht11` node** (from the Raspberry Pi category) onto your canvas. Configure it
+                            to read from the correct GPIO pin (e.g., `GPIO4`).</li>
+                        <li>Drag a **`debug` node** onto your canvas. Connect the output of the `rpi-dht11` node to the
+                            input of the `debug` node. Deploy this to see sensor readings in the debug tab.</li>
+                        <li>For a web dashboard: Drag a **`gauge` node** (from the dashboard category) and a **`chart`
+                            node** onto your canvas. Connect the output of the `rpi-dht11` node to both. Configure the
+                            `gauge` to display temperature and the `chart` to show a historical trend.</li>
+                        <li>Click the **Deploy** button (top right).</li>
+                    </ol>
+                    <p>Access your dashboard at `http://[your-pi-ip-address]:1880/ui`.</p>
+                    <img src="images/node_red_flow.webp" alt="Node-RED Example Flow">
+                    <small class="text-muted d-block text-center">A simple Node-RED flow for reading DHT11 data and
+                        displaying it.</small>
+
+                    <p>This is just the beginning! Node-RED offers immense flexibility to connect to various online
+                        services, databases, email, social media, and control a wide array of devices, making it a
+                        powerful tool for all your IoT automation dreams.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Highlight.js to parse and highlight code blocks
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+
+        // Existing Navbar toggle JS (keep this if you have specific custom behavior beyond Bootstrap's data-bs-toggle)
+        const navbarToggler = document.querySelector('.navbar-toggler'); // Targeting the toggler button
+        const navbarCollapse = document.getElementById('navbarMain'); // Targeting the collapsible content
+
+        if (navbarToggler && navbarCollapse) {
+            // This toggles the collapse manually if needed, but Bootstrap's data-bs-toggle handles it normally
+            navbarToggler.addEventListener('click', () => {
+                // No custom logic needed here if data-bs-toggle is already on the button
+            });
+
+            // This ensures nav collapses if a link inside the mobile menu is clicked
+            // Useful if clicking a link doesn't naturally close the menu on some mobile browsers
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Check if the navbar is currently expanded (has the 'show' class)
+                    if (navbarCollapse.classList.contains('show')) {
+                        // Manually hide the Bootstrap collapse component
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                            toggle: false // Do not toggle, just explicitly hide
+                        });
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>

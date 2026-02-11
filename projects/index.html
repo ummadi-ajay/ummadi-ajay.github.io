@@ -1,0 +1,847 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai">
+  <meta name="description"
+    content="Explore innovative robotics, coding, and STEM projects created by students and mentors at MakerWorks, Mumbai. Learn, build, and get inspired!">
+  <meta name="keywords"
+    content="MakerWorks projects, robotics projects Mumbai, coding projects, STEM projects for kids, Arduino projects, Raspberry Pi projects, IoT projects, AI projects, 3D printing projects">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makerworkslab.in/projects/">
+  <meta property="og:title" content="MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai">
+  <meta property="og:description"
+    content="Explore innovative robotics, coding, and STEM projects created by students and mentors at MakerWorks, Mumbai. Learn, build, and get inspired!">
+  <meta property="og:image" content="https://makerworkslab.in/images/projects-hero.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://makerworkslab.in/projects/">
+  <meta property="twitter:title" content="MakerWorks - Projects | Robotics & Coding Projects for Kids in Mumbai">
+  <meta property="twitter:description"
+    content="Explore innovative robotics, coding, and STEM projects created by students and mentors at MakerWorks, Mumbai. Learn, build, and get inspired!">
+  <meta property="twitter:image" content="https://makerworkslab.in/images/projects-hero.jpg">
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/components.js" defer></script>
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks offers robotics, coding, AI, IoT, and 3D design classes for kids in Mumbai.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19,A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9137114223",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        }]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "MakerWorks",
+        "url": "https://makerworkslab.in",
+        "logo": "https://makerworkslab.in/images/logo.png",
+        "description": "MakerWorks is a maker space in Mumbai where we build projects, prototypes, and robotics solutions using Arduino, Raspberry Pi, IoT, AI, and 3D printing.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Western Express Highway, near Oberoi Mall, Malad, Panch Bawadi, Malad East",
+          "addressLocality": "Mumbai",
+          "addressRegion": "MH",
+          "postalCode": "400097",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 08:00-21:00",
+        "telephone": "+91-9137114223",
+        "sameAs": [
+          "https://x.com/makerworkslab",
+          " https://www.instagram.com/makerworkslab",
+          "https://www.youtube.com/@MakerWorkslab",
+          "https://www.linkedin.com/company/makerworkslab/"
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --secondary: #ff6600;
+      --dark: #1d1d1f;
+      --light: #ffffff;
+      --bg-offset: #fbfbfd;
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+
+    /* --- Refined Nav --- */
+    .navbar {
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255, 255, 255, 0.8) !important;
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 2rem;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar.floating {
+      margin-top: 1rem;
+      border-radius: 100px;
+      width: 90%;
+      left: 5%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .navbar-brand {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--dark) !important;
+      letter-spacing: -1px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--dark) !important;
+      padding: 0.5rem 1rem !important;
+      opacity: 0.7;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    /* Custom styles for modal content */
+
+
+    /* Style for the project hero section */
+    .project-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/projects_hero.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 8rem 0 4rem;
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    .project-hero h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+    }
+
+    .project-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Project cards with modern design */
+    .card {
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      transition: var(--transition-smooth);
+      overflow: hidden;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+
+    .card-img-top {
+      transition: var(--transition-smooth);
+    }
+
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    /* Premium buttons */
+    .btn-outline-primary {
+      border-radius: 100px;
+      font-weight: 700;
+      padding: 10px 24px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-outline-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+    }
+
+    /* ============================================
+       RESPONSIVE MOBILE STYLES
+       ============================================ */
+
+    /* Tablets and smaller laptops */
+    @media (max-width: 991px) {
+
+      /* Navigation */
+      .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    /* Mobile phones (landscape and portrait) */
+    @media (max-width: 768px) {
+
+      /* Typography */
+      .project-hero h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .project-hero p {
+        font-size: 1rem !important;
+      }
+
+      .project-hero {
+        padding: 6rem 0 3rem !important;
+      }
+
+      /* Cards */
+      .card {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Modal */
+      .modal-body {
+        padding: 25px !important;
+      }
+
+      .modal-header {
+        padding: 20px 25px !important;
+      }
+
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 576px) {
+
+      /* Typography */
+      .project-hero h1 {
+        font-size: 2rem !important;
+      }
+
+      .fs-5 {
+        font-size: 1rem !important;
+      }
+
+      /* Hero Section */
+      .project-hero {
+        padding: 100px 0 60px !important;
+      }
+
+      /* Modal Code Blocks */
+      pre {
+        font-size: 0.8rem !important;
+        padding: 15px !important;
+      }
+
+      .modal-title {
+        font-size: 1.3rem !important;
+      }
+
+      /* Badges */
+      .badge {
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+      }
+
+      .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+
+      .row.g-4 {
+        row-gap: 2rem !important;
+      }
+
+      /* Remove 3D transforms on mobile for performance */
+      .card:hover {
+        transform: translateY(-8px) !important;
+      }
+
+
+    }
+
+    /* Extra small devices (very old phones) */
+    @media (max-width: 400px) {
+      .project-hero h1 {
+        font-size: 1.75rem !important;
+      }
+
+      .btn-outline-primary {
+        padding: 8px 18px !important;
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Landscape mode fixes for mobile */
+    @media (max-height: 600px) and (orientation: landscape) {
+      .project-hero {
+        padding: 80px 0 40px !important;
+      }
+    }
+
+    /* Touch-friendly improvements */
+    @media (hover: none) and (pointer: coarse) {
+
+      /* Increase tap targets */
+      .btn-outline-primary,
+      .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Remove hover effects that don't work on touch */
+      .card:hover {
+        transform: none !important;
+      }
+
+      /* Make cards tappable with slight visual feedback */
+      .card:active,
+      .btn-outline-primary:active {
+        opacity: 0.9;
+        transform: scale(0.98);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="navbar-placeholder"></div>
+
+
+
+
+  <!-- Modern Hero Section -->
+  <section class="project-hero"
+    style="position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 50%, #ff6600 100%);">
+    <!-- Animated Background Elements -->
+    <div
+      style="position: absolute; top: -50px; left: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: floatBubble 8s ease-in-out infinite;">
+    </div>
+    <div
+      style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: rgba(255,255,255,0.08); border-radius: 50%; animation: floatBubble 10s ease-in-out infinite reverse;">
+    </div>
+    <div
+      style="position: absolute; top: 50%; left: 10%; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border-radius: 50%; animation: floatBubble 6s ease-in-out infinite;">
+    </div>
+
+    <!-- Grid Pattern Overlay -->
+    <div
+      style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;">
+    </div>
+
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <span
+        style="display: inline-block; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); padding: 8px 24px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">
+        <i class="bi bi-robot me-2"></i>Innovation Hub
+      </span>
+      <h1
+        style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 24px; letter-spacing: -2px;">
+        Our Creative<br><span
+          style="background: linear-gradient(90deg, #fff, rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Projects</span>
+      </h1>
+      <p
+        style="font-size: 1.25rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 32px; line-height: 1.7;">
+        Explore innovative robotics, coding, and STEM projects built with Arduino, Raspberry Pi, and cutting-edge
+        technologies.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#projects-grid" class="btn"
+          style="background: white; color: #0d6efd; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          <i class="bi bi-grid-3x3-gap-fill"></i> Browse Projects
+        </a>
+        <a href="tel:+919137114223" class="btn"
+          style="background: transparent; color: white; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s ease;">
+          <i class="bi bi-telephone-fill"></i> Get Started
+        </a>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+        <div
+          style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+          <h4 style="color: white; font-weight: 800; font-size: 1.8rem; margin-bottom: 4px;">20+</h4>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0;">Projects</p>
+        </div>
+        <div
+          style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+          <h4 style="color: white; font-weight: 800; font-size: 1.8rem; margin-bottom: 4px;">5+</h4>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0;">Categories</p>
+        </div>
+        <div
+          style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 16px; text-align: center;">
+          <h4 style="color: white; font-weight: 800; font-size: 1.8rem; margin-bottom: 4px;">100%</h4>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0;">Hands-on</p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @keyframes floatBubble {
+
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-30px) rotate(5deg);
+        }
+      }
+    </style>
+  </section>
+
+  <!-- Projects Section Header -->
+  <section id="projects-grid" class="container py-5">
+    <div class="text-center mb-5">
+      <span
+        style="display: inline-block; background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(255, 102, 0, 0.1)); padding: 8px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; color: #0d6efd; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">
+        Get Making
+      </span>
+      <h2
+        style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 2.8rem; font-weight: 800; color: #1d1d1f; letter-spacing: -1px;">
+        All Projects</h2>
+      <p class="text-muted" style="max-width: 500px; margin: 16px auto 0;">Discover our collection of innovative STEM
+        projects built by students and mentors</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Project Card 1: Obstacle Avoiding Robot -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <!-- Image Container -->
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/obstacle Avoiding robot.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Obstacle Avoiding Robot">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <!-- Badge -->
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <!-- Difficulty -->
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <!-- Content -->
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Obstacle Avoiding
+              Robot</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">A smart car that uses
+              an ultrasonic sensor to detect and avoid obstacles autonomously.</p>
+            <!-- Tech Stack -->
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Arduino
+                Uno</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">HC-SR04</span>
+              <span
+                style="background: rgba(255, 102, 0, 0.1); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Motors</span>
+            </div>
+            <a href="obstacle-avoiding-robot.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2: Home Automation System -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/Home automation System.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Home Automation System">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-half me-1"></i>Intermediate
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Home Automation System
+            </h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Control home appliances
+              using a mobile phone via Bluetooth and Arduino relay system.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">HC-05
+                BT</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Relay</span>
+              <span
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Android</span>
+            </div>
+            <a href="home-automation-system.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3: Weather Station -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/weatherstation.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Arduino Weather Station">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Arduino Weather
+              Station</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Monitor real-time
+              temperature, humidity, and pressure data with sensor feedback.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">DHT11</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">BMP180</span>
+              <span
+                style="background: rgba(255, 102, 0, 0.1); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">LCD</span>
+            </div>
+            <a href="arduino-weather-station.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 4: Smart Dustbin -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/Gallary Smart Dustbin.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Smart Dustbin">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Arduino
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Smart Dustbin</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Automatically opens its
+              lid when someone approachesâ€”perfect for hygiene.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">HC-SR04</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Servo</span>
+              <span
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">IoT</span>
+            </div>
+            <a href="smart-dustbin.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 5: Line Follower Robot -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/line_follower_robot.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Line Follower Robot">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-cpu me-1"></i>Robotics
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Line Follower Robot
+            </h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">An autonomous robot
+              that
+              follows a black line on a white surface using IR sensors.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">IR
+                Sensor</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">L298N</span>
+              <span
+                style="background: rgba(255, 102, 0, 0.1); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Motors</span>
+            </div>
+            <a href="line-follower-robot.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 6: RFID Door Lock -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/rfid_door_lock.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="RFID Door Lock">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-shield-lock me-1"></i>Security
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-half me-1"></i>Intermediate
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">RFID Door Lock</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Secure access control
+              system that unlocks a servo latch using a key card.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">RC522</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Servo</span>
+              <span
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Arduino</span>
+            </div>
+            <a href="rfid-door-lock.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Project Card 7: Bluetooth Car -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/bluetooth_car.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Bluetooth Car">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-phone me-1"></i>Robotics
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #ff6600; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-half me-1"></i>Intermediate
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Bluetooth Car</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Smartphone-controlled
+              robot car using HC-05 Bluetooth module and Arduino.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">HC-05</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">L298N</span>
+              <span
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Motors</span>
+            </div>
+            <a href="bluetooth-car.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 8: Smart Irrigation -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card"
+          style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+          <div style="position: relative; overflow: hidden; height: 220px;">
+            <img src="projectimages/smart_irrigation.webp"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              alt="Smart Irrigation">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);">
+            </div>
+            <span
+              style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #20c997, #0d6efd); color: white; padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="bi bi-flower1 me-1"></i>IoT
+            </span>
+            <span
+              style="position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">
+              <i class="bi bi-star-fill me-1"></i>Beginner
+            </span>
+          </div>
+          <div style="padding: 24px;">
+            <h5 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; color: #1d1d1f;">Smart Irrigation</h5>
+            <p style="color: #6e6e73; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Automated plant
+              watering
+              system using moisture sensors.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Relay</span>
+              <span
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Sensor</span>
+              <span
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;">Pump</span>
+            </div>
+            <a href="smart-irrigation.html" class="w-100 btn"
+              style="background: linear-gradient(135deg, #0d6efd, #6f42c1); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="bi bi-arrow-right-circle"></i> View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Card Hover Styles -->
+    <style>
+      .project-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .project-card button:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+      }
+    </style>
+  </section>
+
+
+
+
+  <div id="footer-placeholder"></div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

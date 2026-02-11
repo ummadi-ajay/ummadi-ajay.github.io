@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obstacle Avoiding Robot Project | MakerWorks</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Obstacle Avoiding Robot Project | MakerWorks">
+    <meta name="description"
+        content="Build an autonomous robot that detects and avoids obstacles using Arduino and ultrasonic sensors. A perfect beginner robotics project.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="project-header">
+        <div class="container text-center">
+            <span class="badge bg-light text-primary mb-3 rounded-pill px-3 py-2">Robotics</span>
+            <h1 class="display-4 fw-bold mb-3">Obstacle Avoiding Robot</h1>
+            <div class="text-white-50">
+                <i class="bi bi-cpu me-2"></i>Arduino Uno
+                <span class="mx-2">•</span>
+                <i class="bi bi-bar-chart me-2"></i>Beginner Level
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="projectimages/obstacle Avoiding robot.webp" alt="Obstacle Avoiding Robot"
+                    class="img-fluid w-100 mb-5">
+
+                <p class="lead">The <strong>Obstacle Avoiding Robot</strong> is an exciting beginner-level robotics
+                    project that demonstrates autonomous navigation. This robot uses an <strong>ultrasonic sensor
+                        (HC-SR04)</strong> to detect objects in its path and an <strong>Arduino Uno</strong> to process
+                    the sensor data, commanding its <strong>DC motors</strong> to change direction and avoid collisions.
+                    It's a fantastic introduction to sensors, motor control, and basic robotics programming.</p>
+
+                <h2>Components Used:</h2>
+                <ul>
+                    <li><strong>Arduino Uno</strong> microcontroller board</li>
+                    <li><strong>HC-SR04 Ultrasonic Sensor</strong></li>
+                    <li><strong>L298N Motor Driver Module</strong></li>
+                    <li><strong>2 x DC Motors</strong></li>
+                    <li>Robot Chassis / Wheels</li>
+                    <li>Breadboard</li>
+                    <li>Jumper Wires</li>
+                    <li>9V Battery or Power Bank (for motor power)</li>
+                </ul>
+
+                <h2>How it Works:</h2>
+                <p>The HC-SR04 ultrasonic sensor constantly emits ultrasonic sound waves and measures the time it takes
+                    for the echo to return. The Arduino uses this time to calculate the distance to any object in front
+                    of the robot. If an obstacle is detected within a predefined range (e.g., 20 cm), the Arduino stops
+                    the robot, looks left and right to find a clear path, and then moves in the direction with the
+                    greatest distance.</p>
+
+                <h3>Circuit Connections:</h3>
+                <!-- Placeholder for circuit diagram if exists or generic description -->
+                <!-- Removed placeholder image until specific circuit image is confirmed/available cleanly -->
+
+                <ul>
+                    <li><strong>HC-SR04:</strong> `VCC` to Arduino 5V, `GND` to Arduino GND, `Trig` to Arduino Digital
+                        Pin X, `Echo` to Arduino Digital Pin Y.</li>
+                    <li><strong>L298N:</strong> Connect `ENA/ENB` to Arduino PWM pins for speed control,
+                        `IN1/IN2/IN3/IN4` to Arduino Digital Pins for direction control. `OUT1/OUT2` connect to Motor 1,
+                        `OUT3/OUT4` connect to Motor 2. Provide external power to the L298N.</li>
+                </ul>
+
+                <h2>Arduino Code Snippet (Core Logic):</h2>
+                <pre><code class="language-arduino">
+#define trigPin 9
+#define echoPin 8
+#define motorPin1_L 2 // Left Motor IN1
+#define motorPin2_L 3 // Left Motor IN2
+#define motorPin1_R 4 // Right Motor IN1
+#define motorPin2_R 5 // Right Motor IN2
+#define enableL 6 // Left Motor Enable (PWM)
+#define enableR 7 // Right Motor Enable (PWM)
+
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(motorPin1_L, OUTPUT);
+  pinMode(motorPin2_L, OUTPUT);
+  pinMode(motorPin1_R, OUTPUT);
+  pinMode(motorPin2_R, OUTPUT);
+  pinMode(enableL, OUTPUT);
+  pinMode(enableR, OUTPUT);
+  Serial.begin(9600);
+  // Set initial speed
+  analogWrite(enableL, 150); // Adjust speed (0-255)
+  analogWrite(enableR, 150);
+}
+
+void loop() {
+  distance = calculateDistance();
+
+  if (distance <= 20) { // If obstacle is within 20cm
+    stopRobot();
+    delay(500);
+    turnRight(); // Try turning right
+    delay(700); // Turn for a short duration
+    distance = calculateDistance();
+    if (distance <= 20) { // Still an obstacle, try turning left
+      stopRobot();
+      delay(500);
+      turnLeft();
+      delay(1400); // Turn longer to try another direction
+      distance = calculateDistance();
+      if (distance <= 20) { // Still no clear path, turn around
+        stopRobot();
+        delay(500);
+        turnAround();
+        delay(1000);
+      }
+    }
+  }
+  moveForward(); // Keep moving forward if no obstacle
+}
+
+// Function to calculate distance
+int calculateDistance() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+  return distance;
+}
+
+// Motor control functions (moveForward, stopRobot, turnLeft, turnRight, turnAround)
+void moveForward() {
+  digitalWrite(motorPin1_L, HIGH); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, HIGH); digitalWrite(motorPin2_R, LOW);
+}
+void stopRobot() {
+  digitalWrite(motorPin1_L, LOW); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, LOW); digitalWrite(motorPin2_R, LOW);
+}
+void turnRight() {
+  digitalWrite(motorPin1_L, HIGH); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, LOW); digitalWrite(motorPin2_R, HIGH); // Right motor backward
+}
+void turnLeft() {
+  digitalWrite(motorPin1_L, LOW); digitalWrite(motorPin2_L, HIGH); // Left motor backward
+  digitalWrite(motorPin1_R, HIGH); digitalWrite(motorPin2_R, LOW);
+}
+void turnAround() {
+  digitalWrite(motorPin1_L, HIGH); digitalWrite(motorPin2_L, LOW);
+  digitalWrite(motorPin1_R, LOW); digitalWrite(motorPin2_R, HIGH);
+}
+                </code></pre>
+
+                <h2>Applications:</h2>
+                <p>This project lays the groundwork for more advanced autonomous robots, robotic vacuum cleaners, and
+                    automated guided vehicles (AGVs) in industrial settings.</p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/projects/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://makerworkslab.in/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/about/</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/learn/</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/makers/</loc>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/projects/</loc>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/gallery/</loc>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/blog/</loc>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/programs/beginner/</loc>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/programs/intermediate/</loc>
+  </url>
+
+  <url>
+    <loc>https://makerworkslab.in/programs/advanced/</loc>
+  </url>
+
+</urlset>

@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controlling Motors with Arduino | MakerWorks Blog</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Controlling Motors with Arduino | MakerWorks Blog">
+    <meta name="description"
+        content="Learn how to control DC motors, Servo motors, and Stepper motors with Arduino. A complete guide for robotics enthusiasts.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="blog-header">
+        <div class="container text-center">
+            <span class="badge bg-primary mb-3 rounded-pill px-3 py-2">Arduino</span>
+            <h1 class="display-4 fw-bold mb-3">Controlling Motors with Arduino</h1>
+            <div class="text-muted">
+                <i class="bi bi-calendar3 me-2"></i>July 29, 2025
+                <span class="mx-2">â€¢</span>
+                <i class="bi bi-person me-2"></i>MakerWorks Team
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="blogphotos/controlling motors with aurdino.webp" alt="Motor Control Tutorial"
+                    class="img-fluid w-100 mb-5">
+
+                <p class="lead">Motors are the muscles of robotics and automation. This guide will teach you how to
+                    control
+                    various types of motors using your Arduino, including <strong>DC motors</strong>, <strong>servo
+                        motors</strong>, and
+                    <strong>stepper motors</strong>.
+                </p>
+
+                <h2>Types of Motors:</h2>
+                <ul>
+                    <li><strong>DC Motors:</strong> Simple, continuous rotation. Ideal for applications where precise
+                        positioning
+                        isn't critical, like driving wheels. Requires a <strong>motor driver</strong> (e.g., L298N,
+                        L9110S) for
+                        speed and direction control as Arduino pins can't supply enough current directly.</li>
+                    <li><strong>Servo Motors:</strong> Offer precise angular control, usually within a 0-180 degree
+                        range.
+                        Commonly used in robotics for specific movements, such as robot arms, steering mechanisms,
+                        or camera gimbals.</li>
+                    <li><strong>Stepper Motors:</strong> Provide very precise step-by-step movement, making them perfect
+                        for
+                        applications requiring accurate positioning and repeatable motion, like 3D printers or CNC
+                        machines.</li>
+                </ul>
+
+                <h2>Controlling a DC Motor (Basic):</h2>
+                <p>To control a DC motor's direction and speed, you'll typically use an H-bridge motor driver.</p>
+                <h3>What You'll Need:</h3>
+                <ul>
+                    <li>Arduino board</li>
+                    <li><strong>L298N Motor Driver Module</strong> (or similar H-bridge driver)</li>
+                    <li><strong>DC Motor</strong> (e.g., a small 3-6V motor)</li>
+                    <li>External Power Supply (e.g., 9V battery pack or power adapter for the motor)</li>
+                    <li>Jumper wires</li>
+                </ul>
+                <h3>Circuit Diagram (DC Motor with L298N):</h3>
+                <p>Connect your Arduino's digital pins to the IN pins of the L298N, and an Arduino PWM pin to the EN
+                    pin for speed control. Connect your motor to the OUT pins of the L298N, and provide external
+                    power to the driver.</p>
+                <small class="text-muted d-block text-center mt-2 mb-4">Basic wiring for a DC motor with an L298N
+                    driver.</small>
+
+                <h3>Arduino Code (DC Motor Example):</h3>
+                <pre><code class="language-arduino">
+// L298N Motor Driver Pin Definitions
+const int enA = 9;  // Enable pin for Motor A (Connect to Arduino PWM pin)
+const int in1 = 10; // Input 1 for Motor A
+const int in2 = 11; // Input 2 for Motor A
+
+void setup() {
+  // Set all motor control pins as outputs
+  pinMode(enA, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+}
+
+void loop() {
+  // Rotate motor in one direction (e.g., clockwise)
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 200); // Set speed to ~78% of max (0-255)
+  delay(2000); // Run for 2 seconds
+
+  // Stop the motor
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 0); // Speed 0 = stop
+  delay(1000); // Stop for 1 second
+
+  // Rotate motor in the opposite direction (e.g., counter-clockwise)
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  analogWrite(enA, 200);
+  delay(2000); // Run for 2 seconds
+
+  // Stop the motor again
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 0);
+  delay(1000); // Stop for 1 second
+}
+                </code></pre>
+                <p><strong>Explanation:</strong></p>
+                <ul>
+                    <li><code>analogWrite(enA, speed)</code>: Controls the motor speed using Pulse Width Modulation
+                        (PWM) on
+                        the enable pin. <code>0</code> is off, <code>255</code> is full speed.</li>
+                    <li><code>digitalWrite(in1, HIGH/LOW)</code> and <code>digitalWrite(in2, HIGH/LOW)</code>: These
+                        control pins
+                        determine the direction of the motor's rotation.</li>
+                </ul>
+
+                <h2>Controlling a Servo Motor:</h2>
+                <p>Servo motors are much simpler, requiring only one signal pin, power, and ground. The Arduino
+                    <code>Servo.h</code> library makes control very easy.
+                </p>
+                <h3>What You'll Need:</h3>
+                <ul>
+                    <li>Arduino board</li>
+                    <li><strong>Servo Motor</strong> (e.g., SG90 mini servo)</li>
+                    <li>Jumper wires</li>
+                </ul>
+                <h3>Arduino Code (Servo Example):</h3>
+                <pre><code class="language-arduino">
+#include &lt;Servo.h&gt; // Include the Servo library
+
+Servo myServo;  // Create a servo object
+
+void setup() {
+  myServo.attach(9); // Attach the servo to digital pin 9
+}
+
+void loop() {
+  myServo.write(0);   // Move servo to 0 degrees
+  delay(1000);
+  myServo.write(90);  // Move servo to 90 degrees
+  delay(1000);
+  myServo.write(180); // Move servo to 180 degrees
+  delay(1000);
+}
+                </code></pre>
+                <p>This is just a brief overview. Controlling different motors involves specific libraries and
+                    setup. Explore more details for stepper motors and advanced control techniques in dedicated
+                    tutorials!</p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/blog/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

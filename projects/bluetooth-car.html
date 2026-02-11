@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluetooth Controlled Car | MakerWorks</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Bluetooth Controlled Car | MakerWorks">
+    <meta name="description"
+        content="Build a robot car that you can drive with your smartphone using Arduino and Bluetooth.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="project-header">
+        <div class="container text-center">
+            <span class="badge bg-light text-primary mb-3 rounded-pill px-3 py-2">Robotics</span>
+            <h1 class="display-4 fw-bold mb-3">Bluetooth Controlled Car</h1>
+            <div class="text-white-50">
+                <i class="bi bi-cpu me-2"></i>Arduino Uno
+                <span class="mx-2">•</span>
+                <i class="bi bi-bar-chart me-2"></i>Intermediate Level
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                <img src="projectimages/bluetooth_car.webp" alt="Bluetooth Controlled Car" class="img-fluid w-100 mb-5">
+
+                <p class="lead">Turn your smartphone into a remote control! In this project, we utilize the HC-05
+                    Bluetooth module to create a wireless link between an Android app and your Arduino robot car. Use
+                    your phone's accelerometer or on-screen buttons to drive it.</p>
+
+                <h2>Components Used:</h2>
+                <ul>
+                    <li><strong>Arduino Uno</strong></li>
+                    <li><strong>HC-05 Bluetooth Module</strong></li>
+                    <li><strong>L298N Motor Driver</strong></li>
+                    <li><strong>2 x DC Gear Motors</strong> + Wheels</li>
+                    <li>Robot Chassis, Battery Pack, Jumper Wires</li>
+                </ul>
+
+                <h2>How it Works:</h2>
+                <p>The HC-05 module receives serial data sent from your phone via Bluetooth. The Arduino reads this data
+                    (characters like 'F', 'B', 'L', 'R') and commands the L298N motor driver to spin the motors in the
+                    correct direction and speed.</p>
+
+                <h3>Circuit Connections:</h3>
+                <ul>
+                    <li><strong>HC-05 RX:</strong> Arduino TX (Pin 1) *Use voltage divider if needed</li>
+                    <li><strong>HC-05 TX:</strong> Arduino RX (Pin 0)</li>
+                    <li><strong>L298N IN1-4:</strong> Arduino Pins 8, 9, 10, 11</li>
+                </ul>
+
+                <h2>Arduino Code Snippet:</h2>
+                <pre><code class="language-arduino">
+char command;
+
+void setup() {
+  Serial.begin(9600); // Bluetooth comms
+  // Set motor pins as OUTPUTs...
+}
+
+void loop() {
+  if (Serial.available()) {
+    command = Serial.read();
+    
+    if (command == 'F') moveForward();
+    else if (command == 'B') moveBackward();
+    else if (command == 'L') turnLeft();
+    else if (command == 'R') turnRight();
+    else if (command == 'S') stopCar();
+  }
+}
+                </code></pre>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/projects/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>
