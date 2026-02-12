@@ -361,6 +361,17 @@
             color: #0d6efd !important;
         }
 
+        /* Rotate arrow when open */
+        .dropdown-toggle::after {
+            transition: transform 0.3s ease !important;
+            vertical-align: middle !important;
+            margin-left: 8px !important;
+        }
+
+        .dropdown-toggle.show::after {
+            transform: rotate(180deg);
+        }
+
         /* Stagger animations for items */
         .navbar-collapse.show .nav-item {
             animation: fadeInSlide 0.5s ease forwards;

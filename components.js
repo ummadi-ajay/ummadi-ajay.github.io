@@ -143,16 +143,34 @@ function initializeNavbarLogic() {
             });
         });
 
-        // Advanced Close: Close menu if clicking the blurred background (outside the nav list)
+        // Advanced Close: Smart Tap Background
         navbarCollapse.addEventListener('click', (e) => {
             if (e.target === navbarCollapse) {
-                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                if (bsCollapse) bsCollapse.hide();
-                toggler.classList.remove('opened');
-                document.body.classList.remove('no-scroll');
-                const navBase = document.getElementById('mainNav');
-                if (navBase) navBase.classList.remove('mobile-header-active');
+                const openDropdown = document.querySelector('.dropdown-menu.show');
+                if (openDropdown) {
+                    // Alternative: Close the folder first if user taps the background
+                    document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+                        el.classList.remove('show');
+                    });
+                } else {
+                    // Close the entire menu if everything is already collapsed
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                    toggler.classList.remove('opened');
+                    document.body.classList.remove('no-scroll');
+                    const navBase = document.getElementById('mainNav');
+                    if (navBase) navBase.classList.remove('mobile-header-active');
+                }
             }
+        });
+
+        // Close dropdowns if user clicks any other link in the menu
+        document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+                    el.classList.remove('show');
+                });
+            });
         });
 
         // Ensure sub-links (dropdown items) also close the menu on click
