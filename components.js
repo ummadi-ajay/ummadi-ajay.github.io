@@ -123,17 +123,22 @@ function initializeNavbarLogic() {
     });
 
     // Desktop Hover Handling (Responsive)
+    // Desktop Hover Handling (Responsive with Delay)
     document.querySelectorAll('.dropdown').forEach(dropdown => {
+        let timer;
         dropdown.addEventListener('mouseenter', function () {
             if (window.innerWidth >= 1200) {
+                clearTimeout(timer);
                 let toggle = this.querySelector('.dropdown-toggle');
                 if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).show();
             }
         });
         dropdown.addEventListener('mouseleave', function () {
             if (window.innerWidth >= 1200) {
-                let toggle = this.querySelector('.dropdown-toggle');
-                if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).hide();
+                timer = setTimeout(() => {
+                    let toggle = this.querySelector('.dropdown-toggle');
+                    if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).hide();
+                }, 200); // 200ms delay to allow crossing the gap
             }
         });
     });
