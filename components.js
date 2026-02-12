@@ -98,46 +98,56 @@ function initializeNavbarLogic() {
             });
         });
 
-        // Explicitly handle dropdowns on mobile
+        // Desktop: Manually initialize Bootstrap Dropdowns since data-bs-toggle was removed
+        if (window.innerWidth >= 992 && typeof bootstrap !== 'undefined') {
+            document.querySelectorAll('.dropdown-toggle').forEach(el => {
+                new bootstrap.Dropdown(el);
+            });
+        }
+
+        // Mobile: Explicitly handle dropdowns
         document.querySelectorAll('.dropdown-toggle').forEach(dropdown => {
             dropdown.addEventListener('click', function (e) {
                 if (window.innerWidth < 992) {
                     e.preventDefault();
-                    e.stopImmediatePropagation();
+                    e.stopPropagation();
 
                     const menu = this.nextElementSibling;
                     if (menu && menu.classList.contains('dropdown-menu')) {
                         const isShowing = menu.classList.contains('show');
 
-                        // Close all other open dropdowns first (both menus and buttons)
+                        // Close all others
                         document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
                             if (el !== menu && el !== this) el.classList.remove('show');
                         });
 
-                        // Toggle the current one
-                        if (isShowing) {
-                            menu.classList.remove('show');
-                            this.classList.remove('show');
-                        } else {
-                            menu.classList.add('show');
-                            this.classList.add('show');
-                        }
+                        // Toggle current
+                        menu.classList.toggle('show', !isShowing);
+                        this.classList.toggle('show', !isShowing);
                     }
                 }
             });
         });
 
-        // Close menu when clicking outside
+        // Close menu/dropdowns when clicking outside
         document.addEventListener('click', (e) => {
-            if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+            if (window.innerWidth < 992) {
                 if (!navbarCollapse.contains(e.target) && !toggler.contains(e.target)) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) bsCollapse.hide();
-                    toggler.classList.remove('opened');
+                    // Close the main mobile menu
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) bsCollapse.hide();
+                        toggler.classList.remove('opened');
+                    }
+                    // Close any open dropdowns
+                    document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+                        el.classList.remove('show');
+                    });
                 }
             }
         });
     }
+    console.log('MakerWorks Navbar Logic Initialized');
 }
 
 // Automatically load components when the DOM is ready
