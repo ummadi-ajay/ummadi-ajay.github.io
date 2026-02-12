@@ -17,19 +17,6 @@ async function loadComponent(elementId, componentPath) {
         if (elementId === 'navbar-placeholder') {
             updateActiveNavLink();
             initializeNavbarLogic();
-
-            // Re-initialize Bootstrap components for dynamically loaded HTML
-            if (typeof bootstrap !== 'undefined') {
-                const dropdownElementList = element.querySelectorAll('.dropdown-toggle');
-                dropdownElementList.forEach(dropdownToggleEl => {
-                    new bootstrap.Dropdown(dropdownToggleEl);
-                });
-
-                const collapseElementList = element.querySelectorAll('.collapse');
-                collapseElementList.forEach(collapseEl => {
-                    new bootstrap.Collapse(collapseEl, { toggle: false });
-                });
-            }
         }
         return true;
     } catch (error) {
@@ -116,15 +103,26 @@ function initializeNavbarLogic() {
             dropdown.addEventListener('click', function (e) {
                 if (window.innerWidth < 992) {
                     e.preventDefault();
-                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+
                     const menu = this.nextElementSibling;
+                    if (menu && menu.classList.contains('dropdown-menu')) {
+                        const isShowing = menu.classList.contains('show');
 
-                    // Close other open menus
-                    document.querySelectorAll('.dropdown-menu.show').forEach(m => {
-                        if (m !== menu) m.classList.remove('show');
-                    });
+                        // Close all other open dropdowns first (both menus and buttons)
+                        document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+                            if (el !== menu && el !== this) el.classList.remove('show');
+                        });
 
-                    if (menu) menu.classList.toggle('show');
+                        // Toggle the current one
+                        if (isShowing) {
+                            menu.classList.remove('show');
+                            this.classList.remove('show');
+                        } else {
+                            menu.classList.add('show');
+                            this.classList.add('show');
+                        }
+                    }
                 }
             });
         });
