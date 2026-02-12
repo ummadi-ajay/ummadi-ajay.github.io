@@ -2457,34 +2457,36 @@ void loop() {
         </div>
       </div>
 
-      /* FAQ Accordion Enhancements */
-      .faq-item .accordion-button::after {
-      display: none !important; /* Remove Bootstrap's default arrow */
-      }
+      <style>
+        /* FAQ Accordion Enhancements */
+        .faq-item .accordion-button::after {
+          display: none !important;
+          content: none !important;
+        }
 
-      .faq-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
-      border-color: rgba(13, 110, 253, 0.2) !important;
-      }
+        .faq-item:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+          border-color: rgba(13, 110, 253, 0.2) !important;
+        }
 
-      .accordion-button:not(.collapsed) .bi-chevron-down {
-      transform: rotate(180deg);
-      }
+        .accordion-button:not(.collapsed) .bi-chevron-down {
+          transform: rotate(180deg);
+        }
 
-      .accordion-button:not(.collapsed) {
-      color: #0d6efd !important;
-      }
+        .accordion-button:not(.collapsed) {
+          color: #0d6efd !important;
+        }
 
-      .accordion-button:focus {
-      box-shadow: none !important;
-      }
+        .accordion-button:focus {
+          box-shadow: none !important;
+        }
 
-      @media (max-width: 991px) {
-      .col-lg-4>div {
-      position: static !important;
-      }
-      }
+        @media (max-width: 991px) {
+          .col-lg-4>div {
+            position: static !important;
+          }
+        }
       </style>
     </section>
 
