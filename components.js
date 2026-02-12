@@ -125,13 +125,13 @@ function initializeNavbarLogic() {
     // Desktop Hover Handling (Responsive)
     document.querySelectorAll('.dropdown').forEach(dropdown => {
         dropdown.addEventListener('mouseenter', function () {
-            if (window.innerWidth >= 992) {
+            if (window.innerWidth >= 1200) {
                 let toggle = this.querySelector('.dropdown-toggle');
                 if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).show();
             }
         });
         dropdown.addEventListener('mouseleave', function () {
-            if (window.innerWidth >= 992) {
+            if (window.innerWidth >= 1200) {
                 let toggle = this.querySelector('.dropdown-toggle');
                 if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).hide();
             }
