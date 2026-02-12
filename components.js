@@ -77,50 +77,69 @@ function initializeNavbarLogic() {
         });
     }
 
+    if (btt) {
+        btt.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // Handle mobile nav collapse on link click
     const navbarCollapse = document.getElementById('navbarMain');
     const toggler = document.getElementById('navbarToggler') || document.querySelector('.navbar-toggler');
-    toggler.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggler.classList.toggle('opened');
-        const target = document.querySelector(toggler.getAttribute('data-bs-target'));
-        if (target && typeof bootstrap !== 'undefined') {
-            const bsCollapse = bootstrap.Collapse.getInstance(target) || new bootstrap.Collapse(target, { toggle: false });
-            bsCollapse.toggle();
-        }
-    });
 
-    document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
-        link.addEventListener('click', () => {
+    if (navbarCollapse && toggler) {
+        toggler.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggler.classList.toggle('opened');
+            const target = document.querySelector(toggler.getAttribute('data-bs-target'));
+            if (target && typeof bootstrap !== 'undefined') {
+                const bsCollapse = bootstrap.Collapse.getInstance(target) || new bootstrap.Collapse(target, { toggle: false });
+                bsCollapse.toggle();
+            }
+        });
+
+        document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                    toggler.classList.remove('opened');
+                }
+            });
+        });
+
+        // Explicitly handle dropdowns on mobile
+        document.querySelectorAll('.dropdown-toggle').forEach(dropdown => {
+            dropdown.addEventListener('click', function (e) {
+                if (window.innerWidth < 992) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const menu = this.nextElementSibling;
+
+                    // Close other open menus
+                    document.querySelectorAll('.dropdown-menu.show').forEach(m => {
+                        if (m !== menu) m.classList.remove('show');
+                    });
+
+                    if (menu) menu.classList.toggle('show');
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
             if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
-                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                if (bsCollapse) bsCollapse.hide();
-                toggler.classList.remove('opened');
+                if (!navbarCollapse.contains(e.target) && !toggler.contains(e.target)) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                    toggler.classList.remove('opened');
+                }
             }
         });
-    });
-
-    // Closer look at dropdowns on mobile
-    document.querySelectorAll('.dropdown-toggle').forEach(dropdown => {
-        dropdown.addEventListener('click', (e) => {
-            if (window.innerWidth < 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                const menu = dropdown.nextElementSibling;
-                if (menu) menu.classList.toggle('show');
-            }
-        });
-    });
-}
-
-if (btt) {
-    btt.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
+    }
 }
 
 // Automatically load components when the DOM is ready

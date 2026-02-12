@@ -14,7 +14,7 @@
         -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        padding: 0.8rem 1rem;
+        padding: 1rem 1.5rem;
         position: fixed;
         top: 0;
         left: 0;
@@ -62,12 +62,18 @@
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
 
+    .navbar-brand {
+        position: relative;
+        z-index: 2200;
+        /* Visible over mobile menu */
+    }
+
     .navbar-brand span {
         color: #000000;
         font-weight: 800;
         font-family: 'Outfit', sans-serif;
         letter-spacing: -0.02em;
-        font-size: 1.6rem;
+        font-size: clamp(1.3rem, 4vw, 1.6rem);
     }
 
     /* Nav Links */
@@ -243,7 +249,8 @@
         cursor: pointer;
         transition: all 0.3s ease;
         position: relative;
-        z-index: 1040;
+        z-index: 2200;
+        /* Higher than collapse menu */
     }
 
     .menu-toggler span {
@@ -313,7 +320,6 @@
             width: 100%;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInSlide 0.5s ease forwards;
         }
 
         .nav-link {
@@ -376,15 +382,15 @@
             float: none;
             width: 100%;
             transform: none !important;
-            background: rgba(13, 110, 253, 0.05);
+            background: rgba(13, 110, 253, 0.04) !important;
             box-shadow: none;
             border: none;
-            margin-top: 0.5rem !important;
+            margin: 10px 0 !important;
             animation: none;
             text-align: center;
-            padding: 10px;
+            padding: 15px !important;
             display: none;
-            /* Let Bootstrap handle Toggling */
+            border-radius: 15px;
         }
 
         .dropdown-menu.show {
@@ -405,9 +411,8 @@
             <span>MAKERWORKS</span>
         </a>
 
-        <button class="navbar-toggler menu-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation"
-            id="navbarToggler">
+        <button class="navbar-toggler menu-toggler d-lg-none" type="button" data-bs-target="#navbarMain"
+            aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
             <span></span>
             <span></span>
             <span></span>
