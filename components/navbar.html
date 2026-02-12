@@ -283,25 +283,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(255, 255, 255, 0.99);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            padding-top: 80px;
-            padding-bottom: 4rem;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 100px 2rem 4rem 2rem;
             display: flex !important;
             flex-direction: column;
             align-items: center;
             justify-content: start;
-            gap: 1rem;
             transform: translateX(100%);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             height: 100vh;
             width: 100vw;
             overflow-y: auto;
             z-index: 1050;
-            /* Above regular content but inside navbar */
             visibility: hidden;
         }
 
@@ -312,8 +307,8 @@
 
         .navbar-nav {
             width: 100%;
-            text-align: center;
-            gap: 0.5rem;
+            max-width: 400px;
+            gap: 0.8rem !important;
         }
 
         .nav-item {
@@ -323,10 +318,18 @@
         }
 
         .nav-link {
-            justify-content: center;
-            font-size: 1.25rem;
-            padding: 1rem !important;
-            border-radius: 12px;
+            justify-content: center !important;
+            font-size: 1.3rem !important;
+            padding: 1.2rem !important;
+            border-radius: 16px;
+            background: rgba(13, 110, 253, 0.03);
+            border: 1px solid rgba(13, 110, 253, 0.05);
+            font-weight: 600;
+        }
+
+        .nav-link.show {
+            background: rgba(13, 110, 253, 0.08);
+            border-color: rgba(13, 110, 253, 0.1);
         }
 
         /* Stagger animations for items */
@@ -334,40 +337,8 @@
             animation: fadeInSlide 0.5s ease forwards;
         }
 
-        .nav-item:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .nav-item:nth-child(2) {
-            animation-delay: 0.15s;
-        }
-
-        .nav-item:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-
-        .nav-item:nth-child(4) {
-            animation-delay: 0.25s;
-        }
-
-        .nav-item:nth-child(5) {
-            animation-delay: 0.3s;
-        }
-
-        .nav-item:nth-child(6) {
-            animation-delay: 0.35s;
-        }
-
-        .nav-item:nth-child(7) {
-            animation-delay: 0.4s;
-        }
-
-        .nav-item:nth-child(8) {
-            animation-delay: 0.45s;
-        }
-
-        .nav-item:nth-child(9) {
-            animation-delay: 0.5s;
+        .nav-item:nth-child(n) {
+            animation-delay: calc(0.1s * var(--item-index, 1));
         }
 
         @keyframes fadeInSlide {
@@ -382,25 +353,73 @@
             float: none;
             width: 100%;
             transform: none !important;
-            background: rgba(13, 110, 253, 0.04) !important;
+            background: rgba(255, 255, 255, 0.5) !important;
             box-shadow: none;
-            border: none;
-            margin: 10px 0 !important;
-            animation: none;
-            text-align: center;
-            padding: 15px !important;
+            border: 1px solid rgba(13, 110, 253, 0.1);
+            margin: 0.5rem 0 0.5rem 0 !important;
+            text-align: left;
+            padding: 1rem !important;
             display: none;
-            border-radius: 15px;
+            border-radius: 20px;
         }
 
         .dropdown-menu.show {
             display: block !important;
+            animation: slideInDown 0.3s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .dropdown-item {
+            display: flex !important;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem !important;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            white-space: normal;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+
+        .dropdown-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .dropdown-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(13, 110, 253, 0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            padding: 0.8rem;
+            font-size: 1.2rem;
+            color: #0d6efd;
+            flex-shrink: 0;
+        }
+
+        .dropdown-item span {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .dropdown-item small {
+            font-size: 0.75rem !important;
+            opacity: 0.7;
+            display: block;
+            margin-top: 2px;
         }
     }
 </style>
@@ -421,8 +440,11 @@
 
         <div class="collapse navbar-collapse justify-content-end mt-4 mt-lg-0" id="navbarMain">
             <ul class="navbar-nav gap-1 align-items-lg-center">
+                <li class="nav-item" style="--item-index: 1">
+                    <a class="nav-link" href="/"><i class="bi bi-house-door-fill"></i> Home</a>
+                </li>
                 <!-- Programs Dropdown -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" style="--item-index: 2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
                         <i class="bi bi-mortarboard-fill"></i> Programs
                     </a>
@@ -430,96 +452,86 @@
                         <li>
                             <a class="dropdown-item" href="/programs/beginner/">
                                 <i class="bi bi-1-circle-fill"></i>
-                                <span>Beginner Level<br><small class="text-muted fw-normal"
-                                        style="font-size: 0.75rem;">Start
+                                <span>Beginner Level<br><small class="text-muted fw-normal">Start
                                         your journey</small></span>
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="/programs/intermediate/">
                                 <i class="bi bi-2-circle-fill"></i>
-                                <span>Intermediate<br><small class="text-muted fw-normal"
-                                        style="font-size: 0.75rem;">Level up
+                                <span>Intermediate<br><small class="text-muted fw-normal">Level up
                                         skills</small></span>
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="/programs/advanced/">
                                 <i class="bi bi-3-circle-fill"></i>
-                                <span>Advanced<br><small class="text-muted fw-normal"
-                                        style="font-size: 0.75rem;">Mastery
+                                <span>Advanced<br><small class="text-muted fw-normal">Mastery
                                         course</small></span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <!-- Competitions Dropdown -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" style="--item-index: 3">
                     <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
                         <i class="bi bi-trophy-fill"></i> Competitions
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/competetions/wro/"><i class="bi bi-robot"></i> WRO</a></li>
-                        <li><a class="dropdown-item" href="/competetions/vex/"><i class="bi bi-cpu"></i> VEX IQ</a></li>
-                        <li><a class="dropdown-item" href="/competetions/coolest/"><i class="bi bi-snow2"></i> Coolest
-                                Projects</a></li>
-                        <li><a class="dropdown-item" href="/competetions/nasa/"><i class="bi bi-rocket-takeoff"></i>
-                                NASA</a></li>
                         <li>
-                            <hr class="dropdown-divider opacity-10 mx-3 my-2">
+                            <a class="dropdown-item" href="/competetions/vex/">
+                                <i class="bi bi-robot"></i>
+                                <span>VEX IQ<br><small class="text-muted fw-normal">Robotics
+                                        Challenge</small></span>
+                            </a>
                         </li>
                         <li>
+                            <a class="dropdown-item" href="/competetions/coolest/">
+                                <i class="bi bi-snow"></i>
+                                <span>Coolest Projects<br><small class="text-muted fw-normal">Showcase
+                                        Innovation</small></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/competetions/nasa/">
+                                <i class="bi bi-rocket-takeoff"></i>
+                                <span>NASA<br><small class="text-muted fw-normal">Space Apps
+                                        Challenge</small></span>
+                            </a>
+                        </li>
+                        <hr class="dropdown-divider">
+                        <li>
                             <a class="dropdown-item" href="/competetions/mekathalon/">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <span class="text-primary fw-bold">Mekathalon</span>
+                                <i class="bi bi-star"></i>
+                                <span>Mekathalon<br><small class="text-muted fw-normal">Engage in
+                                        STEM</small></span>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/makers/">
-                        <i class="bi bi-people-fill"></i> Makers
-                    </a>
+                <li class="nav-item" style="--item-index: 4">
+                    <a class="nav-link" href="/makers/"><i class="bi bi-people-fill"></i> Makers</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about/">
-                        <i class="bi bi-info-circle-fill"></i> About
-                    </a>
+                <li class="nav-item" style="--item-index: 5">
+                    <a class="nav-link" href="/#about"><i class="bi bi-info-circle-fill"></i> About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/learn/">
-                        <i class="bi bi-book-half"></i> Learn
-                    </a>
+                <li class="nav-item" style="--item-index: 6">
+                    <a class="nav-link" href="/learn/"><i class="bi bi-book-fill"></i> Learn</a>
                 </li>
-
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/projects/">
-                        <i class="bi bi-kanban-fill"></i> Projects
-                    </a>
+                <li class="nav-item" style="--item-index: 7">
+                    <a class="nav-link" href="/projects/"><i class="bi bi-layout-text-window-reverse"></i> Projects</a>
                 </li>
-
-
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog/">
-                        <i class="bi bi-newspaper"></i> Blog
-                    </a>
+                <li class="nav-item" style="--item-index: 8">
+                    <a class="nav-link" href="/blog/"><i class="bi bi-newspaper"></i> Blog</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/gallery/">
-                        <i class="bi bi-images"></i> Gallery
-                    </a>
+                <li class="nav-item" style="--item-index: 9">
+                    <a class="nav-link" href="/gallery/"><i class="bi bi-image-fill"></i> Gallery</a>
                 </li>
-
-                <li class="nav-item ps-lg-3 mt-3 mt-lg-0">
-                    <a href="tel:+919137114223"
-                        class="btn-shine d-inline-flex align-items-center gap-2 text-decoration-none">
-                        <span>BOOK TRIAL</span>
-                        <i class="bi bi-arrow-right-circle-fill"></i>
+                <li class="nav-item mt-2 mt-lg-0" style="--item-index: 10">
+                    <a class="nav-link btn-shine text-white px-4 py-2 rounded-pill"
+                        href="https://wa.me/919137114223?text=Hello!" target="_blank"
+                        style="background: #0d6efd; min-width: 140px;">
+                        <span>Join Now</span>
                     </a>
                 </li>
             </ul>
