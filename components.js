@@ -78,131 +78,148 @@ function initializeNavbarLogic() {
     const toggler = document.getElementById('navbarToggler') || document.querySelector('.navbar-toggler');
 
     if (navbarCollapse && toggler) {
+        // Remove any existing listeners by cloning (optional but safe)
+        // const newToggler = toggler.cloneNode(true);
+        // toggler.parentNode.replaceChild(newToggler, toggler);
+
         toggler.addEventListener('click', (e) => {
             e.stopPropagation();
-            const isOpen = toggler.classList.toggle('opened');
-            const navBase = document.getElementById('mainNav');
-            const target = document.querySelector(toggler.getAttribute('data-bs-target'));
-
-            if (navBase) navBase.classList.toggle('mobile-header-active', isOpen);
-            document.body.classList.toggle('no-scroll', isOpen);
-
-            if (target && typeof bootstrap !== 'undefined') {
-                const bsCollapse = bootstrap.Collapse.getInstance(target) || new bootstrap.Collapse(target, { toggle: false });
+            // Check if BS collapse is defined
+            if (typeof bootstrap !== 'undefined') {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
                 bsCollapse.toggle();
 
-                if (!isOpen) {
-                    document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
-                        el.classList.remove('show');
-                    });
-                }
-            }
-        });
+                const isOpen = !navbarCollapse.classList.contains('show'); // Logic inverted because toggle happens async/after
+                // Note: Manually tracking state is safer
 
-        document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) bsCollapse.hide();
-                    toggler.classList.remove('opened');
-                    document.body.classList.remove('no-scroll');
+                setTimeout(() => {
+                    const isNowOpen = navbarCollapse.classList.contains('show');
+                    document.body.classList.toggle('no-scroll', isNowOpen);
+                    toggler.classList.toggle('opened', isNowOpen);
                     const navBase = document.getElementById('mainNav');
-                    if (navBase) navBase.classList.remove('mobile-header-active');
-                }
-            });
-        });
-
-        // Desktop: Manually initialize Bootstrap Dropdowns since data-bs-toggle was removed
-        if (window.innerWidth >= 992 && typeof bootstrap !== 'undefined') {
-            document.querySelectorAll('.dropdown-toggle').forEach(el => {
-                new bootstrap.Dropdown(el);
-            });
-        }
-
-        // Mobile: Explicitly handle dropdowns
-        document.querySelectorAll('.dropdown-toggle').forEach(dropdown => {
-            dropdown.addEventListener('click', function (e) {
-                if (window.innerWidth < 992) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const menu = this.nextElementSibling;
-                    if (menu && menu.classList.contains('dropdown-menu')) {
-                        const isShowing = menu.classList.contains('show');
-
-                        // Close all others
-                        document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
-                            if (el !== menu && el !== this) el.classList.remove('show');
-                        });
-
-                        // Toggle current
-                        menu.classList.toggle('show', !isShowing);
-                        this.classList.toggle('show', !isShowing);
-                    }
-                }
-            });
-        });
-
-        // Advanced Close: Smart Tap Background
-        navbarCollapse.addEventListener('click', (e) => {
-            if (e.target === navbarCollapse) {
-                const openDropdown = document.querySelector('.dropdown-menu.show');
-                if (openDropdown) {
-                    // Alternative: Close the folder first if user taps the background
-                    document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
-                        el.classList.remove('show');
-                    });
-                } else {
-                    // Close the entire menu if everything is already collapsed
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) bsCollapse.hide();
-                    toggler.classList.remove('opened');
-                    document.body.classList.remove('no-scroll');
-                    const navBase = document.getElementById('mainNav');
-                    if (navBase) navBase.classList.remove('mobile-header-active');
-                }
-            }
-        });
-
-        // Close dropdowns if user clicks any other link in the menu
-        document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
-                    el.classList.remove('show');
-                });
-            });
-        });
-
-        // Ensure sub-links (dropdown items) also close the menu on click
-        document.querySelectorAll('.dropdown-item').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth < 992) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) bsCollapse.hide();
-                    toggler.classList.remove('opened');
-                    document.body.classList.remove('no-scroll');
-                    const navBase = document.getElementById('mainNav');
-                    if (navBase) navBase.classList.remove('mobile-header-active');
-                }
-            });
-        });
-
-        // Close menu/dropdowns when clicking outside the entire navbar area
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth < 992) {
-                const navContainer = document.querySelector('.navbar-ultra');
-                if (!navContainer.contains(e.target) && navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) bsCollapse.hide();
-                    toggler.classList.remove('opened');
-                    document.body.classList.remove('no-scroll');
-                    if (navContainer) navContainer.classList.remove('mobile-header-active');
-                }
+                    if (navBase) navBase.classList.toggle('mobile-header-active', isNowOpen);
+                }, 350); // Wait for transition
             }
         });
     }
-    console.log('MakerWorks Navbar Logic 5.0 Initialized');
+
+    document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+                toggler.classList.remove('opened');
+                document.body.classList.remove('no-scroll');
+                const navBase = document.getElementById('mainNav');
+                if (navBase) navBase.classList.remove('mobile-header-active');
+            }
+        });
+    });
+
+    // Initialize Bootstrap dropdowns
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl)
+    });
+
+    // Desktop Hover Handling
+    if (window.innerWidth >= 992) {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', function () {
+                let toggle = this.querySelector('.dropdown-toggle');
+                if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).show();
+            });
+            dropdown.addEventListener('mouseleave', function () {
+                let toggle = this.querySelector('.dropdown-toggle');
+                if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).hide();
+            });
+        });
+    }
+
+    // Mobile Click Handling
+    document.querySelectorAll('.dropdown-toggle').forEach(dropdown => {
+        dropdown.addEventListener('click', function (e) {
+            if (window.innerWidth < 992) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const menu = this.nextElementSibling;
+                const isShowing = this.classList.contains('show');
+
+                // Close other dropdowns
+                document.querySelectorAll('.dropdown-menu.show').forEach(el => {
+                    if (el !== menu) el.classList.remove('show');
+                });
+                document.querySelectorAll('.dropdown-toggle.show').forEach(el => {
+                    if (el !== this) el.classList.remove('show');
+                });
+
+                // Toggle current
+                if (menu) menu.classList.toggle('show', !isShowing);
+                this.classList.toggle('show', !isShowing);
+            }
+        });
+    });
+
+    // Advanced Close: Smart Tap Background
+    navbarCollapse.addEventListener('click', (e) => {
+        if (e.target === navbarCollapse) {
+            const openDropdown = document.querySelector('.dropdown-menu.show');
+            if (openDropdown) {
+                // Alternative: Close the folder first if user taps the background
+                document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+                    el.classList.remove('show');
+                });
+            } else {
+                // Close the entire menu if everything is already collapsed
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+                toggler.classList.remove('opened');
+                document.body.classList.remove('no-scroll');
+                const navBase = document.getElementById('mainNav');
+                if (navBase) navBase.classList.remove('mobile-header-active');
+            }
+        }
+    });
+
+    // Close dropdowns if user clicks any other link in the menu
+    document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+                el.classList.remove('show');
+            });
+        });
+    });
+
+    // Ensure sub-links (dropdown items) also close the menu on click
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth < 992) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+                toggler.classList.remove('opened');
+                document.body.classList.remove('no-scroll');
+                const navBase = document.getElementById('mainNav');
+                if (navBase) navBase.classList.remove('mobile-header-active');
+            }
+        });
+    });
+
+    // Close menu/dropdowns when clicking outside the entire navbar area
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth < 992) {
+            const navContainer = document.querySelector('.navbar-ultra');
+            if (!navContainer.contains(e.target) && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+                toggler.classList.remove('opened');
+                document.body.classList.remove('no-scroll');
+                if (navContainer) navContainer.classList.remove('mobile-header-active');
+            }
+        }
+    });
 }
+console.log('MakerWorks Navbar Logic 5.0 Initialized');
 
 // Automatically load components when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
