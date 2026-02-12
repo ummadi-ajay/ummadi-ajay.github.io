@@ -23,6 +23,12 @@
         /* Higher than anything else */
     }
 
+    /* Prevent background scroll when mobile menu is open */
+    body.no-scroll {
+        overflow: hidden !important;
+        height: 100vh;
+    }
+
     /* Graphical Animated Border */
     .navbar-ultra::after {
         content: '';

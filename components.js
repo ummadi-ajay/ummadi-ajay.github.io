@@ -85,6 +85,7 @@ function initializeNavbarLogic() {
             const target = document.querySelector(toggler.getAttribute('data-bs-target'));
 
             if (navBase) navBase.classList.toggle('mobile-header-active', isOpen);
+            document.body.classList.toggle('no-scroll', isOpen);
 
             if (target && typeof bootstrap !== 'undefined') {
                 const bsCollapse = bootstrap.Collapse.getInstance(target) || new bootstrap.Collapse(target, { toggle: false });
@@ -104,6 +105,7 @@ function initializeNavbarLogic() {
                     const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                     if (bsCollapse) bsCollapse.hide();
                     toggler.classList.remove('opened');
+                    document.body.classList.remove('no-scroll');
                     const navBase = document.getElementById('mainNav');
                     if (navBase) navBase.classList.remove('mobile-header-active');
                 }
@@ -147,6 +149,7 @@ function initializeNavbarLogic() {
                 const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                 if (bsCollapse) bsCollapse.hide();
                 toggler.classList.remove('opened');
+                document.body.classList.remove('no-scroll');
                 const navBase = document.getElementById('mainNav');
                 if (navBase) navBase.classList.remove('mobile-header-active');
             }
@@ -159,6 +162,7 @@ function initializeNavbarLogic() {
                     const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                     if (bsCollapse) bsCollapse.hide();
                     toggler.classList.remove('opened');
+                    document.body.classList.remove('no-scroll');
                     const navBase = document.getElementById('mainNav');
                     if (navBase) navBase.classList.remove('mobile-header-active');
                 }
@@ -173,12 +177,13 @@ function initializeNavbarLogic() {
                     const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                     if (bsCollapse) bsCollapse.hide();
                     toggler.classList.remove('opened');
+                    document.body.classList.remove('no-scroll');
                     if (navContainer) navContainer.classList.remove('mobile-header-active');
                 }
             }
         });
     }
-    console.log('MakerWorks Navbar Logic 4.0 Initialized');
+    console.log('MakerWorks Navbar Logic 5.0 Initialized');
 }
 
 // Automatically load components when the DOM is ready
