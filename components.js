@@ -80,11 +80,21 @@ function initializeNavbarLogic() {
     if (navbarCollapse && toggler) {
         toggler.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggler.classList.toggle('opened');
+            const isOpen = toggler.classList.toggle('opened');
+            const navBase = document.getElementById('mainNav');
             const target = document.querySelector(toggler.getAttribute('data-bs-target'));
+
+            if (navBase) navBase.classList.toggle('mobile-header-active', isOpen);
+
             if (target && typeof bootstrap !== 'undefined') {
                 const bsCollapse = bootstrap.Collapse.getInstance(target) || new bootstrap.Collapse(target, { toggle: false });
                 bsCollapse.toggle();
+
+                if (!isOpen) {
+                    document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+                        el.classList.remove('show');
+                    });
+                }
             }
         });
 
@@ -94,6 +104,8 @@ function initializeNavbarLogic() {
                     const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                     if (bsCollapse) bsCollapse.hide();
                     toggler.classList.remove('opened');
+                    const navBase = document.getElementById('mainNav');
+                    if (navBase) navBase.classList.remove('mobile-header-active');
                 }
             });
         });
@@ -138,6 +150,8 @@ function initializeNavbarLogic() {
                         const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                         if (bsCollapse) bsCollapse.hide();
                         toggler.classList.remove('opened');
+                        const navBase = document.getElementById('mainNav');
+                        if (navBase) navBase.classList.remove('mobile-header-active');
                     }
                     // Close any open dropdowns
                     document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
@@ -147,7 +161,7 @@ function initializeNavbarLogic() {
             }
         });
     }
-    console.log('MakerWorks Navbar Logic Initialized');
+    console.log('MakerWorks Navbar Logic 3.0 Initialized');
 }
 
 // Automatically load components when the DOM is ready

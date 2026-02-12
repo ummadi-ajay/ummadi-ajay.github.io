@@ -286,23 +286,41 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 100px 2rem 4rem 2rem;
-            display: flex !important;
+            padding: 130px 2rem 4rem 2rem;
+            /* Increased padding-top to 130px */
+            display: none !important;
+            /* Use display: none instead of visibility: hidden */
             flex-direction: column;
             align-items: center;
             justify-content: start;
             transform: translateX(100%);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             height: 100vh;
             width: 100vw;
             overflow-y: auto;
             z-index: 1050;
-            visibility: hidden;
         }
 
         .navbar-collapse.show {
+            display: flex !important;
             transform: translateX(0);
-            visibility: visible;
+        }
+
+        /* Prevent logo/toggle overlap by adding a protective header background */
+        .navbar-ultra::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: white;
+            z-index: 2100;
+            display: none;
+        }
+
+        .navbar-ultra.mobile-header-active::before {
+            display: block;
         }
 
         .navbar-nav {
