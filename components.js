@@ -122,44 +122,23 @@ function initializeNavbarLogic() {
         return new bootstrap.Dropdown(dropdownToggleEl)
     });
 
-    // Desktop Hover Handling
-    if (window.innerWidth >= 992) {
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.addEventListener('mouseenter', function () {
+    // Desktop Hover Handling (Responsive)
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function () {
+            if (window.innerWidth >= 992) {
                 let toggle = this.querySelector('.dropdown-toggle');
                 if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).show();
-            });
-            dropdown.addEventListener('mouseleave', function () {
+            }
+        });
+        dropdown.addEventListener('mouseleave', function () {
+            if (window.innerWidth >= 992) {
                 let toggle = this.querySelector('.dropdown-toggle');
                 if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).hide();
-            });
-        });
-    }
-
-    // Mobile Click Handling
-    document.querySelectorAll('.dropdown-toggle').forEach(dropdown => {
-        dropdown.addEventListener('click', function (e) {
-            if (window.innerWidth < 992) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const menu = this.nextElementSibling;
-                const isShowing = this.classList.contains('show');
-
-                // Close other dropdowns
-                document.querySelectorAll('.dropdown-menu.show').forEach(el => {
-                    if (el !== menu) el.classList.remove('show');
-                });
-                document.querySelectorAll('.dropdown-toggle.show').forEach(el => {
-                    if (el !== this) el.classList.remove('show');
-                });
-
-                // Toggle current
-                if (menu) menu.classList.toggle('show', !isShowing);
-                this.classList.toggle('show', !isShowing);
             }
         });
     });
+
+    // Mobile Click Handling - REMOVED (Handled by Bootstrap data-bs-toggle)
 
     // Advanced Close: Smart Tap Background
     navbarCollapse.addEventListener('click', (e) => {
