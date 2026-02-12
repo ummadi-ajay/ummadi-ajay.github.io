@@ -141,27 +141,44 @@ function initializeNavbarLogic() {
             });
         });
 
-        // Close menu/dropdowns when clicking outside
+        // Advanced Close: Close menu if clicking the blurred background (outside the nav list)
+        navbarCollapse.addEventListener('click', (e) => {
+            if (e.target === navbarCollapse) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+                toggler.classList.remove('opened');
+                const navBase = document.getElementById('mainNav');
+                if (navBase) navBase.classList.remove('mobile-header-active');
+            }
+        });
+
+        // Ensure sub-links (dropdown items) also close the menu on click
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                    toggler.classList.remove('opened');
+                    const navBase = document.getElementById('mainNav');
+                    if (navBase) navBase.classList.remove('mobile-header-active');
+                }
+            });
+        });
+
+        // Close menu/dropdowns when clicking outside the entire navbar area
         document.addEventListener('click', (e) => {
             if (window.innerWidth < 992) {
-                if (!navbarCollapse.contains(e.target) && !toggler.contains(e.target)) {
-                    // Close the main mobile menu
-                    if (navbarCollapse.classList.contains('show')) {
-                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                        if (bsCollapse) bsCollapse.hide();
-                        toggler.classList.remove('opened');
-                        const navBase = document.getElementById('mainNav');
-                        if (navBase) navBase.classList.remove('mobile-header-active');
-                    }
-                    // Close any open dropdowns
-                    document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
-                        el.classList.remove('show');
-                    });
+                const navContainer = document.querySelector('.navbar-ultra');
+                if (!navContainer.contains(e.target) && navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                    toggler.classList.remove('opened');
+                    if (navContainer) navContainer.classList.remove('mobile-header-active');
                 }
             }
         });
     }
-    console.log('MakerWorks Navbar Logic 3.0 Initialized');
+    console.log('MakerWorks Navbar Logic 4.0 Initialized');
 }
 
 // Automatically load components when the DOM is ready
