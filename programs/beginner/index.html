@@ -395,24 +395,128 @@
       font-size: 1rem;
     }
 
-    /* Eligibility */
+    /* Improved Eligibility Section */
     .eligibility-section {
-      background: var(--light);
-    }
-
-    .eligibility-content ul li {
-      margin-bottom: 10px;
+      background: var(--bg-offset);
       position: relative;
-      padding-left: 25px;
-      list-style: none;
+      overflow: hidden;
     }
 
-    .eligibility-content ul li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
+    .eligibility-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 32px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+      position: relative;
+      z-index: 1;
+    }
+
+    .eligibility-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .eligibility-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .eligibility-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: rgba(13, 110, 253, 0.1);
+      color: var(--secondary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .eligibility-text h6 {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--dark);
+    }
+
+    .eligibility-text p {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Refined Stats Cards */
+    .stats-card {
+      background: white;
+      padding: 2.5rem 1.5rem;
+      border-radius: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      transition: all 0.4s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 35px rgba(255, 102, 0, 0.1);
+    }
+
+    .stats-number {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
       color: var(--primary);
-      font-weight: bold;
+      line-height: 1;
+    }
+
+    .stats-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+    }
+
+    /* Section Headers */
+    .section-badge {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: rgba(255, 102, 0, 0.1);
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title-premium {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+      margin-bottom: 1rem;
+    }
+
+    .text-gradient-primary {
+      background: linear-gradient(135deg, var(--primary), #ff9900);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     /* Curriculum */
@@ -522,33 +626,77 @@
 
   <section class="eligibility-section">
     <div class="container">
-      <h2>Eligibility for Beginner Level</h2>
-      <div class="eligibility-content" data-aos="fade-up">
-        <ul>
-          <li>No prior experience in electronics or coding is required. This course is designed for absolute beginners.
-          </li>
-          <li>Recommended for students aged 8-10 years.</li>
-          <li>A keen interest in learning, building, and exploring new technologies is a plus!</li>
-          <li>Access to a computer with internet connection for online resources and simulations (if applicable).</li>
-        </ul>
+      <div class="eligibility-card" data-aos="fade-up">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <span class="section-badge">Prerequisites</span>
+            <h2 class="section-title-premium mb-5">Who Can Join?</h2>
+
+            <div class="eligibility-list">
+              <div class="eligibility-item">
+                <div class="eligibility-icon"><i class="fas fa-baby"></i></div>
+                <div class="eligibility-text">
+                  <h6>Level: Absolute Beginner</h6>
+                  <p>No prior experience in electronics or coding required. We start from ground zero.</p>
+                </div>
+              </div>
+
+              <div class="eligibility-item">
+                <div class="eligibility-icon"><i class="fas fa-birthday-cake"></i></div>
+                <div class="eligibility-text">
+                  <h6>Age: 8–10 Years</h6>
+                  <p>The curriculum is specifically tailored for the cognitive development of this age group.</p>
+                </div>
+              </div>
+
+              <div class="eligibility-item">
+                <div class="eligibility-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="eligibility-text">
+                  <h6>Mindset: Curious</h6>
+                  <p>A keen interest in learning how things work and built-in desire to explore new gadgets.</p>
+                </div>
+              </div>
+
+              <div class="eligibility-item">
+                <div class="eligibility-icon"><i class="fas fa-laptop"></i></div>
+                <div class="eligibility-text">
+                  <h6>Tooling: Computer & Net</h6>
+                  <p>Basic access to a computer for software exploration and simulator-based logic building.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="container">
-    <div class="row g-4 text-center">
-      <div class="col-lg-3 col-6">
-        <div class="stats-card">40+ Classes</div>
+  <section class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stats-card">
+          <div class="stats-number">40+</div>
+          <div class="stats-label">Hands-on Classes</div>
+        </div>
       </div>
-      <div class="col-lg-3 col-6">
-        <div class="stats-card">25+ Projects</div>
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stats-card">
+          <div class="stats-number">25+</div>
+          <div class="stats-label">Mini Projects</div>
+        </div>
       </div>
-      <div class="col-lg-3 col-6">
-        <div class="stats-card">micro:bit + Arduino</div>
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stats-card">
+          <div class="stats-number">2</div>
+          <div class="stats-label">Year Program</div>
+        </div>
       </div>
-      <div class="col-lg-3 col-6">
-        <div class="stats-card">3D Printing</div>
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="400">
+        <div class="stats-card">
+          <div class="stats-number">3D</div>
+          <div class="stats-label">Modeling Mastery</div>
+        </div>
       </div>
     </div>
   </section>
@@ -631,12 +779,15 @@
   </section>
 
   <!-- ================= SESSION-WISE BREAKUP ================= -->
-  <section class="container-fluid px-lg-5">
-    <h2 class="text-center mb-3">Session-wise Learning Breakdown (20 Modules)</h2>
-    <p class="mb-5 text-muted text-center">
-      Our Beginner Program follows a carefully planned session-wise structure,
-      ensuring gradual learning, strong fundamentals, and hands-on confidence.
-    </p>
+  <section class="container-fluid px-lg-5" id="program-curriculum">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">The Roadmap</span>
+      <h2 class="section-title-premium">Session-wise Learning Breakdown</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Our Beginner Program follows a carefully planned module-wise structure across 20 comprehensive segments,
+        ensuring structured growth from basic logic to complex robotic systems.
+      </p>
+    </div>
 
     <div class="row g-4">
       <!-- Left Column: Curriculum Modules -->
