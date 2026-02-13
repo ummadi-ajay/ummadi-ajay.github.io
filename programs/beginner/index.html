@@ -519,30 +519,189 @@
       background-clip: text;
     }
 
-    /* Curriculum */
+    /* Refined Curriculum (Accordion) */
+    .curriculum-item {
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 20px !important;
+      overflow: hidden;
+      padding: 0 !important;
+      background: white;
+    }
+
     .curriculum-header {
-      cursor: pointer;
-      position: relative;
+      padding: 1.5rem 2rem;
+      background: #ffffff;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 15px;
+      cursor: pointer;
     }
 
     .curriculum-header h4 {
-      margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 700;
+      margin: 0;
+      color: var(--dark);
+      flex-grow: 1;
+    }
+
+    .curriculum-header::after {
+      content: "\f078";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--primary);
+      transition: transform 0.4s ease;
+    }
+
+    .curriculum-item.active .curriculum-header {
+      background: rgba(255, 102, 0, 0.03);
+    }
+
+    .curriculum-item.active .curriculum-header::after {
+      transform: rotate(180deg);
     }
 
     .curriculum-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease;
+      transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+      padding: 0 2rem;
     }
 
     .curriculum-item.active .curriculum-content {
-      max-height: 2000px;
-      margin-top: 20px;
+      max-height: 1000px;
+      padding: 0 2rem 2rem 2rem;
+      transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+    }
+
+    .curriculum-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .curriculum-content ul {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .curriculum-content ul li {
+      font-size: 0.95rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .curriculum-content ul li::before {
+      content: "\f111";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 0.5rem;
+      color: var(--primary);
+      opacity: 0.6;
+    }
+
+    /* Outcome Cards */
+    .outcome-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 28px;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .outcome-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+      border-color: var(--secondary);
+    }
+
+    .outcome-card h5 {
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+
+    .outcome-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .outcome-card ul li {
+      margin-bottom: 12px;
+      padding-left: 28px;
+      position: relative;
+      font-size: 0.95rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .outcome-card ul li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: #10b981;
+    }
+
+    /* Learning Journey UI Cards */
+    .ui-card {
+      background: white;
+      padding: 2.5rem 1.5rem;
+      border-radius: 24px;
+      text-align: center;
+      height: 100%;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .ui-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    }
+
+    .ui-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--bg-offset);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+    }
+
+    .ui-card:hover .ui-icon {
+      background: var(--primary);
+      color: white;
+      transform: rotateY(360deg);
+    }
+
+    .ui-card h6 {
+      font-weight: 800;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      margin-bottom: 0.8rem;
+    }
+
+    .ui-card p {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin: 0;
     }
 
     /* Gallery */
@@ -789,22 +948,22 @@
       </p>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-5">
       <!-- Left Column: Curriculum Modules -->
-      <div class="col-lg-7">
-        <div class="curriculum">
+      <div class="col-lg-8">
+        <div class="curriculum" data-aos="fade-right">
 
           <!-- MODULE 1 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 1: Introduction to Computers & micro:bit</h4>
+              <h4>Module 1: Getting Started with micro:bit</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>What is a computer & microcontroller</li>
-                <li>Introduction to BBC micro:bit</li>
-                <li>LED matrix & buttons exploration</li>
-                <li>First MakeCode program</li>
+                <li>Computer vs Microcontroller</li>
+                <li>The BBC micro:bit Ecosystem</li>
+                <li>LED Matrix & Input Buttons</li>
+                <li>Your First Code Deployment</li>
               </ul>
             </div>
           </div>
@@ -812,14 +971,14 @@
           <!-- MODULE 2 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 2: MakeCode Interface & Basic Blocks</h4>
+              <h4>Module 2: The MakeCode Environment</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>MakeCode editor overview</li>
-                <li>Basic blocks & event handling</li>
-                <li>Show text & icons on LED display</li>
-                <li>Mini LED animation project</li>
+                <li>Visual Block Interface</li>
+                <li>Event-Driven Programming</li>
+                <li>Animations & Iconography</li>
+                <li>Logic Flow Foundations</li>
               </ul>
             </div>
           </div>
@@ -827,14 +986,14 @@
           <!-- MODULE 3 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 3: Inputs & Sensors on micro:bit</h4>
+              <h4>Module 3: Sensorial Interaction</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Button A & B programming</li>
-                <li>Shake, tilt & motion input</li>
-                <li>Light & temperature sensor usage</li>
-                <li>Reaction-based mini games</li>
+                <li>Motion & Tilt Detection</li>
+                <li>Temperature & Light Sensing</li>
+                <li>Interactive Feedback Loops</li>
+                <li>Mini-Game Development</li>
               </ul>
             </div>
           </div>
@@ -842,245 +1001,240 @@
           <!-- MODULE 4 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 4: Variables & Data Storage</h4>
+              <h4>Module 4: Data & Memory (Variables)</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Understanding variables</li>
-                <li>Creating & updating variables</li>
-                <li>Counters & score tracking</li>
-                <li>Score-based game project</li>
+                <li>Understanding Data Storage</li>
+                <li>Incrementing & Counters</li>
+                <li>Score Tracking Systems</li>
+                <li>Complex Game State Logic</li>
               </ul>
             </div>
           </div>
 
+          <!-- MODULE 5-20 Summary or Collapsed items can continue... for now I will refine the styling of existing ones -->
           <!-- MODULE 5 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 5: Logic & Decision Making</h4>
+              <h4>Module 5: Decisions & Logic (If-Else)</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>If & if–else conditions</li>
-                <li>Comparison operators</li>
-                <li>Real-life decision logic</li>
-                <li>Smart condition-based program</li>
+                <li>Boolean Logic & Conditionals</li>
+                <li>Comparison Operators</li>
+                <li>Smart Decision Making</li>
+                <li>Conditional Alert Systems</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 6 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
               <h4>Module 6: Loops & Repetition</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Forever & repeat loops</li>
-                <li>Nested loops</li>
-                <li>Optimizing code using loops</li>
-                <li>LED animation challenge</li>
+                <li>Efficiency with Loops</li>
+                <li>While vs Repeat Loops</li>
+                <li>Nested Logic Patterns</li>
+                <li>Automated Light Patterns</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 7 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 7: Functions & Code Reusability</h4>
+              <h4>Module 7: Functions & Structured Code</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Why functions are needed</li>
-                <li>Creating custom functions</li>
-                <li>Calling functions in programs</li>
-                <li>Structured coding project</li>
+                <li>Modular Program Design</li>
+                <li>Creating Custom Functions</li>
+                <li>Reusability & Debugging</li>
+                <li>Professional Coding Habits</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 8 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 8: Introduction to Electronics</h4>
+              <h4>Module 8: Physical Computing & Electricity</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>What is electricity</li>
-                <li>Current, voltage & resistance</li>
-                <li>Understanding circuits</li>
-                <li>Basic safety rules</li>
+                <li>Flow of Electrons</li>
+                <li>The V-I-R Relationship</li>
+                <li>Breadboard Prototyping</li>
+                <li>Lab Safety Protocols</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 9 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 9: Ohm's Law & LEDs</h4>
+              <h4>Module 9: Ohm's Law in Action</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Ohm's Law explained simply</li>
-                <li>LED polarity & resistors</li>
-                <li>Brightness control</li>
-                <li>LED lighting project</li>
+                <li>Resistor Calculations</li>
+                <li>LED Logic & Safety</li>
+                <li>PWM & Dimming Effects</li>
+                <li>Mood Light Project</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 10 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 10: Ultrasonic Sensor</h4>
+              <h4>Module 10: Ultrasonic Intelligence</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Distance measurement concept</li>
-                <li>Ultrasonic sensor wiring</li>
-                <li>Distance-based alerts</li>
-                <li>Smart parking demo</li>
+                <li>Sound Ping Principles</li>
+                <li>Trigger & Echo Calibration</li>
+                <li>Distance Alarm Systems</li>
+                <li>Collision Avoidance Logic</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 11 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 11: Servo Motor Control</h4>
+              <h4>Module 11: Precision Motion (Servo)</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>What is a motor</li>
-                <li>Servo motor angles</li>
-                <li>Micro:bit + servo control</li>
-                <li>Automatic gate project</li>
+                <li>Angular Positioning</li>
+                <li>Pulse Width Modulation</li>
+                <li>Wiping & Swiveling Logic</li>
+                <li>Automatic Boom Barrier</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 12 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 12: Combining Sensors & Motors</h4>
+              <h4>Module 12: Integrated Robotic Logic</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Sensor + motor logic</li>
-                <li>Distance-controlled movement</li>
-                <li>Smart automation project</li>
+                <li>Merging Sensors & Motion</li>
+                <li>Self-Correcting Loops</li>
+                <li>Smart Trash Bin Project</li>
+                <li>Automation Masterclass</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 13 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 13: Introduction to 3D Designing</h4>
+              <h4>Module 13: 3D Visualization Foundations</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>What is 3D design</li>
-                <li>Basic shapes & scaling</li>
-                <li>Designing name tags</li>
+                <li>The X-Y-Z Coordinate System</li>
+                <li>Constructive Solid Geometry</li>
+                <li>Scaling & Alignment</li>
+                <li>First Design: Personalized Gear</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 14 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 14: 3D Models for Electronics</h4>
+              <h4>Module 14: Engineering Enclosures</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Sensor holders</li>
-                <li>Project enclosures</li>
-                <li>Design optimization</li>
+                <li>Component Tolerances</li>
+                <li>Designing for Electronics</li>
+                <li>Ventilation & Accessibility</li>
+                <li>Custom Sensor Housing</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 15 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 15: Introduction to 3D Printing</h4>
+              <h4>Module 15: Additive Manufacturing (3D Printing)</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>How 3D printers work</li>
-                <li>Materials & safety</li>
-                <li>Printing student designs</li>
+                <li>FDM Technology Overview</li>
+                <li>Slicing & G-Code Export</li>
+                <li>Printer Bed Calibration</li>
+                <li>Physical Model Production</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 16 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 16: Interactive micro:bit Projects</h4>
+              <h4>Module 16: Complex Interactive Systems</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Game-based learning</li>
-                <li>Multi-input programs</li>
-                <li>Creative coding challenges</li>
+                <li>Advanced Event Mapping</li>
+                <li>Multi-Sensor Integration</li>
+                <li>Complex Algorithm Design</li>
+                <li>Hardware Gaming Console</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 17 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 17: Smart Systems</h4>
+              <h4>Module 17: Smart City Solutions</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Smart alarms</li>
-                <li>Automation logic</li>
-                <li>Real-life problem solving</li>
+                <li>Home Automation Prototypes</li>
+                <li>Environmental Monitoring</li>
+                <li>Smart Street Lighting</li>
+                <li>Efficiency Optimizations</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 18 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 18: Capstone Project Planning</h4>
+              <h4>Module 18: Capstone: Conceptualization</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Project idea selection</li>
-                <li>Design & coding plan</li>
-                <li>Component selection</li>
+                <li>Problem Identification</li>
+                <li>Solution Architecture</li>
+                <li>Bill of Materials (BOM)</li>
+                <li>Prototyping Roadmap</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 19 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 19: Capstone Project Execution</h4>
+              <h4>Module 19: Capstone: Build & Debug</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Building & testing</li>
-                <li>Debugging & improvements</li>
-                <li>Final project assembly</li>
+                <li>Iterative Development</li>
+                <li>Systemic Debugging</li>
+                <li>Optimization Techniques</li>
+                <li>Final System Assembly</li>
               </ul>
             </div>
           </div>
 
-          <!-- MODULE 20 -->
           <div class="curriculum-item">
             <div class="curriculum-header">
-              <h4>Module 20: Demo Day & Certification</h4>
+              <h4>Module 20: Innovation Showcase</h4>
             </div>
             <div class="curriculum-content">
               <ul>
-                <li>Project presentation</li>
-                <li>Parent demo day</li>
-                <li>Certificate distribution</li>
+                <li>Portfolio Documentation</li>
+                <li>Public Speaking & Demo</li>
+                <li>Technical QA Session</li>
+                <li>Graduation & Awards</li>
               </ul>
             </div>
           </div>
@@ -1091,40 +1245,46 @@
       <!-- ================= END SESSION-WISE BREAKUP ================= -->
 
       <!-- ================= LEARNING OUTCOMES ================= -->
-      <section class="container">
-        <h2>Learning Outcomes by the End of the Program</h2>
+      <section class="container py-6">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-badge">Mastery</span>
+          <h2 class="section-title-premium">Learning Outcomes</h2>
+        </div>
 
-        <div class="row g-4 mt-4">
+        <div class="row g-4 mt-2">
 
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div class="outcome-card">
-              <h5>Programming Outcomes</h5>
+              <h5>Programming Goals</h5>
               <ul class="mt-3">
-                <li>Write structured MakeCode programs</li>
-                <li>Use variables, loops & functions</li>
-                <li>Build interactive micro:bit projects</li>
+                <li>Logical thinking & Algorithm design</li>
+                <li>Microsoft MakeCode Prototyping</li>
+                <li>Hardware-Software Syncing</li>
+                <li>Data handling & State management</li>
               </ul>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="outcome-card">
-              <h5>Electronics Outcomes</h5>
+              <h5>Engineering Goals</h5>
               <ul class="mt-3">
-                <li>Understand current, voltage & resistance</li>
-                <li>Apply Ohm’s Law practically</li>
-                <li>Use sensors & motors safely</li>
+                <li>Electrical breadboarding skills</li>
+                <li>Component integration & Safety</li>
+                <li>Sensor signal interpretation</li>
+                <li>Debugging & Fault finding</li>
               </ul>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="outcome-card">
-              <h5>Design & Innovation Outcomes</h5>
+              <h5>Creative Goals</h5>
               <ul class="mt-3">
-                <li>Create 3D models for projects</li>
-                <li>Understand real-world applications</li>
-                <li>Present final capstone projects</li>
+                <li>3D Modeling & CAD foundations</li>
+                <li>Iterative product design</li>
+                <li>System documentation</li>
+                <li>Final Capstone Presentation</li>
               </ul>
             </div>
           </div>
@@ -1133,40 +1293,43 @@
       </section>
 
       <!-- ================= LEARNING JOURNEY ================= -->
-      <section class="container">
-        <h2>Your Child’s Learning Journey</h2>
+      <section class="container py-6">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-badge">The Experience</span>
+          <h2 class="section-title-premium">The Learning Journey</h2>
+        </div>
 
-        <div class="row g-4 mt-4 text-center">
+        <div class="row g-4 mt-2 text-center">
 
-          <div class="col-md-3">
+          <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
             <div class="ui-card">
               <div class="ui-icon"><i class="fas fa-play"></i></div>
-              <h6>Year 1</h6>
-              <p>Foundations in coding & electronics</p>
+              <h6>The Spark</h6>
+              <p>Foundations in visual coding & basic electronics logic.</p>
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
             <div class="ui-card">
               <div class="ui-icon"><i class="fas fa-puzzle-piece"></i></div>
-              <h6>Hands-on Learning</h6>
-              <p>Weekly guided projects</p>
+              <h6>Integration</h6>
+              <p>Weekly hands-on projects merging code with sensors.</p>
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
             <div class="ui-card">
               <div class="ui-icon"><i class="fas fa-tools"></i></div>
-              <h6>Build Phase</h6>
-              <p>Electronics + sensors + motors</p>
+              <h6>Creation</h6>
+              <p>Designing custom parts & programming complex systems.</p>
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
             <div class="ui-card">
               <div class="ui-icon"><i class="fas fa-award"></i></div>
-              <h6>Capstone</h6>
-              <p>Final working project & certificate</p>
+              <h6>Realization</h6>
+              <p>Final capstone project & professional certification.</p>
             </div>
           </div>
 
