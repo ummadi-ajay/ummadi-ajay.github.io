@@ -848,6 +848,82 @@
         display: none !important;
       }
     }
+
+    /* Refined FAQ Styling */
+    .faq-section {
+      background: var(--bg-offset);
+      position: relative;
+    }
+
+    .faq-accordion .accordion-item {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.05) !important;
+      border-radius: 24px !important;
+      margin-bottom: 1.2rem;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .faq-accordion .accordion-item:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+      border-color: var(--primary) !important;
+      transform: translateY(-2px);
+    }
+
+    .faq-accordion .accordion-button {
+      padding: 1.5rem 2.5rem;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 700;
+      color: var(--dark);
+      background: white !important;
+      box-shadow: none !important;
+      font-size: 1.15rem;
+      letter-spacing: -0.3px;
+    }
+
+    .faq-accordion .accordion-button:not(.collapsed) {
+      color: var(--primary);
+    }
+
+    .faq-accordion .accordion-button::after {
+      background-image: none !important;
+      content: "\f067";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 102, 0, 0.08) !important;
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: all 0.4s ease;
+    }
+
+    .faq-accordion .accordion-button:not(.collapsed)::after {
+      content: "\f068";
+      background: var(--primary) !important;
+      color: white;
+      transform: rotate(180deg);
+    }
+
+    .faq-accordion .accordion-body {
+      padding: 0 2.5rem 1.8rem;
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .faq-contact-box {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 32px;
+      text-align: center;
+      border: 1px dashed rgba(255, 102, 0, 0.3);
+      margin-top: 4rem;
+    }
   </style>
 </head>
 
@@ -1843,118 +1919,139 @@
   </section>
 
 
-  <section id="faq" class="py-5 bg-light">
+  <!-- ================= FAQ SECTION ================= -->
+  <section id="faq" class="faq-section py-6">
     <div class="container">
-      <h2 class="text-center mb-5 display-5 fw-bold">Frequently Asked Questions</h2>
-      <div class="accordion" id="faqAccordion">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-badge">Common Questions</span>
+        <h2 class="section-title-premium">Frequently Asked Questions</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">
+          Find answers to common queries about our Beginner Level Program and how it helps young makers grow.
+        </p>
+      </div>
 
-        <!-- FAQ 1 -->
-        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-          <h2 class="accordion-header" id="faqHeading1">
-            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
-              data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
-              What is the duration of the Beginner Level Program?
-            </button>
-          </h2>
-          <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body text-muted">
-              The program runs for 2 years with weekend-only sessions, providing a gradual introduction to coding,
-              robotics, and electronics for young beginners.
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion faq-accordion" id="faqAccordion">
+
+            <!-- FAQ 1 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="accordion-header" id="faqHeading1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                  What is the duration of the Beginner Level Program?
+                </button>
+              </h2>
+              <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  The program is a comprehensive <strong>2-year journey</strong>, organized into weekend sessions. It's
+                  designed to provide a steady, stress-free introduction to robotics and coding without interfering with
+                  regular school hours.
+                </div>
+              </div>
             </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+              <h2 class="accordion-header" id="faqHeading2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                  What age group is suitable for this program?
+                </button>
+              </h2>
+              <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  This program is specifically curated for young explorers aged <strong>8 to 10 years</strong>. At this
+                  age, children are developing the logical thinking patterns necessary for block-based coding and
+                  hands-on creation.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+              <h2 class="accordion-header" id="faqHeading3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                  Do students need any prior experience?
+                </button>
+              </h2>
+              <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  <strong>Not at all!</strong> We start from the very basics. The program assumes no prior knowledge of
+                  coding, electronics, or engineering. We guide every student step-by-step through their first LED blink
+                  to their first robot.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+              <h2 class="accordion-header" id="faqHeading4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                  What will my child specifically learn?
+                </button>
+              </h2>
+              <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Over the 30 modules, they learn <strong>Block-based Coding</strong> (via micro:bit), <strong>Basic
+                    Electronics</strong> (Ohm's Law, Breadboarding), <strong>3D Design</strong> (CAD fundamentals), and
+                  <strong>Robotics Automation</strong>. It’s a multi-disciplinary approach.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+              <h2 class="accordion-header" id="faqHeading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                  Are materials and kits included?
+                </button>
+              </h2>
+              <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  <strong>Yes.</strong> All essential materials, including the BBC micro:bit controllers, electronic
+                  component kits, and structural parts, are provided in the lab. Students work with professional-grade
+                  tools in a safe environment.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+              <h2 class="accordion-header" id="faqHeading6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                  Can we practice project-building at home?
+                </button>
+              </h2>
+              <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Absolutely! While the core kits remain in the lab, we provide <strong>Online Resources</strong> and
+                  project documentation that allow children to simulate and refine their code at home using free
+                  platforms like Microsoft MakeCode and Tinkercad.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="faq-contact-box" data-aos="fade-up">
+            <h5 class="fw-bold mb-3">Still have questions?</h5>
+            <p class="text-muted mb-4">We're here to help you choose the best path for your child.</p>
+            <a href="/contact.html" class="btn btn-premium btn-primary-mw">
+              Chat with an Expert <i class="fas fa-comment-dots"></i>
+            </a>
           </div>
         </div>
-
-        <!-- FAQ 2 -->
-        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-          <h2 class="accordion-header" id="faqHeading2">
-            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
-              data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
-              What age group is suitable for this program?
-            </button>
-          </h2>
-          <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body text-muted">
-              The Beginner Level Program is designed for kids aged 7–10 years who are curious about robotics,
-              coding,
-              and electronics.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-          <h2 class="accordion-header" id="faqHeading3">
-            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
-              data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
-              Do students need any prior experience?
-            </button>
-          </h2>
-          <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body text-muted">
-              No prior experience is needed. This program is perfect for absolute beginners with no background in
-              coding
-              or electronics.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-          <h2 class="accordion-header" id="faqHeading4">
-            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
-              data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
-              What will my child learn in this program?
-            </button>
-          </h2>
-          <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body text-muted">
-              Kids will learn basic electronics, block-based coding, logical thinking, simple circuit design, and
-              how to
-              use the BBC Micro:bit for fun projects.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-          <h2 class="accordion-header" id="faqHeading5">
-            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
-              data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
-              Can my child practice at home?
-            </button>
-          </h2>
-          <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body text-muted">
-              Yes! Project guides and online resources are provided so children can explore and reinforce their
-              learning
-              at home.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 6 -->
-        <div class="accordion-item mb-3 shadow-sm rounded-3 border-0">
-          <h2 class="accordion-header" id="faqHeading6">
-            <button class="accordion-button collapsed fs-5 fw-semibold" type="button" data-bs-toggle="collapse"
-              data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
-              What materials or tools are needed?
-            </button>
-          </h2>
-          <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body text-muted">
-              All required kits, components, and Micro:bit controllers are provided by MakerWorks. Students just
-              need
-              curiosity and enthusiasm to learn!
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
