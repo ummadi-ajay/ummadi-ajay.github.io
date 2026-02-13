@@ -310,6 +310,91 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Learning Modules Styling */
+    .skill-card {
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 24px;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary);
+    }
+
+    .skill-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--primary);
+      color: white;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px rgba(255, 102, 0, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .skill-card:hover .skill-icon {
+      transform: scale(1.1) rotate(6deg);
+      box-shadow: 0 15px 30px rgba(255, 102, 0, 0.3);
+    }
+
+    .skill-card h5 {
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      color: var(--dark);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      line-height: 1.3;
+    }
+
+    .skill-card p {
+      font-size: 0.98rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    .skill-card ul {
+      padding: 0;
+      list-style: none;
+      margin-top: auto;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 1.5rem;
+    }
+
+    .skill-card ul li {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+      padding-left: 28px;
+      position: relative;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .skill-card ul li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
     /* Eligibility */
     .eligibility-section {
       background: var(--light);
@@ -470,71 +555,74 @@
 
   <!-- CURRICULUM -->
   <!-- ================= THEORY SECTION ================= -->
-  <section class="container">
-    <h2>What Your Child Will Learn</h2>
+  <section class="container" id="learning-modules">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold mb-3">What Your Child Will Learn</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">A comprehensive, hands-on curriculum designed to build
+        technical mastery and creative confidence over two years.</p>
+    </div>
 
-    <div class="row g-4 mt-4">
+    <div class="row g-4 mt-2">
 
-      <div class="col-lg-3 col-md-6">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-microchip"></i></div>
           <h5>micro:bit & MakeCode Programming</h5>
           <p>
-            Students learn programming using the BBC micro:bit and Microsoft MakeCode,
-            building logic with visual block-based coding.
+            Master the fundamentals of computer science using the BBC micro:bit and Microsoft's powerful visual coding
+            environment.
           </p>
           <ul>
-            <li>Basic programming concepts</li>
-            <li>Problem-solving with logic</li>
-            <li>Real-time hardware interaction</li>
+            <li>Block-based coding logic</li>
+            <li>Variables & Conditionals</li>
+            <li>Real-time Hardware I/O</li>
           </ul>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-          <h5>Electronics & Sensors</h5>
+          <h5>Electronics & Sensor Logic</h5>
           <p>
-            Children explore how electricity works through hands-on experiments
-            involving LEDs, resistors, sensors, motors, and real circuits.
+            Dive into the physical world of circuits. Students learn how sensors "see" the world and how components
+            interact.
           </p>
           <ul>
-            <li>Current, voltage & resistance</li>
-            <li>Ohm’s Law (visual & practical)</li>
-            <li>Ultrasonic sensors & servo motors</li>
+            <li>Circuit Architecture</li>
+            <li>Sensor Interpretation</li>
+            <li>Motor Control Systems</li>
           </ul>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-cube"></i></div>
-          <h5>3D Designing & Printing</h5>
+          <h5>3D Design & Rapid Prototyping</h5>
           <p>
-            Students design real 3D objects that support their electronics projects,
-            helping them connect digital creativity with physical products.
+            Bridge the gap between digital design and physical reality by creating custom parts and structural
+            enclosures.
           </p>
           <ul>
-            <li>3D shapes & measurements</li>
-            <li>Project enclosures</li>
-            <li>Introduction to 3D printing</li>
+            <li>Spatial Geometry</li>
+            <li>Tinkercad Mastery</li>
+            <li>3D Printing Workflow</li>
           </ul>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-brain"></i></div>
-          <h5>Thinking Like an Engineer</h5>
+          <h5>Advanced Engineering Mindset</h5>
           <p>
-            Beyond tools, students develop logical thinking, patience, creativity,
-            and confidence through guided trial-and-error learning.
+            We focus on developing the critical thinking and problem-solving skills used by world-class engineers.
           </p>
           <ul>
-            <li>Debugging mindset</li>
-            <li>Creative problem solving</li>
-            <li>Presentation & confidence</li>
+            <li>Iterative Debugging</li>
+            <li>Project Lifecycle</li>
+            <li>Public Presentation</li>
           </ul>
         </div>
       </div>
