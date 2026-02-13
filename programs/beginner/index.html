@@ -293,21 +293,89 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     }
 
-    /* Program Info */
+    /* Program Info Refinement */
     .program-info-section {
-      background: var(--bg-offset);
+      background: var(--dark);
+      padding: 0;
+      position: relative;
+      margin-top: -50px;
+      /* Overlap with hero */
+      z-index: 10;
+    }
+
+    .program-info-wrapper {
+      background: white;
+      border-radius: 40px;
+      padding: 3rem;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .program-info-item {
       text-align: center;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid rgba(0, 0, 0, 0.06);
+      height: 100%;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .program-info-item:last-child {
+      border-right: none;
     }
 
     .program-info-item .icon {
-      font-size: 3rem;
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 102, 0, 0.08);
       color: var(--primary);
-      margin-bottom: 1rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.5rem;
+      transition: all 0.4s ease;
+    }
+
+    .program-info-item:hover .icon {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1) rotate(-5deg);
     }
 
     .program-info-item h4 {
-      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #94a3b8;
+      font-weight: 800;
       margin-bottom: 0.5rem;
+    }
+
+    .program-info-item p {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    @media (max-width: 767px) {
+      .program-info-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .program-info-item:last-child {
+        border-bottom: none;
+      }
+
+      .program-info-wrapper {
+        padding: 1.5rem;
+        margin: 0 15px;
+      }
     }
 
     /* Learning Modules Styling */
@@ -942,26 +1010,28 @@
 
   <section class="program-info-section">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-4 col-sm-12">
-          <div class="program-info-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="fas fa-user-graduate"></i></div>
-            <h4>Age Group</h4>
-            <p>Ages 8–10 years</p>
+      <div class="program-info-wrapper" data-aos="zoom-in" data-aos-delay="0">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <div class="program-info-item">
+              <div class="icon"><i class="fas fa-user-graduate"></i></div>
+              <h4>Age Group</h4>
+              <p>8 – 10 Years</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-          <div class="program-info-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-            <h4>Duration</h4>
-            <p>2 Years (Weekend-Only Program)</p>
+          <div class="col-md-4">
+            <div class="program-info-item">
+              <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+              <h4>Duration</h4>
+              <p>2 Years Course</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-          <div class="program-info-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-            <h4>Sessions</h4>
-            <p>8 Activities Per Month</p>
+          <div class="col-md-4">
+            <div class="program-info-item">
+              <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+              <h4>Frequency</h4>
+              <p>2 Sessions/Week</p>
+            </div>
           </div>
         </div>
       </div>
