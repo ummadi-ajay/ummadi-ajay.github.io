@@ -105,7 +105,7 @@ function initializeNavbarLogic() {
 
     document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+            if (window.innerWidth < 1200 && navbarCollapse.classList.contains('show')) {
                 const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                 if (bsCollapse) bsCollapse.hide();
                 toggler.classList.remove('opened');
@@ -116,32 +116,38 @@ function initializeNavbarLogic() {
         });
     });
 
-    // Initialize Bootstrap dropdowns
-    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-        return new bootstrap.Dropdown(dropdownToggleEl)
-    });
+    /* 
+    Manual initialization removed to prevent double-triggering with data-bs-toggle.
+    Bootstrap handles this automatically.
+    */
 
-    // Desktop Hover Handling (Responsive)
     // Desktop Hover Handling (Responsive with Delay)
-    document.querySelectorAll('.dropdown').forEach(dropdown => {
-        let timer;
-        dropdown.addEventListener('mouseenter', function () {
-            if (window.innerWidth >= 1200) {
-                clearTimeout(timer);
-                let toggle = this.querySelector('.dropdown-toggle');
-                if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).show();
-            }
-        });
-        dropdown.addEventListener('mouseleave', function () {
-            if (window.innerWidth >= 1200) {
-                timer = setTimeout(() => {
+    if (typeof bootstrap !== 'undefined') {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            let timer;
+            dropdown.addEventListener('mouseenter', function () {
+                if (window.innerWidth >= 1200) {
+                    clearTimeout(timer);
                     let toggle = this.querySelector('.dropdown-toggle');
-                    if (toggle) bootstrap.Dropdown.getOrCreateInstance(toggle).hide();
-                }, 200); // 200ms delay to allow crossing the gap
-            }
+                    if (toggle) {
+                        const instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                        instance.show();
+                    }
+                }
+            });
+            dropdown.addEventListener('mouseleave', function () {
+                if (window.innerWidth >= 1200) {
+                    timer = setTimeout(() => {
+                        let toggle = this.querySelector('.dropdown-toggle');
+                        if (toggle) {
+                            const instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                            instance.hide();
+                        }
+                    }, 200);
+                }
+            });
         });
-    });
+    }
 
     // Mobile Click Handling - REMOVED (Handled by Bootstrap data-bs-toggle)
 
@@ -178,7 +184,7 @@ function initializeNavbarLogic() {
     // Ensure sub-links (dropdown items) also close the menu on click
     document.querySelectorAll('.dropdown-item').forEach(item => {
         item.addEventListener('click', () => {
-            if (window.innerWidth < 992) {
+            if (window.innerWidth < 1200) {
                 const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                 if (bsCollapse) bsCollapse.hide();
                 toggler.classList.remove('opened');
@@ -191,9 +197,9 @@ function initializeNavbarLogic() {
 
     // Close menu/dropdowns when clicking outside the entire navbar area
     document.addEventListener('click', (e) => {
-        if (window.innerWidth < 992) {
+        if (window.innerWidth < 1200) {
             const navContainer = document.querySelector('.navbar-ultra');
-            if (!navContainer.contains(e.target) && navbarCollapse.classList.contains('show')) {
+            if (navContainer && !navContainer.contains(e.target) && navbarCollapse.classList.contains('show')) {
                 const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                 if (bsCollapse) bsCollapse.hide();
                 toggler.classList.remove('opened');
