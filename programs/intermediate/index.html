@@ -2,1076 +2,732 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MakerWorks - Intermediate Level Program | Robotics & Coding for Kids in Mumbai</title>
-
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="MakerWorks - Intermediate Level Program | Robotics & Coding for Kids in Mumbai">
-    <meta name="description"
-        content="Join MakerWorks Intermediate Level Program. A 2-year program for kids aged 11–14 to learn Arduino, Python, robotics, and IoT through hands-on projects.">
-    <meta name="keywords"
-        content="MakerWorks Intermediate Level, robotics for kids Mumbai, Arduino classes Mumbai, Python programming, STEM for kids, IoT projects, advanced coding">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Stylesheets -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/styles.css">
-    <script src="/components.js" defer></script>
-
-    <style>
-        :root {
-            --primary: #0d6efd;
-            --secondary: #ff6600;
-            --dark: #1d1d1f;
-            --light: #ffffff;
-            --bg-offset: #fbfbfd;
-            --glass: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(0, 0, 0, 0.1);
-            --radius-xl: 32px;
-            --radius-lg: 20px;
-            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        /* Hero Section */
-        .hero-premium {
-            background: linear-gradient(135deg, #0d6efd 0%, #004dc7 100%);
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 180px 20px 140px;
-            overflow: hidden;
-            border-radius: 0 0 60px 60px;
-        }
-
-        .hero-premium::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .hero-premium h1 {
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
-            margin-bottom: 1.5rem;
-            letter-spacing: -3px;
-        }
-
-        .hero-premium p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 100px;
-            font-weight: 800;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            color: #004dc7;
-        }
-
-        /* Program Info Dashboard */
-        .program-info-section {
-            background: transparent;
-            padding: 0;
-            position: relative;
-            margin-top: -60px;
-            z-index: 10;
-        }
-
-        .program-info-wrapper {
-            background: white;
-            border-radius: 40px;
-            padding: 1.5rem 3rem;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .program-info-item {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            border-right: 1px solid rgba(0, 0, 0, 0.06);
-            height: 100%;
-            background: transparent;
-            transition: all 0.3s ease;
-        }
-
-        .program-info-item:hover {
-            background: rgba(13, 110, 253, 0.02);
-        }
-
-        .program-info-item:last-child {
-            border-right: none;
-        }
-
-        .program-info-item .icon {
-            width: 75px;
-            height: 75px;
-            background: rgba(13, 110, 253, 0.08);
-            color: var(--primary);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.05);
-        }
-
-        .program-info-item:hover .icon {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.15) rotate(-8deg);
-            box-shadow: 0 15px 30px rgba(13, 110, 253, 0.3);
-        }
-
-        .program-info-item h4 {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #94a3b8;
-            font-weight: 800;
-            margin-bottom: 0.6rem;
-        }
-
-        .program-info-item p {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        @media (max-width: 767px) {
-            .program-info-item {
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            }
-
-            .program-info-wrapper {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Eligibility Cards */
-        .eligibility-section {
-            background: var(--bg-offset);
-        }
-
-        .eligibility-card {
-            background: white;
-            padding: 4rem;
-            border-radius: 40px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
-        }
-
-        .eligibility-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-        }
-
-        .eligibility-item {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .eligibility-icon {
-            flex-shrink: 0;
-            width: 56px;
-            height: 56px;
-            background: rgba(13, 110, 253, 0.1);
-            color: var(--primary);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-        }
-
-        /* Stats Cards */
-        .stats-card {
-            background: white;
-            padding: 3rem 1.5rem;
-            border-radius: 32px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.4s ease;
-            text-align: center;
-        }
-
-        .stats-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(13, 110, 253, 0.1);
-            border-color: var(--primary);
-        }
-
-        .stats-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stats-label {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #94a3b8;
-        }
-
-        /* Learning Modules */
-        .skill-card {
-            background: white;
-            padding: 3.5rem 2.5rem;
-            border-radius: 32px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            height: 100%;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary);
-        }
-
-        .skill-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--primary);
-            color: white;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 15px 30px rgba(13, 110, 253, 0.3);
-        }
-
-        /* Curriculum Track Styling */
-        .curriculum-track-container {
-            background: #ffffff;
-            padding: 3rem 2rem;
-            border-radius: 40px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .curriculum-track-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--track-color, var(--primary));
-        }
-
-        .track-programming {
-            --track-color: #0d6efd;
-        }
-
-        .track-electronics {
-            --track-color: #ff9900;
-        }
-
-        .track-iot {
-            --track-color: #10b981;
-        }
-
-        .curriculum-column-title {
-            font-size: 1.6rem;
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .curriculum-column-title i {
-            width: 48px;
-            height: 48px;
-            background: var(--track-color);
-            color: white;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-        }
-
-        .curriculum-item {
-            margin-bottom: 1.2rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            border-radius: 20px;
-            background: #fafafa;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .curriculum-item:hover {
-            background: white;
-            border-color: var(--track-color);
-            transform: translateX(8px);
-        }
-
-        .curriculum-header {
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .curriculum-header h4 {
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        .module-number {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--track-color);
-            text-transform: uppercase;
-            margin-bottom: 4px;
-            display: block;
-        }
-
-        .curriculum-header::after {
-            content: "\f067";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            font-size: 0.8rem;
-            color: #cbd5e1;
-            transition: all 0.4s ease;
-        }
-
-        .curriculum-item.active {
-            background: white;
-            border-color: var(--track-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .curriculum-item.active .curriculum-header::after {
-            content: "\f068";
-            color: var(--track-color);
-            transform: rotate(180deg);
-        }
-
-        .curriculum-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 0 1.5rem;
-        }
-
-        .curriculum-item.active .curriculum-content {
-            max-height: 500px;
-            padding-bottom: 2rem;
-        }
-
-        .curriculum-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .curriculum-content li {
-            padding: 10px 0;
-            display: flex;
-            gap: 12px;
-            color: #64748b;
-            font-size: 0.95rem;
-            border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
-        }
-
-        .curriculum-content li i {
-            color: var(--track-color);
-            opacity: 0.7;
-            margin-top: 4px;
-        }
-
-        /* Outcome Cards */
-        .outcome-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 32px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .outcome-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--primary);
-        }
-
-        /* FAQ Section */
-        .faq-accordion .accordion-item {
-            background: white;
-            border: 1px solid rgba(0, 0, 0, 0.05) !important;
-            border-radius: 24px !important;
-            margin-bottom: 1.2rem;
-            overflow: hidden;
-        }
-
-        .faq-accordion .accordion-button {
-            padding: 1.8rem 2.5rem;
-            font-weight: 700;
-            font-size: 1.2rem;
-            background: white !important;
-            box-shadow: none !important;
-        }
-
-        .faq-accordion .accordion-button:not(.collapsed) {
-            color: var(--primary);
-        }
-
-        /* Certification */
-        .cert-section {
-            background: linear-gradient(180deg, #fff 0%, #f5f9ff 100%);
-        }
-
-        .cert-badge-wrapper {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 28px;
-            background: rgba(13, 110, 253, 0.1);
-            border-radius: 100px;
-            color: var(--primary);
-            font-weight: 800;
-            margin-bottom: 2rem;
-        }
-
-        .cert-visual {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 40px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.06);
-        }
-
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 25px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.5s ease;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.8s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-15px);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 3rem 2.5rem 2rem;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Testimonials */
-        .reviews-section {
-            background: #001a4d;
-            padding: 120px 0;
-            color: white;
-        }
-
-        .testimonial-card-premium {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 4rem;
-            border-radius: 48px;
-            text-align: center;
-        }
-
-        .section-title-premium {
-            font-size: clamp(2.2rem, 4vw, 3.2rem);
-            margin-bottom: 1.5rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(13, 110, 253, 0.1);
-            color: var(--primary);
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakerWorks - Intermediate Level Program | Robotics & Coding for Teens in Mumbai</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="MakerWorks - Intermediate Level Program | Robotics & Coding for Teens in Mumbai">
+  <meta name="description"
+    content="Enroll in MakerWorks Intermediate Level Program. A 2-year advanced engineering program for kids aged 11-14 to master Arduino, Python, IoT, and robotics through real-world engineering projects.">
+  <meta name="keywords"
+    content="MakerWorks Intermediate Level, Arduino classes Mumbai, Python for kids, IoT projects Mumbai, STEM for teens, robotics engineering, advanced coding">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makerworkslab.in/programs/intermediate/">
+  <meta property="og:title" content="MakerWorks - Intermediate Level Program | Robotics & Coding for Teens in Mumbai">
+  <meta property="og:description"
+    content="Enroll in MakerWorks Intermediate Level Program. A 2-year advanced engineering program for kids aged 11-14 to master Arduino, Python, IoT, and robotics through real-world engineering projects.">
+  <meta property="og:image" content="https://makerworkslab.in/images/intermediate-hero.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://makerworkslab.in/programs/intermediate/">
+  <meta property="twitter:title"
+    content="MakerWorks - Intermediate Level Program | Robotics & Coding for Teens in Mumbai">
+  <meta property="twitter:description"
+    content="Enroll in MakerWorks Intermediate Level Program. A 2-year advanced engineering program for kids aged 11-14 to master Arduino, Python, IoT, and robotics through real-world engineering projects.">
+  <meta property="twitter:image" content="https://makerworkslab.in/images/intermediate-hero.jpg">
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/components.js" defer></script>
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        "name": "Intermediate Level Program",
+        "description": "A 2-year advanced program for kids aged 11-14 to master Arduino, Python, IoT, and robotics through real-world engineering projects at MakerWorks.",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "MakerWorks",
+          "sameAs": "https://makerworkslab.in",
+          "logo": "https://makerworkslab.in/images/logo.png"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --secondary: #ff6600;
+      --dark: #1d1d1f;
+      --light: #ffffff;
+      --bg-offset: #f0f4ff;
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    /* Hero */
+    .beginner-hero {
+      background: linear-gradient(135deg, #0d6efd 0%, #004dc7 100%);
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 140px 20px 120px;
+      overflow: hidden;
+      border-radius: 0 0 50px 50px;
+    }
+
+    .beginner-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .beginner-hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.95;
+    }
+
+    .beginner-hero .btn {
+      background-color: var(--light);
+      color: var(--primary);
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: none;
+      transition: transform 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .beginner-hero .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    /* Program Info */
+    .program-info-section {
+      padding: 0;
+      margin-top: -60px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .program-info-wrapper {
+      background: white;
+      border-radius: 40px;
+      padding: 1.5rem 3rem;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .program-info-item {
+      text-align: center;
+      padding: 2rem;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .program-info-item .icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(13, 110, 253, 0.1);
+      color: var(--primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1.2rem;
+    }
+
+    /* Skill Cards */
+    .skill-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary);
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+    }
+
+    .skill-card ul li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .skill-card ul li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    /* Eligibility */
+    .eligibility-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    .eligibility-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .eligibility-item {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .eligibility-icon {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    /* Stats */
+    .stats-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .stats-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* Curriculum */
+    .curriculum-track-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 32px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .curriculum-item {
+      background: #f8faff;
+      margin-bottom: 1rem;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .curriculum-header {
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .curriculum-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .curriculum-item.active .curriculum-content {
+      max-height: 500px;
+      padding-bottom: 1.2rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(13, 110, 253, 0.1);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title-premium {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 2rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Testimonials */
+    .testimonial-card-premium {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 30px;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .cert-section {
+      background: var(--bg-offset);
+    }
+  </style>
 </head>
 
 <body>
-    <div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder"></div>
 
-    <section class="hero-premium">
-        <div class="container" data-aos="fade-up">
-            <span class="section-badge" style="background: rgba(255,255,255,0.2); color: white;">Ages 11 – 14</span>
-            <h1>Innovate & Build: <br>Intermediate Level</h1>
-            <p>Master Arduino, Python, IoT, and high-performance robotics through advanced engineering projects.</p>
-            <a href="https://wa.me/919137114223?text=Hi,%20I%20am%20interested%20in%20the%20Intermediate%20Program!"
-                class="btn-white" target="_blank">
-                Enroll Now <i class="fab fa-whatsapp"></i>
-            </a>
+  <section class="beginner-hero">
+    <div data-aos="fade-up">
+      <h1>Maker Works Intermediate Program</h1>
+      <p>A 2-year advanced engineering program for aspiring innovators aged 11-14</p>
+      <a href="https://wa.me/919137114223?text=Hi,%20I%20am%20interested%20in%20the%20Intermediate%20Program!"
+        class="btn" target="_blank">
+        Enroll Now <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="program-info-section">
+    <div class="container">
+      <div class="program-info-wrapper" data-aos="zoom-in">
+        <div class="program-info-item">
+          <div class="icon"><i class="fas fa-user-graduate"></i></div>
+          <h4>Target Group</h4>
+          <p>11 – 14 Years</p>
         </div>
-    </section>
-
-    <section class="program-info-section">
-        <div class="container">
-            <div class="program-info-wrapper" data-aos="zoom-in">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <div class="program-info-item">
-                            <div class="icon"><i class="fas fa-user-graduate"></i></div>
-                            <h4>Target Group</h4>
-                            <p>11 – 14 Years</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="program-info-item">
-                            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-                            <h4>Duration</h4>
-                            <p>2 Years (Weekends)</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="program-info-item">
-                            <div class="icon"><i class="fas fa-microchip"></i></div>
-                            <h4>Curriculum</h4>
-                            <p>Arduino + Python + IoT</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="program-info-item">
+          <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+          <h4>Duration</h4>
+          <p>2 Years (Weekends)</p>
         </div>
-    </section>
-
-    <section class="eligibility-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="eligibility-card" data-aos="fade-up">
-                        <div class="text-center mb-5">
-                            <span class="section-badge">Prerequisites</span>
-                            <h2 class="section-title-premium">Is This For Your Child?</h2>
-                        </div>
-                        <div class="eligibility-list">
-                            <div class="eligibility-item">
-                                <div class="eligibility-icon"><i class="fas fa-graduation-cap"></i></div>
-                                <div class="eligibility-text">
-                                    <h6 class="fw-bold fs-5">Recommended Background</h6>
-                                    <p class="text-muted">Basic understanding of electronics or block-based coding is
-                                        helpful but not mandatory.</p>
-                                </div>
-                            </div>
-                            <div class="eligibility-item">
-                                <div class="eligibility-icon"><i class="fas fa-laptop-code"></i></div>
-                                <div class="eligibility-text">
-                                    <h6 class="fw-bold fs-5">Tech Access</h6>
-                                    <p class="text-muted">Requires a computer with internet for Arduino IDE, Python, and
-                                        cloud platforms.</p>
-                                </div>
-                            </div>
-                            <div class="eligibility-item">
-                                <div class="eligibility-icon"><i class="fas fa-brain"></i></div>
-                                <div class="eligibility-text">
-                                    <h6 class="fw-bold fs-5">Mindset</h6>
-                                    <p class="text-muted">A deep curiosity for how complex systems like smart homes and
-                                        autonomous robots work.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="program-info-item">
+          <div class="icon"><i class="fas fa-microchip"></i></div>
+          <h4>Curriculum</h4>
+          <p>Arduino + Python + IoT</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="container py-6">
-        <div class="row g-4">
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="100">
-                <div class="stats-card">
-                    <div class="stats-number">50+</div>
-                    <div class="stats-label">Adv. Sessions</div>
-                </div>
+  <section class="eligibility-section">
+    <div class="container">
+      <div class="eligibility-card" data-aos="fade-up">
+        <span class="section-badge">Prerequisites</span>
+        <h2 class="section-title-premium">Who Can Join?</h2>
+        <div class="eligibility-list">
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="eligibility-text">
+              <h6>Level: Intermediate</h6>
+              <p>Basic understanding of electronics or coding is helpful but not mandatory.</p>
             </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="200">
-                <div class="stats-card">
-                    <div class="stats-number">35+</div>
-                    <div class="stats-label">Complex Projects</div>
-                </div>
+          </div>
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-birthday-cake"></i></div>
+            <div class="eligibility-text">
+              <h6>Age: 11–14 Years</h6>
+              <p>Tailored for the cognitive development of teenagers ready for text-based coding.</p>
             </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="300">
-                <div class="stats-card">
-                    <div class="stats-number">2</div>
-                    <div class="stats-label">Year Program</div>
-                </div>
+          </div>
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="eligibility-text">
+              <h6>Mindset: Problem Solver</h6>
+              <p>A deep curiosity for how complex systems like smart homes and robots work.</p>
             </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="400">
-                <div class="stats-card">
-                    <div class="stats-number">IoT</div>
-                    <div class="stats-label">Cloud Mastery</div>
-                </div>
+          </div>
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-laptop"></i></div>
+            <div class="eligibility-text">
+              <h6>Tooling: Computer & Net</h6>
+              <p>Requires a computer for Arduino IDE development and cloud integrations.</p>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="container" id="learning-modules">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <span class="section-badge">Mastery Tracks</span>
-            <h2 class="section-title-premium">Core Engineering Pillars</h2>
+  <section class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stats-card">
+          <div class="stats-number">50+</div>
+          <div class="stats-label">Advanced Sessions</div>
         </div>
-
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-                    <h5>Arduino & C++</h5>
-                    <p class="text-muted">Transition from blocks to professional C++ coding using the industry-standard
-                        Arduino ecosystem.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="skill-card" style="border-top: 6px solid #ff9900;">
-                    <div class="skill-icon" style="background:#ff9900;"><i class="fab fa-python"></i></div>
-                    <h5>Python Programming</h5>
-                    <p class="text-muted">Learn the world's most popular language for data visualization, AI, and
-                        hardware interaction.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="skill-card" style="border-top: 6px solid #10b981;">
-                    <div class="skill-icon" style="background:#10b981;"><i class="fas fa-wifi"></i></div>
-                    <h5>IoT & Cloud</h5>
-                    <p class="text-muted">Construct "smart" systems that communicate via Wi-Fi and cloud platforms like
-                        Blynk and ThingSpeak.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="skill-card" style="border-top: 6px solid #6f42c1;">
-                    <div class="skill-icon" style="background:#6f42c1;"><i class="fas fa-robot"></i></div>
-                    <h5>Advanced Robotics</h5>
-                    <p class="text-muted">Integrate vision systems, computer vision, and AI fundamentals into mobile
-                        robotic platforms.</p>
-                </div>
-            </div>
+      </div>
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stats-card">
+          <div class="stats-number">35+</div>
+          <div class="stats-label">Complex Projects</div>
         </div>
-    </section>
-
-    <section class="container-fluid px-lg-5" id="program-curriculum">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <span class="section-badge">The Roadmap</span>
-            <h2 class="section-title-premium">Comprehensive Learning Path</h2>
-            <p class="text-muted mx-auto" style="max-width: 700px;">A 20-module deep-dive curriculum designed for future
-                engineers.</p>
+      </div>
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stats-card">
+          <div class="stats-number">2</div>
+          <div class="stats-label">Year Journey</div>
         </div>
-
-        <div class="row g-4">
-            <!-- Track 1: Embedded Systems -->
-            <div class="col-lg-4">
-                <div class="curriculum-track-container track-programming">
-                    <h3 class="curriculum-column-title"><i class="fas fa-microchip"></i> Embedded Systems</h3>
-                    <div class="curriculum-list">
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 01</span>
-                                    <h4>Arduino Fundamentals</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Ecosystem & IDE Setup</li>
-                                    <li><i class="fas fa-check"></i> Digital & Analog I/O</li>
-                                    <li><i class="fas fa-check"></i> First Sketch Deployment</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 02</span>
-                                    <h4>C/C++ for Hardware</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Variables & Control Flow</li>
-                                    <li><i class="fas fa-check"></i> Modular Functions</li>
-                                    <li><i class="fas fa-check"></i> Serial Debugging</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 03</span>
-                                    <h4>Advanced Sensors</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Ultrasonic & Humidity</li>
-                                    <li><i class="fas fa-check"></i> Sensor Data Processing</li>
-                                    <li><i class="fas fa-check"></i> Precision Calibration</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 13</span>
-                                    <h4>PCB Design Basics</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Schematic Capture (EasyEDA)</li>
-                                    <li><i class="fas fa-check"></i> Layout Rules</li>
-                                    <li><i class="fas fa-check"></i> Gerber Export</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Track 2: Python & IoT -->
-            <div class="col-lg-4">
-                <div class="curriculum-track-container track-electronics">
-                    <h3 class="curriculum-column-title"><i class="fab fa-python"></i> Python & IoT</h3>
-                    <div class="curriculum-list">
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 05</span>
-                                    <h4>Python Fundamentals</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Syntax & Data Structures</li>
-                                    <li><i class="fas fa-check"></i> Algorithmic Logic</li>
-                                    <li><i class="fas fa-check"></i> Script Building</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 07</span>
-                                    <h4>Wi-Fi (ESP8266)</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> API Integration</li>
-                                    <li><i class="fas fa-check"></i> HTTP Requests</li>
-                                    <li><i class="fas fa-check"></i> Weather Stations</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 08</span>
-                                    <h4>Cloud Analytics</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> ThingSpeak & Blynk</li>
-                                    <li><i class="fas fa-check"></i> Remote Control</li>
-                                    <li><i class="fas fa-check"></i> Live Dashboards</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 11</span>
-                                    <h4>Interactive Dashboards</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> JS & DOM Manipulation</li>
-                                    <li><i class="fas fa-check"></i> Live Data Visualization</li>
-                                    <li><i class="fas fa-check"></i> Chart.js Integration</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Track 3: Robotics & AI -->
-            <div class="col-lg-4">
-                <div class="curriculum-track-container track-iot">
-                    <h3 class="curriculum-column-title"><i class="fas fa-robot"></i> Robotics & AI</h3>
-                    <div class="curriculum-list">
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 04</span>
-                                    <h4>Motor Control & PWM</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> L298N Bridge Logic</li>
-                                    <li><i class="fas fa-check"></i> Servo Positioning</li>
-                                    <li><i class="fas fa-check"></i> Mobile Chassis Build</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 15</span>
-                                    <h4>Computer Vision</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> OpenCV Processing</li>
-                                    <li><i class="fas fa-check"></i> Object Tracking</li>
-                                    <li><i class="fas fa-check"></i> Vision-based Robots</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 16</span>
-                                    <h4>AI/ML Fundamentals</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Neural Net Concepts</li>
-                                    <li><i class="fas fa-check"></i> Voice Recognition</li>
-                                    <li><i class="fas fa-check"></i> Edge AI Deployment</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="curriculum-item">
-                            <div class="curriculum-header">
-                                <div><span class="module-number">Module 20</span>
-                                    <h4>Innovation Showcase</h4>
-                                </div>
-                            </div>
-                            <div class="curriculum-content">
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Capstone Demo</li>
-                                    <li><i class="fas fa-check"></i> Technical Q&A</li>
-                                    <li><i class="fas fa-check"></i> Portfolio Launch</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="400">
+        <div class="stats-card">
+          <div class="stats-number">IoT</div>
+          <div class="stats-label">Cloud Mastery</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cert-section py-6">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="cert-badge-wrapper">
-                        <i class="fas fa-award"></i>
-                        <span>Intermediate Mastery</span>
-                    </div>
-                    <h2 class="section-title-premium mb-4">Official Intermediate Certification</h2>
-                    <p class="text-muted fs-5 mb-5">Validating technical competence in Arduino, Python, and IoT systems
-                        engineering.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3 d-flex gap-3"><i class="fas fa-check-circle text-primary mt-1"></i> 20 Advanced
-                            Modules Completed</li>
-                        <li class="mb-3 d-flex gap-3"><i class="fas fa-check-circle text-primary mt-1"></i> Functional
-                            IoT Capstone Project</li>
-                        <li class="mb-3 d-flex gap-3"><i class="fas fa-check-circle text-primary mt-1"></i>
-                            Industry-Ready Skills</li>
-                    </ul>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="cert-visual">
-                        <img src="images2/intermediatecertificate.webp" alt="Intermediate Certificate"
-                            class="img-fluid rounded-3">
-                    </div>
-                </div>
-            </div>
+  <section class="container" id="learning-modules">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-title-premium">Core Engineering Pillars</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">Master Arduino, Python, IoT, and advanced robotics through
+        industry-standard tools and engineering practices.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+          <h5>Arduino & C++</h5>
+          <p>Transition from blocks to professional C++ coding using the Arduino ecosystem.</p>
+          <ul>
+            <li>IDE Setup & Syntax</li>
+            <li>Embedded Logic</li>
+            <li>Serial Debugging</li>
+          </ul>
         </div>
-    </section>
-
-    <section class="py-6">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-badge">Gallery</span>
-                <h2 class="section-title-premium">Advanced Projects at Lab</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" style="grid-column: span 8; grid-row: span 2;">
-                    <img src="images2/arduino.webp" alt="Arduino project">
-                    <div class="gallery-overlay">
-                        <h5 class="fw-bold">Embedded Control</h5>
-                    </div>
-                </div>
-                <div class="gallery-item" style="grid-column: span 4;">
-                    <img src="images2/iot.webp" alt="IoT project">
-                </div>
-                <div class="gallery-item" style="grid-column: span 4;">
-                    <img src="images2/rasperrypi.webp" alt="Pi project">
-                </div>
-                <div class="gallery-item" style="grid-column: span 6; height: 350px;">
-                    <img src="images2/sensors and actuators.webp" alt="Sensors">
-                </div>
-                <div class="gallery-item" style="grid-column: span 6; height: 350px;">
-                    <img src="images2/images.webp" alt="Electronics">
-                </div>
-            </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fab fa-python"></i></div>
+          <h5>Python Coding</h5>
+          <p>Learn the world's most popular language for data, AI, and hardware interaction.</p>
+          <ul>
+            <li>Syntax & Structures</li>
+            <li>Algorithmic Logic</li>
+            <li>Script Building</li>
+          </ul>
         </div>
-    </section>
-
-    <section class="reviews-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-badge" style="background: rgba(255,255,255,0.1); color: white;">Testimonial</span>
-                <h2 class="section-title-premium text-white">Parents' Perspective</h2>
-            </div>
-            <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-9">
-                                <div class="testimonial-card-premium">
-                                    <p class="fs-4 italic opacity-90">"The transition from blocks to text-based coding
-                                        in the Intermediate program was seamless. My son is now building his own home
-                                        automation systems!"</p>
-                                    <h6 class="fw-bold mt-4 mb-0">Mr. Mehra</h6>
-                                    <p class="small opacity-50">Parent of Intermediate Student</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-wifi"></i></div>
+          <h5>IoT & Cloud</h5>
+          <p>Construct smart systems that communicate via Wi-Fi and cloud dashboards.</p>
+          <ul>
+            <li>ESP8266 Modules</li>
+            <li>API Integration</li>
+            <li>Live Dashboards</li>
+          </ul>
         </div>
-    </section>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-robot"></i></div>
+          <h5>Robotics & AI</h5>
+          <p>Integrate computer vision and AI fundamentals into mobile robotic platforms.</p>
+          <ul>
+            <li>OpenCV Vision</li>
+            <li>Machine Learning</li>
+            <li>Autonomous Nav</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer-placeholder></footer-placeholder>
+  <section class="container-fluid px-lg-5" id="program-curriculum">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">The Roadmap</span>
+      <h2 class="section-title-premium">Learning Path Breakdown</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="curriculum-track-container" style="--track-color: #0d6efd;">
+          <h3 class="curriculum-column-title"><i class="fas fa-microchip"></i> Embedded Systems</h3>
+          <div class="curriculum-item" onclick="this.classList.toggle('active')">
+            <div class="curriculum-header">
+              <div><span class="module-number">Module 01</span>
+                <h4>Arduino Fundamentals</h4>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="curriculum-content">
+              <ul>
+                <li>Digital & Analog I/O</li>
+                <li>Pin Configuration</li>
+                <li>First Sketch Deployment</li>
+              </ul>
+            </div>
+          </div>
+          <div class="curriculum-item" onclick="this.classList.toggle('active')">
+            <div class="curriculum-header">
+              <div><span class="module-number">Module 02</span>
+                <h4>C++ For Hardware</h4>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="curriculum-content">
+              <ul>
+                <li>Variables & Control Flow</li>
+                <li>Functions & Scope</li>
+                <li>Serial Communication</li>
+              </ul>
+            </div>
+          </div>
+          <div class="curriculum-item" onclick="this.classList.toggle('active')">
+            <div class="curriculum-header">
+              <div><span class="module-number">Module 03</span>
+                <h4>Advanced Sensors</h4>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="curriculum-content">
+              <ul>
+                <li>Ultrasonic & IR</li>
+                <li>Data Filtering</li>
+                <li>I2C Communication</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="curriculum-track-container" style="--track-color: #ff9900;">
+          <h3 class="curriculum-column-title"><i class="fab fa-python"></i> Python & IoT</h3>
+          <div class="curriculum-item" onclick="this.classList.toggle('active')">
+            <div class="curriculum-header">
+              <div><span class="module-number">Module 04</span>
+                <h4>Python Foundations</h4>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="curriculum-content">
+              <ul>
+                <li>Syntax & Lists</li>
+                <li>Dictionaries</li>
+                <li>File I/O</li>
+              </ul>
+            </div>
+          </div>
+          <div class="curriculum-item" onclick="this.classList.toggle('active')">
+            <div class="curriculum-header">
+              <div><span class="module-number">Module 05</span>
+                <h4>IoT Connectivity</h4>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="curriculum-content">
+              <ul>
+                <li>ESP8266 Wi-Fi</li>
+                <li>HTTP Requests</li>
+                <li>MQTT Protocol</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="curriculum-track-container" style="--track-color: #10b981;">
+          <h3 class="curriculum-column-title"><i class="fas fa-robot"></i> Advanced Robotics</h3>
+          <div class="curriculum-item" onclick="this.classList.toggle('active')">
+            <div class="curriculum-header">
+              <div><span class="module-number">Module 06</span>
+                <h4>Motor Control</h4>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="curriculum-content">
+              <ul>
+                <li>L298N Drivers</li>
+                <li>PWM Tuning</li>
+                <li>Chassis Build</li>
+              </ul>
+            </div>
+          </div>
+          <div class="curriculum-item" onclick="this.classList.toggle('active')">
+            <div class="curriculum-header">
+              <div><span class="module-number">Module 07</span>
+                <h4>Computer Vision</h4>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="curriculum-content">
+              <ul>
+                <li>OpenCV Basics</li>
+                <li>Color Tracking</li>
+                <li>Edge Detection</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+  <section class="cert-section py-6">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="section-badge">Graduation</span>
+          <h2 class="section-title-premium">Official Intermediate Certification</h2>
+          <p class="text-muted fs-5 mb-5">Validating technical competence in Arduino, Python, and IoT systems
+            engineering.</p>
+          <ul class="list-unstyled">
+            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> 20+ Advanced Modules Completed</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Functional IoT Capstone Project</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Industry-Ready Skills</li>
+          </ul>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <img src="images2/intermediatecertificate.webp" alt="Certificate" class="img-fluid rounded-4 shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Accordion Logic
-        document.querySelectorAll('.curriculum-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.curriculum-item').forEach(el => el.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-    </script>
+  <section class="py-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-badge">Gallery</span>
+        <h2 class="section-title-premium">Advanced Projects at Lab</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="images/Avyukt.webp" alt="Project"></div>
+        <div class="gallery-item"><img src="images/pranav.webp" alt="Project"></div>
+        <div class="gallery-item"><img src="images/teach.webp" alt="Project"></div>
+        <div class="gallery-item"><img src="images/tejsva.webp" alt="Project"></div>
+        <div class="gallery-item"><img src="images/group.webp" alt="Project"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section" style="background: #002d72; padding: 100px 0;">
+    <div class="container">
+      <div class="text-center mb-5 text-white">
+        <span class="section-badge" style="background: rgba(255,255,255,0.1); color: white;">Testimonial</span>
+        <h2 class="section-title-premium">Parents' Perspective</h2>
+      </div>
+      <div class="testimonial-card-premium mx-auto" style="max-width: 800px;">
+        <p class="fs-4 italic opacity-90">"The transition from blocks to text-based coding in the Intermediate program
+          was seamless. My son is now building his own home automation systems!"</p>
+        <h6 class="fw-bold mt-4 mb-0">Mr. Mehra</h6>
+        <p class="small opacity-50">Parent of Intermediate Student</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 
 </html>

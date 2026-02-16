@@ -2,577 +2,537 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MakerWorks - Advanced Level Program | Robotics & Coding for Teens in Mumbai</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakerWorks - Advanced Level Program | AI & Robotics for Teens in Mumbai</title>
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="MakerWorks - Advanced Level Program | Robotics & Coding for Teens in Mumbai">
-    <meta name="description"
-        content="Enroll in MakerWorks Advanced Level Program. Learn advanced robotics, AI, data science, and project development to build a strong portfolio for future STEM careers.">
-    <meta name="keywords"
-        content="MakerWorks Advanced Level, advanced robotics Mumbai, AI for teens, data science classes Mumbai, STEM projects, robotics competitions, Python, C++, IoT">
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="MakerWorks - Advanced Level Program | AI & Robotics for Teens in Mumbai">
+  <meta name="description"
+    content="Join the elite Advanced Level Program at MakerWorks. Master AI, ROS 2 robotics, and professional engineering for teens aged 15+.">
+  <meta name="keywords"
+    content="MakerWorks Advanced Level, AI for teens Mumbai, ROS 2 classes, advanced robotics, STEM careers, Python ML, professional engineering">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap"
-        rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/styles.css">
-    <script src="/components.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/components.js" defer></script>
 
-    <style>
-        :root {
-            --primary: #6610f2;
-            --secondary: #0d6efd;
-            --dark: #0f172a;
-            --light: #ffffff;
-            --bg-offset: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --radius-xl: 32px;
-            --radius-lg: 20px;
-            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <style>
+    :root {
+      --primary: #6610f2;
+      --secondary: #0d6efd;
+      --dark: #0f172a;
+      --light: #ffffff;
+      --bg-offset: #f5f3ff;
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --radius-xl: 32px;
+      --radius-lg: 20px;
+      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            letter-spacing: -2px;
-        }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
 
-        section {
-            padding: 120px 0;
-        }
+    /* Hero */
+    .hero-advanced {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 160px 20px 140px;
+      overflow: hidden;
+      border-radius: 0 0 80px 80px;
+    }
 
-        /* Hero Section */
-        .hero-advanced {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 200px 20px 160px;
-            overflow: hidden;
-            border-radius: 0 0 80px 80px;
-        }
+    .hero-advanced h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+    }
 
-        .hero-advanced::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 10% 20%, rgba(102, 16, 242, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(13, 110, 253, 0.15) 0%, transparent 40%);
-            pointer-events: none;
-        }
+    .hero-advanced p {
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.8;
+    }
 
-        .hero-advanced h1 {
-            font-size: clamp(3rem, 7vw, 5rem);
-            margin-bottom: 2rem;
-            background: linear-gradient(to bottom, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .hero-advanced .btn {
+      background: var(--primary);
+      color: white;
+      padding: 1.2rem 3rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 20px 40px rgba(102, 16, 242, 0.3);
+      border: none;
+      transition: transform 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
 
-        .hero-advanced p {
-            font-size: 1.4rem;
-            max-width: 850px;
-            margin: 0 auto 3.5rem;
-            opacity: 0.8;
-            font-weight: 300;
-        }
+    .hero-advanced .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(102, 16, 242, 0.4);
+    }
 
-        .btn-advanced {
-            background: var(--primary);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 100px;
-            font-weight: 800;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 20px 40px rgba(102, 16, 242, 0.3);
-            transition: all 0.3s ease;
-            border: none;
-        }
+    section {
+      padding: 100px 20px;
+    }
 
-        .btn-advanced:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(102, 16, 242, 0.4);
-            color: white;
-        }
+    /* Program Info Dashboard */
+    .dashboard-section {
+      padding: 0;
+      margin-top: -80px;
+      position: relative;
+      z-index: 10;
+    }
 
-        /* Floating Dashboard */
-        .dashboard-section {
-            padding: 0;
-            margin-top: -80px;
-            position: relative;
-            z-index: 10;
-        }
+    .dashboard-wrapper {
+      background: white;
+      border-radius: 48px;
+      padding: 2rem 4rem;
+      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
 
-        .dashboard-wrapper {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 48px;
-            padding: 2rem 4rem;
-            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
+    .dashboard-item {
+      text-align: center;
+      padding: 2.5rem;
+      flex: 1;
+      min-width: 250px;
+    }
 
-        .dashboard-item {
-            text-align: center;
-            padding: 3rem 1.5rem;
-            border-right: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
+    .dashboard-item .item-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(102, 16, 242, 0.08);
+      color: var(--primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.5rem;
+    }
 
-        .dashboard-item:last-child {
-            border-right: none;
-        }
+    /* Skill Cards */
+    .logic-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 32px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+    }
 
-        .dashboard-item:hover {
-            background: rgba(102, 16, 242, 0.02);
-        }
+    .logic-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
 
-        .dashboard-item i {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
+    .logic-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
 
-        .dashboard-item h4 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #64748b;
-            margin-bottom: 0.8rem;
-        }
+    /* Curriculum Track */
+    .track-wrapper {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      height: 100%;
+    }
 
-        .dashboard-item p {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin: 0;
-            color: var(--dark);
-        }
+    .track-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
 
-        /* Core Competencies */
-        .skill-card-advanced {
-            background: white;
-            padding: 4rem 3rem;
-            border-radius: 40px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            height: 100%;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-        }
+    .track-indicator {
+      width: 12px;
+      height: 32px;
+      background: var(--track-color);
+      border-radius: 10px;
+    }
 
-        .skill-card-advanced::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: var(--card-color, var(--primary));
-        }
+    .module-card {
+      background: var(--bg-offset);
+      padding: 1.5rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        .skill-card-advanced:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
-            border-color: var(--card-color);
-        }
+    .module-card:hover {
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transform: scale(1.02);
+    }
 
-        .skill-icon-circle {
-            width: 80px;
-            height: 80px;
-            background: var(--card-color);
-            color: white;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
-            transform: rotate(-5deg);
-            transition: 0.5s;
-        }
+    .section-badge {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: rgba(102, 16, 242, 0.08);
+      color: var(--primary);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
 
-        .skill-card-advanced:hover .skill-icon-circle {
-            transform: rotate(0deg) scale(1.1);
-        }
+    .stats-num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'Outfit';
+    }
 
-        /* Curriculum Tracks */
-        .track-wrapper {
-            background: #ffffff;
-            padding: 3.5rem 2.5rem;
-            border-radius: 40px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            height: 100%;
-        }
+    /* Table layout for curriculum details */
+    .cur-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
 
-        .track-title {
-            font-size: 1.8rem;
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    .module-card.active .cur-details {
+      max-height: 200px;
+      margin-top: 1rem;
+    }
 
-        .track-indicator {
-            width: 12px;
-            height: 40px;
-            background: var(--track-color);
-            border-radius: 10px;
-        }
+    .gallery-masonry {
+      display: columns;
+      column-count: 3;
+      column-gap: 1.5rem;
+    }
 
-        .cur-item {
-            padding: 1.5rem;
-            background: #f8fafc;
-            border-radius: 24px;
-            margin-bottom: 1.5rem;
-            transition: 0.3s;
-            border: 1px solid transparent;
-            cursor: pointer;
-        }
+    .gallery-img {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border-radius: 24px;
+      break-inside: avoid;
+    }
 
-        .cur-item:hover {
-            background: white;
-            border-color: var(--track-color);
-            transform: scale(1.02);
-        }
-
-        .cur-item h5 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .cur-item p {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin: 0;
-            display: none;
-        }
-
-        .cur-item.active p {
-            display: block;
-            margin-top: 1rem;
-        }
-
-        /* Certification */
-        .cert-section-advanced {
-            background: #f8fafc;
-        }
-
-        .cert-card-visual {
-            background: white;
-            padding: 3rem;
-            border-radius: 48px;
-            box-shadow: 0 60px 120px rgba(0, 0, 0, 0.05);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: 0.8s;
-        }
-
-        .cert-card-visual:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        /* Dark Mode Testimonials */
-        .testimonials-dark {
-            background: var(--dark);
-            color: white;
-            padding: 140px 0;
-        }
-
-        .quote-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 5rem;
-            border-radius: 56px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 10px 24px;
-            background: rgba(102, 16, 242, 0.1);
-            color: #a855f7;
-            border-radius: 100px;
-            font-weight: 800;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
-    </style>
+    .cert-box {
+      background: var(--bg-offset);
+      border-radius: 40px;
+      padding: 4rem;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder"></div>
 
-    <section class="hero-advanced">
-        <div class="container" data-aos="zoom-out">
-            <span class="section-badge" style="background: rgba(255,255,255,0.05); color: #fff;">Level 3: Professional
-                Path</span>
-            <h1>Master Innovators: <br>Advanced Engineering</h1>
-            <p>Building future leaders in AI, ROS-based robotics, and sustainable product engineering.</p>
-            <a href="https://wa.me/919137114223?text=Hi,%20I%20am%20interested%20in%20the%20Advanced%20Program!"
-                class="btn-advanced" target="_blank">
-                Join the Elite <i class="fab fa-whatsapp"></i>
-            </a>
+  <section class="hero-advanced">
+    <div data-aos="zoom-out">
+      <span class="section-badge" style="background: rgba(255,255,255,0.1); color: white;">Level 3: Professional
+        Path</span>
+      <h1>Master Innovators: <br>Advanced Engineering</h1>
+      <p>Building future leaders in AI, ROS 2 robotics, and sustainable product engineering for ages 15+</p>
+      <a href="https://wa.me/919137114223?text=Hi,%20I%20am%20interested%20in%20the%20Advanced%20Program!" class="btn"
+        target="_blank">
+        Join the Elite <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="dashboard-section">
+    <div class="container">
+      <div class="dashboard-wrapper" data-aos="fade-up">
+        <div class="dashboard-item">
+          <div class="item-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h6 class="text-uppercase small fw-bold text-muted">Ages</h6>
+          <h4 class="mb-0">15+ Years</h4>
         </div>
-    </section>
-
-    <section class="dashboard-section">
-        <div class="container">
-            <div class="dashboard-wrapper" data-aos="fade-up">
-                <div class="row g-0">
-                    <div class="col-md-3">
-                        <div class="dashboard-item">
-                            <i class="fas fa-id-badge"></i>
-                            <h4>Target Age</h4>
-                            <p>15+ Years</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dashboard-item">
-                            <i class="fas fa-brain"></i>
-                            <h4>Specialization</h4>
-                            <p>AI & ROS 2</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dashboard-item">
-                            <i class="fas fa-briefcase"></i>
-                            <h4>Outcome</h4>
-                            <p>Work Portfolio</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dashboard-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h4>Status</h4>
-                            <p>Elite Level</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="dashboard-item">
+          <div class="item-icon"><i class="fas fa-brain"></i></div>
+          <h6 class="text-uppercase small fw-bold text-muted">Specialization</h6>
+          <h4 class="mb-0">AI & ROS 2</h4>
         </div>
-    </section>
-
-    <section class="container">
-        <div class="text-center mb-5">
-            <span class="section-badge">Mastery Tracks</span>
-            <h2 class="display-4 fw-bold mb-3">Core Engineering Pillars</h2>
-            <p class="text-muted mx-auto" style="max-width: 700px;">Developing high-level technical expertise for
-                university and industry readiness.</p>
+        <div class="dashboard-item">
+          <div class="item-icon"><i class="fas fa-briefcase"></i></div>
+          <h6 class="text-uppercase small fw-bold text-muted">Outcome</h6>
+          <h4 class="mb-0">Work Portfolio</h4>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="container py-6">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="section-badge">Prerequisites</span>
+        <h2 class="display-4 fw-bold mb-4">Elite Readiness</h2>
+        <div class="d-flex gap-4 mb-4">
+          <div class="text-primary fs-3"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h5 class="fw-bold">Level: Advanced</h5>
+            <p class="text-muted">Requires proficiency in Python and Arduino C++. Ideal for Intermediate graduates.</p>
+          </div>
+        </div>
+        <div class="d-flex gap-4 mb-4">
+          <div class="text-primary fs-3"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h5 class="fw-bold">Tooling: Linux & ROS</h5>
+            <p class="text-muted">Mastering industrial middleware (ROS 2) and professional CAD environments.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
         <div class="row g-4">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up">
-                <div class="skill-card-advanced" style="--card-color: #6366f1;">
-                    <div class="skill-icon-circle"><i class="fas fa-robot"></i></div>
-                    <h5 class="fw-bold fs-4">Advanced Robotics</h5>
-                    <p class="text-muted">Mastering ROS 2 (Robot Operating System), SLAM navigation, and kinematics.</p>
-                </div>
+          <div class="col-6">
+            <div class="logic-card text-center">
+              <div class="stats-num">60+</div>
+              <p class="small fw-bold text-muted mb-0">EXPERT SESSIONS</p>
             </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="skill-card-advanced" style="--card-color: #8b5cf6;">
-                    <div class="skill-icon-circle"><i class="fas fa-brain"></i></div>
-                    <h5 class="fw-bold fs-4">AI & Machine Learning</h5>
-                    <p class="text-muted">Deploying neural networks and computer vision models onto edge devices.</p>
-                </div>
+          </div>
+          <div class="col-6">
+            <div class="logic-card text-center">
+              <div class="stats-num">AI</div>
+              <p class="small fw-bold text-muted mb-0">DEEP LEARNING</p>
             </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="skill-card-advanced" style="--card-color: #ec4899;">
-                    <div class="skill-icon-circle"><i class="fas fa-microchip"></i></div>
-                    <h5 class="fw-bold fs-4">RTOS & Embedded</h5>
-                    <p class="text-muted">Real-time operating systems and high-performance PCB design.</p>
-                </div>
+          </div>
+          <div class="col-6">
+            <div class="logic-card text-center">
+              <div class="stats-num">20+</div>
+              <p class="small fw-bold text-muted mb-0">RESEARCH PROJECTS</p>
             </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="skill-card-advanced" style="--card-color: #f59e0b;">
-                    <div class="skill-icon-circle"><i class="fas fa-rocket"></i></div>
-                    <h5 class="fw-bold fs-4">Portfolio Launch</h5>
-                    <p class="text-muted">Building a professional GitHub portfolio and technical documentation.</p>
-                </div>
+          </div>
+          <div class="col-6">
+            <div class="logic-card text-center">
+              <div class="stats-num">ROS</div>
+              <p class="small fw-bold text-muted mb-0">STABLE NAVIGATION</p>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="container-fluid px-lg-5" id="program-curriculum">
-        <div class="text-center mb-5">
-            <span class="section-badge">Roadmap</span>
-            <h2 class="display-4 fw-bold">Advanced Curriculum</h2>
+  <section class="container" id="advanced-pillars">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">Industrial Skills</span>
+      <h2 class="display-4 fw-bold">Core Competencies</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="logic-card">
+          <div class="logic-icon"><i class="fas fa-brain"></i></div>
+          <h4 class="fw-bold mb-3">AI & Machine Learning</h4>
+          <p class="text-muted">Deploying neural networks and computer vision models onto edge devices for autonomous
+            systems.</p>
+          <hr>
+          <ul class="list-unstyled small fw-bold">
+            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> TensorFlow & PyTorch</li>
+            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> OpenCV Vision</li>
+            <li><i class="fas fa-arrow-right text-primary me-2"></i> Edge AI Deployment</li>
+          </ul>
         </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="logic-card">
+          <div class="logic-icon"><i class="fas fa-robot"></i></div>
+          <h4 class="fw-bold mb-3">ROS 2 Robotics</h4>
+          <p class="text-muted">Mastering ROS 2 architecture, SLAM navigation, and multi-DOF kinematics for precision
+            bots.</p>
+          <hr>
+          <ul class="list-unstyled small fw-bold">
+            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Nodes & Topics</li>
+            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> SLAM & Mapping</li>
+            <li><i class="fas fa-arrow-right text-primary me-2"></i> Gazebo Simulations</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="logic-card">
+          <div class="logic-icon"><i class="fas fa-rocket"></i></div>
+          <h4 class="fw-bold mb-3">Launch Portfolio</h4>
+          <p class="text-muted">Building a professional GitHub portfolio and technical documentation for universities.
+          </p>
+          <hr>
+          <ul class="list-unstyled small fw-bold">
+            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> GitHub Mastery</li>
+            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Technical Writing</li>
+            <li><i class="fas fa-arrow-right text-primary me-2"></i> Capstone Defense</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="container-fluid px-lg-5" id="curriculum">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">Roadmap</span>
+      <h2 class="display-4 fw-bold">Advanced Curriculum</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="track-wrapper" style="--track-color: #8b5cf6;">
+          <div class="track-header">
+            <div class="track-indicator"></div>
+            <h3 class="mb-0 fw-bold">AI & Vision</h3>
+          </div>
+          <div class="module-card" onclick="this.classList.toggle('active')">
+            <h6 class="fw-bold mb-0">Module 01: Deep Learning Foundations</h6>
+            <div class="cur-details small text-muted">CNN Architectures, Transfer Learning, and Inference optimization.
+            </div>
+          </div>
+          <div class="module-card" onclick="this.classList.toggle('active')">
+            <h6 class="fw-bold mb-0">Module 02: OpenCV Mastery</h6>
+            <div class="cur-details small text-muted">Real-time object tracking, gesture control, and spatial analytics.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="track-wrapper" style="--track-color: #6366f1;">
+          <div class="track-header">
+            <div class="track-indicator"></div>
+            <h3 class="mb-0 fw-bold">ROS 2 Navigation</h3>
+          </div>
+          <div class="module-card" onclick="this.classList.toggle('active')">
+            <h6 class="fw-bold mb-0">Module 03: Distributed Systems</h6>
+            <div class="cur-details small text-muted">ROS 2 Node lifecycle, DDS middleware, and multi-machine sync.
+            </div>
+          </div>
+          <div class="module-card" onclick="this.classList.toggle('active')">
+            <h6 class="fw-bold mb-0">Module 04: SLAM Implementation</h6>
+            <div class="cur-details small text-muted">LiDAR mapping, EKF state estimation, and path planning.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="track-wrapper" style="--track-color: #f59e0b;">
+          <div class="track-header">
+            <div class="track-indicator"></div>
+            <h3 class="mb-0 fw-bold">System Build</h3>
+          </div>
+          <div class="module-card" onclick="this.classList.toggle('active')">
+            <h6 class="fw-bold mb-0">Module 05: Industrial PCB Design</h6>
+            <div class="cur-details small text-muted">Multi-layer KiCad layouts and signal integrity for high-speed
+              MCUs.</div>
+          </div>
+          <div class="module-card" onclick="this.classList.toggle('active')">
+            <h6 class="fw-bold mb-0">Module 06: Capstone Showcase</h6>
+            <div class="cur-details small text-muted">Integrated system defense and professional portfolio launch.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-6">
+    <div class="cert-box row align-items-center g-5" data-aos="fade-up">
+      <div class="col-lg-7">
+        <span class="section-badge">Graduation</span>
+        <h2 class="display-5 fw-bold mb-4">Master Innovator Certification</h2>
+        <p class="text-muted mb-5">Graduates receive a professional engineering portfolio and technical certification
+          recognized by industry partners.</p>
         <div class="row g-4">
-            <!-- AI & Computer Vision -->
-            <div class="col-lg-4">
-                <div class="track-wrapper" style="--track-color: #8b5cf6;">
-                    <h3 class="track-title">
-                        <div class="track-indicator"></div> AI & Vision
-                    </h3>
-                    <div class="cur-item">
-                        <h5>Module 01: Advanced Python</h5>
-                        <p>Object-Oriented Programming (OOP), Multithreading, and Optimized Algorithms for hardware.</p>
-                    </div>
-                    <div class="cur-item">
-                        <h5>Module 02: OpenCV Mastery</h5>
-                        <p>Real-time image processing, object detection, and gesture-based control systems.</p>
-                    </div>
-                    <div class="cur-item">
-                        <h5>Module 03: ML Implementation</h5>
-                        <p>Training and deploying TensorFlow Lite models for autonomous decision making.</p>
-                    </div>
-                </div>
+          <div class="col-md-6">
+            <div class="d-flex gap-3">
+              <i class="fas fa-crown text-primary fs-4"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Elite Status</h6>
+                <p class="small text-muted mb-0">Recognition of mastery in AI & ROS.</p>
+              </div>
             </div>
-
-            <!-- Advanced Robotics (ROS) -->
-            <div class="col-lg-4">
-                <div class="track-wrapper" style="--track-color: #6366f1;">
-                    <h3 class="track-title">
-                        <div class="track-indicator"></div> ROS 2 Robotics
-                    </h3>
-                    <div class="cur-item">
-                        <h5>Module 04: ROS 2 Foundation</h5>
-                        <p>Architecture, Nodes, Topics, and Publisher/Subscriber models for complex systems.</p>
-                    </div>
-                    <div class="cur-item">
-                        <h5>Module 05: SLAM & Nav</h5>
-                        <p>Lidar-based mapping, path planning (A*), and autonomous navigation stacks.</p>
-                    </div>
-                    <div class="cur-item">
-                        <h5>Module 06: RTOS Logic</h5>
-                        <p>FreeRTOS implementation, real-time constraints, and industrial communication protocols.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex gap-3">
+              <i class="fas fa-rocket text-primary fs-4"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Career Launch</h6>
+                <p class="small text-muted mb-0">University application readiness.</p>
+              </div>
             </div>
-
-            <!-- Product & Portfolio -->
-            <div class="col-lg-4">
-                <div class="track-wrapper" style="--track-color: #f59e0b;">
-                    <h3 class="track-title">
-                        <div class="track-indicator"></div> Portfolio Build
-                    </h3>
-                    <div class="cur-item">
-                        <h5>Module 07: IoT Cloud Architecture</h5>
-                        <p>Designing scalable cloud backends for industrial IoT monitoring and control.</p>
-                    </div>
-                    <div class="cur-item">
-                        <h5>Module 08: Product Design (CAD)</h5>
-                        <p>Advanced Fusion 360, DFM (Design for Manufacturing), and structural simulation.</p>
-                    </div>
-                    <div class="cur-item">
-                        <h5>Module 10: Project Defense</h5>
-                        <p>Final capstone project presentation, technical Q&A, and portfolio publication.</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="col-lg-5">
+        <img src="images2/advancedcertificate.webp" alt="Advanced Cert" class="img-fluid rounded-4 shadow-lg">
+      </div>
+    </div>
+  </section>
 
-    <section class="cert-section-advanced py-6">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="cert-badge-wrapper">
-                        <i class="fas fa-crown"></i>
-                        <span>Master Innovator Status</span>
-                    </div>
-                    <h2 class="section-title-premium mb-4">Elite Graduation & Portfolio</h2>
-                    <p class="text-muted fs-5 mb-5">Graduates receive a professional engineering certification and a
-                        complete project portfolio for university applications.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-4 d-flex gap-3">
-                            <div class="bg-primary text-white rounded-circle p-1"
-                                style="width:24px; height:24px; font-size:12px; display:flex; align-items:center; justify-content:center;">
-                                <i class="fas fa-check"></i></div>
-                            <div><strong>Professional ROS 2 Skills</strong><br><small class="text-muted">Mastery over
-                                    industry-standard robotics middleware.</small></div>
-                        </li>
-                        <li class="mb-4 d-flex gap-3">
-                            <div class="bg-primary text-white rounded-circle p-1"
-                                style="width:24px; height:24px; font-size:12px; display:flex; align-items:center; justify-content:center;">
-                                <i class="fas fa-check"></i></div>
-                            <div><strong>GitHub Portfolio</strong><br><small class="text-muted">Verified code
-                                    repositories and documentation.</small></div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="cert-card-visual">
-                        <img src="images2/advancedcertificate.webp" alt="Advanced Certificate"
-                            class="img-fluid rounded-4">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="container py-6">
+    <div class="text-center mb-5">
+      <span class="section-badge">Gallery</span>
+      <h2 class="display-5 fw-bold">Project Highlights</h2>
+    </div>
+    <div class="gallery-masonry" data-aos="fade-up">
+      <img src="images/kiara.webp" class="gallery-img" alt="Gallery">
+      <img src="images/mahi.webp" class="gallery-img" alt="Gallery">
+      <img src="images/wro.webp" class="gallery-img" alt="Gallery">
+      <img src="images/tejsva.webp" class="gallery-img" alt="Gallery">
+      <img src="images/group1.webp" class="gallery-img" alt="Gallery">
+    </div>
+  </section>
 
-    <section class="testimonials-dark">
-        <div class="container">
-            <div class="quote-card" data-aos="zoom-in">
-                <i class="fas fa-quote-left mb-4" style="font-size: 3rem; color: var(--primary);"></i>
-                <p class="display-6 italic fw-light">"The advanced program at MakerWorks is on par with first-year
-                    university robotics. The focus on ROS 2 and SLAM is incredibly rare for a school-level program."</p>
-                <div class="mt-5">
-                    <h5 class="fw-bold mb-1">Dr. Rajesh Patel</h5>
-                    <p class="text-primary small uppercase tracking-wide">University Researcher & Parent</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer-placeholder></footer-placeholder>
 
-    <footer-placeholder></footer-placeholder>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Simple Accordion for Curriculum
-        document.querySelectorAll('.cur-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                item.closest('.track-wrapper').querySelectorAll('.cur-item').forEach(el => el.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 
 </html>
