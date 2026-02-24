@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Open Graph / Facebook -->
@@ -105,18 +105,20 @@
   <!-- Assuming a shared styles.css -->
   <style>
     :root {
-      --primary: #ff6600;
-      --secondary: #0d6efd;
-      --dark: #1d1d1f;
+      --primary: #06b6d4;
+      --primary-glow: rgba(6, 182, 212, 0.4);
+      --secondary: #22d3ee;
+      --dark: #0f172a;
+      --slate-900: #0f172a;
       --light: #ffffff;
-      --bg-offset: #fbfbfd;
-      --glass: rgba(255, 255, 255, 0.7);
-      --glass-border: rgba(0, 0, 0, 0.1);
-      --radius-xl: 24px;
-      --radius-lg: 16px;
-      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --bg-offset: #f8fafc;
+      --glass: rgba(255, 255, 255, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --radius-2xl: 40px;
+      --radius-xl: 32px;
+      --transition-premium: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-ultra: 0 40px 100px -20px rgba(0, 0, 0, 0.12), 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+      --shadow-glow: 0 0 40px -10px var(--primary-glow);
     }
 
     * {
@@ -132,6 +134,10 @@
       line-height: 1.6;
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
+    }
+
+    .section-standard-padding {
+      padding: 100px 0;
     }
 
     h1,
@@ -204,63 +210,90 @@
     }
 
     /* Hero */
-    .beginner-hero {
-      background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+    .program-hero {
+      background: #0f172a;
       position: relative;
       color: white;
       text-align: center;
-      padding: 140px 20px 120px;
+      padding: 220px 20px 180px;
       overflow: hidden;
-      border-radius: 0 0 50px 50px;
+      border-radius: 0 0 100px 100px;
     }
 
-    .beginner-hero::before {
+    .program-hero::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(34, 211, 238, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, transparent 100%);
+      z-index: 1;
+    }
+
+    .program-hero::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10H90V90H10V10Z' stroke='rgba(255,255,255,0.03)' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+      transform: rotate(15deg);
       pointer-events: none;
+      opacity: 0.5;
     }
 
-    .beginner-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .program-hero h1 {
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
       font-weight: 800;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      letter-spacing: -2px;
+      margin-bottom: 2rem;
+      letter-spacing: -4px;
+      line-height: 1;
+      background: linear-gradient(180deg, #fff 30%, rgba(255, 255, 255, 0.6) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .beginner-hero p {
-      font-size: 1.25rem;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-      opacity: 0.95;
-      font-weight: 400;
+    .program-hero p {
+      font-size: 1.5rem;
+      max-width: 750px;
+      margin: 0 auto 3.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+      line-height: 1.8;
+      letter-spacing: -0.02em;
     }
 
-    .beginner-hero .btn {
-      background-color: var(--light);
-      color: var(--primary);
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      border-radius: 50px;
+    .program-hero .btn {
+      background: #fff;
+      color: var(--dark);
+      padding: 22px 55px;
+      font-size: 1.2rem;
+      border-radius: 100px;
       font-weight: 700;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      border: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition-premium);
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      gap: 1.2rem;
+      text-decoration: none;
     }
 
-    .beginner-hero .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    .program-hero .btn:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: var(--secondary);
+      box-shadow: 0 40px 80px rgba(34, 211, 238, 0.4);
     }
 
     section {
@@ -268,29 +301,42 @@
     }
 
     /* Card Styles */
-    .program-info-item,
     .skill-card,
     .stats-card,
     .review-card,
     .pricing-card,
     .curriculum-item,
-    .eligibility-content {
-      background: var(--light);
-      border-radius: var(--radius-xl);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      transition: var(--transition-smooth);
+    .eligibility-card {
+      background: var(--glass);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-ultra);
+      transition: var(--transition-premium);
       border: 1px solid var(--glass-border);
-      padding: 2rem;
+      padding: 3.5rem 3rem;
+      position: relative;
     }
 
-    .program-info-item:hover,
     .skill-card:hover,
     .stats-card:hover,
-    .review-card:hover,
-    .pricing-card:hover,
-    .curriculum-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    .curriculum-item:hover,
+    .eligibility-card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 50px 100px -20px rgba(6, 182, 212, 0.2);
+      border-color: var(--secondary);
+      background: #fff;
+    }
+
+    /* Decorative Glows */
+    .premium-glow {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: -1;
     }
 
     /* Program Info Refinement */
@@ -298,24 +344,24 @@
       background: transparent;
       padding: 0;
       position: relative;
-      margin-top: -60px;
+      margin-top: -100px;
       /* Overlap with hero */
-      z-index: 10;
+      z-index: 20;
     }
 
     .program-info-wrapper {
       background: white;
       border-radius: 40px;
-      padding: 1.5rem 3rem;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 2rem;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(10px);
     }
 
     .program-info-item {
       text-align: center;
       padding: 2.5rem 1.5rem;
-      border-right: 1px solid rgba(0, 0, 0, 0.06);
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
       height: 100%;
       background: transparent;
       border-radius: 0;
@@ -334,7 +380,7 @@
     .program-info-item .icon {
       width: 75px;
       height: 75px;
-      background: rgba(255, 102, 0, 0.08);
+      background: rgba(8, 145, 178, 0.08);
       color: var(--primary);
       border-radius: 24px;
       display: flex;
@@ -343,7 +389,7 @@
       font-size: 2rem;
       margin: 0 auto 1.5rem;
       transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 10px 20px rgba(255, 102, 0, 0.05);
+      box-shadow: 0 10px 20px rgba(8, 145, 178, 0.05);
     }
 
     .program-info-item:hover .icon {
@@ -503,15 +549,15 @@
 
     .eligibility-icon {
       flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      background: rgba(13, 110, 253, 0.1);
-      color: var(--secondary);
-      border-radius: 12px;
+      width: 55px;
+      height: 55px;
+      background: rgba(102, 16, 242, 0.1);
+      color: var(--primary);
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
 
     .eligibility-text h6 {
@@ -569,7 +615,7 @@
     .section-badge {
       display: inline-block;
       padding: 0.5rem 1.2rem;
-      background: rgba(255, 102, 0, 0.1);
+      background: rgba(8, 145, 178, 0.1);
       color: var(--primary);
       border-radius: 50px;
       font-weight: 700;
@@ -1203,7 +1249,7 @@
 
 
 
-  <section class="beginner-hero">
+  <section class="program-hero">
     <div data-aos="fade-up">
       <h1>Maker Works Junior Program</h1>
       <p>A fun-filled 2-year creative learning program for curious minds aged 8–10</p>
@@ -1244,7 +1290,7 @@
     </div>
   </section>
 
-  <section class="eligibility-section">
+  <section class="eligibility-section section-standard-padding">
     <div class="container">
       <div class="eligibility-card" data-aos="fade-up">
         <div class="row align-items-center">
@@ -1292,7 +1338,7 @@
   </section>
 
   <!-- STATS -->
-  <section class="container py-5">
+  <section class="section-standard-padding container">
     <div class="row g-4">
       <div class="col-lg-3 col-6" data-aos="zoom-in" data-aos-delay="100">
         <div class="stats-card">
@@ -1323,7 +1369,7 @@
 
   <!-- CURRICULUM -->
   <!-- ================= THEORY SECTION ================= -->
-  <section class="container" id="learning-modules">
+  <section class="section-standard-padding container" id="learning-modules">
     <div class="text-center mb-5" data-aos="fade-up">
       <h2 class="display-5 fw-bold mb-3">What Your Child Will Learn</h2>
       <p class="text-muted mx-auto" style="max-width: 600px;">A comprehensive, hands-on curriculum designed to build
@@ -1956,7 +2002,7 @@
   <!-- ================= END SESSION-WISE BREAKUP ================= -->
 
   <!-- ================= LEARNING OUTCOMES ================= -->
-  <section class="container py-6">
+  <section class="section-standard-padding container">
     <div class="text-center mb-5" data-aos="fade-up">
       <span class="section-badge">Mastery</span>
       <h2 class="section-title-premium">Learning Outcomes</h2>
@@ -2004,7 +2050,7 @@
   </section>
 
   <!-- ================= LEARNING JOURNEY ================= -->
-  <section class="container py-6">
+  <section class="section-standard-padding container">
     <div class="text-center mb-5" data-aos="fade-up">
       <span class="section-badge">The Experience</span>
       <h2 class="section-title-premium">The Learning Journey</h2>
@@ -2047,7 +2093,7 @@
     </div>
   </section>
   <!-- ================= COMPLETION & CERTIFICATION ================= -->
-  <section class="cert-section py-6" id="certification">
+  <section class="cert-section section-standard-padding" id="certification">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6" data-aos="fade-right">
@@ -2089,8 +2135,8 @@
 
         <div class="col-lg-6" data-aos="fade-left">
           <div class="cert-visual">
-            <img src="/images/certificates/junior-beginner-certificate.webp"
-              alt="MakerWorks Junior Beginner Certificate" class="img-fluid rounded-3">
+            <img src="images2/beginnercertificate.webp" alt="MakerWorks Junior Beginner Certificate"
+              class="img-fluid rounded-3">
             <div class="mt-4 text-center">
               <span class="fw-bold text-dark">MakerWorks Junior – Beginner Level Certificate</span>
             </div>
@@ -2101,7 +2147,7 @@
   </section>
 
   <!-- ================= GALLERY ================= -->
-  <section class="py-6">
+  <section class="section-standard-padding">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
         <span class="section-badge">Life At Lab</span>
@@ -2132,20 +2178,24 @@
           </div>
         </div>
 
-        <!-- Vertical Highligts -->
-        <div class="gallery-item" style="grid-column: span 6; height: 400px;" data-aos="fade-up">
+        <div class="gallery-item" style="grid-column: span 4; height: 300px;" data-aos="fade-up">
           <img src="images/avykut.webp" alt="Student showcasing project">
           <div class="gallery-overlay">
-            <h5 class="fw-bold mb-0">Project Success</h5>
-            <p class="small opacity-75">Showcasing the final working prototype</p>
+            <h6 class="fw-bold mb-0">Project Success</h6>
           </div>
         </div>
 
-        <div class="gallery-item" style="grid-column: span 6; height: 400px;" data-aos="fade-up" data-aos-delay="100">
+        <div class="gallery-item" style="grid-column: span 4; height: 300px;" data-aos="fade-up" data-aos-delay="100">
           <img src="images/nitanth.webp" alt="Student presenting project">
           <div class="gallery-overlay">
-            <h5 class="fw-bold mb-0">Presentation Skills</h5>
-            <p class="small opacity-75">Explaining the logic behind the code</p>
+            <h6 class="fw-bold mb-0">Presentation Skills</h6>
+          </div>
+        </div>
+
+        <div class="gallery-item" style="grid-column: span 4; height: 300px;" data-aos="fade-up" data-aos-delay="200">
+          <img src="images/bhargav.webp" alt="Student with robot">
+          <div class="gallery-overlay">
+            <h6 class="fw-bold mb-0">Creative Building</h6>
           </div>
         </div>
       </div>
@@ -2222,7 +2272,7 @@
 
 
   <!-- ================= FAQ SECTION ================= -->
-  <section id="faq" class="faq-section py-6">
+  <section id="faq" class="faq-section section-standard-padding">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
         <span class="section-badge">Common Questions</span>

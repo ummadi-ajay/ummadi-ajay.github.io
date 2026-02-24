@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MakerWorks - Advanced Level Program | AI & Robotics for Teens in Mumbai</title>
+  <title>MakerWorks - Advanced Level Program | AI, ROS 2 & Industry 4.0 in Mumbai</title>
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="MakerWorks - Advanced Level Program | AI & Robotics for Teens in Mumbai">
+  <meta name="title" content="MakerWorks - Advanced Level Program | AI, ROS 2 & Industry 4.0 in Mumbai">
   <meta name="description"
-    content="Join the elite Advanced Level Program at MakerWorks. Master AI, ROS 2 robotics, and professional engineering for teens aged 15+.">
+    content="The elite 2-year technical program at MakerWorks for ages 15+. Master Industrial Robotics (ROS 2), Machine Learning, and Professional CAD design.">
   <meta name="keywords"
-    content="MakerWorks Advanced Level, AI for teens Mumbai, ROS 2 classes, advanced robotics, STEM careers, Python ML, professional engineering">
+    content="Advanced Robotics Mumbai, AI for kids, ROS 2 course, Industrial Automation Mumbai, Professional STEM, MakerWorks Advanced, Career Prep">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -26,21 +26,26 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="/styles.css">
   <script src="/components.js" defer></script>
 
   <style>
     :root {
-      --primary: #6610f2;
-      --secondary: #0d6efd;
+      --primary: #d97706;
+      --primary-glow: rgba(217, 119, 6, 0.4);
+      --secondary: #f59e0b;
       --dark: #0f172a;
+      --slate-900: #0f172a;
       --light: #ffffff;
-      --bg-offset: #f5f3ff;
-      --glass: rgba(255, 255, 255, 0.7);
-      --glass-border: rgba(0, 0, 0, 0.1);
+      --bg-offset: #fffbeb;
+      --glass: rgba(255, 255, 255, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --radius-2xl: 40px;
       --radius-xl: 32px;
-      --radius-lg: 20px;
-      --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-premium: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-ultra: 0 40px 100px -20px rgba(0, 0, 0, 0.12), 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+      --shadow-glow: 0 0 40px -10px var(--primary-glow);
     }
 
     * {
@@ -69,117 +74,125 @@
       letter-spacing: -1px;
     }
 
-    /* Navbar */
-    .navbar {
-      backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 255, 255, 0.8) !important;
-      border-bottom: 1px solid var(--glass-border);
-      padding: 1.2rem 2rem;
-      transition: var(--transition-smooth);
-    }
-
-    .navbar-brand {
-      font-family: 'Bricolage Grotesque', sans-serif !important;
-      font-weight: 800 !important;
-      font-size: 1.6rem !important;
-      color: var(--dark) !important;
-      letter-spacing: -1px;
-    }
-
-    .nav-link {
-      font-weight: 600 !important;
-      color: var(--dark) !important;
-      padding: 0.5rem 1.2rem !important;
-      opacity: 0.7;
-      transition: var(--transition-smooth);
-      font-family: 'Plus Jakarta Sans', sans-serif !important;
-    }
-
-    .nav-link:hover {
-      opacity: 1;
-      transform: translateY(-2px);
-    }
-
     /* Hero */
-    .hero-advanced {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    .program-hero {
+      background: #0f172a;
       position: relative;
       color: white;
       text-align: center;
-      padding: 160px 20px 140px;
+      padding: 220px 20px 180px;
       overflow: hidden;
-      border-radius: 0 0 80px 80px;
+      border-radius: 0 0 100px 100px;
     }
 
-    .hero-advanced h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      letter-spacing: -2px;
+    .program-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(217, 119, 6, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, transparent 100%);
+      z-index: 1;
     }
 
-    .hero-advanced p {
-      font-size: 1.25rem;
-      max-width: 750px;
-      margin: 0 auto 2.5rem;
-      opacity: 0.8;
+    .program-hero::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10H90V90H10V10Z' stroke='rgba(255,255,255,0.03)' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+      transform: rotate(15deg);
+      pointer-events: none;
+      opacity: 0.5;
     }
 
-    .hero-advanced .btn {
-      background: var(--primary);
-      color: white;
-      padding: 1.2rem 3rem;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      font-weight: 700;
-      box-shadow: 0 20px 40px rgba(102, 16, 242, 0.3);
-      border: none;
-      transition: transform 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
-    }
-
-    .hero-advanced .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 30px 60px rgba(102, 16, 242, 0.4);
-    }
-
-    section {
-      padding: 100px 20px;
-    }
-
-    /* Program Info Dashboard */
-    .program-info-section {
-      padding: 0;
-      margin-top: -80px;
+    .hero-content {
       position: relative;
       z-index: 10;
     }
 
+    .program-hero h1 {
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-weight: 800;
+      margin-bottom: 2rem;
+      letter-spacing: -4px;
+      line-height: 1;
+      background: linear-gradient(180deg, #fff 30%, rgba(255, 255, 255, 0.6) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .program-hero p {
+      font-size: 1.5rem;
+      max-width: 750px;
+      margin: 0 auto 3.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+      line-height: 1.8;
+      letter-spacing: -0.02em;
+    }
+
+    .program-hero .btn {
+      background: #fff;
+      color: var(--dark);
+      padding: 22px 55px;
+      font-size: 1.2rem;
+      border-radius: 100px;
+      font-weight: 700;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition-premium);
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      text-decoration: none;
+    }
+
+    .program-hero .btn:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: var(--secondary);
+      box-shadow: 0 40px 80px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Dashboard */
+    .program-info-section {
+      padding: 0;
+      margin-top: -100px;
+      position: relative;
+      z-index: 20;
+    }
+
     .program-info-wrapper {
       background: white;
-      border-radius: 48px;
-      padding: 2rem 4rem;
-      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(20px);
+      border-radius: 40px;
+      padding: 2rem;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
 
     .program-info-item {
       text-align: center;
       padding: 2.5rem 1.5rem;
-      border-right: 1px solid rgba(0, 0, 0, 0.06);
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
       height: 100%;
       background: transparent;
-      border-radius: 0;
-      box-shadow: none;
       transition: all 0.3s ease;
     }
 
     .program-info-item:hover {
-      background: rgba(102, 16, 242, 0.02);
+      background: rgba(255, 102, 0, 0.02);
+    }
+
+    .section-standard-padding {
+      padding: 100px 0;
     }
 
     .program-info-item:last-child {
@@ -189,7 +202,7 @@
     .program-info-item .icon {
       width: 75px;
       height: 75px;
-      background: rgba(102, 16, 242, 0.08);
+      background: rgba(180, 83, 9, 0.08);
       color: var(--primary);
       border-radius: 24px;
       display: flex;
@@ -198,14 +211,14 @@
       font-size: 2rem;
       margin: 0 auto 1.5rem;
       transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 10px 20px rgba(102, 16, 242, 0.05);
+      box-shadow: 0 10px 20px rgba(180, 83, 9, 0.05);
     }
 
     .program-info-item:hover .icon {
       background: var(--primary);
       color: white;
       transform: scale(1.15) rotate(-8deg);
-      box-shadow: 0 15px 30px rgba(102, 16, 242, 0.3);
+      box-shadow: 0 15px 30px rgba(255, 102, 0, 0.3);
     }
 
     .program-info-item h4 {
@@ -218,45 +231,41 @@
     }
 
     .program-info-item p {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-weight: 800;
       color: var(--dark);
       margin: 0;
     }
 
-    @media (max-width: 767px) {
-      .program-info-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      }
-
-      .program-info-item:last-child {
-        border-bottom: none;
-      }
-
-      .program-info-wrapper {
-        padding: 1.5rem;
-        margin: 0 15px;
-      }
+    /* Card Styles */
+    .skill-card,
+    .stats-card,
+    .review-card,
+    .pricing-card,
+    .curriculum-item,
+    .eligibility-card {
+      background: var(--glass);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-ultra);
+      transition: var(--transition-premium);
+      border: 1px solid var(--glass-border);
+      padding: 3.5rem 3rem;
+      position: relative;
     }
 
-    /* Skill Cards */
-    .logic-card {
-      background: white;
-      padding: 3rem;
-      border-radius: 32px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: all 0.4s ease;
-      height: 100%;
+    .skill-card:hover,
+    .stats-card:hover,
+    .curriculum-item:hover,
+    .eligibility-card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 50px 100px -20px rgba(217, 119, 6, 0.2);
+      border-color: var(--secondary);
+      background: #fff;
     }
 
-    .logic-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
-      border-color: var(--primary);
-    }
-
-    .logic-icon {
+    .skill-icon {
       width: 60px;
       height: 60px;
       background: var(--primary);
@@ -267,95 +276,484 @@
       justify-content: center;
       font-size: 1.6rem;
       margin-bottom: 2rem;
+      box-shadow: 0 10px 20px rgba(102, 16, 242, 0.2);
     }
 
-    /* Curriculum Track */
-    .track-wrapper {
-      background: white;
-      padding: 3rem 2rem;
+    .skill-card h5 {
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: auto;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 1.5rem;
+    }
+
+    .skill-card ul li {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .skill-card ul li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Curriculum Tracks */
+    .curriculum-track-container {
+      background: #ffffff;
+      padding: 2.5rem;
       border-radius: 40px;
       border: 1px solid rgba(0, 0, 0, 0.03);
       height: 100%;
+      position: relative;
+      overflow: hidden;
     }
 
-    .track-header {
+    .curriculum-track-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--track-color, var(--primary));
+      opacity: 0.6;
+    }
+
+    .track-ai {
+      --track-color: #ff6600;
+    }
+
+    .track-ros {
+      --track-color: #0d6efd;
+    }
+
+    .track-pro {
+      --track-color: #10b981;
+    }
+
+    .curriculum-column-title {
+      font-size: 1.6rem;
+      margin-bottom: 2.5rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 2.5rem;
     }
 
-    .track-indicator {
-      width: 12px;
-      height: 32px;
-      background: var(--track-color);
-      border-radius: 10px;
+    .curriculum-column-title i {
+      width: 50px;
+      height: 50px;
+      background: var(--track-color, var(--primary));
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .module-card {
-      background: var(--bg-offset);
-      padding: 1.5rem;
-      border-radius: 20px;
+    .curriculum-item {
       margin-bottom: 1.2rem;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      border-radius: 20px;
+      background: var(--bg-offset);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
 
-    .module-card:hover {
+    .curriculum-item:hover {
+      transform: translateX(5px);
+      border-color: var(--primary);
       background: white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      transform: scale(1.02);
+    }
+
+    .curriculum-header {
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .module-number {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--track-color, var(--primary));
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .curriculum-header h4 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .curriculum-header::after {
+      content: "\f067";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: #cbd5e1;
+    }
+
+    .curriculum-item.active .curriculum-header::after {
+      content: "\f068";
+      color: var(--track-color);
+    }
+
+    .curriculum-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      padding: 0 1.5rem;
+    }
+
+    .curriculum-item.active .curriculum-content {
+      max-height: 500px;
+      padding-bottom: 1.5rem;
+    }
+
+    .curriculum-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .curriculum-content ul li {
+      font-size: 0.9rem;
+      color: #64748b;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Outcome Cards */
+    .outcome-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 32px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .outcome-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--track-color);
+    }
+
+    .outcome-card h5 {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .outcome-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .outcome-card ul li {
+      margin-bottom: 12px;
+      padding-left: 28px;
+      position: relative;
+      color: #64748b;
+    }
+
+    .outcome-card ul li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: #10b981;
+    }
+
+    /* Eligibility Section (Copied from Beginner for consistency) */
+    .eligibility-section {
+      background: #f8fafc;
+      padding: 6rem 0;
+    }
+
+    .eligibility-card {
+      background: white;
+      padding: 4rem;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    }
+
+    .eligibility-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .eligibility-item {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .eligibility-icon {
+      flex-shrink: 0;
+      width: 55px;
+      height: 55px;
+      background: rgba(102, 16, 242, 0.1);
+      color: var(--primary);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .eligibility-text h6 {
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .eligibility-text p {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* UI Cards */
+    .ui-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 40px;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: 0.4s ease;
+    }
+
+    .ui-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+    }
+
+    .ui-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(102, 16, 242, 0.08);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 1.8rem;
+      transition: 0.5s;
+    }
+
+    .ui-card:hover .ui-icon {
+      background: var(--primary);
+      color: white;
+      transform: rotate(360deg) scale(1.1);
+    }
+
+    /* certification */
+    .cert-section {
+      background: linear-gradient(180deg, #fff 0%, #f5f3ff 100%);
+    }
+
+    .cert-badge-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 28px;
+      background: rgba(102, 16, 242, 0.1);
+      border-radius: 100px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .cert-visual {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 40px;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      transition: 0.5s;
+    }
+
+    .cert-visual:hover {
+      transform: translateY(-10px) rotate(1deg);
+    }
+
+    .cert-highlights {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cert-highlights li {
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 15px;
+    }
+
+    .cert-check {
+      width: 26px;
+      height: 26px;
+      background: #10b981;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* FAQ */
+    .faq-accordion .accordion-item {
+      border-radius: 30px !important;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-accordion .accordion-button {
+      padding: 1.8rem 3rem;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .faq-accordion .accordion-button::after {
+      background-image: none !important;
+      content: "\f067";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      background: rgba(102, 16, 242, 0.08) !important;
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .faq-accordion .accordion-button:not(.collapsed)::after {
+      content: "\f068";
+      background: var(--primary) !important;
+      color: white;
+      transform: rotate(180deg);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.8s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      color: white;
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .testimonial-card-premium {
+      background: var(--secondary);
+      color: white;
+      padding: 5rem 4rem;
+      border-radius: 50px;
+      text-align: center;
+    }
+
+    .testimonial-quote-icon {
+      font-size: 4rem;
+      color: var(--primary);
+      opacity: 0.4;
+      margin-bottom: 2rem;
+    }
+
+    .reviewer-avatar {
+      width: 70px;
+      height: 70px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem auto 1rem;
+      font-weight: 800;
     }
 
     .section-badge {
       display: inline-block;
-      padding: 0.6rem 1.4rem;
-      background: rgba(102, 16, 242, 0.08);
+      padding: 0.6rem 1.5rem;
+      background: rgba(180, 83, 9, 0.1);
       color: var(--primary);
       border-radius: 100px;
-      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-bottom: 2rem;
+    }
+
+    .section-title-premium {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      letter-spacing: -2px;
       margin-bottom: 1.5rem;
     }
 
-    .stats-num {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary);
-      font-family: 'Outfit';
-    }
-
-    /* Table layout for curriculum details */
-    .cur-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.4s ease;
-    }
-
-    .module-card.active .cur-details {
-      max-height: 200px;
-      margin-top: 1rem;
-    }
-
-    .gallery-masonry {
-      display: columns;
-      column-count: 3;
-      column-gap: 1.5rem;
-    }
-
-    .gallery-img {
-      width: 100%;
-      margin-bottom: 1.5rem;
-      border-radius: 24px;
-      break-inside: avoid;
-    }
-
-    .cert-box {
-      background: var(--bg-offset);
-      border-radius: 40px;
-      padding: 4rem;
+    @media (max-width: 991px) {
+      .gallery-item {
+        grid-column: span 12 !important;
+        height: 400px;
+      }
     }
   </style>
 </head>
@@ -363,42 +761,41 @@
 <body>
   <div id="navbar-placeholder"></div>
 
-  <section class="hero-advanced">
-    <div data-aos="zoom-out">
-      <span class="section-badge" style="background: rgba(255,255,255,0.1); color: white;">Level 3: Professional
-        Path</span>
-      <h1>Master Innovators: <br>Advanced Engineering</h1>
-      <p>Building future leaders in AI, ROS 2 robotics, and sustainable product engineering for ages 15+</p>
+  <section class="program-hero">
+    <div data-aos="fade-up">
+      <h1>Preparing the Next Gen <br>Engineering Workforce</h1>
+      <p>A specialized 2-year leadership track for ages 15+ focused on Industrial ROS 2, Machine Learning, and
+        Enterprise Prototyping.</p>
       <a href="https://wa.me/919137114223?text=Hi,%20I%20am%20interested%20in%20the%20Advanced%20Program!" class="btn"
         target="_blank">
-        Join the Elite <i class="fab fa-whatsapp"></i>
+        Enroll Now <i class="fab fa-whatsapp"></i>
       </a>
     </div>
   </section>
 
   <section class="program-info-section">
     <div class="container">
-      <div class="program-info-wrapper" data-aos="fade-up">
+      <div class="program-info-wrapper" data-aos="zoom-in" data-aos-delay="0">
         <div class="row g-0">
           <div class="col-md-4">
             <div class="program-info-item">
-              <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-              <h4>Ages</h4>
+              <div class="icon"><i class="fas fa-user-graduate"></i></div>
+              <h4>Age Group</h4>
               <p>15+ Years</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="program-info-item">
-              <div class="icon"><i class="fas fa-brain"></i></div>
-              <h4>Specialization</h4>
-              <p>AI & ROS 2</p>
+              <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+              <h4>Duration</h4>
+              <p>2 Years Course</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="program-info-item">
-              <div class="icon"><i class="fas fa-briefcase"></i></div>
-              <h4>Outcome</h4>
-              <p>Work Portfolio</p>
+              <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+              <h4>Frequency</h4>
+              <p>2 Sessions/Week</p>
             </div>
           </div>
         </div>
@@ -406,50 +803,38 @@
     </div>
   </section>
 
-  <section class="container py-6">
-    <div class="row align-items-center">
-      <div class="col-lg-6" data-aos="fade-right">
+  <section class="eligibility-section section-standard-padding">
+    <div class="container">
+      <div class="eligibility-card" data-aos="fade-up">
         <span class="section-badge">Prerequisites</span>
-        <h2 class="display-4 fw-bold mb-4">Elite Readiness</h2>
-        <div class="d-flex gap-4 mb-4">
-          <div class="text-primary fs-3"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h5 class="fw-bold">Level: Advanced</h5>
-            <p class="text-muted">Requires proficiency in Python and Arduino C++. Ideal for Intermediate graduates.</p>
-          </div>
-        </div>
-        <div class="d-flex gap-4 mb-4">
-          <div class="text-primary fs-3"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h5 class="fw-bold">Tooling: Linux & ROS</h5>
-            <p class="text-muted">Mastering industrial middleware (ROS 2) and professional CAD environments.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6" data-aos="fade-left">
-        <div class="row g-4">
-          <div class="col-6">
-            <div class="logic-card text-center">
-              <div class="stats-num">60+</div>
-              <p class="small fw-bold text-muted mb-0">EXPERT SESSIONS</p>
+        <h2 class="section-title-premium mb-5">Who Can Join?</h2>
+        <div class="eligibility-list">
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-rocket"></i></div>
+            <div class="eligibility-text">
+              <h6>Level: Innovation Lead</h6>
+              <p>Industrial ROS 2, Embedded AI, and Professional Prototyping.</p>
             </div>
           </div>
-          <div class="col-6">
-            <div class="logic-card text-center">
-              <div class="stats-num">AI</div>
-              <p class="small fw-bold text-muted mb-0">DEEP LEARNING</p>
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="eligibility-text">
+              <h6>Age: 15+ Years</h6>
+              <p>Teens and young adults aiming for top engineering universities.</p>
             </div>
           </div>
-          <div class="col-6">
-            <div class="logic-card text-center">
-              <div class="stats-num">20+</div>
-              <p class="small fw-bold text-muted mb-0">RESEARCH PROJECTS</p>
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="eligibility-text">
+              <h6>Mindset: Lead Engineer</h6>
+              <p>For driven innovators who want to build real-world industrial systems.</p>
             </div>
           </div>
-          <div class="col-6">
-            <div class="logic-card text-center">
-              <div class="stats-num">ROS</div>
-              <p class="small fw-bold text-muted mb-0">STABLE NAVIGATION</p>
+          <div class="eligibility-item">
+            <div class="eligibility-icon"><i class="fas fa-code-merge"></i></div>
+            <div class="eligibility-text">
+              <h6>Prerequisites</h6>
+              <p>Strong interest in coding; Intermediate level or prior experience recommended.</p>
             </div>
           </div>
         </div>
@@ -457,172 +842,925 @@
     </div>
   </section>
 
-  <section class="container" id="advanced-pillars">
+  <section class="section-standard-padding container">
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stats-card card border-0 shadow-sm p-5 text-center rounded-5">
+          <h3>AI</h3>
+          <p class="mb-0 fw-bold text-muted">Edge Computing</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stats-card card border-0 shadow-sm p-5 text-center rounded-5">
+          <h3>ROS 2</h3>
+          <p class="mb-0 fw-bold text-muted">Robot OS Mastery</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stats-card card border-0 shadow-sm p-5 text-center rounded-5">
+          <h3>Industry</h3>
+          <p class="mb-0 fw-bold text-muted">Prototype Readiness</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-standard-padding container" id="learning-modules">
     <div class="text-center mb-5" data-aos="fade-up">
-      <span class="section-badge">Industrial Skills</span>
-      <h2 class="display-4 fw-bold">Core Competencies</h2>
+      <span class="section-badge">Engineering Pillars</span>
+      <h2 class="section-title-premium">Master Level Streams</h2>
     </div>
     <div class="row g-4">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h5>Deep Learning Hub</h5>
+          <p>Training neural networks for computer vision and autonomous decision making.</p>
+          <ul>
+            <li>Tensorflow/Pytorch</li>
+            <li>Real-time Inference</li>
+            <li>Edge AI Deployment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-robot"></i></div>
+          <h5>ROS 2 Professional</h5>
+          <p>The standard operating system for industrial and commercial robotics globally.</p>
+          <ul>
+            <li>Pub-Sub Architectures</li>
+            <li>SLAM Navigation</li>
+            <li>URDF Modeling</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+          <h5>Full-Stack Robotics</h5>
+          <p>Complex PCB design, advanced kinematics, and multi-robot sync protocols.</p>
+          <ul>
+            <li>ESP-NOW Mesh</li>
+            <li>Industrial Protocols</li>
+            <li>Cloud Control Hubs</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+          <h5>Generative CAD</h5>
+          <p>Using Fusion 360 and simulations for stress-testing and industrial finishes.</p>
+          <ul>
+            <li>FEA Analysis</li>
+            <li>Topology Optimization</li>
+            <li>CAM Workflows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-standard-padding container-fluid px-lg-5" id="program-curriculum">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">The Roadmap</span>
+      <h2 class="section-title-premium">Master Level Syllabus: 30 Modules</h2>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- COLUMN 1: AI & MACHINE LEARNING -->
       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="logic-card">
-          <div class="logic-icon"><i class="fas fa-brain"></i></div>
-          <h4 class="fw-bold mb-3">AI & Machine Learning</h4>
-          <p class="text-muted">Deploying neural networks and computer vision models onto edge devices for autonomous
-            systems.</p>
-          <hr>
-          <ul class="list-unstyled small fw-bold">
-            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> TensorFlow & PyTorch</li>
-            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> OpenCV Vision</li>
-            <li><i class="fas fa-arrow-right text-primary me-2"></i> Edge AI Deployment</li>
-          </ul>
+        <div class="curriculum-track-container track-programming">
+          <h3 class="curriculum-column-title"><i class="fas fa-brain"></i> AI & Deep Learning</h3>
+          <div class="curriculum">
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 01</span>
+                  <h4>Vision Foundations</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Computer Vision Ecosystem</li>
+                  <li><i class="fas fa-circle"></i> OpenCV Image Processing</li>
+                  <li><i class="fas fa-circle"></i> Matrix Logic for Visuals</li>
+                  <li><i class="fas fa-circle"></i> Real-time Filter Stacks</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 02</span>
+                  <h4>Neural Architectures</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Perception vs AI Engines</li>
+                  <li><i class="fas fa-circle"></i> Layers, Weights & Biases</li>
+                  <li><i class="fas fa-circle"></i> Activation Function Logic</li>
+                  <li><i class="fas fa-circle"></i> Softmax & Regression</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 03</span>
+                  <h4>TF/PyTorch Hub</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Environment Configurations</li>
+                  <li><i class="fas fa-circle"></i> Tensors & Data Tunnels</li>
+                  <li><i class="fas fa-circle"></i> First Simple Classifier</li>
+                  <li><i class="fas fa-circle"></i> GPU/NPU Acceleration</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 04</span>
+                  <h4>Object Detection</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> YOLOv8 Deep Dive</li>
+                  <li><i class="fas fa-circle"></i> Real-time Box Labeling</li>
+                  <li><i class="fas fa-circle"></i> Tracking Centroids</li>
+                  <li><i class="fas fa-circle"></i> Multi-item Recognition</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 05</span>
+                  <h4>Dataset Engineering</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Scraping & Data Prep</li>
+                  <li><i class="fas fa-circle"></i> Augmentation Pipelines</li>
+                  <li><i class="fas fa-circle"></i> Labeling Tools (Roboflow)</li>
+                  <li><i class="fas fa-circle"></i> Clean Data Validation</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 06</span>
+                  <h4>Edge AI Deployment</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Model Quantization (TFLite)</li>
+                  <li><i class="fas fa-circle"></i> Running AI on ESP32/ST</li>
+                  <li><i class="fas fa-circle"></i> Low-Power Inference</li>
+                  <li><i class="fas fa-circle"></i> Mobile App AI Sync</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 07</span>
+                  <h4>NLP Fundamentals</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Tokenization & Vectors</li>
+                  <li><i class="fas fa-circle"></i> Sentiment Analysis</li>
+                  <li><i class="fas fa-circle"></i> Local LLM Prompting</li>
+                  <li><i class="fas fa-circle"></i> Voice-to-Action Logic</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 08</span>
+                  <h4>Reinforcement Flow</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Policy vs Reward Systems</li>
+                  <li><i class="fas fa-circle"></i> Q-Learning Simulation</li>
+                  <li><i class="fas fa-circle"></i> Training Robots via Trial</li>
+                  <li><i class="fas fa-circle"></i> Behavioral Tuning</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 09</span>
+                  <h4>Generative Engines</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Diffusion Model Concepts</li>
+                  <li><i class="fas fa-circle"></i> AI-Aided CAD Drafting</li>
+                  <li><i class="fas fa-circle"></i> Synthetic Data Gen</li>
+                  <li><i class="fas fa-circle"></i> The Future of Design</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 10</span>
+                  <h4>Ethical AI Framework</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Bias in Training Data</li>
+                  <li><i class="fas fa-circle"></i> Secure Deployment (OS)</li>
+                  <li><i class="fas fa-circle"></i> Safety Compliance Std</li>
+                  <li><i class="fas fa-circle"></i> Leadership in Tech</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      <!-- COLUMN 2: ROS 2 & ROBOTICS -->
       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="logic-card">
-          <div class="logic-icon"><i class="fas fa-robot"></i></div>
-          <h4 class="fw-bold mb-3">ROS 2 Robotics</h4>
-          <p class="text-muted">Mastering ROS 2 architecture, SLAM navigation, and multi-DOF kinematics for precision
-            bots.</p>
-          <hr>
-          <ul class="list-unstyled small fw-bold">
-            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Nodes & Topics</li>
-            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> SLAM & Mapping</li>
-            <li><i class="fas fa-arrow-right text-primary me-2"></i> Gazebo Simulations</li>
-          </ul>
+        <div class="curriculum-track-container track-electronics">
+          <h3 class="curriculum-column-title"><i class="fas fa-robot"></i> ROS 2 & Robotics</h3>
+          <div class="curriculum">
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 11</span>
+                  <h4>The ROS 2 Ecosystem</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Linux Ubuntu CLI Mastery</li>
+                  <li><i class="fas fa-circle"></i> ROS 2 Humble Setup</li>
+                  <li><i class="fas fa-circle"></i> Workspace/Colcon Logic</li>
+                  <li><i class="fas fa-circle"></i> DDS Middlewares</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 12</span>
+                  <h4>Nodes & Topics</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> The Pub-Sub Paradigm</li>
+                  <li><i class="fas fa-circle"></i> QoS Settings Mastery</li>
+                  <li><i class="fas fa-circle"></i> Writing Custom Topics</li>
+                  <li><i class="fas fa-circle"></i> RQT Graph Visualization</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 13</span>
+                  <h4>Services & Actions</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Request-Response Logic</li>
+                  <li><i class="fas fa-circle"></i> Goal-Based Robot Action</li>
+                  <li><i class="fas fa-circle"></i> Client-Side Error Catch</li>
+                  <li><i class="fas fa-circle"></i> Synchronous Feedback</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 14</span>
+                  <h4>URDF 3D Modeling</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Links, Joints & Sensors</li>
+                  <li><i class="fas fa-circle"></i> Gazebo World Physics</li>
+                  <li><i class="fas fa-circle"></i> RViz 2 Configuration</li>
+                  <li><i class="fas fa-circle"></i> XML Based Robot Desc</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 15</span>
+                  <h4>SLAM Navigation</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Mapping (Gmapping/Cart)</li>
+                  <li><i class="fas fa-circle"></i> Localization (AMCL)</li>
+                  <li><i class="fas fa-circle"></i> Autonomous Waypoints</li>
+                  <li><i class="fas fa-circle"></i> Obstacle Avoidance</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 16</span>
+                  <h4>The MoveIt 2 Frame</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Robotic Arm Kinematics</li>
+                  <li><i class="fas fa-circle"></i> Path Planning ALgos</li>
+                  <li><i class="fas fa-circle"></i> Collision Detection</li>
+                  <li><i class="fas fa-circle"></i> Industrial Arm Control</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 17</span>
+                  <h4>Pro Sensor Fusion</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> LiDAR Integration</li>
+                  <li><i class="fas fa-circle"></i> Depth Camera Hubs</li>
+                  <li><i class="fas fa-circle"></i> Kalman Filter Logic</li>
+                  <li><i class="fas fa-circle"></i> PointCloud Processing</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 18</span>
+                  <h4>Micro-ROS Hub</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> ROS 2 on Microcontrollers</li>
+                  <li><i class="fas fa-circle"></i> Agent-Client Handshakes</li>
+                  <li><i class="fas fa-circle"></i> Real-time MCU Logic</li>
+                  <li><i class="fas fa-circle"></i> Low-Latency Data Stream</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 19</span>
+                  <h4>Fleet Orchestration</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Multi-node Coordination</li>
+                  <li><i class="fas fa-circle"></i> Swarm Logic Patterns</li>
+                  <li><i class="fas fa-circle"></i> Centralized Control Hub</li>
+                  <li><i class="fas fa-circle"></i> Inter-Robot Safety</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 20</span>
+                  <h4>High-Freq Teleop</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> UDP/TCP Control Logic</li>
+                  <li><i class="fas fa-circle"></i> Latency Compensation</li>
+                  <li><i class="fas fa-circle"></i> Dashboard UI Creation</li>
+                  <li><i class="fas fa-circle"></i> Remote Ops Security</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      <!-- COLUMN 3: ENTERPRISE BUILD -->
       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="logic-card">
-          <div class="logic-icon"><i class="fas fa-rocket"></i></div>
-          <h4 class="fw-bold mb-3">Launch Portfolio</h4>
-          <p class="text-muted">Building a professional GitHub portfolio and technical documentation for universities.
-          </p>
-          <hr>
-          <ul class="list-unstyled small fw-bold">
-            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> GitHub Mastery</li>
-            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Technical Writing</li>
-            <li><i class="fas fa-arrow-right text-primary me-2"></i> Capstone Defense</li>
+        <div class="curriculum-track-container track-design">
+          <h3 class="curriculum-column-title"><i class="fas fa-tools"></i> Enterprise Build</h3>
+          <div class="curriculum">
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 21</span>
+                  <h4>Design Thinking</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Industrial Problem Mapping</li>
+                  <li><i class="fas fa-circle"></i> Solving Stakes Analysis</li>
+                  <li><i class="fas fa-circle"></i> MVP Definition Standards</li>
+                  <li><i class="fas fa-circle"></i> User-Centric Design</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 22</span>
+                  <h4>Advanced PCB Stack</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Multilayer Board Layout</li>
+                  <li><i class="fas fa-circle"></i> EMI/EMC Safety Testing</li>
+                  <li><i class="fas fa-circle"></i> Component Selection BOM</li>
+                  <li><i class="fas fa-circle"></i> High-Power Track Design</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 23</span>
+                  <h4>Precise Manufacturing</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> CNC Machining Prep</li>
+                  <li><i class="fas fa-circle"></i> Injection Molding Logic</li>
+                  <li><i class="fas fa-circle"></i> 3D Resin/Metal Prep</li>
+                  <li><i class="fas fa-circle"></i> Industrial Finish Tips</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 24</span>
+                  <h4>Venture Prototyping</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Unit Economics Analysis</li>
+                  <li><i class="fas fa-circle"></i> Scaling Tech Patterns</li>
+                  <li><i class="fas fa-circle"></i> Supplier Management</li>
+                  <li><i class="fas fa-circle"></i> Technical Roadmap Prep</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 25</span>
+                  <h4>IP & Patent Foundations</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Protecting Proprietary Code</li>
+                  <li><i class="fas fa-circle"></i> Patent Drafting Basics</li>
+                  <li><i class="fas fa-circle"></i> Trade Secret Safety</li>
+                  <li><i class="fas fa-circle"></i> Legal Tech Compliance</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 26</span>
+                  <h4>Project Leadership</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Agile Workflow Mastery</li>
+                  <li><i class="fas fa-circle"></i> Sprint Logic Patterns</li>
+                  <li><i class="fas fa-circle"></i> Technical Debt Control</li>
+                  <li><i class="fas fa-circle"></i> Lean Build Strategies</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 27</span>
+                  <h4>Capstone: Industry MVP</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Identifying Global Gaps</li>
+                  <li><i class="fas fa-circle"></i> Concept Feasibility Test</li>
+                  <li><i class="fas fa-circle"></i> Initial Build Strategy</li>
+                  <li><i class="fas fa-circle"></i> Alpha Prototype Launch</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 28</span>
+                  <h4>System Stress Tests</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> MTBF Analysis Patterns</li>
+                  <li><i class="fas fa-circle"></i> Security Pen-Testing</li>
+                  <li><i class="fas fa-circle"></i> Environmental Durability</li>
+                  <li><i class="fas fa-circle"></i> Performance Benchmark</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 29</span>
+                  <h4>Investor Tech-Pitch</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Explaining High-Tech Simply</li>
+                  <li><i class="fas fa-circle"></i> Technical Visual Mastery</li>
+                  <li><i class="fas fa-circle"></i> Roadmap Projection logic</li>
+                  <li><i class="fas fa-circle"></i> Prototype Demo Skills</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div><span class="module-number">Module 30</span>
+                  <h4>Hub Membership Launch</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Leading Tech Communities</li>
+                  <li><i class="fas fa-circle"></i> Legacy Project Filing</li>
+                  <li><i class="fas fa-circle"></i> Portfolio Compilation</li>
+                  <li><i class="fas fa-circle"></i> Master Certification</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-standard-padding container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-badge">Impact</span>
+      <h2 class="section-title-premium">Technical Outcomes</h2>
+    </div>
+
+    <div class="row g-4 mt-2">
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="outcome-card track-programming">
+          <h5><i class="fas fa-brain"></i> AI Results</h5>
+          <ul class="mt-3">
+            <li>Deploy deep learning models on edge devices</li>
+            <li>Real-time computer vision & Object detection</li>
+            <li>Neural network optimization for embedded chips</li>
+            <li>Data scraping & Synthetic dataset generation</li>
           </ul>
         </div>
       </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="outcome-card track-electronics">
+          <h5><i class="fas fa-server"></i> ROS Results</h5>
+          <ul class="mt-3">
+            <li>Architect multi-node ROS 2 Humble systems</li>
+            <li>Autonomous SLAM navigation & Path planning</li>
+            <li>Linux kernel mastery & DDS middleware config</li>
+            <li>Industrial-grade URDF robot modeling</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="outcome-card track-design">
+          <h5><i class="fas fa-briefcase"></i> Pro Results</h5>
+          <ul class="mt-3">
+            <li>Industrial CAD certification-ready portfolio</li>
+            <li>Complex technical project & team governance</li>
+            <li>Resume-ready STEM credits & IP foundations</li>
+            <li>Investor-ready functional prototype builds</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <section class="container-fluid px-lg-5" id="curriculum">
+  <section class="section-standard-padding container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <span class="section-badge">Roadmap</span>
-      <h2 class="display-4 fw-bold">Advanced Curriculum</h2>
+      <span class="section-badge">The Experience</span>
+      <h2 class="section-title-premium">The Advanced Track</h2>
     </div>
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="track-wrapper" style="--track-color: #8b5cf6;">
-          <div class="track-header">
-            <div class="track-indicator"></div>
-            <h3 class="mb-0 fw-bold">AI & Vision</h3>
-          </div>
-          <div class="module-card" onclick="this.classList.toggle('active')">
-            <h6 class="fw-bold mb-0">Module 01: Deep Learning Foundations</h6>
-            <div class="cur-details small text-muted">CNN Architectures, Transfer Learning, and Inference optimization.
-            </div>
-          </div>
-          <div class="module-card" onclick="this.classList.toggle('active')">
-            <h6 class="fw-bold mb-0">Module 02: OpenCV Mastery</h6>
-            <div class="cur-details small text-muted">Real-time object tracking, gesture control, and spatial analytics.
-            </div>
-          </div>
+
+    <div class="row g-4 mt-2 text-center">
+
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-terminal"></i></div>
+          <h6>Kernel Build</h6>
+          <p>Linux and ROS 2 middleware foundation for heavy-duty robotics.</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="track-wrapper" style="--track-color: #6366f1;">
-          <div class="track-header">
-            <div class="track-indicator"></div>
-            <h3 class="mb-0 fw-bold">ROS 2 Navigation</h3>
-          </div>
-          <div class="module-card" onclick="this.classList.toggle('active')">
-            <h6 class="fw-bold mb-0">Module 03: Distributed Systems</h6>
-            <div class="cur-details small text-muted">ROS 2 Node lifecycle, DDS middleware, and multi-machine sync.
-            </div>
-          </div>
-          <div class="module-card" onclick="this.classList.toggle('active')">
-            <h6 class="fw-bold mb-0">Module 04: SLAM Implementation</h6>
-            <div class="cur-details small text-muted">LiDAR mapping, EKF state estimation, and path planning.</div>
-          </div>
+
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-brain"></i></div>
+          <h6>Inference Hub</h6>
+          <p>Deploying AI computer vision models to edge-compute nodes.</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="track-wrapper" style="--track-color: #f59e0b;">
-          <div class="track-header">
-            <div class="track-indicator"></div>
-            <h3 class="mb-0 fw-bold">System Build</h3>
+
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-drafting-pencil"></i></div>
+          <h6>Industrial Design</h6>
+          <p>Simulation-driven mechanical assembly for stress-tested products.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="ui-card">
+          <div class="ui-icon"><i class="fas fa-rocket"></i></div>
+          <h6>Product Beta</h6>
+          <p>Final capstone launch & elite professional certification.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cert-section section-standard-padding" id="certification">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="cert-badge-wrapper">
+            <i class="fas fa-award"></i>
+            <span>Elite Technical Track</span>
           </div>
-          <div class="module-card" onclick="this.classList.toggle('active')">
-            <h6 class="fw-bold mb-0">Module 05: Industrial PCB Design</h6>
-            <div class="cur-details small text-muted">Multi-layer KiCad layouts and signal integrity for high-speed
-              MCUs.</div>
-          </div>
-          <div class="module-card" onclick="this.classList.toggle('active')">
-            <h6 class="fw-bold mb-0">Module 06: Capstone Showcase</h6>
-            <div class="cur-details small text-muted">Integrated system defense and professional portfolio launch.</div>
+          <h2 class="section-title-premium mb-4">Master Professional Certification</h2>
+          <p class="text-muted fs-5 mb-5">
+            Awarded upon successful deployment of a ROS-based industrial prototype, ML integration, and independent
+            technical documentation.
+          </p>
+
+          <ul class="cert-highlights">
+            <li>
+              <div class="cert-check"><i class="fas fa-check"></i></div>
+              <div>
+                <h6 class="fw-bold mb-1">Industrial ROS 2 Certified</h6>
+                <p class="small text-muted mb-0">High-level mastery of Robot Operating Systems and DDS communication.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="cert-check"><i class="fas fa-check"></i></div>
+              <div>
+                <h6 class="fw-bold mb-1">AI & Vision Specialist</h6>
+                <p class="small text-muted mb-0">Experience in training, quantizing, and deploying custom CNN models.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="cert-check"><i class="fas fa-check"></i></div>
+              <div>
+                <h6 class="fw-bold mb-1">Incubation Ready Base</h6>
+                <p class="small text-muted mb-0">Prepared for venture building, patent filing, and elite university STEM
+                  roles.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="cert-visual">
+            <img src="images2/advancedcertificate.webp" alt="MakerWorks Junior Advanced Certificate"
+              class="img-fluid rounded-3 shadow-lg">
+            <div class="mt-4 text-center">
+              <span class="fw-bold text-dark">MakerWorks Junior – Master Level Certificate</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="container py-6">
-    <div class="cert-box row align-items-center g-5" data-aos="fade-up">
-      <div class="col-lg-7">
-        <span class="section-badge">Graduation</span>
-        <h2 class="display-5 fw-bold mb-4">Master Innovator Certification</h2>
-        <p class="text-muted mb-5">Graduates receive a professional engineering portfolio and technical certification
-          recognized by industry partners.</p>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="d-flex gap-3">
-              <i class="fas fa-crown text-primary fs-4"></i>
-              <div>
-                <h6 class="fw-bold mb-1">Elite Status</h6>
-                <p class="small text-muted mb-0">Recognition of mastery in AI & ROS.</p>
+  <section class="section-standard-padding">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-badge">Life At Lab</span>
+        <h2 class="section-title-premium">Inside the Innovation Hub</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Main Highlight -->
+        <div class="gallery-item" style="grid-column: span 8; grid-row: span 2;" data-aos="fade-up">
+          <img src="images/group.webp" alt="Elite innovators and scientists">
+          <div class="gallery-overlay">
+            <h5 class="fw-bold mb-0">The Elite Engineering Batch</h5>
+            <p class="small opacity-75">Developing proprietary robotic solutions</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" style="grid-column: span 4;" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/kiara.webp" alt="Student working on ROS">
+          <div class="gallery-overlay">
+            <h6 class="fw-bold mb-0">Core Research</h6>
+          </div>
+        </div>
+
+        <div class="gallery-item" style="grid-column: span 4;" data-aos="fade-up" data-aos-delay="200">
+          <img src="images/mahi.webp" alt="PCB Debugging">
+          <div class="gallery-overlay">
+            <h6 class="fw-bold mb-0">Hardware Dev</h6>
+          </div>
+        </div>
+
+        <!-- Highligts -->
+        <div class="gallery-item" style="grid-column: span 6; height: 350px;" data-aos="fade-up">
+          <img src="images/group1.webp" alt="Advanced robotics batch">
+          <div class="gallery-overlay">
+            <h5 class="fw-bold mb-0">Elite Engineering</h5>
+            <p class="small opacity-75">Future industry leaders in training</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" style="grid-column: span 6; height: 350px;" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/wro.webp" alt="WRO competition project">
+          <div class="gallery-overlay">
+            <h5 class="fw-bold mb-0">Competitive Excellence</h5>
+            <p class="small opacity-75">Preparing for World Robot Olympiad</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" style="grid-column: span 12; height: 400px;" data-aos="fade-up" data-aos-delay="200">
+          <img src="images/tejsva.webp" alt="Student project demo">
+          <div class="gallery-overlay">
+            <h5 class="fw-bold mb-0">Technical Mastery</h5>
+            <p class="small opacity-75">Sophisticated system integration showcase</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-badge" style="background: rgba(255,255,255,0.1); color: white;">Trust</span>
+        <h2 class="section-title-premium text-white">What Parents Say</h2>
+      </div>
+
+      <div id="parentReviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#parentReviewsCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#parentReviewsCarousel" data-bs-slide-to="1"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <div class="testimonial-card-premium">
+                  <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                  <p class="testimonial-text">"The Advanced program is more like a tech incubation hub than a classroom.
+                    My daughter developed a ROS-based delivery bot concept that is practically industrial-grade!"</p>
+                  <div class="reviewer-avatar">DK</div>
+                  <h6 class="fw-bold mb-0">Dr. Kapoor</h6>
+                  <p class="small opacity-50">Parent of Advanced Student</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="d-flex gap-3">
-              <i class="fas fa-rocket text-primary fs-4"></i>
-              <div>
-                <h6 class="fw-bold mb-1">Career Launch</h6>
-                <p class="small text-muted mb-0">University application readiness.</p>
+
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <div class="testimonial-card-premium">
+                  <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                  <p class="testimonial-text">"The depth of knowledge here is incredible. It's not just about toys; it's
+                    about real AI, real Linux, and real engineering leadership. My son is miles ahead of his peers."</p>
+                  <div class="reviewer-avatar">RA</div>
+                  <h6 class="fw-bold mb-0">Mr. Agarwal</h6>
+                  <p class="small opacity-50">Parent of Advanced Student</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-5">
-        <img src="images2/advancedcertificate.webp" alt="Advanced Cert" class="img-fluid rounded-4 shadow-lg">
+    </div>
+  </section>
+
+  <section id="faq" class="faq-section py-6">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up"><span class="section-badge">FAQ</span>
+        <h2 class="section-title-premium">Expert Queries</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion faq-accordion" id="faqAccordion">
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#f1">What are the prerequisites for Advanced Level?</button>
+              </h2>
+              <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Students should have a strong base in Python/C++ or have completed our
+                  Intermediate level. It is specifically designed for teenagers (15+) and young adults looking for
+                  professional-grade engineering skills.</div>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#f2">Do you provide real industrial robots?</button></h2>
+              <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">We provide industrial-grade components and controllers including Nvidia
+                  Jetson series, Lidar sensors, Depth cameras, and high-torque Actuators to build robots equivalent to
+                  industrial prototypes.</div>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#f3">Is this course recognized by universities?</button>
+              </h2>
+              <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Yes, our curriculum aligns with international STEM standards. The technical
+                  portfolio and capstone documentation created here are highly valued during university admissions and
+                  technical internships.</div>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#f4">What software tools will be taught?</button></h2>
+              <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body"> Mastery over <strong>Linux (Ubuntu)</strong>, <strong>ROS 2
+                    Humble</strong>, <strong>Python (AI libraries)</strong>, <strong>Fusion 360 (Simulations)</strong>,
+                  and <strong>C++ (Real-time kernels)</strong>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="container py-6">
-    <div class="text-center mb-5">
-      <span class="section-badge">Gallery</span>
-      <h2 class="display-5 fw-bold">Project Highlights</h2>
-    </div>
-    <div class="gallery-masonry" data-aos="fade-up">
-      <img src="images/kiara.webp" class="gallery-img" alt="Gallery">
-      <img src="images/mahi.webp" class="gallery-img" alt="Gallery">
-      <img src="images/wro.webp" class="gallery-img" alt="Gallery">
-      <img src="images/tejsva.webp" class="gallery-img" alt="Gallery">
-      <img src="images/group1.webp" class="gallery-img" alt="Gallery">
-    </div>
-  </section>
-
-  <footer-placeholder></footer-placeholder>
+  <div id="footer-placeholder"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 1000, once: true });
+      document.querySelectorAll(".curriculum-item").forEach(item => {
+        item.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    });
   </script>
 </body>
 
