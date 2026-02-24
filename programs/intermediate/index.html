@@ -132,13 +132,12 @@
 
     /* Navbar styling handled by components.js + navbar.html */
 
-    /* Hero */
     .program-hero {
       background: #0f172a;
       position: relative;
       color: white;
       text-align: center;
-      padding: 220px 20px 180px;
+      padding: 180px 20px 140px;
       overflow: hidden;
       border-radius: 0 0 100px 100px;
     }
@@ -275,7 +274,7 @@
       background: var(--primary);
       color: white;
       transform: scale(1.15) rotate(-8deg);
-      box-shadow: 0 15px 30px rgba(13, 110, 253, 0.3);
+      box-shadow: 0 15px 30px var(--primary-glow);
     }
 
     .program-info-item h4 {
@@ -310,6 +309,7 @@
       border: 1px solid var(--glass-border);
       padding: 3.5rem 3rem;
       position: relative;
+      color: var(--dark);
     }
 
     .skill-card:hover,
@@ -946,7 +946,7 @@
   <div id="navbar-placeholder"></div>
 
   <section class="program-hero">
-    <div data-aos="fade-up">
+    <div class="hero-content" data-aos="fade-up">
       <h1>Bridge the Gap to <br>Professional Engineering</h1>
       <p>A foundational 2-year technical program for ages 11–14 focusing on Arduino fundamentals, electronics basics,
         and 3D design using TinkerCAD.</p>
