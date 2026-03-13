@@ -1,5 +1,17 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://makerworkslab.in/sitemap.xml
+
+# AI Crawlers
 LLM: /llm.txt
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
