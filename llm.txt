@@ -1,0 +1,32 @@
+# MakerWorks - Robotics & Coding Lab for Kids in Mumbai
+
+MakerWorks is a premier maker space and robotics academy located in Malad East, Mumbai. We specialize in hands-on STEM education for children and teens aged 8 to 17.
+
+## Core Information
+- **Location:** G-19, A Wing - Sukhamani Apartment, EXPRESS ZONE Mall, Malad East, Mumbai, Maharashtra 400097. (Near Oberoi Mall)
+- **Contact:** +91-9137114223
+- **Website:** https://makerworkslab.in
+- **Email:** info@makerworkslab.in
+- **Hours:** Monday - Sunday, 08:00 - 21:00
+
+## Educational Programs
+- **Beginner Level (Ages 7-10):** A 2-year program focusing on robotics, coding, and electronics using micro:bit and creative projects.
+- **Intermediate Level (Ages 11-14):** A 2-year technical program to master Arduino fundamentals, electronics basics, and 3D industrial design.
+- **Advanced Level (Ages 15+):** Elite 2-year technical program mastering Industrial Robotics (ROS 2), Machine Learning, and Professional CAD design.
+
+## Technical Expertise
+Our students and mentors work with:
+- **Hardware:** Arduino, Raspberry Pi, ESP32, Sensors, Motors, and Actuators.
+- **Software:** Python, C++, Visual Coding, ROS 2 (Robot Operating System).
+- **Emerging Tech:** Artificial Intelligence (AI), Internet of Things (IoT), Industry 4.0.
+- **Design:** 3D Printing, Professional CAD, CNC, and Prototyping.
+
+## Major Competitions
+MakerWorks facilitates student participation in:
+- **World Robot Olympiad (WRO):** Creative robotics and problem-solving.
+- **VEX Robotics:** Design, build, and drive in global STEM challenges.
+- **Coolest Projects:** Showcasing student innovations and digital creativity.
+- **Mekathalon:** Premier showcase for mechanical engineering and sustainable robotics.
+
+## Learning Philosophy
+MakerWorks follows a "Learn by Doing" approach. We provide a collaborative environment where students move from being consumers of technology to creators, building real-world engineering solutions.
