@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeRobot SO-100M: The Ultimate Guide | MakerWorks</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="LeRobot SO-100M Guide | MakerWorks">
+    <meta name="description"
+        content="A complete, professional tutorial for SO-ARM100/101 robotic arm with LeRobot. Deep dive into 3D printing, assembly, calibration, dataset recording, and AI training.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Scripts -->
+    <script src="../components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        body {
+            background-color: #f5f5f7;
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .wiki-container {
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+            border-right: 1px solid rgba(0,0,0,0.05);
+            padding-right: 20px;
+        }
+
+        .sidebar-link {
+            display: block;
+            padding: 8px 16px;
+            color: #6e6e73;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-link:hover, .sidebar-link.active {
+            background: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+            font-weight: 600;
+        }
+
+        .content-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+        }
+
+        .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
+            color: #1d1d1f;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .blog-content h2 { margin-top: 4rem; font-size: 2.2rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 0.8rem; }
+        .blog-content h3 { margin-top: 3rem; font-size: 1.6rem; }
+        .blog-content h4 { margin-top: 2rem; font-size: 1.2rem; }
+
+        .blog-content p, .blog-content li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #424245;
+        }
+
+        .blog-content img {
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .code-block-wrapper {
+            position: relative;
+            background: #1e1e1e;
+            border-radius: 14px;
+            padding: 0.5rem;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .code-block-header {
+            background: #2d2d2d;
+            padding: 8px 16px;
+            color: #aaa;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .tip-box {
+            background: #e3f2fd;
+            border-left: 6px solid #0d6efd;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 6px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .spec-table {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+
+        .spec-table th { background: #fdfdfd; font-weight: 700; }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                margin-bottom: 30px;
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="container wiki-container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <nav class="sidebar mb-5">
+                    <h5 class="fw-bold mb-3 px-3">Quick Navigation</h5>
+                    <a href="#introduction" class="sidebar-link active">Introduction</a>
+                    <a href="#whats-new" class="sidebar-link">What's New (SO101)</a>
+                    <a href="#specification" class="sidebar-link">Hardware & BOM</a>
+                    <a href="#environment" class="sidebar-link">Environment Setup</a>
+                    <a href="#printing" class="sidebar-link">3D Printing Steps</a>
+                    <a href="#install" class="sidebar-link">LeRobot Installation</a>
+                    <a href="#configure" class="sidebar-link">Motor Configuration</a>
+                    <a href="#calibrate" class="sidebar-link">Calibration Guide</a>
+                    <a href="#dataset" class="sidebar-link">Data Collection</a>
+                    <a href="#training" class="sidebar-link">Training & AI Policy</a>
+                    <a href="#faq" class="sidebar-link">Troubleshooting (FAQ)</a>
+                    <a href="#citation" class="sidebar-link">Citations</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 blog-content">
+                <div class="content-card">
+                    <h1 id="introduction" class="display-4 fw-bold">LeRobot SO-100M: The Ultimate Guide</h1>
+                    <img src="projectimages/lerobot_so100m_hero.png" alt="LeRobot SO-100M Hero Image">
+                    
+                    <p class="lead">The <strong>SO-10xARM</strong> is a cutting-edge, fully open-source robotic arm project launched by <strong>TheRobotStudio</strong>. Integrated with Hugging Face's <strong>LeRobot</strong>, it aims to lower the barrier for real-world robotics using PyTorch and imitation learning.</p>
+
+                    <h2 id="whats-new">What's New in SO-ARM101</h2>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded-4 text-center">
+                                <i class="bi bi-diagram-3-fill fs-2 text-primary"></i>
+                                <h4 class="h6 mt-3">Wiring Optimization</h4>
+                                <p class="small text-muted">Improved design prevents disconnection at joint 3 and removes motion limits.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded-4 text-center">
+                                <i class="bi bi-gear-wide-connected fs-2 text-primary"></i>
+                                <h4 class="h6 mt-3">Optimized Ratios</h4>
+                                <p class="small text-muted">New motor gear ratios eliminate the need for external gearboxes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded-4 text-center">
+                                <i class="bi bi-cpu-fill fs-2 text-primary"></i>
+                                <h4 class="h6 mt-3">Real-time Follow</h4>
+                                <p class="small text-muted">Leader arm follows follower in real-time, crucial for human intervention training.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 id="specification">Hardware & Specification</h2>
+                    <p>The system relies on Feetech ST-3215 series bus servos. The "Arm Kit Pro" version supports 12V operation for higher torque on the follower arm.</p>
+                    
+                    <div class="table-responsive mb-4">
+                        <table class="table spec-table">
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Follower (SO101)</th>
+                                    <th>Leader (SO101)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Joint 2</strong></td>
+                                    <td>ST-3215-C001 (1:345)</td>
+                                    <td>ST-3215-C001 (1:345)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Joints 1 & 3</strong></td>
+                                    <td>ST-3215-C044 (1:191)</td>
+                                    <td>ST-3215-C044 (1:191)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Joints 4, 5, 6</strong></td>
+                                    <td>ST-3215-C046 (1:147)</td>
+                                    <td>ST-3215-C046 (1:147)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Operating Voltage</strong></td>
+                                    <td>12V (Pro) / 5V (Std)</td>
+                                    <td>7.4V / 5V</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="warning-box">
+                        <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+                        <strong>Important:</strong> The leader arm always uses 7.4V motors. Plugging a 12V supply into the leader arm bus may burn your motors. Always verify your IDs (F1-F6 and L1-L6) before power-up.
+                    </div>
+
+                    <h2 id="environment">Initial System Environment</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h4>Ubuntu x86</h4>
+                            <ul>
+                                <li>Ubuntu 22.04 LTS</li>
+                                <li>CUDA 12+</li>
+                                <li>Python 3.10</li>
+                                <li>Torch 2.6+</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Jetson Orin</h4>
+                            <ul>
+                                <li>JetPack 6.0 / 6.1</li>
+                                <li>Python 3.10</li>
+                                <li>Torch 2.3+</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2 id="printing">3D Printing Guide</h2>
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-4 text-center">
+                            <span class="badge bg-primary rounded-pill mb-2">Step 1</span>
+                            <p class="small"><strong>Settings:</strong> PLA+, 0.4mm nozzle, 0.2mm layer, 15% infill.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <span class="badge bg-primary rounded-pill mb-2">Step 2</span>
+                            <p class="small"><strong>Preparation:</strong> Level bed, clean with IPA. Supports everywhere > 45°.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <span class="badge bg-primary rounded-pill mb-2">Step 3</span>
+                            <p class="small"><strong>Print:</strong> Source files via <a href="https://makerworld.com/zh/models/908660">Makerworld</a>.</p>
+                        </div>
+                    </div>
+
+                    <h2 id="install">Install LeRobot</h2>
+                    <p>It's recommended to use a verified stable repository for consistent performance.</p>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><span>Bash</span><i class="bi bi-copy"></i></div>
+                        <pre><code class="language-bash"># Clone Seeed stable version
+git clone https://github.com/Seeed-Projects/lerobot.git ~/lerobot
+cd ~/lerobot
+
+# Install dependencies (feetech support)
+pip install -e ".[feetech]"
+conda install ffmpeg=7.1.1 -c conda-forge</code></pre>
+                    </div>
+
+                    <h2 id="configure">Motor Configuration</h2>
+                    <p>Connect only one motor at a time for ID assignment. Use 5V for leader motor calibration and 12V for follower (if Pro version).</p>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><span>Bash</span><i class="bi bi-copy"></i></div>
+                        <pre><code class="language-bash"># Find arm ports
+lerobot-find-port
+
+# Setup Follower (e.g., port /dev/ttyACM0)
+lerobot-setup-motors --robot.type=so101_follower --robot.port=/dev/ttyACM0
+
+# Setup Leader (e.g., port /dev/ttyACM1)
+lerobot-setup-motors --teleop.type=so101_leader --teleop.port=/dev/ttyACM1</code></pre>
+                    </div>
+
+                    <h2 id="calibrate">Calibration</h2>
+                    <p>Manual calibration ensures both arms share the same physical-to-digital mapping.</p>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><span>Bash</span><i class="bi bi-copy"></i></div>
+                        <pre><code class="language-bash"># Set permissions
+sudo chmod 666 /dev/ttyACM*
+
+# Calibrate Follower
+lerobot-calibrate --robot.type=so101_follower --robot.port=/dev/ttyACM0 --robot.id=follower_arm</code></pre>
+                    </div>
+
+                    <h2 id="dataset">Data Collection</h2>
+                    <p>Record 50+ episodes for a stable ACT policy. Aim for 10 episodes per location variation.</p>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><span>Bash</span><i class="bi bi-copy"></i></div>
+                        <pre><code class="language-bash"># Record locally
+lerobot-record \
+  --robot.type=so101_follower --robot.port=/dev/ttyACM0 \
+  --teleop.type=so101_leader --teleop.port=/dev/ttyACM1 \
+  --robot.cameras="{ front: {type: opencv, index_or_path: 0, width: 640, height: 480}}" \
+  --dataset.repo_id=my_username/test_task \
+  --dataset.num_episodes=50 \
+  --dataset.push_to_hub=false</code></pre>
+                    </div>
+
+                    <h2 id="training">Training & AI Policy</h2>
+                    <p>Train an <strong>ACT (Action Chunking with Transformers)</strong> policy. On an RTX 3060, 50 datasets take ~6 hours to reach optimal loss.</p>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><span>Training</span><i class="bi bi-copy"></i></div>
+                        <pre><code class="language-bash">lerobot-train \
+  --dataset.repo_id=my_username/test_task \
+  --policy.type=act \
+  --output_dir=outputs/train/act_test \
+  --steps=300000 \
+  --policy.device=cuda</code></pre>
+                    </div>
+
+                    <h2 id="faq">Troubleshooting (FAQ)</h2>
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Motor 'gripper' was not found
+                          </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body text-muted">Check cable connections and ensure correct voltage (5V/12V). Verify the bus is powered.</div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Magnitude 30841 exceeds 2047
+                          </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body text-muted">Servo zero-offset is abnormal. Power cycle the robot. If persists, use the RoboController tool for middle-position calibration (set to 2048).</div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Could not connect on port /dev/ttyACM0
+                          </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body text-muted">Grant serial permissions using: <code>sudo chmod 666 /dev/ttyACM*</code></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h2 id="citation">Citations & Resources</h2>
+                    <p class="small text-muted">This guide is based on the official Seeed Studio and Hugging Face documentation. For latest updates, visit:</p>
+                    <ul class="small">
+                        <li><a href="https://github.com/TheRobotStudio/SO-ARM100" target="_blank">TheRobotStudio: SO-ARM10x</a></li>
+                        <li><a href="https://github.com/huggingface/lerobot" target="_blank">Huggingface: LeRobot</a></li>
+                        <li><a href="https://discord.gg/8TnwDdjFGU" target="_blank">LeRobot Discord Support</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <a href="index.html" class="btn btn-link text-decoration-none text-muted">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+
+            // Auto-highlight sidebar active link
+            const sections = document.querySelectorAll('h2[id], h1[id]');
+            const navLinks = document.querySelectorAll('.sidebar-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 120) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
