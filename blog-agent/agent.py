@@ -1,0 +1,391 @@
+"""
+MakerWorks Blog Agent
+Automatically generates robotics blog posts and publishes to GitHub Pages.
+"""
+
+import os
+import re
+import sys
+import json
+import hashlib
+from datetime import datetime
+from pathlib import Path
+
+import google.generativeai as genai
+from jinja2 import Environment, FileSystemLoader
+
+from config import GEMINI_API_KEY, TOPICS, GENERATION_CONFIG, BLOG_URL, AUTHOR, WORDS_MIN, WORDS_MAX
+
+# Paths
+SCRIPT_DIR = Path(__file__).parent
+TEMPLATES_DIR = SCRIPT_DIR / "templates"
+REPO_ROOT = SCRIPT_DIR.parent
+BLOG_DIR = REPO_ROOT / "blog"
+STATE_FILE = SCRIPT_DIR / "state.json"
+
+
+def load_state():
+    """Load the current state (last topic index, published posts)."""
+    if STATE_FILE.exists():
+        with open(STATE_FILE, "r") as f:
+            return json.load(f)
+    return {"last_topic_index": -1, "published_posts": []}
+
+
+def save_state(state):
+    """Save the current state."""
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f, indent=2)
+
+
+def get_next_topic(state):
+    """Get the next topic from the rotation."""
+    last_index = state.get("last_topic_index", -1)
+    next_index = (last_index + 1) % len(TOPICS)
+    state["last_topic_index"] = next_index
+    return TOPICS[next_index]
+
+
+def generate_slug(title):
+    """Convert title to URL-friendly slug."""
+    slug = title.lower()
+    slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+    slug = re.sub(r'[\s_]+', '-', slug)
+    slug = re.sub(r'-+', '-', slug)
+    slug = slug.strip('-')
+    return slug[:60]
+
+
+def estimate_read_time(content):
+    """Estimate read time in minutes based on word count."""
+    text = re.sub(r'<[^>]+>', '', content)
+    word_count = len(text.split())
+    return max(3, round(word_count / 200))
+
+
+def configure_gemini():
+    """Configure the Gemini API client."""
+    genai.configure(api_key=GEMINI_API_KEY)
+    return genai.GenerativeModel("gemini-2.5-flash")
+
+
+def generate_blog_content(model, topic):
+    """Generate blog content using Gemini API."""
+    prompt = f"""Write a detailed blog post for a robotics and STEM education website called MakerWorks (makerworkslab.in).
+The target audience is students, educators, and robotics enthusiasts in India.
+
+Topic: {topic['name']}
+Keywords: {topic['keywords']}
+Length: {WORDS_MIN}-{WORDS_MAX} words
+Style: Educational, engaging, informative
+
+Requirements:
+1. Start with a compelling introduction paragraph (use <p class="lead">...</p> for the intro)
+2. Use <h2> tags for main section headings
+3. Use <h3> tags for sub-section headings if needed
+4. Use <ul> or <ol> lists where appropriate
+5. Include at least one code example in a <pre><code> block if relevant
+6. Use <blockquote> for important quotes or key insights
+7. End with a conclusion and call-to-action
+8. Write in HTML format (NOT Markdown)
+9. Do NOT include the title, meta tags, or page structure - just the article body content
+10. Make it engaging and educational for young learners (ages 10-17)
+
+Return ONLY the HTML content of the article body (starting from the first <p> tag).
+Do not include any <html>, <head>, <body>, or <div> wrapper tags.
+
+Also provide a JSON object at the VERY END of your response with:
+- "title": A catchy blog title (max 70 chars)
+- "meta_description": SEO meta description (max 155 chars)
+- "short_description": Brief card description (max 120 chars)
+
+Format the JSON like this at the very end:
+<!--META{{"title": "...", "meta_description": "...", "short_description": "..."}}-->"""
+
+    response = model.generate_content(
+        prompt,
+        generation_config=genai.GenerationConfig(**GENERATION_CONFIG)
+    )
+    return response.text
+
+
+def parse_response(response_text):
+    """Parse the Gemini response to extract content and metadata."""
+    meta_match = re.search(r'<!--META(.*?)-->', response_text, re.DOTALL)
+
+    content = response_text
+    meta = {
+        "title": "Untitled Post",
+        "meta_description": "",
+        "short_description": ""
+    }
+
+    if meta_match:
+        try:
+            meta = json.loads(meta_match.group(1).strip())
+        except json.JSONDecodeError:
+            pass
+        content = response_text[:meta_match.start()].strip()
+
+    return content, meta
+
+
+def render_blog_post(template_env, content, meta, topic, slug):
+    """Render the blog post HTML using Jinja2 template."""
+    template = template_env.get_template("blog_post.html")
+
+    now = datetime.now()
+
+    html = template.render(
+        title=meta["title"],
+        meta_description=meta["meta_description"],
+        keywords=topic["keywords"],
+        slug=slug,
+        date=now.strftime("%B %d, %Y"),
+        date_iso=now.strftime("%Y-%m-%dT%H:%M:%S+05:30"),
+        author=AUTHOR,
+        badge=topic["badge"],
+        badge_color=topic["badge_color"],
+        topic_icon="bi-cpu",
+        content=content,
+    )
+
+    return html
+
+
+def render_index_card(template_env, meta, topic, slug):
+    """Render the blog index card HTML."""
+    template = template_env.get_template("blog_index_card.html")
+
+    card_html = template.render(
+        title=meta["title"],
+        short_description=meta["short_description"],
+        slug=slug,
+        badge=topic["badge"],
+        badge_color=topic["badge_color"],
+        topic_icon="bi-cpu",
+        read_time=estimate_read_time(""),
+    )
+
+    return card_html
+
+
+def inject_card_into_index(index_path, card_html):
+    """Inject a new card into the blog index.html at the top of the card grid."""
+    if not index_path.exists():
+        print(f"Warning: Blog index not found at {index_path}")
+        return False
+
+    with open(index_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    marker = '<div class="row g-4">'
+    if marker not in content:
+        print("Warning: Could not find card grid marker in blog index")
+        return False
+
+    new_content = content.replace(
+        marker,
+        f'{marker}\n                {card_html}\n',
+        1
+    )
+
+    with open(index_path, "w", encoding="utf-8") as f:
+        f.write(new_content)
+
+    return True
+
+
+def update_homepage(homepage_path, meta, topic, slug):
+    """Update the homepage Engineering Logs section with the new blog post as featured."""
+    if not homepage_path.exists():
+        print(f"Warning: Homepage not found at {homepage_path}")
+        return False
+
+    with open(homepage_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Featured blog card HTML - replaces the existing featured card
+    featured_card = f'''        <!-- Featured Blog - Auto Generated -->
+        <div class="col-lg-8" data-aos="fade-up">
+          <a href="blog/{slug}.html" style="text-decoration: none; color: inherit;">
+            <div class="blog-card-featured w-100 rounded-5 overflow-hidden shadow-lg position-relative d-flex flex-column"
+              style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.08) 0%, rgba(111, 66, 193, 0.05) 100%); transition: all 0.4s ease;">
+              <!-- Featured Badge -->
+              <div class="position-absolute top-0 start-0 p-4" style="z-index: 2;">
+                <span class="badge rounded-pill shadow-sm"
+                  style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 10px 24px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;">
+                  <i class="bi bi-star-fill me-1"></i> LATEST
+                </span>
+              </div>
+
+              <!-- Background -->
+              <div class="blog-bg-image position-absolute top-0 start-0 w-100"
+                style="height: 65%; background: {topic['badge_color']}; z-index: 0;">
+                <div class="position-absolute bottom-0 start-0 w-100 h-100"
+                  style="background: linear-gradient(0deg, #ffffff 10%, rgba(255,255,255,0.8) 30%, transparent 100%);">
+                </div>
+                <div class="position-absolute top-50 start-50 translate-middle" style="z-index: 1;">
+                  <i class="bi bi-cpu" style="font-size: 5rem; color: rgba(255,255,255,0.3);"></i>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="blog-content position-relative p-4 p-md-5 mt-auto" style="z-index: 1;">
+                <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+                  <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background: {topic['badge_color']}; color: white;">
+                    <i class="bi bi-robot me-1"></i> {topic['badge']}
+                  </span>
+                  <span class="text-secondary small fw-medium ms-auto">
+                    <i class="bi bi-clock me-1"></i> 7 min read
+                  </span>
+                </div>
+                <h3 class="fw-bold mb-3 text-dark" style="font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2;">{meta['title']}</h3>
+                <p class="text-muted mb-4 d-none d-md-block">{meta['short_description']}</p>
+                <span class="btn-premium btn-primary-mw w-100 w-md-auto d-inline-block" style="cursor: pointer;">
+                  Read Full Article <i class="bi bi-arrow-right ms-2"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+          <style>
+            .blog-card-featured {{
+              min-height: 500px;
+            }}
+
+            @media (max-width: 768px) {{
+              .blog-card-featured {{
+                min-height: 400px;
+              }}
+            }}
+          </style>
+        </div>'''
+
+    # Find and replace the featured blog section
+    # Look for the pattern that starts the featured blog and ends before secondary blogs
+    pattern = r'(<!-- Featured Blog.*?</div>\s*<style>.*?</style>\s*</div>)'
+    
+    # Alternative: Find markers around the featured section
+    start_marker = '<!-- Featured Blog'
+    end_marker = '<!-- Secondary Blogs -->'
+    
+    start_idx = content.find(start_marker)
+    end_idx = content.find(end_marker)
+    
+    if start_idx == -1 or end_idx == -1:
+        # Try alternative markers
+        start_marker = '<div class="col-lg-8" data-aos="fade-up">'
+        end_marker = '<!-- Secondary Blogs -->'
+        start_idx = content.find(start_marker)
+        end_idx = content.find(end_marker)
+    
+    if start_idx != -1 and end_idx != -1:
+        new_content = content[:start_idx] + featured_card + '\n\n        ' + content[end_idx:]
+        
+        with open(homepage_path, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        return True
+    
+    print("Warning: Could not find featured blog section in homepage")
+    return False
+
+
+def save_blog_post(html, slug):
+    """Save the blog post HTML to the blog directory."""
+    blog_dir = Path(BLOG_DIR)
+    blog_dir.mkdir(parents=True, exist_ok=True)
+
+    post_path = blog_dir / f"{slug}.html"
+    with open(post_path, "w", encoding="utf-8") as f:
+        f.write(html)
+
+    return post_path
+
+
+def run():
+    """Main entry point for the blog agent."""
+    print("=" * 50)
+    print("  MakerWorks Blog Agent")
+    print("=" * 50)
+    print()
+
+    # Load state
+    state = load_state()
+    print(f"[1/6] Loaded state. {len(state['published_posts'])} posts published so far.")
+
+    # Get next topic
+    topic = get_next_topic(state)
+    print(f"[2/6] Selected topic: {topic['name']}")
+    print(f"      Badge: {topic['badge']}")
+
+    # Configure Gemini
+    print("[3/6] Connecting to Gemini API...")
+    model = configure_gemini()
+
+    # Generate content
+    print("[4/6] Generating blog content...")
+    try:
+        response_text = generate_blog_content(model, topic)
+        content, meta = parse_response(response_text)
+        print(f"      Title: {meta['title']}")
+        print(f"      Words: ~{len(content.split())}")
+    except Exception as e:
+        print(f"ERROR: Failed to generate content: {e}")
+        sys.exit(1)
+
+    # Generate slug
+    slug = generate_slug(meta["title"])
+
+    # Check for duplicate slug
+    if slug in state.get("published_posts", []):
+        slug = f"{slug}-{datetime.now().strftime('%Y%m%d')}"
+    print(f"      Slug: {slug}")
+
+    # Render templates
+    print("[5/6] Rendering HTML templates...")
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+
+    post_html = render_blog_post(env, content, meta, topic, slug)
+    card_html = render_index_card(env, meta, topic, slug)
+
+    # Save blog post
+    post_path = save_blog_post(post_html, slug)
+    print(f"      Saved: {post_path}")
+
+    # Inject card into index
+    index_path = BLOG_DIR / "index.html"
+    if inject_card_into_index(index_path, card_html):
+        print(f"      Updated: {index_path}")
+    else:
+        print(f"      Warning: Could not update index (manual update needed)")
+
+    # Update homepage Engineering Logs section
+    homepage_path = REPO_ROOT / "index.html"
+    if update_homepage(homepage_path, meta, topic, slug):
+        print(f"      Updated homepage: {homepage_path}")
+    else:
+        print(f"      Warning: Could not update homepage (manual update needed)")
+
+    # Update state
+    state["published_posts"].append(slug)
+    state["last_run"] = datetime.now().isoformat()
+    save_state(state)
+
+    print()
+    print("[6/6] Blog post generated successfully!")
+    print(f"      File: blog/{slug}.html")
+    print(f"      URL:  {BLOG_URL}{slug}.html")
+    print()
+    print("=" * 50)
+    print("  Done! Commit and push to publish.")
+    print("=" * 50)
+
+    return {
+        "slug": slug,
+        "title": meta["title"],
+        "file": str(post_path),
+    }
+
+
+if __name__ == "__main__":
+    run()
