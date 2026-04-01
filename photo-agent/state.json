@@ -1,6 +1,55 @@
 {
-  "synced_files": {},
-  "last_run": null,
-  "total_synced": 0,
+  "synced_files": {
+    "1CSgdxSbLoY2YwGy8tv228quyUEpeqgAq": {
+      "name": "Aarum learning  led strip.jpg",
+      "webp_name": "Aarum learning  led strip.webp",
+      "modifiedTime": "2026-04-01T16:51:32.458Z",
+      "syncedAt": "2026-04-01T17:06:50.096665",
+      "caption": "Aarum Learning  Led Strip",
+      "category": "people"
+    },
+    "1qAROeJYyoIstAVnaMjxRdgreIoTHr_zy": {
+      "name": "Vihaan making a  pen stand.jpg",
+      "webp_name": "Vihaan making a  pen stand.webp",
+      "modifiedTime": "2026-04-01T16:50:17.805Z",
+      "syncedAt": "2026-04-01T17:06:52.533240",
+      "caption": "Vihaan Making A  Pen Stand",
+      "category": "people"
+    },
+    "1CTP0q2PQ-GsWVdFCBBCPBBaUmMHaKz5z": {
+      "name": "Parth learning Ultrasonic sensor.jpg",
+      "webp_name": "Parth learning Ultrasonic sensor.webp",
+      "modifiedTime": "2026-04-01T16:49:58.248Z",
+      "syncedAt": "2026-04-01T17:06:55.110538",
+      "caption": "Parth Learning Ultrasonic Sensor",
+      "category": "people"
+    },
+    "1ZvrYhaDpNTwq6c-1-G9OHCHf0t4oLSC0": {
+      "name": "sristhi building ghost candy dispenser.jpg",
+      "webp_name": "sristhi building ghost candy dispenser.webp",
+      "modifiedTime": "2026-04-01T16:49:09.450Z",
+      "syncedAt": "2026-04-01T17:06:57.124366",
+      "caption": "Sristhi Building Ghost Candy Dispenser",
+      "category": "people"
+    },
+    "1qcpiMtn98MRL8Ycn-Hw5FbP3eON3V8uc": {
+      "name": "shenaya working on scare crow.jpg",
+      "webp_name": "shenaya working on scare crow.webp",
+      "modifiedTime": "2026-04-01T16:48:35.402Z",
+      "syncedAt": "2026-04-01T17:06:59.576268",
+      "caption": "Shenaya Working On Scare Crow",
+      "category": "people"
+    },
+    "1z9KTHZ8-nKpGhoyiexCq5DvHCe3_88O9": {
+      "name": "Avyukt making a water plant system .jpg",
+      "webp_name": "Avyukt making a water plant system .webp",
+      "modifiedTime": "2026-04-01T16:47:58.310Z",
+      "syncedAt": "2026-04-01T17:07:02.149263",
+      "caption": "Avyukt Making A Water Plant System ",
+      "category": "people"
+    }
+  },
+  "last_run": "2026-04-01T17:07:02.149578",
+  "total_synced": 6,
   "reset": "exif-fix-v2"
 }
