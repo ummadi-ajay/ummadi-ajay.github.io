@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://makerworkslab.in/blog/{{ slug }}.html">
     <meta property="og:title" content="{{ title }} | MakerWorks Blog">
     <meta property="og:description" content="{{ meta_description }}">
-    <meta property="og:image" content="https://makerworkslab.in/blog/blogphotos/{{ slug }}.webp">
+    <meta property="og:image" content="https://makerworkslab.in/blog/blogphotos/{{ slug }}.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -147,6 +147,30 @@
             font-size: 5rem;
             color: rgba(255, 255, 255, 0.6);
         }
+
+        .featured-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-credit {
+            font-size: 0.85rem;
+            color: #6c757d;
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+
+        .image-credit a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .image-credit a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -170,9 +194,16 @@
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-lg-8 blog-content">
+                {% if image_info %}
+                <img src="blogphotos/{{ image_info.filename }}" alt="{{ title }}" class="featured-image img-fluid">
+                <div class="image-credit">
+                    Photo by <a href="{{ image_info.photographer_url }}" target="_blank">{{ image_info.photographer }}</a> on <a href="{{ image_info.pexels_url }}" target="_blank">Pexels</a>
+                </div>
+                {% else %}
                 <div class="featured-image-placeholder">
                     <i class="bi {{ topic_icon }}"></i>
                 </div>
+                {% endif %}
 
                 {{ content }}
 

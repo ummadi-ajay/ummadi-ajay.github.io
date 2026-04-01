@@ -7,6 +7,9 @@ import os
 # Gemini API Key
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDu2pzUU6Feq9sunpnCXQqMUVrDKuiStD4")
 
+# Pexels API Key (for blog images)
+PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "5sVCWC9vvFr0tylFL0IcJtqKbab4UOxUQRZN2EQx2ImBnCdJkMSR7Mgo")
+
 # Blog Settings
 BLOG_URL = "https://makerworkslab.in/blog/"
 HOME_URL = "https://makerworkslab.in/"
