@@ -3,7 +3,16 @@
   "published_posts": [
     "ai-in-robotics-the-brains-behind-the-brawn",
     "reinforcement-learning-how-robots-learn-like-you-do",
-    "give-your-robots-eyes-an-intro-to-computer-vision-for-roboti"
+    "give-your-robots-the-power-of-sight-a-dive-into-computer-vis"
   ],
-  "last_run": "2026-04-01T17:45:08.304011"
+  "last_run": "2026-04-01T18:17:22.057958",
+  "recent_posts": [
+    {
+      "slug": "give-your-robots-the-power-of-sight-a-dive-into-computer-vis",
+      "title": "Give Your Robots the Power of Sight: A Dive into Computer Vision",
+      "badge": "AI & Robotics",
+      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
+      "short_description": "Unlock the power of computer vision for robots! Learn how robots 'see,' detect objects, and navigate with OpenCV."
+    }
+  ]
 }

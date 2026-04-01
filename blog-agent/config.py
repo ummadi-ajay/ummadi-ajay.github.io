@@ -3,12 +3,23 @@ MakerWorks Blog Agent Configuration
 """
 
 import os
+from pathlib import Path
+
+# Load environment variables from .env file
+env_path = Path(__file__).parent / ".env"
+if env_path.exists():
+    with open(env_path) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.split("=", 1)
+                os.environ.setdefault(key.strip(), value.strip())
 
 # Gemini API Key
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDu2pzUU6Feq9sunpnCXQqMUVrDKuiStD4")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 # Pexels API Key (for blog images)
-PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "5sVCWC9vvFr0tylFL0IcJtqKbab4UOxUQRZN2EQx2ImBnCdJkMSR7Mgo")
+PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "")
 
 # Blog Settings
 BLOG_URL = "https://makerworkslab.in/blog/"

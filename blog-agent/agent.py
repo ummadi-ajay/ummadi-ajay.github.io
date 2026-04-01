@@ -30,7 +30,7 @@ def load_state():
     if STATE_FILE.exists():
         with open(STATE_FILE, "r") as f:
             return json.load(f)
-    return {"last_topic_index": -1, "published_posts": []}
+    return {"last_topic_index": -1, "published_posts": [], "recent_posts": []}
 
 
 def save_state(state):
@@ -213,7 +213,7 @@ def render_blog_post(template_env, content, meta, topic, slug, image_info=None):
     return html
 
 
-def render_index_card(template_env, meta, topic, slug):
+def render_index_card(template_env, meta, topic, slug, image_info=None):
     """Render the blog index card HTML."""
     template = template_env.get_template("blog_index_card.html")
 
@@ -225,6 +225,7 @@ def render_index_card(template_env, meta, topic, slug):
         badge_color=topic["badge_color"],
         topic_icon="bi-cpu",
         read_time=estimate_read_time(""),
+        image_filename=image_info["filename"] if image_info else None,
     )
 
     return card_html
@@ -256,7 +257,7 @@ def inject_card_into_index(index_path, card_html):
     return True
 
 
-def update_homepage(homepage_path, meta, topic, slug, image_info=None):
+def update_homepage(homepage_path, meta, topic, slug, image_info=None, recent_posts=None):
     """Update the homepage Engineering Logs section with the new blog post as featured."""
     if not homepage_path.exists():
         print(f"Warning: Homepage not found at {homepage_path}")
@@ -333,11 +334,96 @@ def update_homepage(homepage_path, meta, topic, slug, image_info=None):
           </style>
         </div>'''
 
+    # Build secondary blog cards from recent posts
+    secondary_cards = ""
+    if recent_posts and len(recent_posts) >= 2:
+        # Get the 2 most recent posts (excluding the current featured one)
+        secondary_posts = recent_posts[-2:] if len(recent_posts) >= 2 else recent_posts
+        
+        for i, post in enumerate(secondary_posts[:2]):
+            border_color = "rgba(13, 110, 253, 0.1)" if i == 0 else "rgba(255, 102, 0, 0.1)"
+            badge_bg = "rgba(13, 110, 253, 0.1)" if i == 0 else "rgba(255, 102, 0, 0.1)"
+            badge_text = "#0d6efd" if i == 0 else "#ff6600"
+            icon = "bi-lightning" if i == 0 else "bi-speedometer2"
+            
+            secondary_cards += f'''
+            <div class="col-12">
+              <a href="blog/{post['slug']}.html" style="text-decoration: none; color: inherit;">
+                <div class="blog-card-secondary"
+                  style="background: white; border-radius: 24px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 235px; display: flex; flex-direction: column; position: relative; overflow: hidden; border: 2px solid {border_color};">
+                  <!-- Icon Background -->
+                  <div
+                    style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, {badge_bg} 0%, transparent 70%); border-radius: 50%;">
+                  </div>
+
+                  <div style="position: relative; z-index: 1;">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <span class="badge"
+                        style="background: {badge_bg}; color: {badge_text}; padding: 5px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem;">
+                        <i class="bi {icon} me-1"></i> {post['badge']}
+                      </span>
+                      <span style="color: #6c757d; font-size: 0.8rem;">
+                        <i class="bi bi-clock me-1"></i> 7 min
+                      </span>
+                    </div>
+                    <h4 class="fs-4 fw-800 mb-3" style="line-height: 1.3;">{post['title']}</h4>
+                    <p class="text-muted small mb-4" style="line-height: 1.6;">{post['short_description']}</p>
+                    <span class="btn btn-link link-primary p-0 mt-auto" style="font-weight: 700; text-decoration: none;">
+                      Read Article <i class="bi bi-arrow-right ms-1"></i>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>'''
+    else:
+        # Fallback to default cards if no recent posts
+        secondary_cards = '''
+            <div class="col-12">
+              <div class="blog-card-secondary"
+                style="background: white; border-radius: 24px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 235px; display: flex; flex-direction: column; position: relative; overflow: hidden; border: 2px solid rgba(13, 110, 253, 0.1);">
+                <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(13, 110, 253, 0.08) 0%, transparent 70%); border-radius: 50%;">
+                </div>
+                <div style="position: relative; z-index: 1;">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <span class="badge" style="background: rgba(13, 110, 253, 0.1); color: #0d6efd; padding: 5px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem;">
+                      <i class="bi bi-lightning me-1"></i> Beginner
+                    </span>
+                    <span style="color: #6c757d; font-size: 0.8rem;">
+                      <i class="bi bi-clock me-1"></i> 5 min
+                    </span>
+                  </div>
+                  <h4 class="fs-4 fw-800 mb-3" style="line-height: 1.3;">Arduino LED Basics</h4>
+                  <p class="text-muted small mb-4" style="line-height: 1.6;">The "Hello World" of hardware engineering.</p>
+                  <button class="btn btn-link link-primary p-0 mt-auto" data-bs-toggle="modal" data-bs-target="#blog1Modal" style="font-weight: 700; text-decoration: none;">
+                    Open Log <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="blog-card-secondary"
+                style="background: white; border-radius: 24px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); min-height: 235px; display: flex; flex-direction: column; position: relative; overflow: hidden; border: 2px solid rgba(255, 102, 0, 0.1);">
+                <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(255, 102, 0, 0.08) 0%, transparent 70%); border-radius: 50%;">
+                </div>
+                <div style="position: relative; z-index: 1;">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <span class="badge" style="background: rgba(255, 102, 0, 0.1); color: #ff6600; padding: 5px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem;">
+                      <i class="bi bi-speedometer2 me-1"></i> Hardware
+                    </span>
+                    <span style="color: #6c757d; font-size: 0.8rem;">
+                      <i class="bi bi-clock me-1"></i> 6 min
+                    </span>
+                  </div>
+                  <h4 class="fs-4 fw-800 mb-3" style="line-height: 1.3;">Top 5 Sensors</h4>
+                  <p class="text-muted small mb-4" style="line-height: 1.6;">Essential components for every modern IoT project.</p>
+                  <button class="btn btn-link link-primary p-0 mt-auto" data-bs-toggle="modal" data-bs-target="#blog3Modal" style="font-weight: 700; text-decoration: none;">
+                    Open Log <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>'''
+
     # Find and replace the featured blog section
-    # Look for the pattern that starts the featured blog and ends before secondary blogs
-    pattern = r'(<!-- Featured Blog.*?</div>\s*<style>.*?</style>\s*</div>)'
-    
-    # Alternative: Find markers around the featured section
     start_marker = '<!-- Featured Blog'
     end_marker = '<!-- Secondary Blogs -->'
     
@@ -352,11 +438,19 @@ def update_homepage(homepage_path, meta, topic, slug, image_info=None):
         end_idx = content.find(end_marker)
     
     if start_idx != -1 and end_idx != -1:
-        new_content = content[:start_idx] + featured_card + '\n\n        ' + content[end_idx:]
+        # Replace featured card and secondary cards
+        new_content = content[:start_idx] + featured_card + '\n\n        ' + end_marker + '\n        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">\n          <div class="row g-4 h-100">\n' + secondary_cards + '\n          </div>\n        </div>'
         
-        with open(homepage_path, "w", encoding="utf-8") as f:
-            f.write(new_content)
-        return True
+        # Find where secondary section ends (before the style tag)
+        style_marker = '<style>\n        /* Blog Card Hover Effects */'
+        style_idx = content.find(style_marker, end_idx)
+        
+        if style_idx != -1:
+            new_content += '\n      </div>\n\n      ' + content[style_idx:]
+            
+            with open(homepage_path, "w", encoding="utf-8") as f:
+                f.write(new_content)
+            return True
     
     print("Warning: Could not find featured blog section in homepage")
     return False
@@ -422,7 +516,7 @@ def run():
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
 
     post_html = render_blog_post(env, content, meta, topic, slug, image_info)
-    card_html = render_index_card(env, meta, topic, slug)
+    card_html = render_index_card(env, meta, topic, slug, image_info)
 
     # Save blog post
     post_path = save_blog_post(post_html, slug)
@@ -437,13 +531,32 @@ def run():
 
     # Update homepage Engineering Logs section
     homepage_path = REPO_ROOT / "index.html"
-    if update_homepage(homepage_path, meta, topic, slug, image_info):
+    recent_posts = state.get("recent_posts", [])
+    if update_homepage(homepage_path, meta, topic, slug, image_info, recent_posts):
         print(f"      Updated homepage: {homepage_path}")
     else:
         print(f"      Warning: Could not update homepage (manual update needed)")
 
     # Update state
     state["published_posts"].append(slug)
+    
+    # Add to recent_posts (keep last 5 posts)
+    if "recent_posts" not in state:
+        state["recent_posts"] = []
+    
+    post_meta = {
+        "slug": slug,
+        "title": meta["title"],
+        "badge": topic["badge"],
+        "badge_color": topic["badge_color"],
+        "short_description": meta["short_description"]
+    }
+    state["recent_posts"].append(post_meta)
+    
+    # Keep only last 5 posts in recent_posts
+    if len(state["recent_posts"]) > 5:
+        state["recent_posts"] = state["recent_posts"][-5:]
+    
     state["last_run"] = datetime.now().isoformat()
     save_state(state)
 
