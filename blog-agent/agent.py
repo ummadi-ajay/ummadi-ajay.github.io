@@ -64,6 +64,180 @@ def estimate_read_time(content):
     return max(3, round(word_count / 200))
 
 
+def get_existing_posts():
+    """Get list of existing .html files in blog/ (excluding index.html)."""
+    existing = set()
+    if BLOG_DIR.exists():
+        for f in BLOG_DIR.glob("*.html"):
+            if f.name != "index.html":
+                existing.add(f.stem)
+    return existing
+
+
+def remove_card_from_index(index_path, slug):
+    """Remove a card from blog/index.html for a given slug."""
+    if not index_path.exists():
+        return False
+
+    with open(index_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Find the card block containing this slug - look for the entire col div
+    # Pattern: from "<div class="col-lg-4 col-md-6">" to the closing </div>
+    
+    # Find all card sections
+    pattern = r'<div class="col-lg-4 col-md-6">\s*<div class="blog-card-modern"[^>]*>.*?</div>\s*</div>'
+    matches = list(re.finditer(pattern, content, re.DOTALL))
+    
+    removed = False
+    for match in reversed(matches):
+        card_html = match.group(0)
+        if f'href="{slug}.html"' in card_html:
+            start = match.start()
+            end = match.end()
+            # Include any comment before the card and whitespace after
+            # Look for comment before
+            comment_match = re.search(r'<!--[^>]*?-->\s*$', content[:start])
+            if comment_match:
+                start = comment_match.start()
+            # Remove trailing whitespace
+            while end < len(content) and content[end] in '\n\r\t ':
+                end += 1
+            content = content[:start] + content[end:]
+            removed = True
+            break
+
+    if removed:
+        # Clean up extra whitespace
+        content = re.sub(r'\n{4,}', '\n\n', content)
+        
+        with open(index_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        return True
+    
+    return False
+
+
+def update_homepage_featured_default():
+    """Update homepage to restore default featured card."""
+    homepage_path = REPO_ROOT / "index.html"
+    
+    if not homepage_path.exists():
+        return False
+
+    with open(homepage_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Default featured card with existing post
+    default_featured = '''        <!-- Featured Blog -->
+        <div class="col-lg-8" data-aos="fade-up">
+          <a href="blog/blink-led.html" style="text-decoration: none; color: inherit;">
+            <div class="blog-card-featured w-100 rounded-5 overflow-hidden shadow-lg position-relative d-flex flex-column"
+              style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.08) 0%, rgba(111, 66, 193, 0.05) 100%); transition: all 0.4s ease;">
+              <div class="position-absolute top-0 start-0 p-4" style="z-index: 2;">
+                <span class="badge rounded-pill shadow-sm"
+                  style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 10px 24px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;">
+                  <i class="bi bi-star-fill me-1"></i> FEATURED
+                </span>
+              </div>
+              <div class="blog-bg-image position-absolute top-0 start-0 w-100"
+                style="height: 65%; background: url('blog/blogphotos/blink-led.webp') center/cover no-repeat; z-index: 0;">
+                <div class="position-absolute bottom-0 start-0 w-100 h-100"
+                  style="background: linear-gradient(0deg, #ffffff 15%, rgba(255,255,255,0.85) 35%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.5) 100%);">
+                </div>
+              </div>
+              <div class="blog-content position-relative p-4 p-md-5 mt-auto" style="z-index: 1;">
+                <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+                  <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background: linear-gradient(135deg, #0d6efd, #0dcaf0); color: white;">
+                    <i class="bi bi-lightbulb me-1"></i> Beginner
+                  </span>
+                  <span class="text-secondary small fw-medium ms-auto">
+                    <i class="bi bi-clock me-1"></i> 5 min read
+                  </span>
+                </div>
+                <h3 class="fw-bold mb-3 text-dark" style="font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2;">Blink an LED with Arduino</h3>
+                <p class="text-muted mb-4 d-none d-md-block">Learn the "Hello World" of hardware - blinking an LED with Arduino. Start your robotics journey here!</p>
+                <span class="btn-premium btn-primary-mw w-100 w-md-auto d-inline-block" style="cursor: pointer;">
+                  Read Full Article <i class="bi bi-arrow-right ms-2"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+          <style>
+            .blog-card-featured {
+              min-height: 500px;
+            }
+            @media (max-width: 768px) {
+              .blog-card-featured {
+                min-height: 400px;
+              }
+            }
+          </style>
+        </div>'''
+
+    # Find featured section markers
+    start_marker = '<!-- Featured Blog'
+    start_idx = content.find(start_marker)
+    
+    if start_idx == -1:
+        start_marker = '<div class="col-lg-8" data-aos="fade-up">'
+        start_idx = content.find(start_marker)
+    
+    end_marker = '<!-- Secondary Blogs -->'
+    end_idx = content.find(end_marker)
+    
+    if start_idx != -1 and end_idx != -1:
+        new_content = content[:start_idx] + default_featured + '\n\n        ' + content[end_idx:]
+        
+        with open(homepage_path, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        return True
+    
+    return False
+
+
+def cleanup_orphaned_posts():
+    """Remove cards for posts that no longer exist in blog/ folder."""
+    print("      Scanning for orphaned posts...")
+    
+    existing = get_existing_posts()
+    state = load_state()
+    published = set(state.get("published_posts", []))
+    orphaned = published - existing
+    
+    if not orphaned:
+        print("      No orphaned posts found.")
+        return []
+    
+    print(f"      Found {len(orphaned)} orphaned posts")
+    
+    # Remove cards from blog/index.html
+    index_path = BLOG_DIR / "index.html"
+    for slug in orphaned:
+        if remove_card_from_index(index_path, slug):
+            print(f"        Removed card: {slug}")
+    
+    # Check if homepage references a deleted post
+    homepage_path = REPO_ROOT / "index.html"
+    if homepage_path.exists():
+        with open(homepage_path, "r", encoding="utf-8") as f:
+            homepage_content = f.read()
+        
+        for slug in orphaned:
+            if slug in homepage_content:
+                print(f"        Updating homepage (referenced deleted post: {slug})")
+                update_homepage_featured_default()
+                break
+    
+    # Update state.json
+    state["published_posts"] = list(existing & published)
+    state["recent_posts"] = [p for p in state.get("recent_posts", []) if p["slug"] in existing]
+    save_state(state)
+    print(f"        Updated state.json")
+    
+    return list(orphaned)
+
+
 def fetch_blog_image(topic, slug):
     """Fetch a relevant image from Pexels API based on topic keywords."""
     # Create blogphotos directory if it doesn't exist
@@ -475,21 +649,25 @@ def run():
     print("=" * 50)
     print()
 
+    # Cleanup orphaned posts first
+    print("[1/8] Cleaning up orphaned posts...")
+    cleanup_orphaned_posts()
+
     # Load state
     state = load_state()
-    print(f"[1/7] Loaded state. {len(state['published_posts'])} posts published so far.")
+    print(f"[2/8] Loaded state. {len(state['published_posts'])} posts published so far.")
 
     # Get next topic
     topic = get_next_topic(state)
-    print(f"[2/7] Selected topic: {topic['name']}")
+    print(f"[3/8] Selected topic: {topic['name']}")
     print(f"      Badge: {topic['badge']}")
 
     # Configure Gemini
-    print("[3/7] Connecting to Gemini API...")
+    print("[4/8] Connecting to Gemini API...")
     model = configure_gemini()
 
     # Generate content
-    print("[4/7] Generating blog content...")
+    print("[5/8] Generating blog content...")
     try:
         response_text = generate_blog_content(model, topic)
         content, meta = parse_response(response_text)
@@ -508,11 +686,11 @@ def run():
     print(f"      Slug: {slug}")
 
     # Fetch blog image from Pexels
-    print("[5/7] Fetching blog image from Pexels...")
+    print("[6/8] Fetching blog image from Pexels...")
     image_info = fetch_blog_image(topic, slug)
 
     # Render templates
-    print("[6/7] Rendering HTML templates...")
+    print("[7/8] Rendering HTML templates...")
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
 
     post_html = render_blog_post(env, content, meta, topic, slug, image_info)
@@ -561,7 +739,7 @@ def run():
     save_state(state)
 
     print()
-    print("[7/7] Blog post generated successfully!")
+    print("[8/8] Blog post generated successfully!")
     print(f"      File: blog/{slug}.html")
     print(f"      URL:  {BLOG_URL}{slug}.html")
     print()
