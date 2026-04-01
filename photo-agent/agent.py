@@ -107,7 +107,10 @@ def download_photo(service, file_id):
 
 
 def convert_to_webp(image_data, output_path):
+    from PIL import ImageOps
     img = Image.open(io.BytesIO(image_data))
+    # Fix rotation based on EXIF orientation
+    img = ImageOps.exif_transpose(img)
     if img.mode in ("RGBA", "P"):
         img = img.convert("RGB")
     img.save(output_path, "WEBP", quality=85)
