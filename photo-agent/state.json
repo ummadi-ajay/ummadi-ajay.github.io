@@ -1,62 +1,6 @@
 {
-  "synced_files": {
-    "1z9KTHZ8-nKpGhoyiexCq5DvHCe3_88O9": {
-      "name": "20260201_105542.jpg",
-      "webp_name": "20260201_105542.webp",
-      "modifiedTime": "2026-04-01T14:07:40.335Z",
-      "syncedAt": "2026-04-01T16:41:35.702938",
-      "caption": "20260201 105542",
-      "category": "people"
-    },
-    "1qcpiMtn98MRL8Ycn-Hw5FbP3eON3V8uc": {
-      "name": "20260222_151043.jpg",
-      "webp_name": "20260222_151043.webp",
-      "modifiedTime": "2026-04-01T14:07:40.194Z",
-      "syncedAt": "2026-04-01T16:41:38.125055",
-      "caption": "20260222 151043",
-      "category": "people"
-    },
-    "1CSgdxSbLoY2YwGy8tv228quyUEpeqgAq": {
-      "name": "20260222_151108.jpg",
-      "webp_name": "20260222_151108.webp",
-      "modifiedTime": "2026-04-01T14:07:40.033Z",
-      "syncedAt": "2026-04-01T16:41:40.801401",
-      "caption": "20260222 151108",
-      "category": "people"
-    },
-    "1qAROeJYyoIstAVnaMjxRdgreIoTHr_zy": {
-      "name": "20260222_153241.jpg",
-      "webp_name": "20260222_153241.webp",
-      "modifiedTime": "2026-04-01T14:07:39.746Z",
-      "syncedAt": "2026-04-01T16:41:43.377103",
-      "caption": "20260222 153241",
-      "category": "people"
-    },
-    "1ZvrYhaDpNTwq6c-1-G9OHCHf0t4oLSC0": {
-      "name": "20260314_123845.jpg",
-      "webp_name": "20260314_123845.webp",
-      "modifiedTime": "2026-04-01T14:07:39.593Z",
-      "syncedAt": "2026-04-01T16:41:46.225909",
-      "caption": "20260314 123845",
-      "category": "people"
-    },
-    "1WlX2Bqf_q5uNCB49KWqyZzKTqasDd0I2": {
-      "name": "20260315_172931.jpg",
-      "webp_name": "20260315_172931.webp",
-      "modifiedTime": "2026-04-01T14:07:39.396Z",
-      "syncedAt": "2026-04-01T16:41:48.772205",
-      "caption": "20260315 172931",
-      "category": "people"
-    },
-    "1CTP0q2PQ-GsWVdFCBBCPBBaUmMHaKz5z": {
-      "name": "20260315_162025.jpg",
-      "webp_name": "20260315_162025.webp",
-      "modifiedTime": "2026-04-01T14:07:39.232Z",
-      "syncedAt": "2026-04-01T16:41:50.901524",
-      "caption": "20260315 162025",
-      "category": "people"
-    }
-  },
-  "last_run": "2026-04-01T16:41:50.901889",
-  "total_synced": 7
+  "synced_files": {},
+  "last_run": null,
+  "total_synced": 0,
+  "reset": "exif-fix-v2"
 }
