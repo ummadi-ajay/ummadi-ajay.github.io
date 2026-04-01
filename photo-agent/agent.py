@@ -42,12 +42,26 @@ def save_state(state):
 
 
 def get_drive_service():
-    creds_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_KEY")
-    if not creds_json:
+    creds_b64 = os.environ.get("GOOGLE_SERVICE_ACCOUNT_KEY")
+    if not creds_b64:
         print("ERROR: GOOGLE_SERVICE_ACCOUNT_KEY environment variable not set")
         sys.exit(1)
 
-    creds_info = json.loads(base64.b64decode(creds_json))
+    try:
+        # Clean up the base64 string (remove whitespace, newlines, quotes)
+        creds_b64 = creds_b64.strip().replace('\n', '').replace('\r', '').replace(' ', '')
+        # Remove surrounding quotes if present
+        if creds_b64.startswith('"') and creds_b64.endswith('"'):
+            creds_b64 = creds_b64[1:-1]
+
+        decoded = base64.b64decode(creds_b64)
+        creds_json = decoded.decode('utf-8')
+        creds_info = json.loads(creds_json)
+    except Exception as e:
+        print(f"ERROR: Failed to decode service account key: {e}")
+        print(f"  Key length: {len(creds_b64) if creds_b64 else 0} chars")
+        sys.exit(1)
+
     credentials = service_account.Credentials.from_service_account_info(
         creds_info,
         scopes=["https://www.googleapis.com/auth/drive.readonly"]
