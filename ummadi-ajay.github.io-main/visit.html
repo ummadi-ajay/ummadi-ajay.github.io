@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Lab Visit | MakerWorks Mumbai</title>
+    
+    <!-- Styles & Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #0a58ca;
+            --secondary: #ff6600;
+            --dark: #1d1d1f;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(255, 255, 255, 0.3);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f8f9fa;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Standalone Navbar for this page */
+        .simple-nav {
+            padding: 1.5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .simple-nav .logo {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        /* Hero Section */
+        .visit-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .visit-hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 140%;
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(102, 16, 242, 0.05) 100%);
+            border-radius: 100px;
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .booking-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-tag {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .form-control, .form-select {
+            padding: 14px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.8);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+        }
+
+        /* Slot Buttons */
+        .slot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .slot-item {
+            padding: 12px;
+            border-radius: 14px;
+            border: 2px solid #f3f4f6;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fff;
+        }
+
+        .slot-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .slot-item.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+        }
+
+        .btn-submit {
+            background: var(--dark);
+            color: #fff;
+            padding: 18px;
+            border-radius: 100px;
+            font-weight: 700;
+            width: 100%;
+            border: none;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .benefit {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            background: #fff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #10b981;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 991px) {
+            .visit-hero {
+                padding-top: 80px;
+            }
+            .booking-card {
+                padding: 30px 20px;
+                margin-top: 40px;
+            }
+            .slot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="simple-nav">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="logo">MAKERWORKS</a>
+            <a href="/" class="btn btn-sm btn-outline-dark rounded-pill px-4">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="visit-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Content Column -->
+                <div class="col-lg-5 hero-content" data-aos="fade-up">
+                    <span class="section-tag">Welcome Back</span>
+                    <h1>Experience the <span class="text-primary">Future</span> First-Hand</h1>
+                    <p class="text-muted fs-5 mb-5">Book a priority tour of our Malad East robotics lab. Meet our mentors and see where the magic happens.</p>
+                    
+                    <div class="benefit">
+                        <div class="benefit-icon"><i class="bi bi-robot"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Live Robot Demos</h5>
+                            <p class="text-muted mb-0">Watch our students' latest creations in action.</p>
+                        </div>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon"><i class="bi bi-cpu"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Curriculum Tour</h5>
+                            <p class="text-muted mb-0">Deep dive into our hands-on engineering programs.</p>
+                        </div>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon"><i class="bi bi-lightning-charge"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">On-Spot Trial</h5>
+                            <p class="text-muted mb-0">Let your child build something amazing during the visit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                    <div class="booking-card">
+                        <div id="formSection">
+                            <h3 class="fw-bold mb-4">Pick a Visit Slot</h3>
+                            <form id="visitForm">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Parent's Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Full Name" required name="name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">WhatsApp Number</label>
+                                        <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required name="phone">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Student's Grade</label>
+                                        <select class="form-select" required name="grade">
+                                            <option value="" selected disabled>Choose Grade</option>
+                                            <option>Grade 3 - 5</option>
+                                            <option>Grade 6 - 8</option>
+                                            <option>Grade 9 - 12</option>
+                                            <option>Engineering / Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Visit Date</label>
+                                        <input type="date" class="form-control" required name="date" id="visitDate">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Available Time Slots</label>
+                                        <div class="slot-grid">
+                                            <div class="slot-item" data-time="11:00 AM">11:00 AM</div>
+                                            <div class="slot-item" data-time="12:30 PM">12:30 PM</div>
+                                            <div class="slot-item" data-time="02:30 PM">02:30 PM</div>
+                                            <div class="slot-item" data-time="04:00 PM">04:00 PM</div>
+                                            <div class="slot-item" data-time="05:30 PM">05:30 PM</div>
+                                            <div class="slot-item" data-time="07:00 PM">07:00 PM</div>
+                                        </div>
+                                        <input type="hidden" name="time_slot" id="selectedSlot" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-submit">Submit Reservation</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Success Section -->
+                        <div id="successSection" class="success-screen">
+                            <i class="bi bi-check-circle-fill success-icon"></i>
+                            <h2 class="fw-bold mb-3">Goal Reached!</h2>
+                            <p class="text-muted fs-5">Thank you for booking. We've notified our mentors, and someone will reach out via WhatsApp shortly to confirm.</p>
+                            <div class="mt-5">
+                                <a href="/" class="btn btn-outline-dark rounded-pill px-5">Continue to Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ duration: 1000, once: true });
+
+            // Min date = today
+            const dateInput = document.getElementById('visitDate');
+            if(dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+
+            // Slot selection
+            const slots = document.querySelectorAll('.slot-item');
+            const slotInput = document.getElementById('selectedSlot');
+            
+            slots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    slots.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                    slotInput.value = this.dataset.time;
+                });
+            });
+
+            // Form Submit
+            const form = document.getElementById('visitForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if(!slotInput.value) {
+                    alert('Please select a time slot.');
+                    return;
+                }
+
+                // Show Success
+                document.getElementById('formSection').style.transition = '0.5s opacity';
+                document.getElementById('formSection').style.opacity = '0';
+                
+                setTimeout(() => {
+                    document.getElementById('formSection').style.display = 'none';
+                    document.getElementById('successSection').style.display = 'block';
+                    document.getElementById('successSection').style.opacity = '0';
+                    setTimeout(() => {
+                        document.getElementById('successSection').style.opacity = '1';
+                    }, 50);
+                }, 500);
+
+                // Here we would typically send to Firebase
+                // For now, it's a front-end success simulation as requested "dont interpet"
+            });
+        });
+    </script>
+</body>
+
+</html>
