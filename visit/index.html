@@ -19,9 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
     <style>
         :root {
             --primary: #ff6600; /* MakerWorks Orange */
@@ -169,19 +166,11 @@
             transition: all 0.4s;
             letter-spacing: 1px;
             text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-submit:disabled {
             background: #6c757d;
             cursor: not-allowed;
-        }
-
-        .btn-submit:hover:not(:disabled) {
-            background: #000;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         /* Benefit Cards */
@@ -217,10 +206,7 @@
             box-shadow: var(--shadow);
         }
 
-        .hero-img-container img {
-            width: 100%;
-            display: block;
-        }
+        .hero-img-container img { width: 100%; display: block; }
 
         .success-screen {
             display: none;
@@ -251,7 +237,6 @@
 
         @media (max-width: 991px) {
             .booking-card { padding: 30px; }
-            .slot-grid { grid-template-columns: repeat(2, 1fr); }
             h1 { font-size: 2.8rem; }
         }
     </style>
@@ -287,7 +272,7 @@
                         </div>
                     </div>
 
-                    <div class="hero-img-container mt-4" data-aos="zoom-in">
+                    <div class="hero-img-container mt-4">
                         <img src="images/hero-robot.png" alt="MakerWorks Lab">
                     </div>
                 </div>
@@ -299,26 +284,23 @@
                             <div class="d-flex justify-content-between align-items-start mb-5">
                                 <div>
                                     <h2 class="fw-800 mb-1">Visit Reservation</h2>
-                                    <p class="text-muted small mb-0">Fill in the details to secure your spot</p>
+                                    <p class="text-muted small mb-0">Secure your priority lab tour</p>
                                 </div>
                                 <div class="bg-primary text-white px-3 py-1 rounded-pill small fw-bold">Malad East Lab</div>
                             </div>
 
                             <form id="visitForm">
                                 <div class="row g-4">
-                                    <!-- Parent Name -->
                                     <div class="col-md-12">
                                         <label class="form-label"><i class="bi bi-person-fill"></i> Parent's Full Name</label>
                                         <input type="text" class="form-control" placeholder="e.g. Rahul Sharma" required name="parent_name" id="parentName">
                                     </div>
 
-                                    <!-- Student Name -->
                                     <div class="col-md-12">
                                         <label class="form-label"><i class="bi bi-person-workspace"></i> Student's Full Name</label>
                                         <input type="text" class="form-control" placeholder="e.g. Aryan Sharma" required name="student_name" id="studentName">
                                     </div>
 
-                                    <!-- Phone & Email -->
                                     <div class="col-md-6">
                                         <label class="form-label"><i class="bi bi-whatsapp"></i> WhatsApp Number</label>
                                         <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required name="phone" id="phone">
@@ -328,7 +310,6 @@
                                         <input type="email" class="form-control" placeholder="your@email.com" required name="email" id="email">
                                     </div>
 
-                                    <!-- Grade & Date -->
                                     <div class="col-md-6">
                                         <label class="form-label"><i class="bi bi-mortarboard-fill"></i> Student's Grade</label>
                                         <select class="form-select" required name="grade" id="grade">
@@ -344,7 +325,6 @@
                                         <input type="date" class="form-control" required name="date" id="visitDate">
                                     </div>
 
-                                    <!-- Timing Slots -->
                                     <div class="col-12">
                                         <label class="form-label"><i class="bi bi-clock-fill"></i> Preferred Timing</label>
                                         <div class="slot-grid">
@@ -362,7 +342,7 @@
                                     </div>
 
                                     <div class="col-12 text-center mt-3">
-                                        <p class="text-muted small">Your data is stored securely via Firebase protection.</p>
+                                        <p class="text-muted small">Realtime Database protection active.</p>
                                         <button type="submit" class="btn btn-submit" id="submitBtn">
                                             <span id="btnText">Confirm Reservation</span>
                                             <div class="loading-spinner" id="btnSpinner"></div>
@@ -374,11 +354,9 @@
 
                         <!-- Success Screen -->
                         <div id="successSection" class="success-screen">
-                            <div class="mb-4">
-                                <i class="bi bi-shield-check text-success display-1"></i>
-                            </div>
+                            <i class="bi bi-check-circle-fill text-success display-1 mb-4"></i>
                             <h2 class="fw-800 mb-3">Booking Confirmed!</h2>
-                            <p class="text-muted fs-5 mb-4">We've received your request. A confirmation email has been sent, and our mentor will reach out shortly.</p>
+                            <p class="text-muted fs-5 mb-4">Your details have been saved. Our team will contact you shortly to confirm your visit.</p>
                             
                             <div class="contact-info">
                                 <div class="mb-2"><i class="bi bi-telephone-outbound text-primary me-2"></i> +91 9137114223</div>
@@ -399,9 +377,8 @@
     <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+        import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyAC6cXNE3VHCY8UneIIMB7BTuIheW0RqpA",
             authDomain: "paymentgateway-fc2f0.firebaseapp.com",
@@ -413,26 +390,16 @@
             measurementId: "G-361ECBZ3F9"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+        const db = getDatabase(app);
 
-        // --- Initialization ---
         document.addEventListener('DOMContentLoaded', function() {
-            // [REQUIRED]: Paste your EmailJS Public Key here after signing up at emailjs.com
-            const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; 
-            if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
-                emailjs.init(EMAILJS_PUBLIC_KEY);
-            }
-
-            // Min date = today
             const dateInput = document.getElementById('visitDate');
             if(dateInput) {
                 const today = new Date().toISOString().split('T')[0];
                 dateInput.setAttribute('min', today);
             }
 
-            // Slot selection
             const slots = document.querySelectorAll('.slot-item');
             const slotInput = document.getElementById('selectedSlot');
             const customTimeInput = document.getElementById('customTime');
@@ -453,7 +420,6 @@
                 }
             });
 
-            // --- Form Submission ---
             const form = document.getElementById('visitForm');
             const submitBtn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
@@ -468,7 +434,6 @@
                     return;
                 }
 
-                // Loading State
                 submitBtn.disabled = true;
                 btnText.style.display = 'none';
                 btnSpinner.style.display = 'block';
@@ -482,28 +447,12 @@
                     date: document.getElementById('visitDate').value,
                     time_slot: finalTime,
                     timestamp: serverTimestamp(),
-                    status: 'pending'
+                    status: 'new_visit'
                 };
 
                 try {
-                    // 1. Save to Firebase
-                    await addDoc(collection(db, "lab_visits"), formData);
-
-                    // 2. Email Notification (via EmailJS)
-                    // Note: You need to set up templates on EmailJS for this to work.
-                    if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
-                        await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-                            to_name: formData.parent_name,
-                            to_email: formData.email,
-                            student_name: formData.student_name,
-                            visit_date: formData.date,
-                            visit_time: formData.time_slot,
-                            lab_phone: "+91 9137114223",
-                            lab_email: "makerworkslab@gmail.com"
-                        });
-                    }
-
-                    // 3. Success UI
+                    await push(ref(db, "lab_visits"), formData);
+                    
                     document.getElementById('formSection').style.transition = 'opacity 0.4s';
                     document.getElementById('formSection').style.opacity = '0';
                     setTimeout(() => {
@@ -512,8 +461,8 @@
                     }, 400);
 
                 } catch (error) {
-                    console.error("Submission failed:", error);
-                    alert("Submission failed. Please check your internet or Firebase permissions.");
+                    console.error("Database error:", error);
+                    alert("Submission failed. Ensure your Realtime Database rules allow public writes.");
                 } finally {
                     submitBtn.disabled = false;
                     btnText.style.display = 'inline';
