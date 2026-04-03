@@ -8,12 +8,19 @@
     
     <!-- Scripts & Components -->
     <script src="/components.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- Styles & Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <noscript>
+        <style>[data-aos] { opacity: 1 !important; transform: none !important; }</style>
+    </noscript>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
@@ -251,12 +258,12 @@
         <div class="container container-visit">
             <div class="row align-items-center g-5">
                 <!-- Content Column -->
-                <div class="col-lg-5" data-aos="fade-right">
-                    <span class="section-tag">Elite Access</span>
-                    <h1>Dive into <span class="text-primary">Real</span> Robotics</h1>
-                    <p class="text-muted fs-5 mb-5 fw-500">Step inside the lab where ideas become machines. Book your personal tour of our Malad East engineering hub.</p>
+                <div class="col-lg-5">
+                    <span class="section-tag" data-aos="fade-up">Elite Access</span>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Dive into <span class="text-primary">Real</span> Robotics</h1>
+                    <p class="text-muted fs-5 mb-5 fw-500" data-aos="fade-up" data-aos-delay="200">Step inside the lab where ideas become machines. Book your personal tour of our Malad East engineering hub.</p>
                     
-                    <div class="benefit-card">
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="benefit-icon"><i class="bi bi-cpu"></i></div>
                         <div>
                             <h5 class="fw-800 mb-1">Tech Deep Dive</h5>
@@ -278,8 +285,8 @@
                 </div>
 
                 <!-- Form Column -->
-                <div class="col-lg-7" data-aos="fade-left">
-                    <div class="booking-card">
+                <div class="col-lg-7">
+                    <div class="booking-card" data-aos="fade-up" data-aos-delay="500">
                         <div id="formSection">
                             <div class="d-flex justify-content-between align-items-start mb-5">
                                 <div>
@@ -471,18 +478,35 @@
             });
         });
     </script>
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 1000,
-                    once: true,
-                    offset: 100
+            // Function to initialize AOS
+            const runAOS = () => {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        offset: 100
+                    });
+                }
+            };
+            
+            // Try to initialize multiple times to catch any delays
+            runAOS();
+            setTimeout(runAOS, 500);
+            setTimeout(runAOS, 1500);
+
+            // Safety fallback: if everything is still hidden after 2s, force show
+            setTimeout(() => {
+                const hiddenElements = document.querySelectorAll('[data-aos]');
+                hiddenElements.forEach(el => {
+                    const style = window.getComputedStyle(el);
+                    if (style.opacity === "0" || style.visibility === "hidden") {
+                        el.style.opacity = "1";
+                        el.style.transform = "none";
+                    }
                 });
-            }
+            }, 2500);
         });
     </script>
 </body>
