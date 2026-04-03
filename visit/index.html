@@ -464,21 +464,29 @@
                     // 1. Save to Firebase (Realtime Database)
                     await push(ref(db, "lab_visits"), formData);
 
-                    // 2. Email Notification (via EmailJS)
-                    // Updated with your template_4cus82e and mapped to your template fields
+                    // 2. Email Notifications (via EmailJS)
                     const EMAILJS_SERVICE_ID = "service_atizuna";
-                    const EMAILJS_TEMPLATE_ID = "template_4cus82e";
                     const EMAILJS_PUBLIC_KEY = "GFxAVPzBfXX4d-vQR";
+                    
+                    const ADMIN_TEMPLATE_ID = "template_4cus82e";
+                    const PARENT_TEMPLATE_ID = "template_jw45yv6";
 
                     if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
                         emailjs.init(EMAILJS_PUBLIC_KEY);
-                        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                        
+                        const templateParams = {
                             title: "New Lab Visit Request!",
                             name: formData.parent_name,
                             email: formData.email,
                             time: `${formData.date} at ${formData.time_slot}`,
                             message: `Student Name: ${formData.student_name}\nPhone: ${formData.phone}\nGrade: ${formData.grade}`
-                        });
+                        };
+
+                        // Send to Admin
+                        await emailjs.send(EMAILJS_SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams);
+                        
+                        // Send Confirmation to Parent
+                        await emailjs.send(EMAILJS_SERVICE_ID, PARENT_TEMPLATE_ID, templateParams);
                     }
 
                     // 3. Success UI
