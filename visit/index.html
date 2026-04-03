@@ -31,297 +31,381 @@
 
     <style>
         :root {
-            --primary: #ff6600; /* MakerWorks Orange */
-            --secondary: #0d6efd; /* Tech Blue */
-            --dark: #1d1d1f;
+            --primary: #0d6efd;
+            --primary-dark: #0a58ca;
+            --secondary: #6610f2;
+            --accent: #d63384;
+            --dark: #0f172a;
             --light: #ffffff;
-            --glass: rgba(255, 255, 255, 0.75);
-            --border: rgba(255, 255, 255, 0.4);
-            --shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --card-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.08);
+            --inner-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #fbfbfd;
+            background: #f8fafc;
             color: var(--dark);
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 90px;
+        }
+
+        /* Animated Background Glows */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(13, 110, 253, 0.05) 0%, rgba(13, 110, 253, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+            animation: pulse 15s infinite alternate;
+        }
+
+        .bg-glow-1 { top: -10%; right: -10%; }
+        .bg-glow-2 { bottom: -10%; left: -10%; background: radial-gradient(circle, rgba(102, 16, 242, 0.04) 0%, rgba(102, 16, 242, 0) 70%); }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(50px, 50px); }
         }
 
         /* Hero Section */
         .visit-hero {
             position: relative;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(to bottom, #fff, #f8f9fa);
-            padding: 60px 0;
-            overflow: hidden;
+            padding: 40px 0 100px;
+            min-height: calc(100vh - 90px);
         }
 
-        .hero-bg-accent {
-            position: absolute;
-            top: -10%;
-            right: -5%;
-            width: 50%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(255, 102, 0, 0.05) 0%, rgba(13, 110, 253, 0.03) 100%);
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-        }
-
-        .booking-card {
-            background: var(--glass);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border: 1px solid var(--border);
-            border-radius: 40px;
-            padding: 45px;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 2;
+        .section-tag {
+            display: inline-block;
+            background: rgba(13, 110, 253, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(13, 110, 253, 0.2);
         }
 
         h1 {
             font-family: 'Bricolage Grotesque', sans-serif;
-            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
             font-weight: 800;
-            line-height: 0.95;
-            letter-spacing: -3px;
-            margin-bottom: 2rem;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 24px;
             color: var(--dark);
         }
 
-        .section-tag {
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-weight: 800;
-            font-size: 0.75rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            display: block;
+        .hero-desc {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #475569;
+            max-width: 500px;
+            margin-bottom: 48px;
         }
 
-        /* Form Styling */
-        .form-label {
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: #4b5563;
-            margin-bottom: 12px;
+        /* Benefit Cards */
+        .benefit-card {
+            background: var(--light);
+            padding: 24px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0,0,0,0.04);
             display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .benefit-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: rgba(13, 110, 253, 0.1);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            border: 1px solid rgba(13, 110, 253, 0.1);
+        }
+
+        /* Booking Card - Ultra Glass */
+        .booking-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid var(--glass-border);
+            border-radius: 48px;
+            padding: 50px;
+            box-shadow: var(--card-shadow), var(--inner-shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-header-badge {
+            background: var(--dark);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
         }
 
+        /* Form Controls */
+        .form-label {
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+            display: block;
+        }
+
         .form-control, .form-select {
-            padding: 16px 24px;
-            border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.06);
-            background: rgba(255,255,255,0.9);
+            padding: 14px 20px;
+            border-radius: 16px;
+            border: 1.5px solid rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.8);
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--dark);
         }
 
         .form-control:focus {
             border-color: var(--primary);
             background: #fff;
-            box-shadow: 0 0 0 5px rgba(255, 102, 0, 0.1);
+            box-shadow: 0 0 0 5px rgba(13, 110, 253, 0.1);
+            outline: none;
         }
 
-        /* Slot Buttons */
+        /* Slot Selection Improvements */
         .slot-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
         }
 
         .slot-item {
-            padding: 14px;
-            border-radius: 18px;
-            border: 2px solid #edeff2;
+            padding: 14px 10px;
+            border-radius: 14px;
+            border: 1.5px solid rgba(0,0,0,0.05);
             text-align: center;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s;
             background: #fff;
+            color: #64748b;
         }
 
-        .slot-item:hover {
+        .slot-item:hover:not(.active) {
+            background: rgba(13, 110, 253, 0.04);
             border-color: var(--primary);
             color: var(--primary);
-            background: rgba(255, 102, 0, 0.05);
         }
 
         .slot-item.active {
             background: var(--primary);
             border-color: var(--primary);
             color: #fff;
-            box-shadow: 0 12px 24px rgba(255, 102, 0, 0.25);
+            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
         }
 
+        /* Premium Submit Button */
         .btn-submit {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
             color: #fff;
-            padding: 20px;
+            padding: 18px 30px;
             border-radius: 100px;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1rem;
             width: 100%;
             border: none;
-            margin-top: 35px;
-            transition: all 0.4s;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .btn-submit:disabled {
-            background: #6c757d;
-            cursor: not-allowed;
-        }
-
-        /* Benefit Cards */
-        .benefit-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 28px;
-            margin-bottom: 25px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.03);
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 102, 0, 0.08);
-            border-radius: 22px;
+            margin-top: 30px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: var(--primary);
-            flex-shrink: 0;
+            gap: 12px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            transform: translateY(-3px);
+            background: #000;
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.25);
+        }
+
+        /* Success Screen */
+        .success-screen {
+            display: none;
+            text-align: center;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: #f0fdf4;
+            color: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 30px;
+            border: 2px solid #dcfce7;
         }
 
         .hero-img-container {
             position: relative;
-            border-radius: 40px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .hero-img-container img { width: 100%; display: block; }
-
-        .success-screen {
-            display: none;
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .contact-info {
+            z-index: 1;
             padding: 20px;
-            background: #f8f9fa;
-            border-radius: 20px;
-            margin: 30px 0;
-            font-weight: 600;
+        }
+
+        .hero-img-inner {
+            position: relative;
+            border-radius: 48px;
+            overflow: hidden;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.15);
+            background: #fff;
+            padding: 10px;
+        }
+
+        .hero-img-inner img {
+            width: 100%;
+            border-radius: 40px;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-img-inner:hover img {
+            transform: scale(1.05);
         }
 
         .loading-spinner {
             display: none;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border: 3px solid rgba(255,255,255,.3);
             border-radius: 50%;
             border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-            margin: 0 auto;
+            animation: spin 0.8s linear infinite;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
         @media (max-width: 991px) {
-            .booking-card { padding: 30px; }
-            h1 { font-size: 2.8rem; }
+            .booking-card { padding: 30px; border-radius: 32px; }
+            h1 { font-size: 3rem; }
+            .visit-hero { padding-bottom: 60px; }
         }
     </style>
 </head>
 
 <body>
+    <!-- Background Decor -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
     <main class="visit-hero">
-        <div class="hero-bg-accent"></div>
-        <div class="container container-visit">
+        <div class="container">
             <div class="row align-items-center g-5">
                 <!-- Content Column -->
                 <div class="col-lg-5">
-                    <span class="section-tag" data-aos="fade-up">Elite Access</span>
-                    <h1 data-aos="fade-up" data-aos-delay="100">Dive into <span class="text-primary">Real</span> Robotics</h1>
-                    <p class="text-muted fs-5 mb-5 fw-500" data-aos="fade-up" data-aos-delay="200">Step inside the lab where ideas become machines. Book your personal tour of our Malad East engineering hub.</p>
+                    <span class="section-tag" data-aos="fade-down">Future-Ready Lab</span>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Step Into the <span class="text-primary">Lab</span></h1>
+                    <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
+                        Discover the center where young innovators build the world of tomorrow. Experience real hardware, coding projects, and world-class mentorship.
+                    </p>
                     
                     <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="benefit-icon"><i class="bi bi-cpu"></i></div>
                         <div>
-                            <h5 class="fw-800 mb-1">Tech Deep Dive</h5>
-                            <p class="text-muted mb-0 small">Explore our advanced Arduino & AI curriculum.</p>
+                            <h5 class="fw-800 mb-1">Industry Standard</h5>
+                            <p class="text-muted mb-0 small">Advanced kits including Raspberry Pi, VEX, & LEGO.</p>
                         </div>
                     </div>
                     
-                    <div class="benefit-card">
-                        <div class="benefit-icon"><i class="bi bi-robot"></i></div>
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="benefit-icon"><i class="bi bi-rocket-takeoff"></i></div>
                         <div>
-                            <h5 class="fw-800 mb-1">Meet the Bots</h5>
-                            <p class="text-muted mb-0 small">See student-built humanoid or drones in action.</p>
+                            <h5 class="fw-800 mb-1">Project Driven</h5>
+                            <p class="text-muted mb-0 small">Interactive sessions focusing on AI and Automation.</p>
                         </div>
                     </div>
 
-                    <div class="hero-img-container mt-4">
-                        <img src="/images/hero-robot.png" alt="MakerWorks Lab">
+                    <div class="hero-img-container mt-5" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="hero-img-inner">
+                            <img src="/images/hero-robot.png" alt="MakerWorks Lab Tour">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Form Column -->
                 <div class="col-lg-7">
-                    <div class="booking-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="booking-card" data-aos="fade-left" data-aos-delay="200">
                         <div id="formSection">
-                            <div class="d-flex justify-content-between align-items-start mb-5">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-5 gap-3">
                                 <div>
-                                    <h2 class="fw-800 mb-1">Visit Reservation</h2>
-                                    <p class="text-muted small mb-0">Secure your priority lab tour</p>
+                                    <h2 class="fw-800 mb-1">Reserve Your Visit</h2>
+                                    <p class="text-muted small mb-0">Tour our Malad East facility in person</p>
                                 </div>
-                                <div class="bg-primary text-white px-3 py-1 rounded-pill small fw-bold">Malad East Lab</div>
+                                <div class="card-header-badge">
+                                    <i class="bi bi-geo-alt-fill"></i> Malad East Hub
+                                </div>
                             </div>
 
                             <form id="visitForm">
                                 <div class="row g-4">
-                                    <div class="col-md-12">
-                                        <label class="form-label"><i class="bi bi-person-fill"></i> Parent's Full Name</label>
-                                        <input type="text" class="form-control" placeholder="e.g. Rahul Sharma" required name="parent_name" id="parentName">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Parent's Full Name</label>
+                                        <input type="text" class="form-control" placeholder="e.g. Samir Khan" required name="parent_name" id="parentName">
                                     </div>
-
-                                    <div class="col-md-12">
-                                        <label class="form-label"><i class="bi bi-person-workspace"></i> Student's Full Name</label>
-                                        <input type="text" class="form-control" placeholder="e.g. Aryan Sharma" required name="student_name" id="studentName">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Student's Full Name</label>
+                                        <input type="text" class="form-control" placeholder="e.g. Zaid Khan" required name="student_name" id="studentName">
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label class="form-label"><i class="bi bi-whatsapp"></i> WhatsApp Number</label>
+                                        <label class="form-label">WhatsApp Number</label>
                                         <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required name="phone" id="phone">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label"><i class="bi bi-envelope-fill"></i> Email Address</label>
-                                        <input type="email" class="form-control" placeholder="your@email.com" required name="email" id="email">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" placeholder="hello@example.com" required name="email" id="email">
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label class="form-label"><i class="bi bi-mortarboard-fill"></i> Student's Grade</label>
+                                        <label class="form-label">School Grade</label>
                                         <select class="form-select" required name="grade" id="grade">
                                             <option value="" selected disabled>Select Grade</option>
                                             <option>Grade 3 - 5</option>
@@ -331,12 +415,12 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label"><i class="bi bi-calendar3"></i> Preferred Date</label>
+                                        <label class="form-label">Date of Visit</label>
                                         <input type="date" class="form-control" required name="date" id="visitDate">
                                     </div>
 
                                     <div class="col-12">
-                                        <label class="form-label"><i class="bi bi-clock-fill"></i> Preferred Timing</label>
+                                        <label class="form-label">Timing Slot</label>
                                         <div class="slot-grid">
                                             <div class="slot-item" data-time="11:00 AM">11:00 AM</div>
                                             <div class="slot-item" data-time="12:30 PM">12:30 PM</div>
@@ -346,17 +430,17 @@
                                             <div class="slot-item" data-time="07:00 PM">07:00 PM</div>
                                         </div>
                                         <div class="mt-3">
-                                            <input type="text" class="form-control" placeholder="Or enter custom time (e.g. 3:15 PM)" id="customTime">
+                                            <input type="text" class="form-control" placeholder="Other custom time..." id="customTime">
                                         </div>
                                         <input type="hidden" name="time_slot" id="selectedSlot">
                                     </div>
 
-                                    <div class="col-12 text-center mt-3">
-                                        <p class="text-muted small">Realtime Database protection active.</p>
+                                    <div class="col-12 text-center mt-2">
                                         <button type="submit" class="btn btn-submit" id="submitBtn">
-                                            <span id="btnText">Confirm Reservation</span>
+                                            <span id="btnText">Confirm Your Reservation</span>
                                             <div class="loading-spinner" id="btnSpinner"></div>
                                         </button>
+                                        <p class="text-muted mt-4 small fw-600"><i class="bi bi-shield-check"></i> Securely managed via Firebase Cloud</p>
                                     </div>
                                 </div>
                             </form>
@@ -364,16 +448,18 @@
 
                         <!-- Success Screen -->
                         <div id="successSection" class="success-screen">
-                            <i class="bi bi-check-circle-fill text-success display-1 mb-4"></i>
-                            <h2 class="fw-800 mb-3">Booking Confirmed!</h2>
-                            <p class="text-muted fs-5 mb-4">Your details have been saved. Our team will contact you shortly to confirm your visit.</p>
+                            <div class="success-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <h2 class="fw-800 mb-3">Booking Confirmed</h2>
+                            <p class="text-muted fs-5 mb-5 px-lg-5">Your reservation details have been saved. A mentor from MakerWorks will reach out to confirm the logistics.</p>
                             
-                            <div class="contact-info">
-                                <div class="mb-2"><i class="bi bi-telephone-outbound text-primary me-2"></i> +91 9137114223</div>
-                                <div><i class="bi bi-envelope text-primary me-2"></i> makerworkslab@gmail.com</div>
+                            <div class="bg-white border rounded-4 p-4 mb-5 text-start shadow-sm">
+                                <div class="mb-2"><i class="bi bi-telephone-outbound-fill text-primary me-2"></i> Support: +91 91371 14223</div>
+                                <div><i class="bi bi-envelope-open-fill text-primary me-2"></i> email: makerworkslab@gmail.com</div>
                             </div>
 
-                            <a href="/" class="btn btn-outline-dark rounded-pill px-5 py-3 fw-bold">Back to Homepage</a>
+                            <a href="/" class="btn btn-dark rounded-pill px-5 py-3 fw-800 shadow-lg">Return to Home</a>
                         </div>
                     </div>
                 </div>
