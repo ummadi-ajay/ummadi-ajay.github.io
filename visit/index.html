@@ -465,21 +465,19 @@
                     await push(ref(db, "lab_visits"), formData);
 
                     // 2. Email Notification (via EmailJS)
-                    // Update these from your EmailJS Dashboard
+                    // Updated with your template_4cus82e and mapped to your template fields
                     const EMAILJS_SERVICE_ID = "service_atizuna";
-                    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+                    const EMAILJS_TEMPLATE_ID = "template_4cus82e";
                     const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
                     if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
                         emailjs.init(EMAILJS_PUBLIC_KEY);
                         await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                            parent_name: formData.parent_name,
-                            student_name: formData.student_name,
-                            phone: formData.phone,
+                            title: "New Lab Visit Request!",
+                            name: formData.parent_name,
                             email: formData.email,
-                            visit_date: formData.date,
-                            visit_time: formData.time_slot,
-                            grade: formData.grade
+                            time: `${formData.date} at ${formData.time_slot}`,
+                            message: `Student Name: ${formData.student_name}\nPhone: ${formData.phone}\nGrade: ${formData.grade}`
                         });
                     }
 
