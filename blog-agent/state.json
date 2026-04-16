@@ -1,12 +1,13 @@
 {
-  "last_topic_index": 5,
+  "last_topic_index": 6,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
     "autonomous-vehicles-driving-the-future-of-robotics-ai",
-    "ai-powered-drones-the-future-is-flying-high"
+    "ai-powered-drones-the-future-is-flying-high",
+    "cobots-your-future-teammate-in-the-world-of-robotics-stem"
   ],
-  "last_run": "2026-04-06T06:15:14.534312",
+  "last_run": "2026-04-16T06:18:55.829664",
   "recent_posts": [
     {
       "slug": "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
@@ -35,6 +36,13 @@
       "badge": "Drones",
       "badge_color": "linear-gradient(135deg, #fd7e14, #ffc107)",
       "short_description": "Discover AI-powered drones: how they work, their incredible applications in India, and how MakerWorks can launch your journey into aerial robotics."
+    },
+    {
+      "slug": "cobots-your-future-teammate-in-the-world-of-robotics-stem",
+      "title": "Cobots: Your Future Teammate in the World of Robotics & STEM",
+      "badge": "Industrial",
+      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
+      "short_description": "Explore the exciting world of cobots! Learn how these safe, easy-to-use robots work alongside humans, transforming industries in India."
     }
   ]
 }
