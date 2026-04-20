@@ -1,21 +1,15 @@
 {
-  "last_topic_index": 6,
+  "last_topic_index": 7,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
     "autonomous-vehicles-driving-the-future-of-robotics-ai",
     "ai-powered-drones-the-future-is-flying-high",
-    "cobots-your-future-teammate-in-the-world-of-robotics-stem"
+    "cobots-your-future-teammate-in-the-world-of-robotics-stem",
+    "industrial-robotics-automation-powering-modern-manufacturing"
   ],
-  "last_run": "2026-04-16T06:18:55.829664",
+  "last_run": "2026-04-20T06:31:22.668611",
   "recent_posts": [
-    {
-      "slug": "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
-      "title": "Computer Vision for Robotics: Giving Robots the Gift of Sight",
-      "badge": "AI & Robotics",
-      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
-      "short_description": "Discover how computer vision gives robots 'eyes' to see and understand their world. Learn basics, applications, and start coding with OpenCV."
-    },
     {
       "slug": "humanoid-robots-ai-the-future-walking-among-us",
       "title": "Humanoid Robots & AI: The Future Walking Among Us",
@@ -43,6 +37,13 @@
       "badge": "Industrial",
       "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
       "short_description": "Explore the exciting world of cobots! Learn how these safe, easy-to-use robots work alongside humans, transforming industries in India."
+    },
+    {
+      "slug": "industrial-robotics-automation-powering-modern-manufacturing",
+      "title": "Industrial Robotics & Automation: Powering Modern Manufacturing in India",
+      "badge": "Industrial",
+      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
+      "short_description": "Discover industrial robots and automation's role in modern manufacturing, their types, applications, and impact on India's future."
     }
   ]
 }
