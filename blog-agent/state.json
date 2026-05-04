@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 10,
+  "last_topic_index": 11,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -9,17 +9,11 @@
     "industrial-robotics-automation-powering-modern-manufacturing",
     "robots-in-scrubs-how-ai-and-automation-are-healing-india",
     "space-robotics-your-robotic-journey-to-the-stars",
-    "swarm-robotics-the-power-of-many-little-robots-working-toget"
+    "swarm-robotics-the-power-of-many-little-robots-working-toget",
+    "unleash-the-flex-dive-into-the-world-of-soft-robotics-with-m"
   ],
-  "last_run": "2026-04-30T07:08:53.487970",
+  "last_run": "2026-05-04T07:32:12.957371",
   "recent_posts": [
-    {
-      "slug": "cobots-your-future-teammate-in-the-world-of-robotics-stem",
-      "title": "Cobots: Your Future Teammate in the World of Robotics & STEM",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Explore the exciting world of cobots! Learn how these safe, easy-to-use robots work alongside humans, transforming industries in India."
-    },
     {
       "slug": "industrial-robotics-automation-powering-modern-manufacturing",
       "title": "Industrial Robotics & Automation: Powering Modern Manufacturing in India",
@@ -47,6 +41,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": "Discover swarm robotics: how many simple robots collaborate to achieve complex tasks, inspired by nature's collective intelligence."
+    },
+    {
+      "slug": "unleash-the-flex-dive-into-the-world-of-soft-robotics-with-m",
+      "title": "Unleash the Flex: Dive into the World of Soft Robotics with MakerWorks",
+      "badge": "Research",
+      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
+      "short_description": "Discover soft robotics: flexible, bio-inspired robots made from silicone and air. Learn how they work and their applications."
     }
   ]
 }
