@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 11,
+  "last_topic_index": 12,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -10,17 +10,11 @@
     "robots-in-scrubs-how-ai-and-automation-are-healing-india",
     "space-robotics-your-robotic-journey-to-the-stars",
     "swarm-robotics-the-power-of-many-little-robots-working-toget",
-    "unleash-the-flex-dive-into-the-world-of-soft-robotics-with-m"
+    "unleash-the-flex-dive-into-the-world-of-soft-robotics-with-m",
+    "agricultural-robots-smart-farming-for-indias-future-makerwor"
   ],
-  "last_run": "2026-05-04T07:32:12.957371",
+  "last_run": "2026-05-07T07:24:01.665863",
   "recent_posts": [
-    {
-      "slug": "industrial-robotics-automation-powering-modern-manufacturing",
-      "title": "Industrial Robotics & Automation: Powering Modern Manufacturing in India",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Discover industrial robots and automation's role in modern manufacturing, their types, applications, and impact on India's future."
-    },
     {
       "slug": "robots-in-scrubs-how-ai-and-automation-are-healing-india",
       "title": "Robots in Scrubs: How AI and Automation are Healing India",
@@ -48,6 +42,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": "Discover soft robotics: flexible, bio-inspired robots made from silicone and air. Learn how they work and their applications."
+    },
+    {
+      "slug": "agricultural-robots-smart-farming-for-indias-future-makerwor",
+      "title": "Agricultural Robots: Smart Farming for India's Future | MakerWorks",
+      "badge": "Agriculture",
+      "badge_color": "linear-gradient(135deg, #198754, #adb5bd)",
+      "short_description": "Discover how robots are transforming agriculture in India, from precision planting to drone farming. Learn about the future of smart farming."
     }
   ]
 }
