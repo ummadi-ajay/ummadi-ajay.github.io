@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakerWorks - Portfolio Building Program | Robotics, AI & Engineering Projects</title>
+
+  <meta name="title" content="MakerWorks - Portfolio Building Program | Robotics, AI & Engineering Projects">
+  <meta name="description"
+    content="A focused MakerWorks program for Grade 9 and above. Build a serious engineering portfolio through robotics, AI, electronics, CAD, competitions, documentation, and capstone projects.">
+  <meta name="keywords"
+    content="Portfolio Building Program, robotics portfolio, engineering portfolio for students, robotics classes Mumbai, AI projects for teens, MakerWorks portfolio program">
+  <link rel="canonical" href="https://makerworkslab.in/programs/portfolio/">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makerworkslab.in/programs/portfolio/">
+  <meta property="og:title" content="MakerWorks Portfolio Building Program">
+  <meta property="og:description"
+    content="For Grade 9 and above: turn skill into visible proof with competition-ready projects, public documentation, and a strong engineering portfolio.">
+  <meta property="og:image" content="https://makerworkslab.in/competetions/wro/images/winners.webp">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://makerworkslab.in/programs/portfolio/">
+  <meta property="twitter:title" content="MakerWorks Portfolio Building Program">
+  <meta property="twitter:description"
+    content="A high-school engineering track for Grade 9 and above: robotics, AI, CAD, electronics, documentation, and capstone outcomes.">
+  <meta property="twitter:image" content="https://makerworkslab.in/competetions/wro/images/winners.webp">
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/components.js" defer></script>
+
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #5b6472;
+      --line: #e5e7eb;
+      --blue: #2563eb;
+      --orange: #f97316;
+      --green: #059669;
+      --violet: #7c3aed;
+      --paper: #ffffff;
+      --soft: #f8fafc;
+      --radius: 18px;
+      --radius-lg: 28px;
+      --shadow: 0 24px 70px -36px rgba(15, 23, 42, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      letter-spacing: 0;
+    }
+
+    .portfolio-hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: end;
+      position: relative;
+      padding: 150px 0 72px;
+      color: #fff;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(9, 15, 30, 0.92) 0%, rgba(9, 15, 30, 0.74) 42%, rgba(9, 15, 30, 0.28) 100%),
+        url('/competetions/wro/images/winners.webp') center center / cover no-repeat;
+    }
+
+    .portfolio-hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 120px;
+      background: linear-gradient(180deg, transparent, #fff);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #dbeafe;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow i {
+      color: #fbbf24;
+    }
+
+    .portfolio-hero h1 {
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.95;
+      font-weight: 800;
+      margin-bottom: 24px;
+      max-width: 780px;
+    }
+
+    .portfolio-hero p {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary-soft,
+    .btn-outline-light-clean {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 0 22px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-primary-soft {
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 18px 40px -20px rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-outline-light-clean {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-primary-soft:hover,
+    .btn-outline-light-clean:hover {
+      transform: translateY(-2px);
+      color: inherit;
+    }
+
+    .hero-proof {
+      position: relative;
+      z-index: 3;
+      margin-top: -38px;
+    }
+
+    .proof-row {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .proof-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--soft);
+    }
+
+    .proof-item strong {
+      display: block;
+      font-size: 1.65rem;
+      line-height: 1;
+      color: var(--blue);
+      margin-bottom: 8px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .section-pad {
+      padding: 92px 0;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.02;
+      max-width: 780px;
+      margin-bottom: 16px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.8;
+      max-width: 760px;
+    }
+
+    .outcome-card,
+    .track-card,
+    .mentor-card {
+      height: 100%;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 16px 55px -42px rgba(15, 23, 42, 0.55);
+    }
+
+    .icon-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 1.35rem;
+    }
+
+    .outcome-card h3,
+    .track-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .outcome-card p,
+    .track-card p,
+    .mentor-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .band {
+      background: linear-gradient(180deg, #f8fafc 0%, #fff7ed 100%);
+    }
+
+    .process-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .step-number {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 900;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .process-step h3 {
+      font-size: 1.2rem;
+      margin: 0 0 8px;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .image-stack {
+      display: grid;
+      grid-template-columns: 1fr 0.74fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .image-stack img {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .image-stack .stack-small {
+      display: grid;
+      gap: 16px;
+    }
+
+    .track-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .track-card li {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+    }
+
+    .track-card li i {
+      color: var(--green);
+      margin-top: 4px;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr 1fr;
+      gap: 16px;
+    }
+
+    .showcase-grid img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .showcase-grid img:nth-child(1) {
+      height: 596px;
+      grid-row: span 2;
+    }
+
+    .showcase-grid img:nth-child(4) {
+      grid-column: span 2;
+    }
+
+    .mentor-card {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .mentor-card img {
+      width: 86px;
+      height: 86px;
+      object-fit: cover;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    .mentor-card h3 {
+      font-size: 1.2rem;
+      margin: 0 0 4px;
+    }
+
+    .mentor-card small {
+      display: block;
+      color: var(--blue);
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      font-size: 0.72rem;
+    }
+
+    .pricing-band {
+      background: #0f172a;
+      color: #fff;
+      padding: 88px 0;
+    }
+
+    .pricing-panel {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .price {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 1;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      margin: 18px 0 8px;
+    }
+
+    .pricing-panel p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .fee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .fee-grid div {
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 18px;
+    }
+
+    .fee-grid strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+      padding: 26px 0;
+    }
+
+    .faq-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    @media (max-width: 991px) {
+      .portfolio-hero {
+        min-height: 86vh;
+        padding: 130px 0 70px;
+        background-position: center;
+      }
+
+      .proof-row,
+      .fee-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .image-stack,
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-grid img,
+      .showcase-grid img:nth-child(1),
+      .showcase-grid img:nth-child(4) {
+        height: 280px;
+        grid-row: auto;
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .portfolio-hero h1 {
+        font-size: 3.2rem;
+      }
+
+      .proof-row,
+      .fee-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-step {
+        grid-template-columns: 1fr;
+      }
+
+      .mentor-card {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <section class="portfolio-hero">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <div class="eyebrow"><i class="bi bi-stars"></i> Grade 9 and above</div>
+        <h1>Portfolio Building Program</h1>
+        <p>
+          A serious engineering track for students ready to turn robotics, AI, CAD, electronics, and competition work
+          into visible proof: build logs, polished demos, technical documentation, and a capstone portfolio.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary-soft" href="/payment_integration/">
+            Join the Program <i class="bi bi-arrow-right"></i>
+          </a>
+          <a class="btn-outline-light-clean" href="#outcomes">
+            See Outcomes <i class="bi bi-compass"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero-proof">
+    <div class="container">
+      <div class="proof-row" data-aos="fade-up">
+        <div class="proof-item">
+          <strong>9+</strong>
+          <span>Recommended grade</span>
+        </div>
+        <div class="proof-item">
+          <strong>1:1</strong>
+          <span>Mentored project roadmap</span>
+        </div>
+        <div class="proof-item">
+          <strong>4</strong>
+          <span>Portfolio-ready deliverable types</span>
+        </div>
+        <div class="proof-item">
+          <strong>Rs.24,999</strong>
+          <span>Monthly fee, GST extra</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="outcomes">
+    <div class="container">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="section-title">Built for students who need more than classes.</h2>
+          <p class="section-copy">
+            The goal is not just to learn tools. The goal is to create durable evidence of thinking, building,
+            iteration, and communication that can be shown in school applications, competitions, internships, and
+            interviews.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-3" data-aos="fade-up">
+          <div class="outcome-card">
+            <div class="icon-badge" style="background: var(--blue);"><i class="bi bi-folder2-open"></i></div>
+            <h3>Project Portfolio</h3>
+            <p>Structured project pages with problem statement, design choices, iterations, photos, code, and results.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="80">
+          <div class="outcome-card">
+            <div class="icon-badge" style="background: var(--orange);"><i class="bi bi-camera-video"></i></div>
+            <h3>Demo-Ready Builds</h3>
+            <p>Working prototypes that can be presented clearly to teachers, judges, peers, and interview panels.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="160">
+          <div class="outcome-card">
+            <div class="icon-badge" style="background: var(--green);"><i class="bi bi-journal-check"></i></div>
+            <h3>Technical Writing</h3>
+            <p>Build logs, diagrams, bills of material, design notes, and explanations that show engineering maturity.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="240">
+          <div class="outcome-card">
+            <div class="icon-badge" style="background: var(--violet);"><i class="bi bi-trophy"></i></div>
+            <h3>Competition Prep</h3>
+            <p>Support for WRO, VEX IQ, Coolest Projects, hackathons, and school innovation showcases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad band">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="section-title">A studio workflow, not a worksheet.</h2>
+          <p class="section-copy">
+            Students work like junior engineers: define a problem, choose a technical path, build, debug, document,
+            present, and refine. Each cycle produces something useful for the portfolio.
+          </p>
+          <div class="process-list mt-4">
+            <div class="process-step">
+              <div class="step-number">01</div>
+              <div>
+                <h3>Portfolio Audit</h3>
+                <p>We map the student's current skills, interests, grade goals, prior projects, and competition plans.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">02</div>
+              <div>
+                <h3>Technical Sprint</h3>
+                <p>Students build in focused cycles across robotics, electronics, CAD, coding, AI, or product design.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">03</div>
+              <div>
+                <h3>Documentation Lab</h3>
+                <p>Every build becomes a clean project story with photos, diagrams, decisions, code, and outcomes.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-number">04</div>
+              <div>
+                <h3>Presentation Polish</h3>
+                <p>Students learn to explain their work clearly through demos, posters, slides, and portfolio pages.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="image-stack">
+            <img src="/gallery/galleryphotos/avyukt%20buiding%20%20hackathon%20robot.webp" alt="Student building a hackathon robot">
+            <div class="stack-small">
+              <img src="/gallery/galleryphotos/kimaya%20showing%20her%203d%20print.webp" alt="Student showing a 3D print">
+              <img src="/competetions/vex/images/winners.webp" alt="MakerWorks VEX team with robot">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="section-title">Choose a capstone direction.</h2>
+          <p class="section-copy">
+            The portfolio track is personalized, but every student works toward a clear technical theme that can produce
+            depth instead of scattered one-off projects.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4" data-aos="fade-up">
+          <div class="track-card">
+            <div class="icon-badge" style="background: var(--blue);"><i class="bi bi-robot"></i></div>
+            <h3>Competition Robotics</h3>
+            <p>Build and tune robots for real challenge constraints.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Drive systems and mechanisms</li>
+              <li><i class="bi bi-check-circle-fill"></i> Sensor-based decision making</li>
+              <li><i class="bi bi-check-circle-fill"></i> Testing and iteration logs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="track-card">
+            <div class="icon-badge" style="background: var(--green);"><i class="bi bi-cpu"></i></div>
+            <h3>AI and Vision</h3>
+            <p>Use code and cameras to build smarter machines.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Computer vision pipelines</li>
+              <li><i class="bi bi-check-circle-fill"></i> Object detection prototypes</li>
+              <li><i class="bi bi-check-circle-fill"></i> AI-assisted automation demos</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="track-card">
+            <div class="icon-badge" style="background: var(--orange);"><i class="bi bi-box-seam"></i></div>
+            <h3>Product Prototyping</h3>
+            <p>Turn ideas into physical devices with a clear user problem.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> CAD and 3D printed parts</li>
+              <li><i class="bi bi-check-circle-fill"></i> Embedded electronics</li>
+              <li><i class="bi bi-check-circle-fill"></i> User testing and refinement</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4" data-aos="fade-up">
+          <div class="track-card">
+            <div class="icon-badge" style="background: var(--violet);"><i class="bi bi-cloud-lightning"></i></div>
+            <h3>IoT and Automation</h3>
+            <p>Create connected devices that sense, decide, and respond.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Sensors and dashboards</li>
+              <li><i class="bi bi-check-circle-fill"></i> Home or school automation</li>
+              <li><i class="bi bi-check-circle-fill"></i> Reliability testing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="track-card">
+            <div class="icon-badge" style="background: #0ea5e9;"><i class="bi bi-tools"></i></div>
+            <h3>Mechanical Design</h3>
+            <p>Develop robust assemblies and explain the design reasoning.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Linkages, gears, chassis</li>
+              <li><i class="bi bi-check-circle-fill"></i> Fusion 360 or SolidWorks workflow</li>
+              <li><i class="bi bi-check-circle-fill"></i> Manufacturing constraints</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="track-card">
+            <div class="icon-badge" style="background: #ef4444;"><i class="bi bi-file-earmark-richtext"></i></div>
+            <h3>Research and Writing</h3>
+            <p>For students who want to show depth in analysis and communication.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Technical essays and posters</li>
+              <li><i class="bi bi-check-circle-fill"></i> Experiment design</li>
+              <li><i class="bi bi-check-circle-fill"></i> Public project documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad band">
+    <div class="container">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="section-title">Evidence students can actually show.</h2>
+          <p class="section-copy">
+            The page is designed around visible outcomes: prototypes, team builds, competition attempts, CAD pieces,
+            electronics projects, videos, and reflection.
+          </p>
+        </div>
+      </div>
+      <div class="showcase-grid" data-aos="fade-up">
+        <img src="/gallery/galleryphotos/our%20wro%20team.webp" alt="MakerWorks WRO team">
+        <img src="/gallery/galleryphotos/pranav%20working%20on%20colour%20sorter.webp" alt="Student working on color sorter">
+        <img src="/gallery/galleryphotos/jiaan%20showing%20his%20project.webp" alt="Student showing a project">
+        <img src="/competetions/coolest/images/takingmedal.webp" alt="Students at Coolest Projects">
+        <img src="/gallery/galleryphotos/Avyaan%20showing%20his%20project.webp" alt="Student demonstrating a project">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="section-title">Mentored by builders.</h2>
+          <p class="section-copy">
+            Students receive guidance on technical direction, debugging, presentation, documentation, and the tricky art
+            of choosing projects that say something meaningful.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="mentor-card">
+            <img src="/makers/mentors/vinay.jpg" alt="Vinay Ummadi">
+            <div>
+              <h3>Vinay Ummadi</h3>
+              <small>Co-Founder and Robotics Lead</small>
+              <p>Guides robotics architecture, competition strategy, engineering thinking, and build discipline.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="mentor-card">
+            <img src="/makers/mentors/abhay.jpg" alt="Abhay Waghmare">
+            <div>
+              <h3>Abhay Waghmare</h3>
+              <small>Hardware and Workshop Expert</small>
+              <p>Supports fabrication, mechanical structures, hardware debugging, and physical prototype quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-band" id="fees">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="section-title text-white">Program fee and schedule</h2>
+          <p class="section-copy text-white-50">
+            Portfolio Building is recommended for Grade 9 and above. Students can begin with an Experiment Month, or
+            join the long-term program with the recommended tinkering kit for hands-on learning.
+          </p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="pricing-panel">
+            <span class="eyebrow mb-0"><i class="bi bi-receipt"></i> Portfolio track</span>
+            <div class="price">Rs.24,999</div>
+            <p>per month for 2 hrs/week and 10 hrs/month. GST extra.</p>
+            <div class="fee-grid">
+              <div>
+                <strong>2 hrs/wk</strong>
+                <span>Rs.24,999/mo</span>
+              </div>
+              <div>
+                <strong>3 hrs/wk</strong>
+                <span>Rs.37,499/mo</span>
+              </div>
+              <div>
+                <strong>4 hrs/wk</strong>
+                <span>Rs.49,999/mo</span>
+              </div>
+            </div>
+            <div class="hero-actions mt-4">
+              <a class="btn-primary-soft" href="/payment_integration/">Enroll Now <i class="bi bi-arrow-right"></i></a>
+              <a class="btn-outline-light-clean"
+                href="https://wa.me/919137114223?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20Portfolio%20Building%20Program."
+                target="_blank" rel="noopener">Ask on WhatsApp <i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="section-title">Questions parents usually ask.</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="faq-item" data-aos="fade-up">
+            <h3>Who is this program for?</h3>
+            <p>Students in Grade 9 and above who are ready to create serious projects, document their work, and prepare
+              for competitions, applications, interviews, or advanced technical opportunities.</p>
+          </div>
+          <div class="faq-item" data-aos="fade-up">
+            <h3>Does the student need prior robotics experience?</h3>
+            <p>Some technical exposure helps, but the first step is a portfolio audit. We choose a path based on the
+              student's current level, interests, and goals.</p>
+          </div>
+          <div class="faq-item" data-aos="fade-up">
+            <h3>What makes this different from regular classes?</h3>
+            <p>Regular classes build skills. This program turns skills into proof: working prototypes, documentation,
+              project videos, portfolio pages, and presentation-ready demos.</p>
+          </div>
+          <div class="faq-item" data-aos="fade-up">
+            <h3>Can the Experiment Month be used for Portfolio Building?</h3>
+            <p>Yes. The Experiment Month fee is charged as one month of the selected program, so Portfolio students pay
+              the Portfolio monthly fee plus GST for that trial month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 80 });
+  </script>
+</body>
+
+</html>
