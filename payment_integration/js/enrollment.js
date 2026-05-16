@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
 import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
-import { FIREBASE_CONFIG } from "./config.js?v=3";
+import { FIREBASE_CONFIG } from "./config.js?v=4";
 
 const firebaseConfig = FIREBASE_CONFIG;
 
@@ -19,10 +19,21 @@ const PRICING = {
   Beginner: { 2: 9999, 3: 14999, 4: 19999 },
   Intermediate: { 2: 14999, 3: 22499, 4: 29999 },
   Portfolio: { 2: 24999, 3: 37499, 4: 49999 },
-  TINKERING_KIT: 10000
+  TINKERING_KIT: 9999
 };
 
 const CLASS_MAPPING = { 2: 10, 3: 15, 4: 20 };
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+const EMAILJS_CONFIG = {
+  serviceId: "service_atizuna",
+  publicKey: "GFxAVPzBfXX4d-vQR",
+  adminTemplateId: "template_4cus82e",
+  recipients: ["makerworkslab@gmail.com", "ummadi.vinay2000@gmail.com"]
+};
+
+let emailJsInitialized = false;
+let partialLeadTimer = null;
+let partialLeadSent = false;
 
 function calculatePrice(program, hours, hasKit = false, hasMonth = false, freqMultiplier = 1, countryMultiplier = 1) {
   let basePrice = 0;
@@ -39,6 +50,173 @@ function calculatePrice(program, hours, hasKit = false, hasMonth = false, freqMu
 
 function formatCurrency(amount) {
   return '₹' + Math.round(amount).toLocaleString('en-IN');
+}
+
+function normalizePhone(value) {
+  return (value || '').replace(/\D/g, '').slice(0, 10);
+}
+
+function isValidPhone(value) {
+  return /^\d{10}$/.test(normalizePhone(value));
+}
+
+function isValidEmail(value) {
+  return EMAIL_REGEX.test((value || '').trim());
+}
+
+function setFieldValidity(el, message = '') {
+  if (!el) return true;
+  el.setCustomValidity(message);
+  el.classList.toggle('field-error', Boolean(message));
+  return !message;
+}
+
+function collectEnrollmentSnapshot() {
+  const selectedProgram = document.querySelector('input[name="programDivision"]:checked');
+  const selectedHours = document.querySelector('input[name="tinkeringHours"]:checked');
+  const selectedFreq = document.querySelector('input[name="paymentFreq"]:checked');
+  const programName = selectedProgram ? selectedProgram.value : '';
+  const hours = selectedHours ? parseInt(selectedHours.value) : 2;
+  const hasKit = document.getElementById('check-kit')?.checked || false;
+  const hasMonth = document.getElementById('check-month')?.checked || false;
+  const country = document.getElementById('country')?.value || 'India';
+  const countryMultiplier = country === 'Other' ? 1.5 : 1.0;
+  const freq = selectedFreq ? selectedFreq.value : (hasMonth ? 'Experiment Month' : 'Quarterly');
+
+  let freqMultiplier = 1;
+  if (!hasMonth) {
+    if (freq === 'Quarterly') freqMultiplier = 3;
+    else if (freq === 'Half-Yearly') freqMultiplier = 6 * 0.95;
+    else if (freq === 'Yearly') freqMultiplier = 12 * 0.90;
+  }
+
+  return {
+    studentName: document.getElementById('studentName')?.value.trim() || '',
+    dob: document.getElementById('dob')?.value || '',
+    tshirt: document.getElementById('tshirt')?.value || '',
+    schoolName: document.getElementById('schoolName')?.value.trim() || '',
+    studyGrade: document.getElementById('studyGrade')?.value || '',
+    parentName: document.getElementById('parentName')?.value.trim() || '',
+    parentPhone: normalizePhone(document.getElementById('parentPhone')?.value || ''),
+    email: document.getElementById('email')?.value.trim() || '',
+    address: document.getElementById('address')?.value.trim() || '',
+    country,
+    companyName: document.getElementById('companyName')?.value.trim() || '',
+    gstNumber: document.getElementById('gstNumber')?.value.trim().toUpperCase() || '',
+    expRobotics: document.getElementById('expRobotics')?.value || '',
+    expProgramming: document.getElementById('expProgramming')?.value || '',
+    exp3D: document.getElementById('exp3D')?.value || '',
+    studentAchievements: document.getElementById('studentAchievements')?.value.trim() || '',
+    program: programName,
+    tinkeringHours: hours,
+    paymentFrequency: freq,
+    tinkeringKit: hasKit ? "Yes" : "No",
+    experimentMonth: hasMonth ? "Yes" : "No",
+    totalPrice: calculatePrice(programName, hours, hasKit, hasMonth, freqMultiplier, countryMultiplier)
+  };
+}
+
+function createNotificationMessage(data, status) {
+  const rows = [
+    ['Status', status],
+    ['Student Name', data.studentName],
+    ['Date of Birth', data.dob],
+    ['T-Shirt Size', data.tshirt],
+    ['School', data.schoolName],
+    ['Grade', data.studyGrade ? `Grade ${data.studyGrade}` : ''],
+    ['Parent Name', data.parentName],
+    ['Phone', data.parentPhone],
+    ['Email', data.email],
+    ['Address', data.address],
+    ['Country', data.country],
+    ['Company', data.companyName],
+    ['GST Number', data.gstNumber],
+    ['Robotics Hardware Experience', data.expRobotics],
+    ['Programming Experience', data.expProgramming],
+    ['3D Design Experience', data.exp3D],
+    ['Learning Notes / Achievements', data.studentAchievements],
+    ['Program', getProgramLabel(data.program)],
+    ['Hours', data.tinkeringHours ? `${data.tinkeringHours} hrs/week (${CLASS_MAPPING[data.tinkeringHours] || 10} hrs/month)` : ''],
+    ['Payment Frequency', data.paymentFrequency],
+    ['MWL Tinkering Kit', data.tinkeringKit],
+    ['Experiment Month', data.experimentMonth],
+    ['Amount Before GST', data.totalPrice ? formatCurrency(data.totalPrice) : '']
+  ];
+
+  return rows
+    .map(([label, value]) => `${label}: ${value || 'Not provided yet'}`)
+    .join('\n');
+}
+
+function initEmailJs() {
+  if (emailJsInitialized) return true;
+  if (!window.emailjs || !EMAILJS_CONFIG.publicKey) return false;
+  window.emailjs.init(EMAILJS_CONFIG.publicKey);
+  emailJsInitialized = true;
+  return true;
+}
+
+async function sendEnrollmentNotification(data, status) {
+  if (!initEmailJs()) return;
+
+  const message = createNotificationMessage(data, status);
+  const timestamp = new Date().toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    dateStyle: 'medium',
+    timeStyle: 'short'
+  });
+
+  const sends = EMAILJS_CONFIG.recipients.map(recipient => {
+    const templateParams = {
+      title: `MakerWorks Enrollment: ${status}`,
+      name: data.parentName || data.studentName || 'Enrollment Lead',
+      email: data.email || 'makerworkslab@gmail.com',
+      reply_to: data.email || 'makerworkslab@gmail.com',
+      to_email: recipient,
+      recipient_email: recipient,
+      time: timestamp,
+      message
+    };
+    return window.emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.adminTemplateId, templateParams);
+  });
+
+  const results = await Promise.allSettled(sends);
+  results.forEach(result => {
+    if (result.status === 'rejected') console.error('Enrollment EmailJS Error:', result.reason);
+  });
+}
+
+async function saveEnrollmentLead(data, status) {
+  if (!db) return;
+  const { photoData, ...dataWithoutPhoto } = data;
+  const leadData = {
+    ...dataWithoutPhoto,
+    notificationStatus: status,
+    timestamp: serverTimestamp()
+  };
+  try {
+    await push(ref(db, 'enrollment_leads'), leadData);
+  } catch (error) {
+    console.error('Enrollment lead save error:', error);
+  }
+}
+
+function hasUsableLeadContact(data) {
+  return Boolean((data.studentName || data.parentName) && (isValidPhone(data.parentPhone) || isValidEmail(data.email)));
+}
+
+function schedulePartialLeadNotification() {
+  if (partialLeadSent) return;
+  window.clearTimeout(partialLeadTimer);
+  partialLeadTimer = window.setTimeout(async () => {
+    const data = collectEnrollmentSnapshot();
+    if (!hasUsableLeadContact(data)) return;
+
+    partialLeadSent = true;
+
+    await saveEnrollmentLead(data, 'PARTIAL_FORM_STARTED');
+    await sendEnrollmentNotification(data, 'Partial Form Started');
+  }, 1800);
 }
 
 function getProgramLabel(program) {
@@ -65,7 +243,7 @@ function updatePriceDisplay() {
   let freqMultiplier = 1;
   let months = 1;
 
-  if (selectedFreq && !hasMonth) {
+  if (!hasMonth) {
     if (freq === 'Quarterly') {
       freqMultiplier = 3;
       months = 3;
@@ -96,7 +274,7 @@ function updatePriceDisplay() {
     } else {
       let label = "";
       if (hasKit && hasMonth) label = "Experiment Month";
-      else if (hasKit) label = "Tinkering Kit";
+      else if (hasKit) label = "MWL Tinkering Kit";
       else if (hasMonth) label = "Experiment Month";
       summaryProgram.textContent = label || "-";
     }
@@ -108,6 +286,17 @@ function updatePriceDisplay() {
 
   if (summaryPrice) {
     summaryPrice.textContent = formatCurrency(price);
+  }
+
+  const finalReviewPrice = document.getElementById('finalReviewPrice');
+  const finalReviewDetails = document.getElementById('finalReviewDetails');
+  if (finalReviewPrice) finalReviewPrice.textContent = formatCurrency(price);
+  if (finalReviewDetails) {
+    const programLabel = program ? getProgramLabel(program) : 'Program not selected';
+    const classText = `${classesPerMonth} hrs/month`;
+    const freqText = hasMonth ? 'Experiment Month' : `${months} month billing`;
+    const kitText = hasKit && !hasMonth ? ' + MWL Tinkering Kit' : '';
+    finalReviewDetails.textContent = `${programLabel}${kitText} · ${classText} · ${freqText}`;
   }
 
   // Update mobile bar
@@ -340,6 +529,90 @@ document.addEventListener('DOMContentLoaded', () => {
     radio.addEventListener('change', updatePriceDisplay);
   });
 
+  const setupContactValidation = () => {
+    const phoneInput = document.getElementById('parentPhone');
+    const emailInput = document.getElementById('email');
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', () => {
+        phoneInput.value = normalizePhone(phoneInput.value);
+        setFieldValidity(phoneInput, phoneInput.value && !isValidPhone(phoneInput.value) ? 'Please enter exactly 10 digits.' : '');
+        schedulePartialLeadNotification();
+      });
+      phoneInput.addEventListener('blur', () => {
+        setFieldValidity(phoneInput, isValidPhone(phoneInput.value) ? '' : 'Please enter exactly 10 digits.');
+      });
+    }
+
+    if (emailInput) {
+      emailInput.addEventListener('input', () => {
+        setFieldValidity(emailInput, emailInput.value && !isValidEmail(emailInput.value) ? 'Please enter a valid email address.' : '');
+        schedulePartialLeadNotification();
+      });
+      emailInput.addEventListener('blur', () => {
+        setFieldValidity(emailInput, isValidEmail(emailInput.value) ? '' : 'Please enter a valid email address.');
+      });
+    }
+  };
+
+  const updatePolicyGate = () => {
+    const policyCheckboxes = Array.from(document.querySelectorAll('#policies-section input[type="checkbox"]'));
+    const allChecked = policyCheckboxes.length > 0 && policyCheckboxes.every(input => input.checked);
+    const submitBtn = document.getElementById('btn-submit');
+    const mobileSubmitBtn = document.getElementById('btn-submit-mobile');
+    const status = document.getElementById('policyStatus');
+
+    [submitBtn, mobileSubmitBtn].forEach(button => {
+      if (!button) return;
+      button.disabled = !allChecked;
+      button.classList.toggle('opacity-60', !allChecked);
+      button.classList.toggle('cursor-not-allowed', !allChecked);
+      button.title = allChecked ? '' : 'Please check all policies and commitments to continue.';
+    });
+
+    if (status) {
+      status.classList.toggle('hidden', allChecked);
+    }
+
+    return allChecked;
+  };
+
+  const validatePolicies = () => {
+    const allChecked = updatePolicyGate();
+    if (!allChecked) {
+      document.getElementById('policies-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    return true;
+  };
+
+  const validateEnrollmentForm = () => {
+    const phoneInput = document.getElementById('parentPhone');
+    const emailInput = document.getElementById('email');
+    if (phoneInput) phoneInput.value = normalizePhone(phoneInput.value);
+
+    const phoneValid = setFieldValidity(phoneInput, isValidPhone(phoneInput?.value || '') ? '' : 'Please enter exactly 10 digits.');
+    const emailValid = setFieldValidity(emailInput, isValidEmail(emailInput?.value || '') ? '' : 'Please enter a valid email address.');
+    const policiesValid = validatePolicies();
+
+    if (!phoneValid || !emailValid) {
+      const first = document.querySelector('.field-error');
+      if (first) {
+        first.reportValidity();
+        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return false;
+    }
+
+    return policiesValid;
+  };
+
+  setupContactValidation();
+
+  document.querySelectorAll('#policies-section input[type="checkbox"]').forEach(input => {
+    input.addEventListener('change', updatePolicyGate);
+  });
+
   const checkKit = document.getElementById('check-kit');
   const checkMonth = document.getElementById('check-month');
   const countrySelect = document.getElementById('country');
@@ -365,6 +638,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('input[name="paymentFreq"]').forEach(radio => {
           radio.disabled = false;
         });
+        const quarterly = document.querySelector('input[name="paymentFreq"][value="Quarterly"]');
+        if (quarterly) quarterly.checked = true;
         const hint = document.getElementById('paymentFreqHint');
         if (hint) hint.textContent = 'All fees paid in advance:';
       }
@@ -372,6 +647,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (countrySelect) countrySelect.addEventListener('change', updatePriceDisplay);
+
+  const partialLeadFields = [
+    'studentName', 'dob', 'tshirt', 'schoolName', 'studyGrade', 'parentName',
+    'address', 'country', 'companyName', 'gstNumber', 'expRobotics',
+    'expProgramming', 'exp3D', 'studentAchievements'
+  ];
+  partialLeadFields.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', schedulePartialLeadNotification);
+    el.addEventListener('change', schedulePartialLeadNotification);
+  });
 
   // Setup progress tracking
   const requiredFields = [
@@ -417,6 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize
   applyRecommendedProgram();
   updateFormProgress();
+  updatePolicyGate();
 
   // Handle mobile scroll
   window.dispatchEvent(new Event('scroll'));
@@ -465,6 +753,8 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      if (!validateEnrollmentForm()) return;
+
       const submitBtn = document.getElementById('btn-submit');
       submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin text-xl">progress_activity</span> Processing...`;
       submitBtn.disabled = true;
@@ -484,10 +774,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const programName = selectedProgram ? selectedProgram.value : '';
       const hours = selectedHours ? parseInt(selectedHours.value) : 2;
-      const freq = selectedFreq ? selectedFreq.value : 'Quarterly';
-
       const hasKit = document.getElementById('check-kit')?.checked || false;
       const hasMonth = document.getElementById('check-month')?.checked || false;
+      const freq = hasMonth ? 'Experiment Month' : (selectedFreq ? selectedFreq.value : 'Quarterly');
 
       const country = document.getElementById('country')?.value || 'India';
 
@@ -509,7 +798,7 @@ document.addEventListener('DOMContentLoaded', () => {
         studyGrade: document.getElementById('studyGrade').value,
         photoData: studentPhotoBase64,
         parentName: document.getElementById('parentName').value.trim(),
-        parentPhone: document.getElementById('parentPhone').value.trim(),
+        parentPhone: normalizePhone(document.getElementById('parentPhone').value),
         email: document.getElementById('email').value.trim(),
         address: document.getElementById('address').value.trim(),
         country: document.getElementById('country').value,
@@ -528,6 +817,9 @@ document.addEventListener('DOMContentLoaded', () => {
         timestamp: serverTimestamp()
       };
 
+      await saveEnrollmentLead(enrollmentData, 'REVIEW_DETAILS_SUBMITTED');
+      await sendEnrollmentNotification(enrollmentData, 'Review Details Submitted');
+
       try {
         sessionStorage.setItem('pendingEnrollment', JSON.stringify(enrollmentData));
       } catch (error) {
@@ -535,7 +827,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       let itemDescription = getProgramLabel(programName);
-      if (hasKit && !hasMonth) itemDescription += (itemDescription ? " + " : "") + "Tinkering Kit";
+      if (hasKit && !hasMonth) itemDescription += (itemDescription ? " + " : "") + "MWL Tinkering Kit";
       if (hasMonth) itemDescription += (itemDescription ? " + " : "") + "Experiment Month";
 
       const params = new URLSearchParams({

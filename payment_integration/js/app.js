@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
 import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
-import { FIREBASE_CONFIG, RAZORPAY_KEY } from "./config.js?v=3";
+import { FIREBASE_CONFIG, RAZORPAY_KEY } from "./config.js?v=4";
 
 const firebaseConfig = FIREBASE_CONFIG;
 
@@ -24,6 +24,28 @@ let orderData = {
   tshirt: '', paymentFreq: 'Quarterly', country: 'India'
 };
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+function normalizePhone(value) {
+  return (value || '').replace(/\D/g, '').slice(0, 10);
+}
+
+function isValidPhone(value) {
+  return /^\d{10}$/.test(normalizePhone(value));
+}
+
+function isValidEmail(value) {
+  return EMAIL_REGEX.test((value || '').trim());
+}
+
+function setFieldValidity(el, message = '') {
+  if (!el) return true;
+  el.setCustomValidity(message);
+  el.classList.toggle('!border-red-400', Boolean(message));
+  el.classList.toggle('border-transparent', !message);
+  return !message;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Auto-fill form from Enrollment redirect
   const urlParams = new URLSearchParams(window.location.search);
@@ -33,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneEl = document.getElementById('phone');
     if (nameEl) nameEl.value = urlParams.get('name');
     if (emailEl) emailEl.value = urlParams.get('email');
-    if (phoneEl) phoneEl.value = urlParams.get('phone');
+    if (phoneEl) phoneEl.value = normalizePhone(urlParams.get('phone'));
 
     const prog = urlParams.get('program');
     const amount = parseInt(urlParams.get('amount')) || 0;
@@ -102,6 +124,26 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupFormListeners() {
   const itemSelect = document.getElementById('item');
   if (itemSelect) itemSelect.addEventListener('change', updatePrice);
+
+  const phoneInput = document.getElementById('phone');
+  const emailInput = document.getElementById('email');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', () => {
+      phoneInput.value = normalizePhone(phoneInput.value);
+      setFieldValidity(phoneInput, phoneInput.value && !isValidPhone(phoneInput.value) ? 'Please enter exactly 10 digits.' : '');
+    });
+    phoneInput.addEventListener('blur', () => {
+      setFieldValidity(phoneInput, isValidPhone(phoneInput.value) ? '' : 'Please enter exactly 10 digits.');
+    });
+  }
+  if (emailInput) {
+    emailInput.addEventListener('input', () => {
+      setFieldValidity(emailInput, emailInput.value && !isValidEmail(emailInput.value) ? 'Please enter a valid email address.' : '');
+    });
+    emailInput.addEventListener('blur', () => {
+      setFieldValidity(emailInput, isValidEmail(emailInput.value) ? '' : 'Please enter a valid email address.');
+    });
+  }
 }
 
 function updatePrice() {
@@ -139,7 +181,7 @@ function setupButtons() {
 
     orderData.name = document.getElementById('fullName').value.trim();
     orderData.email = document.getElementById('email').value.trim();
-    orderData.phone = document.getElementById('phone').value.trim();
+    orderData.phone = normalizePhone(document.getElementById('phone').value);
     orderData.address = document.getElementById('address').value.trim();
     orderData.companyName = document.getElementById('companyName') ? document.getElementById('companyName').value.trim() : '';
     orderData.gstNumber = document.getElementById('gstNumber') ? document.getElementById('gstNumber').value.trim().toUpperCase() : '';
@@ -182,18 +224,22 @@ function validateForm() {
   fields.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
-    if (!el.value.trim()) {
-      el.classList.add('!border-red-400');
-      el.classList.remove('border-transparent');
-      valid = false;
-    } else {
-      el.classList.remove('!border-red-400');
-    }
+    if (id === 'phone') el.value = normalizePhone(el.value);
+
+    let message = '';
+    if (!el.value.trim()) message = 'This field is required.';
+    else if (id === 'email' && !isValidEmail(el.value)) message = 'Please enter a valid email address.';
+    else if (id === 'phone' && !isValidPhone(el.value)) message = 'Please enter exactly 10 digits.';
+
+    if (!setFieldValidity(el, message)) valid = false;
   });
   if (!valid) {
     // Scroll to first error
     const first = document.querySelector('.\\!border-red-400');
-    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (first) {
+      first.reportValidity();
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
   return valid;
 }

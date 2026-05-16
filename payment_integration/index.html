@@ -90,6 +90,35 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    .experience-select-shell {
+      position: relative;
+    }
+
+    .experience-select-shell::after {
+      content: "expand_more";
+      font-family: "Material Symbols Outlined";
+      position: absolute;
+      right: 1.15rem;
+      bottom: 1.05rem;
+      color: #0891b2;
+      pointer-events: none;
+      font-size: 1.25rem;
+    }
+
+    .experience-select {
+      min-height: 4.35rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .experience-select:focus {
+      transform: translateY(-1px);
+    }
+
+    .field-error {
+      border-color: #f87171 !important;
+      background: #fff7f7 !important;
+    }
   </style>
 </head>
 
@@ -239,7 +268,7 @@
       </div>
 
       <!-- Terms & Conditions -->
-      <div class="bg-white rounded-3xl p-8 md:p-12 shadow-card border border-slate-100">
+      <div id="policies-section" class="bg-white rounded-3xl p-8 md:p-12 shadow-card border border-slate-100">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center shadow-sm">
             <span class="material-symbols-outlined text-amber-600 text-2xl">gavel</span>
@@ -308,6 +337,11 @@
             <span class="font-medium group-hover:text-on-surface"><strong>Missed Sessions:</strong> I understand missed sessions must be coordinated with the mentor and completed within the same quarter or they will be forfeited.</span>
           </label>
         </div>
+
+        <p id="policyStatus" class="mt-5 text-sm font-semibold text-amber-700 bg-amber-50 border border-amber-100 rounded-2xl px-4 py-3 flex items-start gap-2">
+          <span class="material-symbols-outlined text-base mt-0.5">info</span>
+          <span>Please check all policies and commitments to continue.</span>
+        </p>
       </div>
 
       <!-- Enrollment Form -->
@@ -462,9 +496,9 @@
                 <span class="material-symbols-outlined text-amber-600 text-base">phone</span>
                 Contact Number *
               </label>
-              <input id="parentPhone" required
+              <input id="parentPhone" required inputmode="numeric" maxlength="10" pattern="[0-9]{10}" autocomplete="tel"
                 class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
-                placeholder="+91 XXXXX XXXXX" type="tel" />
+                placeholder="10 digit mobile number" type="tel" />
             </div>
 
             <div class="flex flex-col gap-2">
@@ -472,7 +506,7 @@
                 <span class="material-symbols-outlined text-amber-600 text-base">mail</span>
                 Email Address *
               </label>
-              <input id="email" required
+              <input id="email" required autocomplete="email"
                 class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
                 placeholder="parent@email.com" type="email" />
             </div>
@@ -542,46 +576,46 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="flex flex-col gap-2">
+            <div class="experience-select-shell flex flex-col gap-2">
               <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
                 <span class="material-symbols-outlined text-cyan-600 text-base">hardware</span>
                 Robotics Hardware *
               </label>
               <select id="expRobotics" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 outline-none transition-all appearance-none cursor-pointer">
-                <option value="" disabled selected>Select your level</option>
-                <option value="Never">Never got a chance</option>
-                <option value="Some Electronics">Played with some electronics</option>
-                <option value="With Help">Built robots with some help</option>
-                <option value="Veteran">Veteran maker</option>
+                class="experience-select w-full bg-cyan-50/70 border-2 border-cyan-100 rounded-2xl px-5 py-4 pr-12 text-on-surface focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 outline-none transition-all appearance-none cursor-pointer">
+                <option value="" disabled selected>Choose hardware experience</option>
+                <option value="New to Robotics">New to robotics hardware</option>
+                <option value="Basic Electronics">Tried basic circuits or electronics kits</option>
+                <option value="Guided Builds">Built robots or models with guidance</option>
+                <option value="Independent Maker">Can build and troubleshoot independently</option>
               </select>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="experience-select-shell flex flex-col gap-2">
               <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
                 <span class="material-symbols-outlined text-cyan-600 text-base">code</span>
                 Programming *
               </label>
               <select id="expProgramming" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 outline-none transition-all appearance-none cursor-pointer">
-                <option value="" disabled selected>Select your level</option>
-                <option value="Never">Never coded a program</option>
-                <option value="Scratch">Scratch and Jr Scratch at school</option>
-                <option value="Block Coding">Block coding master</option>
-                <option value="C/C++/Python">Can program in C/C++ and Python</option>
+                class="experience-select w-full bg-cyan-50/70 border-2 border-cyan-100 rounded-2xl px-5 py-4 pr-12 text-on-surface focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 outline-none transition-all appearance-none cursor-pointer">
+                <option value="" disabled selected>Choose programming experience</option>
+                <option value="New to Coding">New to coding</option>
+                <option value="Scratch or Block Coding">Comfortable with Scratch or block coding</option>
+                <option value="Microcontroller Coding">Tried Arduino, Micro:bit, or sensor coding</option>
+                <option value="Text Programming">Can write Python, C, C++, or similar code</option>
               </select>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="experience-select-shell flex flex-col gap-2">
               <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
                 <span class="material-symbols-outlined text-cyan-600 text-base">view_in_ar</span>
                 3D Modeling & Printing *
               </label>
               <select id="exp3D" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 outline-none transition-all appearance-none cursor-pointer">
-                <option value="" disabled selected>Select your level</option>
-                <option value="Never">Never got a chance</option>
-                <option value="Basic">I know 3D modelling</option>
-                <option value="Artifacts">I know 3D modelling and 3D artifacts</option>
-                <option value="Complex">I can do complex parametric and building</option>
+                class="experience-select w-full bg-cyan-50/70 border-2 border-cyan-100 rounded-2xl px-5 py-4 pr-12 text-on-surface focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 outline-none transition-all appearance-none cursor-pointer">
+                <option value="" disabled selected>Choose design experience</option>
+                <option value="New to 3D Design">New to 3D design and printing</option>
+                <option value="Basic Modeling">Can create simple 3D models</option>
+                <option value="Printed Projects">Designed models that were 3D printed</option>
+                <option value="Parametric Design">Can create detailed parametric or mechanical designs</option>
               </select>
             </div>
           </div>
@@ -615,11 +649,11 @@
           </div>
 
           <!-- Pricing Structure -->
-          <div class="bg-slate-900 rounded-[2rem] p-6 md:p-10 text-white overflow-hidden shadow-2xl relative">
-            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-50"></div>
-            <h3 class="text-lg md:text-2xl font-black mb-6 md:mb-8 flex items-center gap-3 relative z-10">
-              <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
-                <span class="material-symbols-outlined text-amber-400">receipt_long</span>
+          <div class="bg-gradient-to-br from-white via-slate-50 to-indigo-50/70 rounded-[2rem] p-6 md:p-10 text-slate-900 overflow-hidden shadow-card border border-slate-200 relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-cyan-500/5 opacity-80"></div>
+            <h3 class="text-lg md:text-2xl font-black mb-6 md:mb-8 flex items-center gap-3 relative z-10 text-slate-900">
+              <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">receipt_long</span>
               </div>
               Complete Pricing Structure
             </h3>
@@ -628,31 +662,31 @@
             <div class="hidden md:block overflow-x-auto relative z-10">
               <table class="w-full text-left">
                 <thead>
-                  <tr class="border-b border-white/10">
-                    <th class="py-5 px-6 font-bold text-white/50 text-xs uppercase tracking-widest">Program Level</th>
-                    <th class="py-5 px-6 text-center font-bold text-white/50 text-xs uppercase tracking-widest">2 Hrs/Wk <br/><span class="text-[10px] font-medium opacity-60">(10 Hrs / Month)</span></th>
-                    <th class="py-5 px-6 text-center font-bold text-white/50 text-xs uppercase tracking-widest">3 Hrs/Wk <br/><span class="text-[10px] font-medium opacity-60">(15 Hrs / Month)</span></th>
-                    <th class="py-5 px-6 text-center font-bold text-white/50 text-xs uppercase tracking-widest">4 Hrs/Wk <br/><span class="text-[10px] font-medium opacity-60">(20 Hrs / Month)</span></th>
+                  <tr class="border-b border-slate-200">
+                    <th class="py-5 px-6 font-bold text-slate-500 text-xs uppercase tracking-widest">Program Level</th>
+                    <th class="py-5 px-6 text-center font-bold text-slate-500 text-xs uppercase tracking-widest">2 Hrs/Wk <br/><span class="text-[10px] font-medium text-slate-400">(10 Hrs / Month)</span></th>
+                    <th class="py-5 px-6 text-center font-bold text-slate-500 text-xs uppercase tracking-widest">3 Hrs/Wk <br/><span class="text-[10px] font-medium text-slate-400">(15 Hrs / Month)</span></th>
+                    <th class="py-5 px-6 text-center font-bold text-slate-500 text-xs uppercase tracking-widest">4 Hrs/Wk <br/><span class="text-[10px] font-medium text-slate-400">(20 Hrs / Month)</span></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
-                    <td class="py-6 px-6"><span class="font-bold text-xl text-blue-400">Beginner</span></td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹9,999</td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹14,999</td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹19,999</td>
+                  <tr class="border-b border-slate-100 bg-white/80 hover:bg-blue-50/50 transition-colors">
+                    <td class="py-6 px-6"><span class="font-bold text-xl text-blue-600">Beginner</span></td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹9,999</td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹14,999</td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹19,999</td>
                   </tr>
-                  <tr class="border-b border-white/5 bg-white/[0.02] hover:bg-white/10 transition-colors">
-                    <td class="py-6 px-6"><span class="font-bold text-xl text-purple-400">Intermediate</span></td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹14,999</td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹22,499</td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹29,999</td>
+                  <tr class="border-b border-slate-100 bg-slate-50/70 hover:bg-purple-50/50 transition-colors">
+                    <td class="py-6 px-6"><span class="font-bold text-xl text-purple-600">Intermediate</span></td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹14,999</td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹22,499</td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹29,999</td>
                   </tr>
-                  <tr class="bg-white/[0.02] hover:bg-white/10 transition-colors">
-                    <td class="py-6 px-6"><span class="font-bold text-xl text-cyan-300">Portfolio Building</span></td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹24,999</td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹37,499</td>
-                    <td class="py-6 px-6 text-center font-black text-2xl">₹49,999</td>
+                  <tr class="bg-white/80 hover:bg-cyan-50/50 transition-colors">
+                    <td class="py-6 px-6"><span class="font-bold text-xl text-cyan-600">Portfolio Building</span></td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹24,999</td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹37,499</td>
+                    <td class="py-6 px-6 text-center font-black text-2xl text-slate-900">₹49,999</td>
                   </tr>
                 </tbody>
               </table>
@@ -660,60 +694,60 @@
 
             <!-- Mobile View -->
             <div class="md:hidden space-y-4 relative z-10">
-              <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
-                <p class="font-black text-blue-400 text-lg mb-4">Beginner Level</p>
+              <div class="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
+                <p class="font-black text-blue-600 text-lg mb-4">Beginner Level</p>
                 <div class="grid grid-cols-3 gap-2">
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">2 Hrs</p>
-                    <p class="font-black text-sm">₹9,999</p>
+                  <div class="bg-blue-50/70 rounded-xl p-3 text-center border border-blue-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">2 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹9,999</p>
                   </div>
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">3 Hrs</p>
-                    <p class="font-black text-sm">₹14,999</p>
+                  <div class="bg-blue-50/70 rounded-xl p-3 text-center border border-blue-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">3 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹14,999</p>
                   </div>
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">4 Hrs</p>
-                    <p class="font-black text-sm">₹19,999</p>
+                  <div class="bg-blue-50/70 rounded-xl p-3 text-center border border-blue-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">4 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹19,999</p>
                   </div>
                 </div>
               </div>
-              <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
-                <p class="font-black text-purple-400 text-lg mb-4">Intermediate Level</p>
+              <div class="bg-white rounded-2xl p-5 border border-purple-100 shadow-sm">
+                <p class="font-black text-purple-600 text-lg mb-4">Intermediate Level</p>
                 <div class="grid grid-cols-3 gap-2">
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">2 Hrs</p>
-                    <p class="font-black text-sm">₹14,999</p>
+                  <div class="bg-purple-50/70 rounded-xl p-3 text-center border border-purple-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">2 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹14,999</p>
                   </div>
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">3 Hrs</p>
-                    <p class="font-black text-sm">₹22,499</p>
+                  <div class="bg-purple-50/70 rounded-xl p-3 text-center border border-purple-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">3 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹22,499</p>
                   </div>
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">4 Hrs</p>
-                    <p class="font-black text-sm">₹29,999</p>
+                  <div class="bg-purple-50/70 rounded-xl p-3 text-center border border-purple-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">4 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹29,999</p>
                   </div>
                 </div>
               </div>
-              <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
-                <p class="font-black text-cyan-300 text-lg mb-4">Portfolio Building Program</p>
+              <div class="bg-white rounded-2xl p-5 border border-cyan-100 shadow-sm">
+                <p class="font-black text-cyan-600 text-lg mb-4">Portfolio Building Program</p>
                 <div class="grid grid-cols-3 gap-2">
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">2 Hrs</p>
-                    <p class="font-black text-sm">₹24,999</p>
+                  <div class="bg-cyan-50/70 rounded-xl p-3 text-center border border-cyan-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">2 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹24,999</p>
                   </div>
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">3 Hrs</p>
-                    <p class="font-black text-sm">₹37,499</p>
+                  <div class="bg-cyan-50/70 rounded-xl p-3 text-center border border-cyan-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">3 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹37,499</p>
                   </div>
-                  <div class="bg-white/5 rounded-xl p-3 text-center">
-                    <p class="text-[10px] text-white/40 font-bold uppercase mb-1">4 Hrs</p>
-                    <p class="font-black text-sm">₹49,999</p>
+                  <div class="bg-cyan-50/70 rounded-xl p-3 text-center border border-cyan-100">
+                    <p class="text-[10px] text-slate-500 font-bold uppercase mb-1">4 Hrs</p>
+                    <p class="font-black text-sm text-slate-900">₹49,999</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <p class="text-[10px] md:text-sm text-white/30 mt-6 text-center italic tracking-wide">* All prices exclude 18% GST · Minimum billing: Quarterly</p>
+            <p class="text-[10px] md:text-sm text-slate-500 mt-6 text-center italic tracking-wide">* All prices exclude 18% GST · Minimum billing: Quarterly</p>
           </div>
 
           <!-- Program Selection -->
@@ -859,13 +893,13 @@
               <span class="material-symbols-outlined text-white text-lg md:text-xl">shopping_bag</span>
             </div>
             <div>
-              <h2 class="text-xl md:text-2xl font-bold text-on-surface">Add-ons & Extras</h2>
-              <p class="text-xs md:text-sm text-slate-500">Optional (can be added later)</p>
+              <h2 class="text-xl md:text-2xl font-bold text-on-surface">Learning Kit & Trial Option</h2>
+              <p class="text-xs md:text-sm text-slate-500">Kit is included by default for regular enrollment</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-            <!-- TMCL Tinkering Kit -->
+            <!-- MWL Tinkering Kit -->
             <div
               class="p-4 md:p-6 bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-2xl border-2 border-orange-200">
               <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
@@ -874,8 +908,8 @@
                   <span class="material-symbols-outlined text-white text-xl md:text-2xl">inventory_2</span>
                 </div>
                 <div class="flex-1">
-                  <h4 class="font-bold text-slate-800 text-sm md:text-base">TMCL Tinkering Kit</h4>
-                  <p class="text-xs md:text-sm text-slate-600">Mandatory for hands-on learning</p>
+                  <h4 class="font-bold text-slate-800 text-sm md:text-base">MWL Tinkering Kit</h4>
+                  <p class="text-xs md:text-sm text-slate-600">Mandatory for most students and recommended for hands-on learning</p>
                 </div>
               </div>
               <ul class="text-xs md:text-sm text-slate-600 space-y-1 md:space-y-2 mb-3 md:mb-4">
@@ -883,9 +917,11 @@
                     class="material-symbols-outlined text-success text-sm">check_circle</span> Comprehensive Components & parts</li>
                 <li class="flex items-center gap-2"><span
                     class="material-symbols-outlined text-success text-sm">check_circle</span> Take-home materials</li>
+                <li class="flex items-center gap-2"><span
+                    class="material-symbols-outlined text-success text-sm">check_circle</span> Required for most regular program projects</li>
               </ul>
               <div class="flex items-center justify-between pt-3 md:pt-4 border-t border-orange-200">
-                <span class="text-lg md:text-2xl font-black text-orange-600">₹10,000 + GST</span>
+                <span class="text-lg md:text-2xl font-black text-orange-600">₹9,999 + GST</span>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" id="check-kit" name="tinkeringKit" value="Yes" class="w-5 h-5 text-primary rounded border-orange-300 focus:ring-primary" checked>
                   <span class="text-sm font-medium text-slate-700">Add</span>
@@ -902,7 +938,7 @@
                 </div>
                 <div class="flex-1">
                   <h4 class="font-bold text-slate-800 text-sm md:text-base">Experiment Month</h4>
-                  <p class="text-xs md:text-sm text-slate-600">Try before you commit</p>
+                  <p class="text-xs md:text-sm text-slate-600">Try before you commit — you only pay for the first month</p>
                 </div>
               </div>
               <ul class="text-xs md:text-sm text-slate-600 space-y-1 md:space-y-2 mb-3 md:mb-4">
@@ -911,6 +947,8 @@
                 </li>
                 <li class="flex items-center gap-2"><span
                     class="material-symbols-outlined text-success text-sm">check_circle</span> Attitude and Aptitude assessment</li>
+                <li class="flex items-center gap-2"><span
+                    class="material-symbols-outlined text-success text-sm">check_circle</span> Pay only the first month fee for the selected program</li>
 
               </ul>
               <div class="flex items-center justify-between pt-3 md:pt-4 border-t border-teal-200">
@@ -934,7 +972,7 @@
             <div class="grid grid-cols-3 gap-2 md:gap-4">
               <label
                 class="relative flex flex-col items-center p-3 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10">
-                <input type="radio" name="paymentFreq" value="Quarterly" class="hidden peer" required>
+                <input type="radio" name="paymentFreq" value="Quarterly" class="hidden peer" required checked>
                 <span
                   class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-100 flex items-center justify-center text-lg md:text-xl font-black mb-2 peer-checked:bg-primary peer-checked:text-white transition-all">Q</span>
                 <span class="font-bold text-slate-800 text-xs md:text-sm">Quarterly</span>
@@ -969,11 +1007,21 @@
 
           <!-- Submit Button -->
           <div class="pt-6 md:pt-8">
+            <div class="mb-4 rounded-3xl border border-primary/15 bg-gradient-to-br from-primary/5 to-cyan-50 p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+              <div>
+                <p class="text-xs font-black uppercase tracking-widest text-primary">Review Amount</p>
+                <p id="finalReviewDetails" class="text-sm text-slate-500 mt-1">Select a program to review pricing.</p>
+              </div>
+              <div class="text-left md:text-right">
+                <p id="finalReviewPrice" class="text-3xl md:text-4xl font-black text-on-surface">₹0</p>
+                <p class="text-xs text-slate-400">Excluding 18% GST</p>
+              </div>
+            </div>
             <div class="gradient-border hidden md:block">
               <button id="btn-submit" type="submit"
                 class="gradient-border-inner w-full py-4 md:py-5 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 md:gap-3 pulse-glow">
                 <span class="material-symbols-outlined text-xl md:text-2xl">rocket_launch</span>
-                Proceed to Payment
+                Review Details & Continue to Payment
                 <span class="material-symbols-outlined">arrow_forward</span>
               </button>
             </div>
@@ -994,13 +1042,14 @@
       <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest leading-none mb-1.5 opacity-60">Total Bill</p>
       <p id="mobileTotalPrice" class="text-2xl font-black text-primary leading-none tracking-tighter">₹0</p>
     </div>
-    <button onclick="document.getElementById('enrollment-form').requestSubmit()" 
+    <button id="btn-submit-mobile" onclick="document.getElementById('enrollment-form').requestSubmit()" 
       class="flex-1 bg-gradient-to-r from-primary to-indigo-600 text-white font-black py-4 rounded-2xl shadow-xl shadow-primary/25 active:scale-[0.97] transition-all text-sm uppercase tracking-wider">
-      Proceed
+      Review & Continue
     </button>
   </div>
 
-  <script type="module" src="js/enrollment.js?v=3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="module" src="js/enrollment.js?v=4"></script>
 </body>
 
 </html>
