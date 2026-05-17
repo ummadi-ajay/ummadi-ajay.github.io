@@ -1,0 +1,75 @@
+Subject options:
+1. OIS students are building, racing, and winning at MakerWorks
+2. Robotics, AI, and engineering programs for curious OIS students
+3. Help your child build real engineering skills at MakerWorks
+
+Preheader:
+Hands-on robotics, coding, AI, electronics, and competition mentorship for students aged 8 to 17.
+
+Email draft:
+
+Dear Parent,
+
+At MakerWorks, students do much more than attend a class. They build real robots, design working prototypes, write code, test ideas, solve engineering problems, and learn how to think like young innovators.
+
+We are writing especially for Oberoi International School families because several current and past OIS students have been part of the MakerWorks lab, and their growth has been wonderful to see. From their first circuits and robots to national and international competitions, our students have shown what children can do when they are given the right tools, mentorship, and environment.
+
+[Insert photo collage of OIS students at MakerWorks]
+
+Current and past OIS students at MakerWorks include:
+Tanay Periwal, Avyan Bhojangarwala, Kiara Bhandari, Avyukt Chokhani, Prabal Gupta, Nirvahn Desai, Vivaan Saraf, Nitanth, Divyana Erande, Aurun Shenoy, and Shristi Poddar.
+
+Some of their recent achievements:
+
+- Tanay, Avyan, and Avyukt won the Primary School Category at the Mekathlon International Robot Racing Competition in Bangalore.
+- Vivaan and his team won the Middle School Category at the Mekathlon International Robot Racing Competition in Bangalore.
+- Kiara and her team participated in the challenging Future Engineers category at the World Robot Olympiad and were selected for the WRO International Championships in Panama and Manila.
+- Avyukt and Divyana participated in Coolest Projects, organized by the Raspberry Pi Foundation in Hyderabad.
+
+These outcomes are exciting, but what matters most to us is the process behind them: students learning to ask better questions, work patiently through failure, collaborate with peers, and turn ideas into something they can actually demonstrate.
+
+Our programs are designed for different age groups and learning stages:
+
+Beginner Program, ages 8 to 10
+A creative introduction to robotics, coding, electronics, sensors, circuits, 3D design, and hands-on project building.
+
+Intermediate Program, ages 11 to 14
+A deeper engineering track covering Arduino programming, electronics, IoT, robotics control, computer vision basics, AI/ML fundamentals, and real-world embedded projects.
+
+Advanced Program, ages 15+
+A serious technical pathway for students ready to explore ROS 2, autonomous robotics, machine learning, edge AI, advanced prototyping, and portfolio-worthy engineering projects.
+
+Students at MakerWorks learn through:
+
+- Hands-on projects instead of only theory
+- Robotics, coding, electronics, AI, IoT, and 3D design
+- Small-group mentorship from experienced makers and engineers
+- Competition preparation for platforms such as WRO, VEX IQ Robotics, Coolest Projects, and Mekathlon
+- A structured long-term curriculum that helps students grow steadily and confidently
+
+[Insert 2-3 photos of students building, testing, or presenting projects]
+
+If your child is curious about technology, enjoys building things, or wants to explore robotics and engineering seriously, MakerWorks can be a strong place to start.
+
+We would be happy to help you choose the right program level for your child and share more details about timings, curriculum, and enrollment.
+
+Reply to this email or WhatsApp us at +91 91371 14223 to know more.
+
+Warm regards,
+Team MakerWorks
+MakerWorks Lab, Malad East, Mumbai
+https://makerworkslab.in
+
+
+Shorter WhatsApp follow-up version:
+
+Dear Parent,
+
+Several current and past OIS students have been learning robotics, coding, AI, electronics, and engineering at MakerWorks, and some have gone on to win or participate in competitions such as Mekathlon, WRO, and Coolest Projects.
+
+At MakerWorks, students build real projects, work with mentors, and learn by doing. Our programs are designed for ages 8 to 17, from beginner robotics and coding to advanced AI, IoT, and engineering projects.
+
+If you would like to explore the right program for your child, please reply here or WhatsApp us at +91 91371 14223.
+
+Warm regards,
+Team MakerWorks
