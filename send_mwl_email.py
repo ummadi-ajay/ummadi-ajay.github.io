@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import random
 import re
 import smtplib
 import sys
@@ -21,8 +22,19 @@ from pathlib import Path
 
 DEFAULT_FROM_EMAIL = "makerworkslab@gmail.com"
 DEFAULT_FROM_NAME = "MakerWorks Lab"
-DEFAULT_SUBJECT = "Make the best use of summer break with MakerWorks Lab"
 DEFAULT_PASSWORD_ENV = "MWL_GMAIL_APP_PASSWORD"
+DEFAULT_SUBJECTS = [
+    "Make the best use of summer break with MakerWorks Lab",
+    "Robotics, AI, and engineering programs for curious students",
+    "Help your child build real engineering skills this summer",
+    "Build robots, code AI, and prepare for STEM competitions",
+    "A hands-on maker program for young innovators",
+    "Summer robotics and AI learning at MakerWorks Lab",
+    "From projects to competitions: MakerWorks Lab programs",
+    "Give your child a stronger STEM foundation",
+    "Portfolio-building robotics and AI programs for students",
+    "Learn, build, compete: MakerWorks Lab programs",
+]
 
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
@@ -112,6 +124,12 @@ def build_message(
     return message
 
 
+def choose_subject(args: argparse.Namespace) -> str:
+    if args.subject:
+        return args.subject
+    return random.choice(DEFAULT_SUBJECTS)
+
+
 def send_messages(args: argparse.Namespace, recipients: list[str], html: str, plain_text: str) -> None:
     raw_password = os.environ.get(args.password_env, "")
     password = re.sub(r"\s+", "", raw_password)
@@ -126,17 +144,18 @@ def send_messages(args: argparse.Namespace, recipients: list[str], html: str, pl
 
         total = len(recipients)
         for index, recipient in enumerate(recipients, 1):
+            subject = choose_subject(args)
             message = build_message(
                 recipient=recipient,
                 html=html,
                 plain_text=plain_text,
-                subject=args.subject,
+                subject=subject,
                 from_name=args.from_name,
                 from_email=args.from_email,
                 reply_to=args.reply_to,
             )
             smtp.send_message(message)
-            print(f"[{index}/{total}] Sent to {recipient}", flush=True)
+            print(f"[{index}/{total}] Sent to {recipient} | Subject: {subject}", flush=True)
 
             if index < total and args.delay_seconds > 0:
                 print(f"Waiting {args.delay_seconds} seconds before the next email...", flush=True)
@@ -159,7 +178,11 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help="HTML email file to send.",
     )
-    parser.add_argument("--subject", default=DEFAULT_SUBJECT)
+    parser.add_argument(
+        "--subject",
+        default=None,
+        help="Optional fixed subject override. By default, each email randomly uses one of 10 subjects.",
+    )
     parser.add_argument("--from-email", default=DEFAULT_FROM_EMAIL)
     parser.add_argument("--from-name", default=DEFAULT_FROM_NAME)
     parser.add_argument("--reply-to", default=DEFAULT_FROM_EMAIL)
@@ -208,11 +231,19 @@ def main() -> int:
     print(f"Recipients: {len(recipients)}")
     print(f"From: {formataddr((args.from_name, args.from_email))}")
     print(f"Reply-To: {args.reply_to}")
-    print(f"Subject: {args.subject}")
+    if args.subject:
+        print(f"Subject override: {args.subject}")
+    else:
+        print(f"Subject mode: random pick from {len(DEFAULT_SUBJECTS)} subject lines per email")
     print(f"Delay: {args.delay_seconds} seconds between emails")
     print("Delivery mode: one individual To-only email per recipient")
 
     if args.dry_run:
+        preview_count = min(5, len(recipients))
+        for index, recipient in enumerate(recipients[:preview_count], 1):
+            print(f"Dry run subject sample [{index}/{len(recipients)}] {recipient}: {choose_subject(args)}")
+        if len(recipients) > preview_count:
+            print(f"...and {len(recipients) - preview_count} more recipients")
         print("Dry run complete. No emails were sent.")
         return 0
 
