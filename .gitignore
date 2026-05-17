@@ -1,6 +1,10 @@
 # Environment variables
 .env
 
+# Email recipient lists
+recipients.txt
+email_recipients.txt
+
 # Python
 __pycache__/
 *.pyc
