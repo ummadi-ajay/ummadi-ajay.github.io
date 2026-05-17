@@ -25,15 +25,15 @@ DEFAULT_FROM_NAME = "MakerWorks Lab"
 DEFAULT_PASSWORD_ENV = "MWL_GMAIL_APP_PASSWORD"
 DEFAULT_SUBJECTS = [
     "Make the best use of summer break with MakerWorks Lab",
-    "Robotics, AI, and engineering programs for curious students",
-    "Help your child build real engineering skills this summer",
-    "Build robots, code AI, and prepare for STEM competitions",
-    "A hands-on maker program for young innovators",
+    "MakerWorks Lab robotics, AI, and engineering programs for curious students",
+    "Help your child build real engineering skills with MakerWorks Lab",
+    "Build robots, code AI, and prepare for STEM competitions at MakerWorks Lab",
+    "MakerWorks Lab: a hands-on maker program for young innovators",
     "Summer robotics and AI learning at MakerWorks Lab",
     "From projects to competitions: MakerWorks Lab programs",
-    "Give your child a stronger STEM foundation",
-    "Portfolio-building robotics and AI programs for students",
-    "Learn, build, compete: MakerWorks Lab programs",
+    "Give your child a stronger STEM foundation with MakerWorks Lab",
+    "MakerWorks Lab portfolio-building robotics and AI programs for students",
+    "Learn, build, compete with MakerWorks Lab",
 ]
 
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
