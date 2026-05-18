@@ -118,7 +118,7 @@ function createPaymentCompletionMessage(pendingEnrollment = {}) {
     ['GST Number', orderData.gstNumber || pendingEnrollment.gstNumber],
     ['Program', orderData.itemName || pendingEnrollment.program],
     ['Preferred Class Days', formatPreferredDays(pendingEnrollment.preferredClassDays || orderData.preferredClassDays)],
-    ['Preferred Class Time Slots', formatPreferredTimeSlots(pendingEnrollment.preferredClassTimeSlots || pendingEnrollment.preferredClassTimeSlot || orderData.preferredClassTimeSlots)],
+    ['Preferred Class Start Times', formatPreferredTimeSlots(pendingEnrollment.preferredClassTimeSlots || pendingEnrollment.preferredClassTimeSlot || orderData.preferredClassTimeSlots)],
     ['Robotics Hardware Experience', pendingEnrollment.expRobotics],
     ['Programming Experience', pendingEnrollment.expProgramming],
     ['3D Design Experience', pendingEnrollment.exp3D],
@@ -524,7 +524,7 @@ function generateBill() {
         <p><strong>T-Shirt Size:</strong> ${orderData.tshirt || '—'}</p>
         <p><strong>Payment Plan:</strong> ${orderData.paymentFreq || 'Quarterly'}</p>
         <p><strong>Preferred Days:</strong> ${formatPreferredDays(orderData.preferredClassDays)}</p>
-        <p><strong>Preferred Times:</strong> ${formatPreferredTimeSlots(orderData.preferredClassTimeSlots)}</p>
+        <p><strong>Preferred Start Times:</strong> ${formatPreferredTimeSlots(orderData.preferredClassTimeSlots)}</p>
       `;
       billToBox.appendChild(extraInfo);
     }

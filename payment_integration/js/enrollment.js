@@ -118,7 +118,7 @@ function syncPreferredClassTimeSlotsState(showError = false) {
 
   if (proxy) {
     proxy.value = timeSlots.join(', ');
-    proxy.setCustomValidity(valid ? '' : 'Please select at least one preferred class time slot.');
+    proxy.setCustomValidity(valid ? '' : 'Please select at least one preferred class start time.');
   }
 
   if (group) {
@@ -219,7 +219,7 @@ function createNotificationMessage(data, status) {
     ['Learning Notes / Achievements', data.studentAchievements],
     ['Program', getProgramLabel(data.program)],
     ['Preferred Class Days', formatSelections(data.preferredClassDays)],
-    ['Preferred Class Time Slots', formatSelections(data.preferredClassTimeSlots || data.preferredClassTimeSlot)],
+    ['Preferred Class Start Times', formatSelections(data.preferredClassTimeSlots || data.preferredClassTimeSlot)],
     ['Hours', data.tinkeringHours ? `${data.tinkeringHours} hrs/week (${CLASS_MAPPING[data.tinkeringHours] || 10} hrs/month)` : ''],
     ['Payment Frequency', data.paymentFrequency],
     ['MWL Tinkering Kit', data.tinkeringKit],
