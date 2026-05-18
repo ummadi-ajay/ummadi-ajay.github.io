@@ -81,6 +81,19 @@ function getPreferredClassTimeSlots() {
     .map(input => input.value);
 }
 
+function updatePreferredTimeSlotsSummary(timeSlots = getPreferredClassTimeSlots()) {
+  const summary = document.getElementById('preferredTimeSlotsSummary');
+  if (!summary) return;
+
+  if (timeSlots.length === 0) {
+    summary.textContent = 'Select start times';
+  } else if (timeSlots.length <= 2) {
+    summary.textContent = timeSlots.join(', ');
+  } else {
+    summary.textContent = `${timeSlots.length} start times selected`;
+  }
+}
+
 function formatSelections(value) {
   if (Array.isArray(value)) return value.join(', ');
   return value || '';
@@ -112,19 +125,27 @@ function syncPreferredClassDaysState(showError = false) {
 function syncPreferredClassTimeSlotsState(showError = false) {
   const timeSlots = getPreferredClassTimeSlots();
   const proxy = document.getElementById('preferredClassTimeSlotsProxy');
+  const dropdown = document.getElementById('preferredTimeSlotsDropdown');
   const group = document.getElementById('preferredTimeSlotsGroup');
   const error = document.getElementById('preferredTimeSlotsError');
   const valid = timeSlots.length > 0;
+
+  updatePreferredTimeSlotsSummary(timeSlots);
 
   if (proxy) {
     proxy.value = timeSlots.join(', ');
     proxy.setCustomValidity(valid ? '' : 'Please select at least one preferred class start time.');
   }
 
+  if (dropdown) {
+    dropdown.classList.toggle('ring-2', showError && !valid);
+    dropdown.classList.toggle('ring-red-300', showError && !valid);
+    dropdown.classList.toggle('rounded-2xl', showError && !valid);
+    if (showError && !valid) dropdown.open = true;
+  }
+
   if (group) {
-    group.classList.toggle('ring-2', showError && !valid);
-    group.classList.toggle('ring-red-300', showError && !valid);
-    group.classList.toggle('rounded-2xl', showError && !valid);
+    group.classList.toggle('border-red-300', showError && !valid);
   }
 
   if (error) error.classList.toggle('hidden', valid || !showError);
@@ -142,7 +163,7 @@ function validateSchedulePreferences() {
   }
 
   if (!timeSlotsValid) {
-    document.getElementById('preferredTimeSlotsGroup')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('preferredTimeSlotsDropdown')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return false;
   }
 
