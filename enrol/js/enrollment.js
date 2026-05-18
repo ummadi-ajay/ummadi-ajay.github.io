@@ -30,6 +30,29 @@ const EMAILJS_CONFIG = {
   adminTemplateId: "template_4cus82e",
   recipients: ["makerworkslab@gmail.com", "ummadi.vinay2000@gmail.com"]
 };
+const EXPERIENCE_FIELDS = [
+  {
+    inputId: 'expRobotics',
+    dropdownId: 'expRoboticsDropdown',
+    summaryId: 'expRoboticsSummary',
+    radioName: 'expRoboticsChoice',
+    placeholder: 'Choose hardware experience'
+  },
+  {
+    inputId: 'expProgramming',
+    dropdownId: 'expProgrammingDropdown',
+    summaryId: 'expProgrammingSummary',
+    radioName: 'expProgrammingChoice',
+    placeholder: 'Choose programming experience'
+  },
+  {
+    inputId: 'exp3D',
+    dropdownId: 'exp3DDropdown',
+    summaryId: 'exp3DSummary',
+    radioName: 'exp3DChoice',
+    placeholder: 'Choose design experience'
+  }
+];
 
 let emailJsInitialized = false;
 let partialLeadTimer = null;
@@ -79,6 +102,80 @@ function getPreferredClassDays() {
 function getPreferredClassTimeSlots() {
   return Array.from(document.querySelectorAll('input[name="preferredClassTimeSlots"]:checked'))
     .map(input => input.value);
+}
+
+function getExperienceOptionLabel(optionInput) {
+  return optionInput?.closest('label')?.textContent.trim().replace(/\s+/g, ' ') || optionInput?.value || '';
+}
+
+function updateExperienceSummary(field, optionInput = null) {
+  const input = document.getElementById(field.inputId);
+  const summary = document.getElementById(field.summaryId);
+  if (!summary) return;
+
+  if (optionInput) {
+    summary.textContent = getExperienceOptionLabel(optionInput);
+  } else {
+    summary.textContent = input?.dataset.displayValue || input?.value || field.placeholder;
+  }
+}
+
+function syncExperienceFieldState(field, showError = false) {
+  const input = document.getElementById(field.inputId);
+  const dropdown = document.getElementById(field.dropdownId);
+  const picker = document.querySelector(`[data-experience-input="${field.inputId}"]`);
+  const error = picker?.querySelector('.experience-error');
+  const selected = document.querySelector(`input[name="${field.radioName}"]:checked`);
+
+  if (selected && input) {
+    input.value = selected.value;
+    input.dataset.displayValue = getExperienceOptionLabel(selected);
+  }
+
+  const valid = Boolean(input?.value);
+  updateExperienceSummary(field, selected);
+
+  if (dropdown) {
+    dropdown.classList.toggle('ring-2', showError && !valid);
+    dropdown.classList.toggle('ring-red-300', showError && !valid);
+    dropdown.classList.toggle('rounded-2xl', showError && !valid);
+    if (showError && !valid) dropdown.open = true;
+  }
+
+  if (error) error.classList.toggle('hidden', valid || !showError);
+
+  return valid;
+}
+
+function validateStudentExperience() {
+  for (const field of EXPERIENCE_FIELDS) {
+    if (!syncExperienceFieldState(field, true)) {
+      document.getElementById(field.dropdownId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+  }
+  return true;
+}
+
+function initExperiencePickers() {
+  EXPERIENCE_FIELDS.forEach(field => {
+    document.querySelectorAll(`input[name="${field.radioName}"]`).forEach(option => {
+      option.addEventListener('change', () => {
+        if (!option.checked) return;
+        const input = document.getElementById(field.inputId);
+        const dropdown = document.getElementById(field.dropdownId);
+        if (input) {
+          input.value = option.value;
+          input.dataset.displayValue = getExperienceOptionLabel(option);
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        if (dropdown) dropdown.open = false;
+        syncExperienceFieldState(field, false);
+      });
+    });
+
+    syncExperienceFieldState(field, false);
+  });
 }
 
 function updatePreferredTimeSlotsSummary(timeSlots = getPreferredClassTimeSlots()) {
@@ -273,7 +370,7 @@ async function sendEnrollmentNotification(data, status) {
 
   const sends = EMAILJS_CONFIG.recipients.map(recipient => {
     const templateParams = {
-      title: `MakerWorks Enrollment: ${status}`,
+      title: `MakerWorks Lab Enrollment: ${status}`,
       name: data.parentName || data.studentName || 'Enrollment Lead',
       email: data.email || 'makerworkslab@gmail.com',
       reply_to: data.email || 'makerworkslab@gmail.com',
@@ -708,6 +805,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return false;
     }
 
+    const experienceValid = validateStudentExperience();
+    if (!experienceValid) return false;
+
     const scheduleValid = validateSchedulePreferences();
     if (!scheduleValid) return false;
 
@@ -715,6 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setupContactValidation();
+  initExperiencePickers();
 
   document.querySelectorAll('#policies-section input[type="checkbox"]').forEach(input => {
     input.addEventListener('change', updatePolicyGate);

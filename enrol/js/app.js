@@ -151,7 +151,7 @@ async function sendPaymentCompletionNotification(pendingEnrollment = {}) {
 
   const sends = EMAILJS_CONFIG.recipients.map(recipient => {
     const templateParams = {
-      title: 'MakerWorks Enrollment: Payment Completed',
+      title: 'MakerWorks Lab Enrollment: Payment Completed',
       name: orderData.name || pendingEnrollment.parentName || 'Enrollment Payment',
       email: replyTo,
       reply_to: replyTo,
