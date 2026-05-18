@@ -76,6 +76,16 @@ function getPreferredClassDays() {
     .map(input => input.value);
 }
 
+function getPreferredClassTimeSlots() {
+  return Array.from(document.querySelectorAll('input[name="preferredClassTimeSlots"]:checked'))
+    .map(input => input.value);
+}
+
+function formatSelections(value) {
+  if (Array.isArray(value)) return value.join(', ');
+  return value || '';
+}
+
 function syncPreferredClassDaysState(showError = false) {
   const days = getPreferredClassDays();
   const proxy = document.getElementById('preferredClassDaysProxy');
@@ -99,22 +109,40 @@ function syncPreferredClassDaysState(showError = false) {
   return valid;
 }
 
+function syncPreferredClassTimeSlotsState(showError = false) {
+  const timeSlots = getPreferredClassTimeSlots();
+  const proxy = document.getElementById('preferredClassTimeSlotsProxy');
+  const group = document.getElementById('preferredTimeSlotsGroup');
+  const error = document.getElementById('preferredTimeSlotsError');
+  const valid = timeSlots.length > 0;
+
+  if (proxy) {
+    proxy.value = timeSlots.join(', ');
+    proxy.setCustomValidity(valid ? '' : 'Please select at least one preferred class time slot.');
+  }
+
+  if (group) {
+    group.classList.toggle('ring-2', showError && !valid);
+    group.classList.toggle('ring-red-300', showError && !valid);
+    group.classList.toggle('rounded-2xl', showError && !valid);
+  }
+
+  if (error) error.classList.toggle('hidden', valid || !showError);
+
+  return valid;
+}
+
 function validateSchedulePreferences() {
   const daysValid = syncPreferredClassDaysState(true);
-  const timeSlot = document.getElementById('preferredClassTimeSlot');
-  const timeValid = setFieldValidity(
-    timeSlot,
-    timeSlot?.value ? '' : 'Please select a preferred class time slot.'
-  );
+  const timeSlotsValid = syncPreferredClassTimeSlotsState(true);
 
   if (!daysValid) {
     document.getElementById('preferredDaysGroup')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return false;
   }
 
-  if (!timeValid) {
-    timeSlot.reportValidity();
-    timeSlot.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (!timeSlotsValid) {
+    document.getElementById('preferredTimeSlotsGroup')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return false;
   }
 
@@ -132,6 +160,7 @@ function collectEnrollmentSnapshot() {
   const country = document.getElementById('country')?.value || 'India';
   const countryMultiplier = country === 'Other' ? 1.5 : 1.0;
   const freq = selectedFreq ? selectedFreq.value : (hasMonth ? 'Experiment Month' : 'Quarterly');
+  const preferredClassTimeSlots = getPreferredClassTimeSlots();
 
   let freqMultiplier = 1;
   if (!hasMonth) {
@@ -159,7 +188,8 @@ function collectEnrollmentSnapshot() {
     studentAchievements: document.getElementById('studentAchievements')?.value.trim() || '',
     program: programName,
     preferredClassDays: getPreferredClassDays(),
-    preferredClassTimeSlot: document.getElementById('preferredClassTimeSlot')?.value || '',
+    preferredClassTimeSlots,
+    preferredClassTimeSlot: preferredClassTimeSlots.join(', '),
     tinkeringHours: hours,
     paymentFrequency: freq,
     tinkeringKit: hasKit ? "Yes" : "No",
@@ -188,8 +218,8 @@ function createNotificationMessage(data, status) {
     ['3D Design Experience', data.exp3D],
     ['Learning Notes / Achievements', data.studentAchievements],
     ['Program', getProgramLabel(data.program)],
-    ['Preferred Class Days', Array.isArray(data.preferredClassDays) ? data.preferredClassDays.join(', ') : data.preferredClassDays],
-    ['Preferred Class Time Slot', data.preferredClassTimeSlot],
+    ['Preferred Class Days', formatSelections(data.preferredClassDays)],
+    ['Preferred Class Time Slots', formatSelections(data.preferredClassTimeSlots || data.preferredClassTimeSlot)],
     ['Hours', data.tinkeringHours ? `${data.tinkeringHours} hrs/week (${CLASS_MAPPING[data.tinkeringHours] || 10} hrs/month)` : ''],
     ['Payment Frequency', data.paymentFrequency],
     ['MWL Tinkering Kit', data.tinkeringKit],
@@ -707,7 +737,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const partialLeadFields = [
     'studentName', 'dob', 'tshirt', 'schoolName', 'studyGrade', 'parentName',
     'address', 'country', 'companyName', 'gstNumber', 'expRobotics',
-    'expProgramming', 'exp3D', 'studentAchievements', 'preferredClassTimeSlot'
+    'expProgramming', 'exp3D', 'studentAchievements'
   ];
   partialLeadFields.forEach(id => {
     const el = document.getElementById(id);
@@ -723,18 +753,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const preferredTimeSlot = document.getElementById('preferredClassTimeSlot');
-  if (preferredTimeSlot) {
-    preferredTimeSlot.addEventListener('change', () => {
-      setFieldValidity(preferredTimeSlot, preferredTimeSlot.value ? '' : 'Please select a preferred class time slot.');
+  document.querySelectorAll('input[name="preferredClassTimeSlots"]').forEach(input => {
+    input.addEventListener('change', () => {
+      syncPreferredClassTimeSlotsState(false);
+      schedulePartialLeadNotification();
     });
-  }
+  });
 
   // Setup progress tracking
   const requiredFields = [
     'studentName', 'dob', 'schoolName', 'studyGrade',
     'parentName', 'parentPhone', 'email', 'address',
-    'expRobotics', 'expProgramming', 'exp3D', 'preferredClassTimeSlot'
+    'expRobotics', 'expProgramming', 'exp3D'
   ];
 
   function updateFormProgress() {
@@ -749,8 +779,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check program radios
     if (document.querySelector('input[name="programDivision"]:checked')) filled++;
     if (getPreferredClassDays().length > 0) filled++;
+    if (getPreferredClassTimeSlots().length > 0) filled++;
 
-    const total = requiredFields.length + 2;
+    const total = requiredFields.length + 3;
     const progress = (filled / total) * 100;
 
     const fill = document.getElementById('progressFill');
@@ -758,8 +789,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Attach listeners for progress
-  [...requiredFields, 'programDivision', 'paymentFreq', 'preferredClassDays'].forEach(idOrName => {
-    const els = ['programDivision', 'paymentFreq', 'preferredClassDays'].includes(idOrName)
+  [...requiredFields, 'programDivision', 'paymentFreq', 'preferredClassDays', 'preferredClassTimeSlots'].forEach(idOrName => {
+    const els = ['programDivision', 'paymentFreq', 'preferredClassDays', 'preferredClassTimeSlots'].includes(idOrName)
       ? document.querySelectorAll(`input[name="${idOrName}"]`)
       : [document.getElementById(idOrName)];
 
@@ -847,6 +878,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const hasKit = document.getElementById('check-kit')?.checked || false;
       const hasMonth = document.getElementById('check-month')?.checked || false;
       const freq = hasMonth ? 'Experiment Month' : (selectedFreq ? selectedFreq.value : 'Quarterly');
+      const preferredClassTimeSlots = getPreferredClassTimeSlots();
 
       const country = document.getElementById('country')?.value || 'India';
 
@@ -880,7 +912,8 @@ document.addEventListener('DOMContentLoaded', () => {
         studentAchievements: document.getElementById('studentAchievements') ? document.getElementById('studentAchievements').value.trim() : '',
         program: programName,
         preferredClassDays: getPreferredClassDays(),
-        preferredClassTimeSlot: document.getElementById('preferredClassTimeSlot').value,
+        preferredClassTimeSlots,
+        preferredClassTimeSlot: preferredClassTimeSlots.join(', '),
         tinkeringHours: hours,
         paymentFrequency: freq,
         tinkeringKit: hasKit ? "Yes" : "No",
@@ -911,6 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gst: enrollmentData.gstNumber || '',
         program: itemDescription,
         preferredDays: enrollmentData.preferredClassDays.join(','),
+        preferredTimes: enrollmentData.preferredClassTimeSlots.join(','),
         preferredTime: enrollmentData.preferredClassTimeSlot,
         hours: enrollmentData.tinkeringHours,
         amount: enrollmentData.totalPrice,

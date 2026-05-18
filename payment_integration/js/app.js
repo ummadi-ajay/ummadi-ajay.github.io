@@ -22,7 +22,7 @@ let orderData = {
   subtotal: 0, tax: 0, grandTotal: 0,
   paymentId: '', billNumber: '',
   tshirt: '', paymentFreq: 'Quarterly', country: 'India',
-  preferredClassDays: [], preferredClassTimeSlot: ''
+  preferredClassDays: [], preferredClassTimeSlots: []
 };
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -68,6 +68,19 @@ function formatPreferredDays(days) {
   return normalized.length ? normalized.join(', ') : '—';
 }
 
+function normalizePreferredTimeSlots(value) {
+  if (Array.isArray(value)) return value.filter(Boolean);
+  return (value || '')
+    .split(',')
+    .map(timeSlot => timeSlot.trim())
+    .filter(Boolean);
+}
+
+function formatPreferredTimeSlots(timeSlots) {
+  const normalized = normalizePreferredTimeSlots(timeSlots);
+  return normalized.length ? normalized.join(', ') : '—';
+}
+
 function getPendingEnrollmentData() {
   const pendingJson = sessionStorage.getItem('pendingEnrollment');
   if (!pendingJson) return null;
@@ -105,7 +118,7 @@ function createPaymentCompletionMessage(pendingEnrollment = {}) {
     ['GST Number', orderData.gstNumber || pendingEnrollment.gstNumber],
     ['Program', orderData.itemName || pendingEnrollment.program],
     ['Preferred Class Days', formatPreferredDays(pendingEnrollment.preferredClassDays || orderData.preferredClassDays)],
-    ['Preferred Class Time Slot', pendingEnrollment.preferredClassTimeSlot || orderData.preferredClassTimeSlot],
+    ['Preferred Class Time Slots', formatPreferredTimeSlots(pendingEnrollment.preferredClassTimeSlots || pendingEnrollment.preferredClassTimeSlot || orderData.preferredClassTimeSlots)],
     ['Robotics Hardware Experience', pendingEnrollment.expRobotics],
     ['Programming Experience', pendingEnrollment.expProgramming],
     ['3D Design Experience', pendingEnrollment.exp3D],
@@ -177,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     orderData.gstNumber = urlParams.get('gst') || '';
     orderData.country = urlParams.get('country') || 'India';
     orderData.preferredClassDays = normalizePreferredDays(urlParams.get('preferredDays'));
-    orderData.preferredClassTimeSlot = urlParams.get('preferredTime') || '';
+    orderData.preferredClassTimeSlots = normalizePreferredTimeSlots(urlParams.get('preferredTimes') || urlParams.get('preferredTime'));
     
     if (document.getElementById('address')) document.getElementById('address').value = orderData.address;
     if (document.getElementById('companyName')) document.getElementById('companyName').value = orderData.companyName;
@@ -309,7 +322,7 @@ function setupButtons() {
     setEl('conf-item-qty', '1 enrollment');
     setEl('conf-item-price', formatCurrency(orderData.subtotal));
     setEl('conf-preferred-days', formatPreferredDays(orderData.preferredClassDays));
-    setEl('conf-preferred-time', orderData.preferredClassTimeSlot || '—');
+    setEl('conf-preferred-time', formatPreferredTimeSlots(orderData.preferredClassTimeSlots));
     setEl('conf-subtotal', formatCurrency(orderData.subtotal));
     setEl('conf-tax', formatCurrency(orderData.tax));
     setEl('conf-grand-total', formatCurrency(orderData.grandTotal));
@@ -511,7 +524,7 @@ function generateBill() {
         <p><strong>T-Shirt Size:</strong> ${orderData.tshirt || '—'}</p>
         <p><strong>Payment Plan:</strong> ${orderData.paymentFreq || 'Quarterly'}</p>
         <p><strong>Preferred Days:</strong> ${formatPreferredDays(orderData.preferredClassDays)}</p>
-        <p><strong>Preferred Time:</strong> ${orderData.preferredClassTimeSlot || '—'}</p>
+        <p><strong>Preferred Times:</strong> ${formatPreferredTimeSlots(orderData.preferredClassTimeSlots)}</p>
       `;
       billToBox.appendChild(extraInfo);
     }
