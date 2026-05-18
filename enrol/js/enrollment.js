@@ -53,6 +53,18 @@ const EXPERIENCE_FIELDS = [
     placeholder: 'Choose design experience'
   }
 ];
+const REQUIRED_FIELD_LABELS = [
+  ['studentName', 'Student Name'],
+  ['dob', 'Date of Birth'],
+  ['tshirt', 'T-Shirt Size'],
+  ['schoolName', 'School Name'],
+  ['studyGrade', 'Grade'],
+  ['parentName', 'Parent Name'],
+  ['parentPhone', 'Parent Phone'],
+  ['email', 'Email'],
+  ['address', 'Address'],
+  ['country', 'Country']
+];
 
 let emailJsInitialized = false;
 let partialLeadTimer = null;
@@ -92,6 +104,73 @@ function setFieldValidity(el, message = '') {
   el.setCustomValidity(message);
   el.classList.toggle('field-error', Boolean(message));
   return !message;
+}
+
+function showValidationNotice(title, message = 'We moved you to the first item that needs attention.') {
+  const toast = document.getElementById('formValidationToast');
+  const toastTitle = document.getElementById('formValidationToastTitle');
+  const toastMessage = document.getElementById('formValidationToastMessage');
+
+  if (!toast) return;
+  if (toastTitle) toastTitle.textContent = title;
+  if (toastMessage) toastMessage.textContent = message;
+  toast.classList.remove('hidden');
+}
+
+function hideValidationNotice() {
+  document.getElementById('formValidationToast')?.classList.add('hidden');
+}
+
+function focusValidationTarget(el) {
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  window.setTimeout(() => {
+    if (typeof el.focus === 'function') el.focus({ preventScroll: true });
+  }, 350);
+}
+
+function getFieldValue(el) {
+  return (el?.value || '').trim();
+}
+
+function validateRequiredFields(showError = false) {
+  const missingFields = [];
+
+  REQUIRED_FIELD_LABELS.forEach(([id, label]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    if (!getFieldValue(el)) {
+      setFieldValidity(el, `${label} is required.`);
+      missingFields.push({ el, label });
+    } else if (!['parentPhone', 'email'].includes(id)) {
+      setFieldValidity(el, '');
+    }
+  });
+
+  if (missingFields.length && showError) {
+    const missingLabels = missingFields.slice(0, 3).map(field => field.label).join(', ');
+    const extraCount = missingFields.length - 3;
+    const summary = extraCount > 0 ? `${missingLabels}, and ${extraCount} more` : missingLabels;
+    showValidationNotice(`Please complete: ${summary}.`);
+    focusValidationTarget(missingFields[0].el);
+  }
+
+  return missingFields.length === 0;
+}
+
+function setupRequiredFieldRecovery() {
+  REQUIRED_FIELD_LABELS.forEach(([id]) => {
+    if (['parentPhone', 'email'].includes(id)) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const clearIfFilled = () => {
+      if (getFieldValue(el)) setFieldValidity(el, '');
+    };
+    el.addEventListener('input', clearIfFilled);
+    el.addEventListener('change', clearIfFilled);
+  });
 }
 
 function getPreferredClassDays() {
@@ -150,6 +229,7 @@ function syncExperienceFieldState(field, showError = false) {
 function validateStudentExperience() {
   for (const field of EXPERIENCE_FIELDS) {
     if (!syncExperienceFieldState(field, true)) {
+      showValidationNotice('Please complete the Student Experience questions.', 'Choose an option for each required experience question.');
       document.getElementById(field.dropdownId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return false;
     }
@@ -255,11 +335,13 @@ function validateSchedulePreferences() {
   const timeSlotsValid = syncPreferredClassTimeSlotsState(true);
 
   if (!daysValid) {
+    showValidationNotice('Please select preferred class days.', 'Choose at least one day for regular classes.');
     document.getElementById('preferredDaysGroup')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return false;
   }
 
   if (!timeSlotsValid) {
+    showValidationNotice('Please select preferred class start times.', 'Choose at least one start time for regular classes.');
     document.getElementById('preferredTimeSlotsDropdown')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return false;
   }
@@ -677,6 +759,8 @@ function applyRecommendedProgram() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('formValidationToastClose')?.addEventListener('click', hideValidationNotice);
+
   // Photo preview
   const photoFileInput = document.getElementById('photoFile');
   if (photoFileInput) {
@@ -757,50 +841,70 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const updatePolicyGate = () => {
+  const updatePolicyGate = (showErrors = false) => {
     const policyCheckboxes = Array.from(document.querySelectorAll('#policies-section input[type="checkbox"]'));
     const allChecked = policyCheckboxes.length > 0 && policyCheckboxes.every(input => input.checked);
     const submitBtn = document.getElementById('btn-submit');
     const mobileSubmitBtn = document.getElementById('btn-submit-mobile');
     const status = document.getElementById('policyStatus');
+    const statusText = status?.querySelector('[data-policy-status-text]');
+    const missingCount = policyCheckboxes.filter(input => !input.checked).length;
 
     [submitBtn, mobileSubmitBtn].forEach(button => {
       if (!button) return;
-      button.disabled = !allChecked;
-      button.classList.toggle('opacity-60', !allChecked);
-      button.classList.toggle('cursor-not-allowed', !allChecked);
+      button.disabled = false;
+      button.classList.remove('opacity-60', 'cursor-not-allowed');
       button.title = allChecked ? '' : 'Please check all policies and commitments to continue.';
+    });
+
+    policyCheckboxes.forEach(input => {
+      input.closest('label')?.classList.toggle('policy-missing', showErrors && !input.checked);
     });
 
     if (status) {
       status.classList.toggle('hidden', allChecked);
+    }
+    if (statusText) {
+      statusText.textContent = showErrors && missingCount
+        ? `${missingCount} policy acknowledgement${missingCount === 1 ? '' : 's'} still need${missingCount === 1 ? 's' : ''} to be checked before continuing.`
+        : 'Please check all policies and commitments to continue.';
     }
 
     return allChecked;
   };
 
   const validatePolicies = () => {
-    const allChecked = updatePolicyGate();
+    const allChecked = updatePolicyGate(true);
     if (!allChecked) {
-      document.getElementById('policies-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const firstUnchecked = document.querySelector('#policies-section input[type="checkbox"]:not(:checked)');
+      const missingCount = document.querySelectorAll('#policies-section input[type="checkbox"]:not(:checked)').length;
+      showValidationNotice(
+        'Please check all policies and commitments.',
+        `${missingCount} acknowledgement${missingCount === 1 ? '' : 's'} still need${missingCount === 1 ? 's' : ''} your confirmation.`
+      );
+      focusValidationTarget(firstUnchecked || document.getElementById('policies-section'));
       return false;
     }
     return true;
   };
 
   const validateEnrollmentForm = () => {
+    hideValidationNotice();
     const phoneInput = document.getElementById('parentPhone');
     const emailInput = document.getElementById('email');
     if (phoneInput) phoneInput.value = normalizePhone(phoneInput.value);
+
+    const requiredValid = validateRequiredFields(true);
+    if (!requiredValid) return false;
 
     const phoneValid = setFieldValidity(phoneInput, isValidPhone(phoneInput?.value || '') ? '' : 'Please enter exactly 10 digits.');
     const emailValid = setFieldValidity(emailInput, isValidEmail(emailInput?.value || '') ? '' : 'Please enter a valid email address.');
 
     if (!phoneValid || !emailValid) {
       const first = document.querySelector('.field-error');
+      showValidationNotice('Please check your contact details.', first?.validationMessage || 'Enter a valid phone number and email address.');
       if (first) {
-        first.reportValidity();
-        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        focusValidationTarget(first);
       }
       return false;
     }
@@ -815,10 +919,11 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setupContactValidation();
+  setupRequiredFieldRecovery();
   initExperiencePickers();
 
   document.querySelectorAll('#policies-section input[type="checkbox"]').forEach(input => {
-    input.addEventListener('change', updatePolicyGate);
+    input.addEventListener('change', () => updatePolicyGate(false));
   });
 
   const checkKit = document.getElementById('check-kit');
