@@ -819,6 +819,80 @@
             </label>
           </div>
 
+          <!-- Schedule Preferences -->
+          <div class="space-y-5 md:space-y-6 pt-6 border-t border-slate-100">
+            <div class="flex items-center gap-3 md:gap-4">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-white text-lg md:text-xl">event_available</span>
+              </div>
+              <div>
+                <h2 class="text-xl md:text-2xl font-bold text-on-surface">Class Schedule Preference</h2>
+                <p class="text-xs md:text-sm text-slate-500">Preferred days and time for regular classes</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+              <div class="flex flex-col gap-3">
+                <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sky-600 text-base">calendar_month</span>
+                  Preferred Class Days *
+                </label>
+                <div id="preferredDaysGroup" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-3">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                    <input type="checkbox" name="preferredClassDays" value="Sat" class="sr-only">
+                    Sat
+                  </label>
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                    <input type="checkbox" name="preferredClassDays" value="Sun" class="sr-only">
+                    Sun
+                  </label>
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                    <input type="checkbox" name="preferredClassDays" value="Mon" class="sr-only">
+                    Mon
+                  </label>
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                    <input type="checkbox" name="preferredClassDays" value="Tue" class="sr-only">
+                    Tue
+                  </label>
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                    <input type="checkbox" name="preferredClassDays" value="Wed" class="sr-only">
+                    Wed
+                  </label>
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                    <input type="checkbox" name="preferredClassDays" value="Thu" class="sr-only">
+                    Thu
+                  </label>
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                    <input type="checkbox" name="preferredClassDays" value="Fri" class="sr-only">
+                    Fri
+                  </label>
+                </div>
+                <input id="preferredClassDaysProxy" class="sr-only" tabindex="-1" aria-label="Preferred class days">
+                <p id="preferredDaysError" class="hidden text-xs font-semibold text-red-500">Select at least one preferred day.</p>
+              </div>
+
+              <div class="flex flex-col gap-3">
+                <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sky-600 text-base">schedule</span>
+                  Preferred Class Time Slot *
+                </label>
+                <select id="preferredClassTimeSlot" required
+                  class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 outline-none transition-all appearance-none cursor-pointer">
+                  <option value="" disabled selected>Select time slot</option>
+                  <option value="8:00 AM - 9:00 AM">8:00 AM - 9:00 AM</option>
+                  <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
+                  <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                  <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                  <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
+                  <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                  <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                  <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+                  <option value="5:00 PM - 6:00 PM">5:00 PM - 6:00 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           <!-- Hours Selection -->
           <div class="space-y-3 md:space-y-4">
             <label class="text-sm font-semibold text-slate-700">Hours Per Week *</label>
@@ -1049,7 +1123,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="module" src="js/enrollment.js?v=4"></script>
+  <script type="module" src="js/enrollment.js?v=5"></script>
 </body>
 
 </html>

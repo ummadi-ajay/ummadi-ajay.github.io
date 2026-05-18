@@ -21,10 +21,19 @@ let orderData = {
   itemName: '', unitPrice: 0,
   subtotal: 0, tax: 0, grandTotal: 0,
   paymentId: '', billNumber: '',
-  tshirt: '', paymentFreq: 'Quarterly', country: 'India'
+  tshirt: '', paymentFreq: 'Quarterly', country: 'India',
+  preferredClassDays: [], preferredClassTimeSlot: ''
 };
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+const EMAILJS_CONFIG = {
+  serviceId: "service_atizuna",
+  publicKey: "GFxAVPzBfXX4d-vQR",
+  adminTemplateId: "template_4cus82e",
+  recipients: ["makerworkslab@gmail.com"]
+};
+
+let emailJsInitialized = false;
 
 function normalizePhone(value) {
   return (value || '').replace(/\D/g, '').slice(0, 10);
@@ -44,6 +53,107 @@ function setFieldValidity(el, message = '') {
   el.classList.toggle('!border-red-400', Boolean(message));
   el.classList.toggle('border-transparent', !message);
   return !message;
+}
+
+function normalizePreferredDays(value) {
+  if (Array.isArray(value)) return value.filter(Boolean);
+  return (value || '')
+    .split(',')
+    .map(day => day.trim())
+    .filter(Boolean);
+}
+
+function formatPreferredDays(days) {
+  const normalized = normalizePreferredDays(days);
+  return normalized.length ? normalized.join(', ') : '—';
+}
+
+function getPendingEnrollmentData() {
+  const pendingJson = sessionStorage.getItem('pendingEnrollment');
+  if (!pendingJson) return null;
+  try {
+    return JSON.parse(pendingJson);
+  } catch (error) {
+    console.error("Pending enrollment parse error:", error);
+    return null;
+  }
+}
+
+function initEmailJs() {
+  if (emailJsInitialized) return true;
+  if (!window.emailjs || !EMAILJS_CONFIG.publicKey) return false;
+  window.emailjs.init(EMAILJS_CONFIG.publicKey);
+  emailJsInitialized = true;
+  return true;
+}
+
+function createPaymentCompletionMessage(pendingEnrollment = {}) {
+  const rows = [
+    ['Status', 'PAYMENT_COMPLETED'],
+    ['Payment ID', orderData.paymentId],
+    ['Receipt No', orderData.billNumber],
+    ['Parent Name', orderData.name || pendingEnrollment.parentName],
+    ['Student Name', pendingEnrollment.studentName],
+    ['Date of Birth', pendingEnrollment.dob],
+    ['School', pendingEnrollment.schoolName],
+    ['Grade', pendingEnrollment.studyGrade ? `Grade ${pendingEnrollment.studyGrade}` : ''],
+    ['Phone', orderData.phone || pendingEnrollment.parentPhone],
+    ['Email', orderData.email || pendingEnrollment.email],
+    ['Address', orderData.address || pendingEnrollment.address],
+    ['Country', orderData.country || pendingEnrollment.country],
+    ['Company', orderData.companyName || pendingEnrollment.companyName],
+    ['GST Number', orderData.gstNumber || pendingEnrollment.gstNumber],
+    ['Program', orderData.itemName || pendingEnrollment.program],
+    ['Preferred Class Days', formatPreferredDays(pendingEnrollment.preferredClassDays || orderData.preferredClassDays)],
+    ['Preferred Class Time Slot', pendingEnrollment.preferredClassTimeSlot || orderData.preferredClassTimeSlot],
+    ['Robotics Hardware Experience', pendingEnrollment.expRobotics],
+    ['Programming Experience', pendingEnrollment.expProgramming],
+    ['3D Design Experience', pendingEnrollment.exp3D],
+    ['Learning Notes / Achievements', pendingEnrollment.studentAchievements],
+    ['T-Shirt Size', orderData.tshirt || pendingEnrollment.tshirt],
+    ['Payment Frequency', orderData.paymentFreq || pendingEnrollment.paymentFrequency],
+    ['MWL Tinkering Kit', pendingEnrollment.tinkeringKit],
+    ['Experiment Month', pendingEnrollment.experimentMonth],
+    ['Original Amount Before GST', pendingEnrollment.totalPrice ? formatCurrency(pendingEnrollment.totalPrice) : ''],
+    ['Paid Program Fee', formatCurrency(orderData.subtotal)],
+    ['GST Paid', formatCurrency(orderData.tax)],
+    ['Total Paid', formatCurrency(orderData.grandTotal)]
+  ];
+
+  return rows
+    .map(([label, value]) => `${label}: ${value || 'Not provided'}`)
+    .join('\n');
+}
+
+async function sendPaymentCompletionNotification(pendingEnrollment = {}) {
+  if (!initEmailJs()) return;
+
+  const timestamp = new Date().toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    dateStyle: 'medium',
+    timeStyle: 'short'
+  });
+  const message = createPaymentCompletionMessage(pendingEnrollment);
+  const replyTo = orderData.email || pendingEnrollment.email || 'makerworkslab@gmail.com';
+
+  const sends = EMAILJS_CONFIG.recipients.map(recipient => {
+    const templateParams = {
+      title: 'MakerWorks Enrollment: Payment Completed',
+      name: orderData.name || pendingEnrollment.parentName || 'Enrollment Payment',
+      email: replyTo,
+      reply_to: replyTo,
+      to_email: recipient,
+      recipient_email: recipient,
+      time: timestamp,
+      message
+    };
+    return window.emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.adminTemplateId, templateParams);
+  });
+
+  const results = await Promise.allSettled(sends);
+  results.forEach(result => {
+    if (result.status === 'rejected') console.error('Payment EmailJS Error:', result.reason);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -66,6 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
     orderData.companyName = urlParams.get('company') || '';
     orderData.gstNumber = urlParams.get('gst') || '';
     orderData.country = urlParams.get('country') || 'India';
+    orderData.preferredClassDays = normalizePreferredDays(urlParams.get('preferredDays'));
+    orderData.preferredClassTimeSlot = urlParams.get('preferredTime') || '';
     
     if (document.getElementById('address')) document.getElementById('address').value = orderData.address;
     if (document.getElementById('companyName')) document.getElementById('companyName').value = orderData.companyName;
@@ -196,6 +308,8 @@ function setupButtons() {
     setEl('conf-item-name', orderData.itemName);
     setEl('conf-item-qty', '1 enrollment');
     setEl('conf-item-price', formatCurrency(orderData.subtotal));
+    setEl('conf-preferred-days', formatPreferredDays(orderData.preferredClassDays));
+    setEl('conf-preferred-time', orderData.preferredClassTimeSlot || '—');
     setEl('conf-subtotal', formatCurrency(orderData.subtotal));
     setEl('conf-tax', formatCurrency(orderData.tax));
     setEl('conf-grand-total', formatCurrency(orderData.grandTotal));
@@ -267,7 +381,7 @@ function goToStep(num) {
 }
 
 // ===== Razorpay & Firebase Storage =====
-async function saveOrderToFirebase() {
+async function saveOrderToFirebase(pendingEnrollment = getPendingEnrollmentData()) {
   if (!db) return;
   try {
     const ordersRef = ref(db, 'orders');
@@ -277,10 +391,12 @@ async function saveOrderToFirebase() {
       status: 'PAID'
     });
     
-    const pendingJson = sessionStorage.getItem('pendingEnrollment');
-    if (pendingJson) {
-      const pendingEnrollment = JSON.parse(pendingJson);
+    if (pendingEnrollment) {
       pendingEnrollment.paymentId = orderData.paymentId;
+      pendingEnrollment.billNumber = orderData.billNumber;
+      pendingEnrollment.paidSubtotal = orderData.subtotal;
+      pendingEnrollment.paidGst = orderData.tax;
+      pendingEnrollment.paidTotal = orderData.grandTotal;
       pendingEnrollment.status = 'PAID';
       
       const enrollmentsRef = ref(db, 'enrollments');
@@ -303,8 +419,10 @@ function openRazorpay() {
     
     setTimeout(() => {
       orderData.paymentId = 'pay_DEMO_' + Date.now();
-      saveOrderToFirebase();
+      const pendingEnrollment = getPendingEnrollmentData();
       generateBill();
+      saveOrderToFirebase(pendingEnrollment);
+      sendPaymentCompletionNotification(pendingEnrollment || {});
       goToStep(3);
     }, 1500);
     return;
@@ -318,10 +436,12 @@ function openRazorpay() {
     description: orderData.itemName,
     prefill: { name: orderData.name, email: orderData.email, contact: orderData.phone },
     theme: { color: '#4f46e5' },
-    handler: function (response) {
+    handler: async function (response) {
       orderData.paymentId = response.razorpay_payment_id;
-      saveOrderToFirebase();
+      const pendingEnrollment = getPendingEnrollmentData();
       generateBill();
+      await saveOrderToFirebase(pendingEnrollment);
+      await sendPaymentCompletionNotification(pendingEnrollment || {});
       goToStep(3);
     }
   };
@@ -380,7 +500,7 @@ function generateBill() {
   }
 
   // Add T-shirt and Frequency to Bill To section if elements exist
-  const billToBox = document.querySelector('.bg-indigo-50');
+  const billToBox = document.querySelector('#bill-printable .bg-slate-50');
   if (billToBox) {
     // Check if we already added these to avoid duplicates if generateBill is called twice
     if (!document.getElementById('bill-tshirt-row')) {
@@ -390,6 +510,8 @@ function generateBill() {
       extraInfo.innerHTML = `
         <p><strong>T-Shirt Size:</strong> ${orderData.tshirt || '—'}</p>
         <p><strong>Payment Plan:</strong> ${orderData.paymentFreq || 'Quarterly'}</p>
+        <p><strong>Preferred Days:</strong> ${formatPreferredDays(orderData.preferredClassDays)}</p>
+        <p><strong>Preferred Time:</strong> ${orderData.preferredClassTimeSlot || '—'}</p>
       `;
       billToBox.appendChild(extraInfo);
     }

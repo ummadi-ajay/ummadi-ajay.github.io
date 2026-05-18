@@ -71,6 +71,56 @@ function setFieldValidity(el, message = '') {
   return !message;
 }
 
+function getPreferredClassDays() {
+  return Array.from(document.querySelectorAll('input[name="preferredClassDays"]:checked'))
+    .map(input => input.value);
+}
+
+function syncPreferredClassDaysState(showError = false) {
+  const days = getPreferredClassDays();
+  const proxy = document.getElementById('preferredClassDaysProxy');
+  const group = document.getElementById('preferredDaysGroup');
+  const error = document.getElementById('preferredDaysError');
+  const valid = days.length > 0;
+
+  if (proxy) {
+    proxy.value = days.join(', ');
+    proxy.setCustomValidity(valid ? '' : 'Please select at least one preferred class day.');
+  }
+
+  if (group) {
+    group.classList.toggle('ring-2', showError && !valid);
+    group.classList.toggle('ring-red-300', showError && !valid);
+    group.classList.toggle('rounded-2xl', showError && !valid);
+  }
+
+  if (error) error.classList.toggle('hidden', valid || !showError);
+
+  return valid;
+}
+
+function validateSchedulePreferences() {
+  const daysValid = syncPreferredClassDaysState(true);
+  const timeSlot = document.getElementById('preferredClassTimeSlot');
+  const timeValid = setFieldValidity(
+    timeSlot,
+    timeSlot?.value ? '' : 'Please select a preferred class time slot.'
+  );
+
+  if (!daysValid) {
+    document.getElementById('preferredDaysGroup')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return false;
+  }
+
+  if (!timeValid) {
+    timeSlot.reportValidity();
+    timeSlot.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return false;
+  }
+
+  return true;
+}
+
 function collectEnrollmentSnapshot() {
   const selectedProgram = document.querySelector('input[name="programDivision"]:checked');
   const selectedHours = document.querySelector('input[name="tinkeringHours"]:checked');
@@ -108,6 +158,8 @@ function collectEnrollmentSnapshot() {
     exp3D: document.getElementById('exp3D')?.value || '',
     studentAchievements: document.getElementById('studentAchievements')?.value.trim() || '',
     program: programName,
+    preferredClassDays: getPreferredClassDays(),
+    preferredClassTimeSlot: document.getElementById('preferredClassTimeSlot')?.value || '',
     tinkeringHours: hours,
     paymentFrequency: freq,
     tinkeringKit: hasKit ? "Yes" : "No",
@@ -136,6 +188,8 @@ function createNotificationMessage(data, status) {
     ['3D Design Experience', data.exp3D],
     ['Learning Notes / Achievements', data.studentAchievements],
     ['Program', getProgramLabel(data.program)],
+    ['Preferred Class Days', Array.isArray(data.preferredClassDays) ? data.preferredClassDays.join(', ') : data.preferredClassDays],
+    ['Preferred Class Time Slot', data.preferredClassTimeSlot],
     ['Hours', data.tinkeringHours ? `${data.tinkeringHours} hrs/week (${CLASS_MAPPING[data.tinkeringHours] || 10} hrs/month)` : ''],
     ['Payment Frequency', data.paymentFrequency],
     ['MWL Tinkering Kit', data.tinkeringKit],
@@ -593,7 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const phoneValid = setFieldValidity(phoneInput, isValidPhone(phoneInput?.value || '') ? '' : 'Please enter exactly 10 digits.');
     const emailValid = setFieldValidity(emailInput, isValidEmail(emailInput?.value || '') ? '' : 'Please enter a valid email address.');
-    const policiesValid = validatePolicies();
 
     if (!phoneValid || !emailValid) {
       const first = document.querySelector('.field-error');
@@ -604,7 +657,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return false;
     }
 
-    return policiesValid;
+    const scheduleValid = validateSchedulePreferences();
+    if (!scheduleValid) return false;
+
+    return validatePolicies();
   };
 
   setupContactValidation();
@@ -651,7 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const partialLeadFields = [
     'studentName', 'dob', 'tshirt', 'schoolName', 'studyGrade', 'parentName',
     'address', 'country', 'companyName', 'gstNumber', 'expRobotics',
-    'expProgramming', 'exp3D', 'studentAchievements'
+    'expProgramming', 'exp3D', 'studentAchievements', 'preferredClassTimeSlot'
   ];
   partialLeadFields.forEach(id => {
     const el = document.getElementById(id);
@@ -660,11 +716,25 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('change', schedulePartialLeadNotification);
   });
 
+  document.querySelectorAll('input[name="preferredClassDays"]').forEach(input => {
+    input.addEventListener('change', () => {
+      syncPreferredClassDaysState(false);
+      schedulePartialLeadNotification();
+    });
+  });
+
+  const preferredTimeSlot = document.getElementById('preferredClassTimeSlot');
+  if (preferredTimeSlot) {
+    preferredTimeSlot.addEventListener('change', () => {
+      setFieldValidity(preferredTimeSlot, preferredTimeSlot.value ? '' : 'Please select a preferred class time slot.');
+    });
+  }
+
   // Setup progress tracking
   const requiredFields = [
     'studentName', 'dob', 'schoolName', 'studyGrade',
     'parentName', 'parentPhone', 'email', 'address',
-    'expRobotics', 'expProgramming', 'exp3D'
+    'expRobotics', 'expProgramming', 'exp3D', 'preferredClassTimeSlot'
   ];
 
   function updateFormProgress() {
@@ -678,9 +748,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check program radios
     if (document.querySelector('input[name="programDivision"]:checked')) filled++;
+    if (getPreferredClassDays().length > 0) filled++;
 
-    // Total steps (11 fields + 1 program)
-    const total = requiredFields.length + 1;
+    const total = requiredFields.length + 2;
     const progress = (filled / total) * 100;
 
     const fill = document.getElementById('progressFill');
@@ -688,8 +758,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Attach listeners for progress
-  [...requiredFields, 'programDivision', 'paymentFreq'].forEach(idOrName => {
-    const els = idOrName === 'programDivision'
+  [...requiredFields, 'programDivision', 'paymentFreq', 'preferredClassDays'].forEach(idOrName => {
+    const els = ['programDivision', 'paymentFreq', 'preferredClassDays'].includes(idOrName)
       ? document.querySelectorAll(`input[name="${idOrName}"]`)
       : [document.getElementById(idOrName)];
 
@@ -809,6 +879,8 @@ document.addEventListener('DOMContentLoaded', () => {
         exp3D: document.getElementById('exp3D').value,
         studentAchievements: document.getElementById('studentAchievements') ? document.getElementById('studentAchievements').value.trim() : '',
         program: programName,
+        preferredClassDays: getPreferredClassDays(),
+        preferredClassTimeSlot: document.getElementById('preferredClassTimeSlot').value,
         tinkeringHours: hours,
         paymentFrequency: freq,
         tinkeringKit: hasKit ? "Yes" : "No",
@@ -838,6 +910,8 @@ document.addEventListener('DOMContentLoaded', () => {
         company: enrollmentData.companyName || '',
         gst: enrollmentData.gstNumber || '',
         program: itemDescription,
+        preferredDays: enrollmentData.preferredClassDays.join(','),
+        preferredTime: enrollmentData.preferredClassTimeSlot,
         hours: enrollmentData.tinkeringHours,
         amount: enrollmentData.totalPrice,
         tshirt: enrollmentData.tshirt,
