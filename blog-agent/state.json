@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 13,
+  "last_topic_index": 14,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -12,17 +12,11 @@
     "swarm-robotics-the-power-of-many-little-robots-working-toget",
     "unleash-the-flex-dive-into-the-world-of-soft-robotics-with-m",
     "agricultural-robots-smart-farming-for-indias-future-makerwor",
-    "warehouse-logistics-robots-powering-indias-e-commerce-future"
+    "warehouse-logistics-robots-powering-indias-e-commerce-future",
+    "robot-ethics-safety-building-a-responsible-robotic-future"
   ],
-  "last_run": "2026-05-11T08:01:54.203326",
+  "last_run": "2026-05-18T08:30:57.173144",
   "recent_posts": [
-    {
-      "slug": "space-robotics-your-robotic-journey-to-the-stars",
-      "title": "Space Robotics: Your Robotic Journey to the Stars!",
-      "badge": "Space",
-      "badge_color": "linear-gradient(135deg, #212529, #6c757d)",
-      "short_description": "Discover how robots are exploring the cosmos, from Mars to orbital servicing. Learn about their missions and how you can get involved in space robotics."
-    },
     {
       "slug": "swarm-robotics-the-power-of-many-little-robots-working-toget",
       "title": "Swarm Robotics: The Power of Many Little Robots Working Together",
@@ -50,6 +44,13 @@
       "badge": "Logistics",
       "badge_color": "linear-gradient(135deg, #0d6efd, #0dcaf0)",
       "short_description": "Discover how warehouse robots are revolutionizing logistics in India. Learn about AGVs, AMRs, Amazon's robots, and kickstart your robotics journey."
+    },
+    {
+      "slug": "robot-ethics-safety-building-a-responsible-robotic-future",
+      "title": "Robot Ethics & Safety: Building a Responsible Robotic Future",
+      "badge": "Ethics",
+      "badge_color": "linear-gradient(135deg, #ffc107, #fd7e14)",
+      "short_description": "Dive into robot ethics & safety! Learn about responsible robotics, AI safety, and building an ethical future with MakerWorks."
     }
   ]
 }
