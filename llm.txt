@@ -30,3 +30,14 @@ MakerWorks facilitates student participation in:
 
 ## Learning Philosophy
 MakerWorks follows a "Learn by Doing" approach. We provide a collaborative environment where students move from being consumers of technology to creators, building real-world engineering solutions.
+
+## Hiring
+MakerWorks Lab has 11 open internship and fellowship positions across AI, robotics, electronics, design, teaching, media, and growth.
+- Main hiring page: https://makerworkslab.in/hiring/
+- AI Research Intern (2 openings): https://makerworkslab.in/hiring/roles/ai-research-intern/
+- Autonomous Robotics Intern (2 openings): https://makerworkslab.in/hiring/roles/autonomous-robotics-intern/
+- Electronics & PCB Design Intern (2 openings): https://makerworkslab.in/hiring/roles/electronics-pcb-design-intern/
+- Technical Media & Content Intern (1 opening): https://makerworkslab.in/hiring/roles/technical-media-content-intern/
+- Design Engineering Intern (1 opening): https://makerworkslab.in/hiring/roles/design-engineering-intern/
+- AI & Robotics Teaching Fellowship (2 openings): https://makerworkslab.in/hiring/roles/ai-robotics-teaching-fellowship/
+- Growth & Partnerships Intern (1 opening): https://makerworkslab.in/hiring/roles/growth-partnerships-intern/

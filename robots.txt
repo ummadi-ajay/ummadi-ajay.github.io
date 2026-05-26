@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /hiring/
+Allow: /hiring/roles/
 
 # Sitemap
 Sitemap: https://makerworkslab.in/sitemap.xml
