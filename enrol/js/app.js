@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+import { getDatabase, ref, push, get, update, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 import { FIREBASE_CONFIG, RAZORPAY_KEY } from "./config.js?v=4";
 
 const firebaseConfig = FIREBASE_CONFIG;
@@ -21,16 +21,19 @@ let orderData = {
   itemName: '', unitPrice: 0,
   subtotal: 0, tax: 0, grandTotal: 0,
   paymentId: '', billNumber: '',
+  enrollmentId: '',
   tshirt: '', paymentFreq: 'Quarterly', country: 'India',
   preferredClassDays: [], preferredClassTimeSlots: []
 };
+
+let lastSavedEnrollmentData = null;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 const EMAILJS_CONFIG = {
   serviceId: "service_atizuna",
   publicKey: "GFxAVPzBfXX4d-vQR",
   adminTemplateId: "template_4cus82e",
-  recipients: ["makerworkslab@gmail.com"]
+  recipients: ["makerworkslab@gmail.com", "ummadi.vinay2000@gmail.com", "ummadi.ajay@gmail.com"]
 };
 
 let emailJsInitialized = false;
@@ -92,6 +95,28 @@ function getPendingEnrollmentData() {
   }
 }
 
+async function getFirebaseEnrollmentData(enrollmentId) {
+  if (!db || !enrollmentId) return null;
+  try {
+    const snapshot = await get(ref(db, `enrollments/${enrollmentId}`));
+    return snapshot.exists() ? snapshot.val() : null;
+  } catch (error) {
+    console.error("Pending enrollment fetch error:", error);
+    return null;
+  }
+}
+
+function showPaymentSaveFailure(error) {
+  const btnPay = document.getElementById('btn-pay');
+  if (btnPay) {
+    btnPay.disabled = false;
+    btnPay.innerHTML = '<span class="material-symbols-outlined text-xl">warning</span> Retry saving enrollment';
+  }
+
+  alert(`Payment received, but enrollment saving failed. Please contact MakerWorks Lab with Payment ID: ${orderData.paymentId}.`);
+  console.error("Paid enrollment save failed:", error);
+}
+
 function initEmailJs() {
   if (emailJsInitialized) return true;
   if (!window.emailjs || !EMAILJS_CONFIG.publicKey) return false;
@@ -102,9 +127,16 @@ function initEmailJs() {
 
 function createPaymentCompletionMessage(pendingEnrollment = {}) {
   const rows = [
-    ['Status', 'PAYMENT_COMPLETED'],
+    ['Payment Status', pendingEnrollment.paymentStatus || 'PAID'],
+    ['Enrollment Status', pendingEnrollment.status || 'PAID'],
+    ['Enrollment ID', orderData.enrollmentId || pendingEnrollment.enrollmentId],
     ['Payment ID', orderData.paymentId],
     ['Receipt No', orderData.billNumber],
+    ['Payment Date', new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    })],
     ['Parent Name', orderData.name || pendingEnrollment.parentName],
     ['Student Name', pendingEnrollment.studentName],
     ['Date of Birth', pendingEnrollment.dob],
@@ -127,7 +159,7 @@ function createPaymentCompletionMessage(pendingEnrollment = {}) {
     ['Payment Frequency', orderData.paymentFreq || pendingEnrollment.paymentFrequency],
     ['MWL Tinkering Kit', pendingEnrollment.tinkeringKit],
     ['Experiment Month', pendingEnrollment.experimentMonth],
-    ['Original Amount Before GST', pendingEnrollment.totalPrice ? formatCurrency(pendingEnrollment.totalPrice) : ''],
+    ['Amount Before GST', pendingEnrollment.totalPrice ? formatCurrency(pendingEnrollment.totalPrice) : formatCurrency(orderData.subtotal)],
     ['Paid Program Fee', formatCurrency(orderData.subtotal)],
     ['GST Paid', formatCurrency(orderData.tax)],
     ['Total Paid', formatCurrency(orderData.grandTotal)]
@@ -183,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prog = urlParams.get('program');
     const amount = parseInt(urlParams.get('amount')) || 0;
     const hours = parseInt(urlParams.get('hours')) || 2;
+    orderData.enrollmentId = urlParams.get('enrollmentId') || '';
     orderData.tshirt = urlParams.get('tshirt') || '';
     orderData.paymentFreq = urlParams.get('freq') || 'Quarterly';
     orderData.address = urlParams.get('address') || '';
@@ -331,7 +364,13 @@ function setupButtons() {
   });
 
   if (btnBack) btnBack.addEventListener('click', () => goToStep(1));
-  if (btnPay) btnPay.addEventListener('click', () => openRazorpay());
+  if (btnPay) btnPay.addEventListener('click', () => {
+    if (orderData.paymentId) {
+      retryPaymentSave();
+      return;
+    }
+    openRazorpay();
+  });
   if (btnPrint) btnPrint.addEventListener('click', () => window.print());
   if (btnNew) btnNew.addEventListener('click', () => {
     const form = document.getElementById('customer-form');
@@ -395,29 +434,67 @@ function goToStep(num) {
 
 // ===== Razorpay & Firebase Storage =====
 async function saveOrderToFirebase(pendingEnrollment = getPendingEnrollmentData()) {
-  if (!db) return;
-  try {
-    const ordersRef = ref(db, 'orders');
-    await push(ordersRef, {
-      ...orderData,
-      timestamp: serverTimestamp(),
-      status: 'PAID'
+  if (!db) throw new Error('Firebase database is not available.');
+
+  const enrollmentId = orderData.enrollmentId || pendingEnrollment?.enrollmentId || '';
+  const firebaseEnrollment = await getFirebaseEnrollmentData(enrollmentId);
+  const enrollmentData = {
+    ...(firebaseEnrollment || {}),
+    ...(pendingEnrollment || {})
+  };
+
+  const paidFields = {
+    paymentId: orderData.paymentId,
+    billNumber: orderData.billNumber,
+    paidSubtotal: orderData.subtotal,
+    paidGst: orderData.tax,
+    paidTotal: orderData.grandTotal,
+    paidItemName: orderData.itemName,
+    paidAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+    status: 'PAID',
+    paymentStatus: 'PAID'
+  };
+
+  const orderKey = orderData.paymentId || `pending_${Date.now()}`;
+  await update(ref(db, `orders/${orderKey}`), {
+    ...orderData,
+    enrollmentId,
+    timestamp: serverTimestamp(),
+    status: 'PAID'
+  });
+
+  if (enrollmentId) {
+    await update(ref(db, `enrollments/${enrollmentId}`), paidFields);
+    lastSavedEnrollmentData = { ...enrollmentData, enrollmentId, ...paidFields };
+  } else {
+    const enrollmentsRef = ref(db, 'enrollments');
+    const newEnrollmentRef = push(enrollmentsRef);
+    await update(newEnrollmentRef, {
+      ...enrollmentData,
+      enrollmentId: newEnrollmentRef.key,
+      ...paidFields
     });
-    
-    if (pendingEnrollment) {
-      pendingEnrollment.paymentId = orderData.paymentId;
-      pendingEnrollment.billNumber = orderData.billNumber;
-      pendingEnrollment.paidSubtotal = orderData.subtotal;
-      pendingEnrollment.paidGst = orderData.tax;
-      pendingEnrollment.paidTotal = orderData.grandTotal;
-      pendingEnrollment.status = 'PAID';
-      
-      const enrollmentsRef = ref(db, 'enrollments');
-      await push(enrollmentsRef, pendingEnrollment);
-      sessionStorage.removeItem('pendingEnrollment');
-    }
-  } catch (e) {
-    console.error("Firebase Save Error:", e);
+    lastSavedEnrollmentData = { ...enrollmentData, enrollmentId: newEnrollmentRef.key, ...paidFields };
+  }
+
+  sessionStorage.removeItem('pendingEnrollment');
+}
+
+async function retryPaymentSave() {
+  const btnPay = document.getElementById('btn-pay');
+  if (btnPay) {
+    btnPay.disabled = true;
+    btnPay.innerHTML = '<span class="material-symbols-outlined animate-spin text-xl">sync</span> Saving enrollment...';
+  }
+
+  try {
+    const pendingEnrollment = getPendingEnrollmentData();
+    await saveOrderToFirebase(pendingEnrollment);
+    await sendPaymentCompletionNotification(lastSavedEnrollmentData || pendingEnrollment || {});
+    goToStep(3);
+  } catch (error) {
+    showPaymentSaveFailure(error);
   }
 }
 
@@ -434,9 +511,10 @@ function openRazorpay() {
       orderData.paymentId = 'pay_DEMO_' + Date.now();
       const pendingEnrollment = getPendingEnrollmentData();
       generateBill();
-      saveOrderToFirebase(pendingEnrollment);
-      sendPaymentCompletionNotification(pendingEnrollment || {});
-      goToStep(3);
+      saveOrderToFirebase(pendingEnrollment)
+        .then(() => sendPaymentCompletionNotification(lastSavedEnrollmentData || pendingEnrollment || {}))
+        .then(() => goToStep(3))
+        .catch(showPaymentSaveFailure);
     }, 1500);
     return;
   }
@@ -453,9 +531,13 @@ function openRazorpay() {
       orderData.paymentId = response.razorpay_payment_id;
       const pendingEnrollment = getPendingEnrollmentData();
       generateBill();
-      await saveOrderToFirebase(pendingEnrollment);
-      await sendPaymentCompletionNotification(pendingEnrollment || {});
-      goToStep(3);
+      try {
+        await saveOrderToFirebase(pendingEnrollment);
+        await sendPaymentCompletionNotification(lastSavedEnrollmentData || pendingEnrollment || {});
+        goToStep(3);
+      } catch (error) {
+        showPaymentSaveFailure(error);
+      }
     }
   };
 

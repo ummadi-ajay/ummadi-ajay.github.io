@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+import { getDatabase, ref, push, set, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 import { FIREBASE_CONFIG } from "./config.js?v=4";
 
 const firebaseConfig = FIREBASE_CONFIG;
@@ -28,7 +28,7 @@ const EMAILJS_CONFIG = {
   serviceId: "service_atizuna",
   publicKey: "GFxAVPzBfXX4d-vQR",
   adminTemplateId: "template_4cus82e",
-  recipients: ["makerworkslab@gmail.com", "ummadi.vinay2000@gmail.com"]
+  recipients: ["makerworkslab@gmail.com", "ummadi.vinay2000@gmail.com", "ummadi.ajay@gmail.com"]
 };
 const EXPERIENCE_FIELDS = [
   {
@@ -483,6 +483,24 @@ async function saveEnrollmentLead(data, status) {
   } catch (error) {
     console.error('Enrollment lead save error:', error);
   }
+}
+
+async function createPendingEnrollment(data) {
+  if (!db) throw new Error('Firebase database is not available.');
+  const { photoData, ...dataWithoutPhoto } = data;
+  const pendingRef = push(ref(db, 'enrollments'));
+  const enrollmentId = pendingRef.key;
+
+  await set(pendingRef, {
+    ...dataWithoutPhoto,
+    enrollmentId,
+    status: 'PENDING_PAYMENT',
+    paymentStatus: 'PENDING',
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp()
+  });
+
+  return enrollmentId;
 }
 
 function hasUsableLeadContact(data) {
@@ -1149,6 +1167,19 @@ document.addEventListener('DOMContentLoaded', () => {
         timestamp: serverTimestamp()
       };
 
+      let enrollmentId = '';
+      try {
+        enrollmentId = await createPendingEnrollment(enrollmentData);
+      } catch (error) {
+        console.error('Pending enrollment save error:', error);
+        alert('We could not save your enrollment details before payment. Please check your internet connection and try again.');
+        submitBtn.innerHTML = `<span class="material-symbols-outlined text-xl">lock</span> Continue to Payment`;
+        submitBtn.disabled = false;
+        return;
+      }
+
+      enrollmentData.enrollmentId = enrollmentId;
+
       await saveEnrollmentLead(enrollmentData, 'REVIEW_DETAILS_SUBMITTED');
       await sendEnrollmentNotification(enrollmentData, 'Review Details Submitted');
 
@@ -1179,6 +1210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         freq: freq,
         country: enrollmentData.country
       });
+      params.set('enrollmentId', enrollmentId);
 
       window.location.href = `checkout.html?${params.toString()}`;
     });
