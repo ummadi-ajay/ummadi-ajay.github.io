@@ -1,0 +1,344 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,margin=0.55in]{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\setlist[itemize]{leftmargin=14pt,itemsep=1pt,topsep=2pt}
+
+\newcommand{\CommonLocation}{MakerWorks Lab, Malad East, Mumbai}
+\newcommand{\CommonStipend}{INR 10,000 per month}
+\newcommand{\CommonDuration}{2 months, extendable based on performance and project needs}
+\newcommand{\CommonCommitment}{Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed}
+\newcommand{\CommonReporting}{Abhay Waghmare, Lab Director}
+\newcounter{rolepage}
+
+\newcommand{\RolePage}[3]{%
+  \ifnum\value{rolepage}>0\clearpage\fi
+  \stepcounter{rolepage}
+  \thispagestyle{plain}
+  {\Large\textbf{#1}}\hfill{\small #2}\\
+  {\small\textbf{MakerWorks Lab} | AI, Robotics}\\[4pt]
+  \hrule
+  \vspace{6pt}
+  #3
+}
+
+\newcommand{\DetailsTable}[3]{%
+\begin{tabularx}{\linewidth}{>{\bfseries}p{30mm}X}
+Openings & #3 \\
+Mode & #1 \\
+Location & #2 \\
+Stipend & \CommonStipend \\
+Duration & \CommonDuration \\
+Commitment & \CommonCommitment \\
+Reporting & \CommonReporting \\
+\end{tabularx}
+}
+
+\newcommand{\RoleSection}[1]{\vspace{5pt}\par\noindent\textbf{#1}\par\vspace{2pt}}
+
+\begin{document}
+\pagenumbering{arabic}
+\small
+
+\RolePage{AI Research Intern}{Role 1 of 7}{
+\DetailsTable{Onsite}{\CommonLocation}{2 openings}
+
+\textbf{Role Summary}\\
+The AI Research Intern will work on deep learning, computer vision, NLP, Physical AI, and applied ML research for MakerWorks Lab. The role includes research exploration, model development, experimentation, evaluation, and work with open-source AI and robotics systems such as LeRobot, Reachy Mini, ML research workflows, Auto Research tools, and related Physical AI platforms.
+
+\RoleSection{Key Responsibilities}
+\begin{itemize}
+  \item Work on deep learning, computer vision, NLP, multimodal AI, embodied AI, and Physical AI experiments.
+  \item Review papers, reproduce baselines, build experiments, and document research assumptions and results.
+  \item Prototype AI workflows using Python, notebooks, APIs, model interfaces, datasets, and agentic tools.
+  \item Explore open-source robotics and Physical AI stacks such as LeRobot, Reachy Mini, and related ML research systems.
+  \item Compare model outputs for accuracy, robustness, reliability, latency, safety, and practical deployment value.
+  \item Coordinate with robotics, teaching, and lab teams wherever AI can support physical systems or student projects.
+\end{itemize}
+
+\RoleSection{Example Work Areas}
+\begin{itemize}
+  \item Vision-language-action models, robot learning datasets, object detection, segmentation, pose estimation, and scene understanding.
+  \item Retrieval-augmented systems, research agents, model evaluation pipelines, and AI tools for lab automation.
+  \item Research writing, experiment tracking, ablation studies, benchmark comparisons, and workshop paper preparation.
+\end{itemize}
+
+\RoleSection{Preferred Skills}
+\begin{itemize}
+  \item Strong Python fundamentals and comfort with ML notebooks, scripts, and research code.
+  \item Interest in deep learning, computer vision, NLP, multimodal learning, robotics AI, and SOTA research.
+  \item Ability to read research papers, implement ideas, run experiments, and write clear technical notes.
+  \item Familiarity with PyTorch, TensorFlow, Hugging Face, OpenCV, ROS, or similar tools is a plus.
+\end{itemize}
+
+\RoleSection{Expected Outcomes}
+\begin{itemize}
+  \item Research prototypes, reproducible experiments, model evaluations, datasets, and technical reports.
+  \item Contributions toward SOTA research publication targets in A* AI conferences and workshops such as NIPS/NeurIPS, ICLR, ICML, CVPR, ICCV, ACL, and related venues.
+  \item Working demonstrations involving Physical AI, robotics-AI workflows, LeRobot, Reachy Mini, ML research tools, or autonomous research systems.
+\end{itemize}
+
+\textbf{Suitable for:} Computer Engineering, IT, AI/ML, Data Science, Electronics, and students with strong programming fundamentals.\\
+\textbf{Selection focus:} research curiosity, proof of work, programming ability, ownership, and willingness to work toward serious research outcomes.
+}
+
+\RolePage{Autonomous Robotics Intern}{Role 2 of 7}{
+\DetailsTable{Onsite}{\CommonLocation}{2 openings}
+
+\textbf{Role Summary}\\
+The Autonomous Robotics Intern will be part of the robotics and prototyping lab, building with open-source robotics hardware, autonomous systems, sensors, actuators, embedded controllers, and competition-style robot platforms. The role also includes supporting and guiding student competition teams.
+
+\RoleSection{Key Responsibilities}
+\begin{itemize}
+  \item Build and test autonomous robots, mobile platforms, mechanisms, and open-source robotics hardware.
+  \item Work with sensors, motor drivers, actuators, batteries, embedded boards, mechanical assemblies, and control logic.
+  \item Prototype, assemble, debug, and improve robots through structured lab testing and rapid iteration.
+  \item Support student teams preparing for robotics competitions, demos, workshops, and project showcases.
+  \item Maintain build notes, wiring references, test logs, BOM notes, issue lists, and iteration records.
+  \item Follow lab safety practices for tools, batteries, moving mechanisms, electronics, and fabrication equipment.
+\end{itemize}
+
+\RoleSection{Example Work Areas}
+\begin{itemize}
+  \item Line followers, maze solvers, mobile robots, robotic arms, rover platforms, drone-related subsystems, and competition robots.
+  \item Chassis design, drivetrain selection, sensor placement, motor tuning, calibration, and field testing.
+  \item Student mentoring for ideation, build planning, troubleshooting, demo preparation, and competition strategy.
+\end{itemize}
+
+\RoleSection{Preferred Skills}
+\begin{itemize}
+  \item Hands-on experience with robotics hardware, embedded boards, sensors, actuators, and mechanical assembly.
+  \item Interest in open-source robotics platforms, ROS, Arduino, Raspberry Pi, ESP32, and autonomous systems.
+  \item Student competition experience such as ROBOCON, WRO, FTC, hackathons, or similar events is a huge plus.
+  \item Ability to guide juniors, document builds, debug failures, and work responsibly in a prototyping lab.
+\end{itemize}
+
+\RoleSection{Expected Outcomes}
+\begin{itemize}
+  \item Functional robot prototypes, tested subsystems, demo-ready assemblies, or validated mechanisms.
+  \item Competition-ready student project support, build documentation, test observations, and improvement plans.
+  \item Improved lab capability in open-source robotics hardware, autonomous builds, and hands-on student mentoring.
+\end{itemize}
+
+\textbf{Suitable for:} Mechanical, Electronics, EXTC, Robotics, Mechatronics, Computer Engineering, and hands-on builders.\\
+\textbf{Selection focus:} practical robotics ability, competition experience, teamwork, safety discipline, and ownership.
+}
+
+\RolePage{Electronics \& PCB Design Intern}{Role 3 of 7}{
+\DetailsTable{Onsite}{\CommonLocation}{2 openings}
+
+\textbf{Role Summary}\\
+The Electronics and PCB Design Intern will be part of the robotics and prototyping lab, building circuits and electronics systems from scratch using open-source hardware, schematic design, PCB design, testing, debugging, and fabrication workflows.
+
+\RoleSection{Key Responsibilities}
+\begin{itemize}
+  \item Design, build, test, and debug circuits for robotics, IoT, automation, sensors, motor control, and student projects.
+  \item Create schematic designs and PCB layouts using KiCad or similar PCB design programs.
+  \item Work with open-source hardware platforms, microcontrollers, sensors, drivers, connectors, power systems, and test equipment.
+  \item Prototype circuits on breadboards, perfboards, and PCBs, then validate them through structured testing.
+  \item Support and guide student teams preparing for electronics, robotics, and engineering competitions.
+  \item Maintain circuit diagrams, PCB files, BOMs, test notes, assembly guides, and revision history.
+\end{itemize}
+
+\RoleSection{Example Work Areas}
+\begin{itemize}
+  \item Sensor boards, motor driver boards, power distribution boards, connector boards, controller shields, and test fixtures.
+  \item Schematic capture, footprint selection, routing, DRC checks, gerber export, board bring-up, and revision planning.
+  \item Student support for safe wiring, debugging, soldering, board testing, and competition electronics readiness.
+\end{itemize}
+
+\RoleSection{Preferred Skills}
+\begin{itemize}
+  \item Circuit design fundamentals and hands-on electronics debugging ability.
+  \item KiCad, EasyEDA, Altium, Eagle, Fusion electronics, or similar PCB design experience.
+  \item Comfort with soldering, multimeters, power supplies, sensors, microcontrollers, and datasheets.
+  \item Student competition experience such as ROBOCON, electronics contests, hackathons, or similar events is a huge plus.
+\end{itemize}
+
+\RoleSection{Expected Outcomes}
+\begin{itemize}
+  \item Working circuit prototypes, PCB designs, assembled boards, tested modules, and electronics documentation.
+  \item Improved electronics support for robotics builds, student competition teams, and lab prototyping work.
+  \item Clean design files, BOMs, test reports, and reusable electronics modules for future lab projects.
+\end{itemize}
+
+\textbf{Suitable for:} Electronics, EXTC, Electrical, Robotics, IoT, Mechatronics, and Computer Engineering students.\\
+\textbf{Selection focus:} circuit thinking, PCB design skill, debugging patience, documentation, and hands-on ownership.
+}
+
+\RolePage{Technical Media \& Content Intern}{Role 4 of 7}{
+\DetailsTable{Onsite}{\CommonLocation}{1 opening}
+
+\textbf{Role Summary}\\
+The Technical Media and Content Intern will create raw video, photo, and media content for the work happening inside MakerWorks Lab. The role includes shooting with cameras or phones, basic editing, managing social channels, and promoting lab activities, projects, student work, demos, workshops, and research progress.
+
+\RoleSection{Key Responsibilities}
+\begin{itemize}
+  \item Capture raw videos, photos, process clips, demos, workshops, lab activity, and behind-the-scenes footage.
+  \item Shoot with cameras, phones, microphones, lights, tripods, and other basic media equipment.
+  \item Edit short-form videos, reels, posts, stories, thumbnails, captions, and simple technical explainers.
+  \item Manage and update social channels for lab activities, student projects, workshops, and demos.
+  \item Coordinate with engineers, fellows, and interns to capture accurate, safe, and approved project content.
+  \item Organize raw footage, edited files, captions, content calendars, publishing notes, and media archives.
+\end{itemize}
+
+\RoleSection{Example Work Areas}
+\begin{itemize}
+  \item Build-in-public reels, student project stories, lab tour clips, workshop highlights, demo explainers, and mentor interviews.
+  \item Weekly social media posting support across Instagram, LinkedIn, YouTube Shorts, and other relevant channels.
+  \item Content planning around competitions, research milestones, new prototypes, school programs, and public events.
+\end{itemize}
+
+\RoleSection{Preferred Skills}
+\begin{itemize}
+  \item Camera handling, phone videography, basic lighting, framing, and audio awareness.
+  \item Basic editing with CapCut, Premiere Pro, DaVinci Resolve, Canva, or similar tools.
+  \item Good visual sense, storytelling ability, and interest in technology, robotics, AI, and education.
+  \item Reliability, file organization, social media awareness, and comfort working around active lab projects.
+\end{itemize}
+
+\RoleSection{Expected Outcomes}
+\begin{itemize}
+  \item Regular raw and edited media assets for lab activities, demos, workshops, and student projects.
+  \item Managed social media updates that promote MakerWorks Lab work clearly and professionally.
+  \item Organized media library, captions, post drafts, publishing calendar, and reusable content assets.
+\end{itemize}
+
+\textbf{Suitable for:} Media, Design, Mass Communication, Marketing, Engineering, and students who can tell technical stories visually.\\
+\textbf{Selection focus:} shooting ability, editing basics, consistency, storytelling, and organized execution.
+}
+
+\RolePage{Design Engineering Intern}{Role 5 of 7}{
+\DetailsTable{Onsite}{\CommonLocation}{1 opening}
+
+\textbf{Role Summary}\\
+The Design Engineering Intern will work on the design, CAD modeling, prototyping, fabrication, and improvement of parts, mechanisms, enclosures, learning kits, fixtures, and product-style builds for MakerWorks Lab projects.
+
+\RoleSection{Key Responsibilities}
+\begin{itemize}
+  \item Create and refine CAD models, drawings, assemblies, enclosures, mounts, mechanisms, and product prototypes.
+  \item Convert rough requirements into practical designs that can be fabricated, assembled, tested, and improved.
+  \item Work with 3D printing, laser cutting, hand tools, fasteners, materials, and design-for-assembly decisions.
+  \item Support robotics, electronics, teaching, and student project teams with mechanical design and prototyping needs.
+  \item Check fit, tolerances, durability, serviceability, and ease of manufacturing for lab prototypes.
+  \item Maintain CAD files, drawings, BOM notes, fabrication settings, assembly instructions, and revision history.
+\end{itemize}
+
+\RoleSection{Example Work Areas}
+\begin{itemize}
+  \item Robot chassis, sensor mounts, enclosures, jigs, learning kits, classroom demo models, and competition mechanisms.
+  \item Design-for-3D-printing, design-for-laser-cutting, tolerance checks, fastener selection, and assembly planning.
+  \item Prototype review with robotics, electronics, teaching, and content teams to improve usability and presentation quality.
+\end{itemize}
+
+\RoleSection{Preferred Skills}
+\begin{itemize}
+  \item CAD exposure such as Fusion 360, SolidWorks, Onshape, AutoCAD, or similar tools.
+  \item Interest in product design, mechanism design, fabrication, prototyping, and practical engineering.
+  \item Ability to measure, assemble, test, revise, and learn from physical fit or tolerance issues.
+  \item Careful handling of tools, machines, materials, shared lab equipment, and project documentation.
+\end{itemize}
+
+\RoleSection{Expected Outcomes}
+\begin{itemize}
+  \item Fabricated parts, assemblies, fixtures, enclosures, design files, and prototype-ready drawings.
+  \item Improved prototype quality, faster build cycles, and smoother handoff between design, electronics, and fabrication.
+  \item Clean design documentation, BOMs, assembly guides, revision notes, and reusable mechanical design assets.
+\end{itemize}
+
+\textbf{Suitable for:} Mechanical, Production, Mechatronics, Robotics, Product Design, and students interested in design engineering.\\
+\textbf{Selection focus:} CAD skill, practical design judgment, fabrication awareness, iteration, and ownership.
+}
+
+\RolePage{AI \& Robotics Teaching Fellowship}{Role 6 of 7}{
+\DetailsTable{Full-time, onsite}{\CommonLocation}{2 openings}
+
+\textbf{Role Summary}\\
+The AI and Robotics Teaching Fellowship is a full-time teaching and research fellowship. Fellows will teach middle school and high school students electronics, design, programming, robotics, AI concepts, and DIY project building while also contributing to research, competitions, curriculum, and lab development.
+
+\RoleSection{Key Responsibilities}
+\begin{itemize}
+  \item Teach middle school and high school students electronics, design, programming, robotics, AI, and maker skills.
+  \item Help students build DIY projects, prototypes, robots, circuits, and competition-ready systems.
+  \item Guide students for competitions, demos, exhibitions, school programs, workshops, and project showcases.
+  \item Prepare lesson plans, worksheets, kits, project briefs, rubrics, demos, and classroom/lab activities.
+  \item Support research and development around AI, robotics education, hands-on learning, and lab curriculum.
+  \item Coordinate with schools, parents, mentors, interns, and lab staff to ensure smooth student learning experiences.
+\end{itemize}
+
+\RoleSection{Example Work Areas}
+\begin{itemize}
+  \item Intro electronics, Arduino/ESP32 projects, Scratch/Python programming, robotics builds, AI demos, and design challenges.
+  \item Competition preparation, project reviews, student portfolios, parent demos, school showcases, and lab exhibitions.
+  \item Curriculum experiments that connect hands-on projects with AI, robotics, design thinking, and real engineering practice.
+\end{itemize}
+
+\RoleSection{Preferred Skills}
+\begin{itemize}
+  \item Strong communication and ability to teach technical topics to young learners with patience and clarity.
+  \item Hands-on comfort with electronics, programming, robotics, design, fabrication, or DIY project building.
+  \item Experience mentoring students, conducting workshops, or participating in competitions is a plus.
+  \item Interest in AI, robotics education, curriculum building, student outcomes, and applied research.
+\end{itemize}
+
+\RoleSection{Expected Outcomes}
+\begin{itemize}
+  \item Students completing meaningful DIY projects, competition builds, demos, and hands-on learning milestones.
+  \item Teaching resources, project kits, curriculum notes, worksheets, session plans, and student progress records.
+  \item Research and documentation that improves MakerWorks Lab teaching methods and AI/robotics learning programs.
+\end{itemize}
+
+\textbf{Suitable for:} Engineering, Science, Education, Robotics, AI/ML, Electronics, and candidates interested in teaching plus research.\\
+\textbf{Selection focus:} teaching ability, technical fundamentals, student empathy, research interest, and full-time commitment.
+}
+
+\RolePage{Growth \& Partnerships Intern}{Role 7 of 7}{
+\DetailsTable{Remote / Hybrid}{Remote / MakerWorks Lab touchpoints as required}{1 opening}
+
+\textbf{Role Summary}\\
+The Growth and Partnerships Intern will reach out to people about MakerWorks Lab programs and offers, get prospects onto calls, provide clear information, help them decide, and support in-person visits, demos, and follow-ups.
+
+\RoleSection{Key Responsibilities}
+\begin{itemize}
+  \item Research and reach out to schools, parents, colleges, partners, corporates, potential customers, and ecosystem contacts.
+  \item Explain MakerWorks Lab programs, workshops, internships, fellowships, demos, labs, and offers clearly.
+  \item Get interested prospects onto calls and provide information that helps them make a decision.
+  \item Accommodate and coordinate in-person visits, lab tours, demos, meetings, and follow-up conversations.
+  \item Maintain CRM sheets, lead status, contact details, call notes, email drafts, follow-ups, and weekly reports.
+  \item Protect contact lists, pricing, partner conversations, customer information, and internal business data.
+\end{itemize}
+
+\RoleSection{Example Work Areas}
+\begin{itemize}
+  \item School outreach, parent inquiries, college collaborations, partner demos, workshop leads, and local ecosystem mapping.
+  \item Call scripts, WhatsApp follow-ups, email drafts, visit scheduling, demo coordination, and feedback collection.
+  \item Weekly reporting on leads, call outcomes, objections, visit interest, conversion blockers, and next actions.
+\end{itemize}
+
+\RoleSection{Preferred Skills}
+\begin{itemize}
+  \item Clear verbal and written communication in English; Hindi or Marathi is a plus for local outreach.
+  \item Comfort with calling, email, WhatsApp, LinkedIn, spreadsheets, follow-ups, and professional coordination.
+  \item Interest in education, technology, startups, partnerships, sales, and community building.
+  \item Persistence, maturity, confidentiality, and ability to update status without being chased.
+\end{itemize}
+
+\RoleSection{Expected Outcomes}
+\begin{itemize}
+  \item More qualified calls, visits, demos, and follow-ups for MakerWorks Lab programs and offers.
+  \item Updated lead tracker, outreach logs, call summaries, prospect notes, and weekly progress reports.
+  \item Clearer pipeline of schools, parents, partners, customers, and ecosystem opportunities.
+\end{itemize}
+
+\textbf{Suitable for:} Management, Marketing, Business, Communication, Engineering, and students interested in startup growth.\\
+\textbf{Selection focus:} communication, follow-up discipline, call confidence, trustworthiness, and outcome orientation.
+}
+
+\end{document}

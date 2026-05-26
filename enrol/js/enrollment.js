@@ -517,7 +517,6 @@ function schedulePartialLeadNotification() {
     partialLeadSent = true;
 
     await saveEnrollmentLead(data, 'PARTIAL_FORM_STARTED');
-    await sendEnrollmentNotification(data, 'Partial Form Started');
   }, 1800);
 }
 

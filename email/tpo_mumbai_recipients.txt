@@ -1,0 +1,31 @@
+# Mumbai training and placement outreach recipients.
+# One email per line. Comments are ignored by send_mwl_email.py.
+
+# VJTI
+tpo@vjti.ac.in
+
+# Sardar Patel College of Engineering
+tpo@spce.ac.in
+
+# Sardar Patel Institute of Technology
+tpo@spit.ac.in
+
+# K J Somaiya School of Engineering
+tpo.engg@somaiya.edu
+
+# Dwarkadas J. Sanghvi College of Engineering
+rajendra.khavekar@djsce.ac.in
+saloni.varma@djsce.ac.in
+mansi.tiwari@djsce.ac.in
+
+# Mukesh Patel School of Technology Management & Engineering, NMIMS
+btechplacements@nmims.edu
+Aparna.Mahesh@nmims.edu
+Bhargav.Leeladhar@nmims.edu
+ashli.khurana@nmims.edu
+Divya.Udhwani@nmims.edu
+yash.davda@nmims.edu
+Nicole.Singh@nmims.edu
+
+# BITS Design School (BITSDES)
+info@bitsdesign.edu.in

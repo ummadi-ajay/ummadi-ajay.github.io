@@ -461,9 +461,132 @@
       cursor: pointer;
     }
 
+    .role-actions {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 1.45fr 0.8fr;
+      gap: 0.7rem;
+    }
+
+    .role-actions .role-apply {
+      margin-top: 0;
+    }
+
+    .role-details {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 2.9rem;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--mw-dark);
+      text-decoration: none;
+      font-weight: 800;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--mw-line);
+      width: 100%;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .role-details:hover {
+      color: var(--mw-primary);
+      border-color: rgba(13, 110, 253, 0.38);
+      transform: translateY(-1px);
+    }
+
     .role-apply:hover {
       color: #fff;
       background: var(--mw-primary);
+    }
+
+    .role-modal .modal-content {
+      border: 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 100px rgba(15, 23, 42, 0.24);
+    }
+
+    .role-modal .modal-header {
+      border: 0;
+      padding: 1.4rem 1.5rem;
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .role-modal .modal-title {
+      letter-spacing: -0.03em;
+    }
+
+    .role-modal .btn-close {
+      filter: invert(1);
+      opacity: 0.85;
+    }
+
+    .role-detail-body {
+      display: grid;
+      gap: 1.2rem;
+      padding: 1.5rem;
+    }
+
+    .role-detail-summary {
+      color: #475569;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .role-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .role-detail-grid span {
+      border: 1px solid var(--mw-line);
+      border-radius: 14px;
+      background: var(--mw-soft);
+      padding: 0.75rem;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    .role-detail-grid small {
+      display: block;
+      color: #94a3b8;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .role-detail-section h4 {
+      font-size: 1.03rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.55rem;
+    }
+
+    .role-detail-section ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    .role-detail-section li + li {
+      margin-top: 0.35rem;
+    }
+
+    .role-detail-note {
+      border: 1px solid #bfdbfe;
+      border-radius: 16px;
+      background: #eff6ff;
+      padding: 1rem;
+      color: #1e3a8a;
+      font-weight: 700;
+      line-height: 1.6;
     }
 
     .infrastructure-band {
@@ -593,6 +716,11 @@
         grid-template-columns: 1fr;
       }
 
+      .role-actions,
+      .role-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-careers {
         min-height: 86vh;
       }
@@ -713,10 +841,13 @@
                 <li><i class="bi bi-check-circle-fill"></i>Build agentic workflows for multi-step robotic tasks.</li>
                 <li><i class="bi bi-check-circle-fill"></i>Bridge digital intelligence with physical movement.</li>
               </ul>
-              <a class="role-apply"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer">Apply for this role <i
-                  class="bi bi-arrow-right-short"></i></a>
+              <div class="role-actions">
+                <button class="role-details" type="button" data-role="ai-research">View Full Role &amp; Responsibilities <i
+                    class="bi bi-card-text"></i></button>
+                <a class="role-apply"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+                  target="_blank" rel="noopener noreferrer">Apply <i class="bi bi-arrow-right-short"></i></a>
+              </div>
             </article>
           </div>
 
@@ -742,10 +873,13 @@
                 <li><i class="bi bi-check-circle-fill"></i>Work with Arduino, Raspberry Pi, sensors, and embedded systems.</li>
                 <li><i class="bi bi-check-circle-fill"></i>Prototype PCBs, solder, test, and iterate inside the lab.</li>
               </ul>
-              <a class="role-apply"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer">Apply for this role <i
-                  class="bi bi-arrow-right-short"></i></a>
+              <div class="role-actions">
+                <button class="role-details" type="button" data-role="autonomous-robotics">View Full Role &amp; Responsibilities <i
+                    class="bi bi-card-text"></i></button>
+                <a class="role-apply"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+                  target="_blank" rel="noopener noreferrer">Apply <i class="bi bi-arrow-right-short"></i></a>
+              </div>
             </article>
           </div>
 
@@ -771,10 +905,13 @@
                 <li><i class="bi bi-check-circle-fill"></i>Manage LinkedIn, X, Instagram, and community storytelling.</li>
                 <li><i class="bi bi-check-circle-fill"></i>Use phones, iPads, Macs, and cameras for fast technical media production.</li>
               </ul>
-              <a class="role-apply"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer">Apply for this role <i
-                  class="bi bi-arrow-right-short"></i></a>
+              <div class="role-actions">
+                <button class="role-details" type="button" data-role="technical-media">View Full Role &amp; Responsibilities <i
+                    class="bi bi-card-text"></i></button>
+                <a class="role-apply"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+                  target="_blank" rel="noopener noreferrer">Apply <i class="bi bi-arrow-right-short"></i></a>
+              </div>
             </article>
           </div>
 
@@ -800,10 +937,13 @@
                 <li><i class="bi bi-check-circle-fill"></i>Work with CAD, fabrication, 3D printing, and rapid model iteration.</li>
                 <li><i class="bi bi-check-circle-fill"></i>Collaborate with AI, robotics, and media teams to make projects feel usable and polished.</li>
               </ul>
-              <a class="role-apply"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer">Apply for this role <i
-                  class="bi bi-arrow-right-short"></i></a>
+              <div class="role-actions">
+                <button class="role-details" type="button" data-role="design-engineering">View Full Role &amp; Responsibilities <i
+                    class="bi bi-card-text"></i></button>
+                <a class="role-apply"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+                  target="_blank" rel="noopener noreferrer">Apply <i class="bi bi-arrow-right-short"></i></a>
+              </div>
             </article>
           </div>
 
@@ -829,10 +969,13 @@
                 <li><i class="bi bi-check-circle-fill"></i>Solder, assemble, test, and debug boards using lab equipment and methodical logs.</li>
                 <li><i class="bi bi-check-circle-fill"></i>Work closely with robotics and AI teams to make hardware reliable in the field.</li>
               </ul>
-              <a class="role-apply"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer">Apply for this role <i
-                  class="bi bi-arrow-right-short"></i></a>
+              <div class="role-actions">
+                <button class="role-details" type="button" data-role="electronics-pcb">View Full Role &amp; Responsibilities <i
+                    class="bi bi-card-text"></i></button>
+                <a class="role-apply"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+                  target="_blank" rel="noopener noreferrer">Apply <i class="bi bi-arrow-right-short"></i></a>
+              </div>
             </article>
           </div>
 
@@ -858,10 +1001,13 @@
                 <li><i class="bi bi-check-circle-fill"></i>Create demos, worksheets, challenges, and hands-on classroom materials.</li>
                 <li><i class="bi bi-check-circle-fill"></i>Support parent updates, student reviews, and lab learning outcomes.</li>
               </ul>
-              <a class="role-apply"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer">Apply for this role <i
-                  class="bi bi-arrow-right-short"></i></a>
+              <div class="role-actions">
+                <button class="role-details" type="button" data-role="teaching-fellowship">View Full Role &amp; Responsibilities <i
+                    class="bi bi-card-text"></i></button>
+                <a class="role-apply"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+                  target="_blank" rel="noopener noreferrer">Apply <i class="bi bi-arrow-right-short"></i></a>
+              </div>
             </article>
           </div>
 
@@ -887,10 +1033,13 @@
                 <li><i class="bi bi-check-circle-fill"></i>Maintain lead databases and track outreach progress.</li>
                 <li><i class="bi bi-check-circle-fill"></i>Support partnerships, ecosystem building, and program growth.</li>
               </ul>
-              <a class="role-apply"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer">Apply for this role <i
-                  class="bi bi-arrow-right-short"></i></a>
+              <div class="role-actions">
+                <button class="role-details" type="button" data-role="growth-partnerships">View Full Role &amp; Responsibilities <i
+                    class="bi bi-card-text"></i></button>
+                <a class="role-apply"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+                  target="_blank" rel="noopener noreferrer">Apply <i class="bi bi-arrow-right-short"></i></a>
+              </div>
             </article>
           </div>
         </div>
@@ -1080,6 +1229,29 @@
     </section>
   </main>
 
+  <div class="modal fade role-modal" id="roleDetailsModal" tabindex="-1" aria-labelledby="roleDetailsTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <p class="mb-1 small text-info fw-bold text-uppercase" id="roleDetailsKicker">MakerWorks Lab Role</p>
+            <h2 class="modal-title display-font" id="roleDetailsTitle">Role Details</h2>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0" id="roleDetailsBody"></div>
+        <div class="modal-footer border-0 px-4 pb-4">
+          <a class="btn btn-primary rounded-pill fw-bold px-4"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSel9jYNHkLD-qDfJa8tSaEQIjKiWooXVjLk1jvDSKzwlztwkg/viewform?usp=publish-editor"
+            target="_blank" rel="noopener noreferrer">
+            Apply for this role <i class="bi bi-arrow-right-short"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="footer-placeholder"></div>
 
   <button id="backToTop" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4"
@@ -1095,6 +1267,429 @@
       easing: 'ease-out-cubic',
       once: true,
       offset: 80
+    });
+
+    const roleDetails = {
+      "ai-research": {
+        title: "AI Research Intern",
+        subtitle: "Role 1 of 7",
+        details: {
+          openings: "2 openings",
+          mode: "Onsite",
+          location: "MakerWorks Lab, Malad East, Mumbai",
+          stipend: "INR 10,000 per month",
+          duration: "2 months, extendable based on performance and project needs",
+          commitment: "Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed",
+          reporting: "Abhay Waghmare, Lab Director"
+        },
+        summary: "The AI Research Intern will work on deep learning, computer vision, NLP, Physical AI, and applied ML research for MakerWorks Lab. The role includes research exploration, model development, experimentation, evaluation, and work with open-source AI and robotics systems such as LeRobot, Reachy Mini, ML research workflows, Auto Research tools, and related Physical AI platforms.",
+        sections: [
+          {
+            title: "Key Responsibilities",
+            items: [
+              "Work on deep learning, computer vision, NLP, multimodal AI, embodied AI, and Physical AI experiments.",
+              "Review papers, reproduce baselines, build experiments, and document research assumptions and results.",
+              "Prototype AI workflows using Python, notebooks, APIs, model interfaces, datasets, and agentic tools.",
+              "Explore open-source robotics and Physical AI stacks such as LeRobot, Reachy Mini, and related ML research systems.",
+              "Compare model outputs for accuracy, robustness, reliability, latency, safety, and practical deployment value.",
+              "Coordinate with robotics, teaching, and lab teams wherever AI can support physical systems or student projects."
+            ]
+          },
+          {
+            title: "Example Work Areas",
+            items: [
+              "Vision-language-action models, robot learning datasets, object detection, segmentation, pose estimation, and scene understanding.",
+              "Retrieval-augmented systems, research agents, model evaluation pipelines, and AI tools for lab automation.",
+              "Research writing, experiment tracking, ablation studies, benchmark comparisons, and workshop paper preparation."
+            ]
+          },
+          {
+            title: "Preferred Skills",
+            items: [
+              "Strong Python fundamentals and comfort with ML notebooks, scripts, and research code.",
+              "Interest in deep learning, computer vision, NLP, multimodal learning, robotics AI, and SOTA research.",
+              "Ability to read research papers, implement ideas, run experiments, and write clear technical notes.",
+              "Familiarity with PyTorch, TensorFlow, Hugging Face, OpenCV, ROS, or similar tools is a plus."
+            ]
+          },
+          {
+            title: "Expected Outcomes",
+            items: [
+              "Research prototypes, reproducible experiments, model evaluations, datasets, and technical reports.",
+              "Contributions toward SOTA research publication targets in A* AI conferences and workshops such as NIPS/NeurIPS, ICLR, ICML, CVPR, ICCV, ACL, and related venues.",
+              "Working demonstrations involving Physical AI, robotics-AI workflows, LeRobot, Reachy Mini, ML research tools, or autonomous research systems."
+            ]
+          }
+        ],
+        suitableFor: "Computer Engineering, IT, AI/ML, Data Science, Electronics, and students with strong programming fundamentals.",
+        selectionFocus: "Research curiosity, proof of work, programming ability, ownership, and willingness to work toward serious research outcomes."
+      },
+      "autonomous-robotics": {
+        title: "Autonomous Robotics Intern",
+        subtitle: "Role 2 of 7",
+        details: {
+          openings: "2 openings",
+          mode: "Onsite",
+          location: "MakerWorks Lab, Malad East, Mumbai",
+          stipend: "INR 10,000 per month",
+          duration: "2 months, extendable based on performance and project needs",
+          commitment: "Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed",
+          reporting: "Abhay Waghmare, Lab Director"
+        },
+        summary: "The Autonomous Robotics Intern will be part of the robotics and prototyping lab, building with open-source robotics hardware, autonomous systems, sensors, actuators, embedded controllers, and competition-style robot platforms. The role also includes supporting and guiding student competition teams.",
+        sections: [
+          {
+            title: "Key Responsibilities",
+            items: [
+              "Build and test autonomous robots, mobile platforms, mechanisms, and open-source robotics hardware.",
+              "Work with sensors, motor drivers, actuators, batteries, embedded boards, mechanical assemblies, and control logic.",
+              "Prototype, assemble, debug, and improve robots through structured lab testing and rapid iteration.",
+              "Support student teams preparing for robotics competitions, demos, workshops, and project showcases.",
+              "Maintain build notes, wiring references, test logs, BOM notes, issue lists, and iteration records.",
+              "Follow lab safety practices for tools, batteries, moving mechanisms, electronics, and fabrication equipment."
+            ]
+          },
+          {
+            title: "Example Work Areas",
+            items: [
+              "Line followers, maze solvers, mobile robots, robotic arms, rover platforms, drone-related subsystems, and competition robots.",
+              "Chassis design, drivetrain selection, sensor placement, motor tuning, calibration, and field testing.",
+              "Student mentoring for ideation, build planning, troubleshooting, demo preparation, and competition strategy."
+            ]
+          },
+          {
+            title: "Preferred Skills",
+            items: [
+              "Hands-on experience with robotics hardware, embedded boards, sensors, actuators, and mechanical assembly.",
+              "Interest in open-source robotics platforms, ROS, Arduino, Raspberry Pi, ESP32, and autonomous systems.",
+              "Student competition experience such as ROBOCON, WRO, FTC, hackathons, or similar events is a huge plus.",
+              "Ability to guide juniors, document builds, debug failures, and work responsibly in a prototyping lab."
+            ]
+          },
+          {
+            title: "Expected Outcomes",
+            items: [
+              "Functional robot prototypes, tested subsystems, demo-ready assemblies, or validated mechanisms.",
+              "Competition-ready student project support, build documentation, test observations, and improvement plans.",
+              "Improved lab capability in open-source robotics hardware, autonomous builds, and hands-on student mentoring."
+            ]
+          }
+        ],
+        suitableFor: "Mechanical, Electronics, EXTC, Robotics, Mechatronics, Computer Engineering, and hands-on builders.",
+        selectionFocus: "Practical robotics ability, competition experience, teamwork, safety discipline, and ownership."
+      },
+      "electronics-pcb": {
+        title: "Electronics & PCB Design Intern",
+        subtitle: "Role 3 of 7",
+        details: {
+          openings: "2 openings",
+          mode: "Onsite",
+          location: "MakerWorks Lab, Malad East, Mumbai",
+          stipend: "INR 10,000 per month",
+          duration: "2 months, extendable based on performance and project needs",
+          commitment: "Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed",
+          reporting: "Abhay Waghmare, Lab Director"
+        },
+        summary: "The Electronics and PCB Design Intern will be part of the robotics and prototyping lab, building circuits and electronics systems from scratch using open-source hardware, schematic design, PCB design, testing, debugging, and fabrication workflows.",
+        sections: [
+          {
+            title: "Key Responsibilities",
+            items: [
+              "Design, build, test, and debug circuits for robotics, IoT, automation, sensors, motor control, and student projects.",
+              "Create schematic designs and PCB layouts using KiCad or similar PCB design programs.",
+              "Work with open-source hardware platforms, microcontrollers, sensors, drivers, connectors, power systems, and test equipment.",
+              "Prototype circuits on breadboards, perfboards, and PCBs, then validate them through structured testing.",
+              "Support and guide student teams preparing for electronics, robotics, and engineering competitions.",
+              "Maintain circuit diagrams, PCB files, BOMs, test notes, assembly guides, and revision history."
+            ]
+          },
+          {
+            title: "Example Work Areas",
+            items: [
+              "Sensor boards, motor driver boards, power distribution boards, connector boards, controller shields, and test fixtures.",
+              "Schematic capture, footprint selection, routing, DRC checks, gerber export, board bring-up, and revision planning.",
+              "Student support for safe wiring, debugging, soldering, board testing, and competition electronics readiness."
+            ]
+          },
+          {
+            title: "Preferred Skills",
+            items: [
+              "Circuit design fundamentals and hands-on electronics debugging ability.",
+              "KiCad, EasyEDA, Altium, Eagle, Fusion electronics, or similar PCB design experience.",
+              "Comfort with soldering, multimeters, power supplies, sensors, microcontrollers, and datasheets.",
+              "Student competition experience such as ROBOCON, electronics contests, hackathons, or similar events is a huge plus."
+            ]
+          },
+          {
+            title: "Expected Outcomes",
+            items: [
+              "Working circuit prototypes, PCB designs, assembled boards, tested modules, and electronics documentation.",
+              "Improved electronics support for robotics builds, student competition teams, and lab prototyping work.",
+              "Clean design files, BOMs, test reports, and reusable electronics modules for future lab projects."
+            ]
+          }
+        ],
+        suitableFor: "Electronics, EXTC, Electrical, Robotics, IoT, Mechatronics, and Computer Engineering students.",
+        selectionFocus: "Circuit thinking, PCB design skill, debugging patience, documentation, and hands-on ownership."
+      },
+      "technical-media": {
+        title: "Technical Media & Content Intern",
+        subtitle: "Role 4 of 7",
+        details: {
+          openings: "1 opening",
+          mode: "Onsite",
+          location: "MakerWorks Lab, Malad East, Mumbai",
+          stipend: "INR 10,000 per month",
+          duration: "2 months, extendable based on performance and project needs",
+          commitment: "Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed",
+          reporting: "Abhay Waghmare, Lab Director"
+        },
+        summary: "The Technical Media and Content Intern will create raw video, photo, and media content for the work happening inside MakerWorks Lab. The role includes shooting with cameras or phones, basic editing, managing social channels, and promoting lab activities, projects, student work, demos, workshops, and research progress.",
+        sections: [
+          {
+            title: "Key Responsibilities",
+            items: [
+              "Capture raw videos, photos, process clips, demos, workshops, lab activity, and behind-the-scenes footage.",
+              "Shoot with cameras, phones, microphones, lights, tripods, and other basic media equipment.",
+              "Edit short-form videos, reels, posts, stories, thumbnails, captions, and simple technical explainers.",
+              "Manage and update social channels for lab activities, student projects, workshops, and demos.",
+              "Coordinate with engineers, fellows, and interns to capture accurate, safe, and approved project content.",
+              "Organize raw footage, edited files, captions, content calendars, publishing notes, and media archives."
+            ]
+          },
+          {
+            title: "Example Work Areas",
+            items: [
+              "Build-in-public reels, student project stories, lab tour clips, workshop highlights, demo explainers, and mentor interviews.",
+              "Weekly social media posting support across Instagram, LinkedIn, YouTube Shorts, and other relevant channels.",
+              "Content planning around competitions, research milestones, new prototypes, school programs, and public events."
+            ]
+          },
+          {
+            title: "Preferred Skills",
+            items: [
+              "Camera handling, phone videography, basic lighting, framing, and audio awareness.",
+              "Basic editing with CapCut, Premiere Pro, DaVinci Resolve, Canva, or similar tools.",
+              "Good visual sense, storytelling ability, and interest in technology, robotics, AI, and education.",
+              "Reliability, file organization, social media awareness, and comfort working around active lab projects."
+            ]
+          },
+          {
+            title: "Expected Outcomes",
+            items: [
+              "Regular raw and edited media assets for lab activities, demos, workshops, and student projects.",
+              "Managed social media updates that promote MakerWorks Lab work clearly and professionally.",
+              "Organized media library, captions, post drafts, publishing calendar, and reusable content assets."
+            ]
+          }
+        ],
+        suitableFor: "Media, Design, Mass Communication, Marketing, Engineering, and students who can tell technical stories visually.",
+        selectionFocus: "Shooting ability, editing basics, consistency, storytelling, and organized execution."
+      },
+      "design-engineering": {
+        title: "Design Engineering Intern",
+        subtitle: "Role 5 of 7",
+        details: {
+          openings: "1 opening",
+          mode: "Onsite",
+          location: "MakerWorks Lab, Malad East, Mumbai",
+          stipend: "INR 10,000 per month",
+          duration: "2 months, extendable based on performance and project needs",
+          commitment: "Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed",
+          reporting: "Abhay Waghmare, Lab Director"
+        },
+        summary: "The Design Engineering Intern will work on the design, CAD modeling, prototyping, fabrication, and improvement of parts, mechanisms, enclosures, learning kits, fixtures, and product-style builds for MakerWorks Lab projects.",
+        sections: [
+          {
+            title: "Key Responsibilities",
+            items: [
+              "Create and refine CAD models, drawings, assemblies, enclosures, mounts, mechanisms, and product prototypes.",
+              "Convert rough requirements into practical designs that can be fabricated, assembled, tested, and improved.",
+              "Work with 3D printing, laser cutting, hand tools, fasteners, materials, and design-for-assembly decisions.",
+              "Support robotics, electronics, teaching, and student project teams with mechanical design and prototyping needs.",
+              "Check fit, tolerances, durability, serviceability, and ease of manufacturing for lab prototypes.",
+              "Maintain CAD files, drawings, BOM notes, fabrication settings, assembly instructions, and revision history."
+            ]
+          },
+          {
+            title: "Example Work Areas",
+            items: [
+              "Robot chassis, sensor mounts, enclosures, jigs, learning kits, classroom demo models, and competition mechanisms.",
+              "Design-for-3D-printing, design-for-laser-cutting, tolerance checks, fastener selection, and assembly planning.",
+              "Prototype review with robotics, electronics, teaching, and content teams to improve usability and presentation quality."
+            ]
+          },
+          {
+            title: "Preferred Skills",
+            items: [
+              "CAD exposure such as Fusion 360, SolidWorks, Onshape, AutoCAD, or similar tools.",
+              "Interest in product design, mechanism design, fabrication, prototyping, and practical engineering.",
+              "Ability to measure, assemble, test, revise, and learn from physical fit or tolerance issues.",
+              "Careful handling of tools, machines, materials, shared lab equipment, and project documentation."
+            ]
+          },
+          {
+            title: "Expected Outcomes",
+            items: [
+              "Fabricated parts, assemblies, fixtures, enclosures, design files, and prototype-ready drawings.",
+              "Improved prototype quality, faster build cycles, and smoother handoff between design, electronics, and fabrication.",
+              "Clean design documentation, BOMs, assembly guides, revision notes, and reusable mechanical design assets."
+            ]
+          }
+        ],
+        suitableFor: "Mechanical, Production, Mechatronics, Robotics, Product Design, and students interested in design engineering.",
+        selectionFocus: "CAD skill, practical design judgment, fabrication awareness, iteration, and ownership."
+      },
+      "teaching-fellowship": {
+        title: "AI & Robotics Teaching Fellowship",
+        subtitle: "Role 6 of 7",
+        details: {
+          openings: "2 openings",
+          mode: "Full-time, onsite",
+          location: "MakerWorks Lab, Malad East, Mumbai",
+          stipend: "INR 10,000 per month",
+          duration: "2 months, extendable based on performance and project needs",
+          commitment: "Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed",
+          reporting: "Abhay Waghmare, Lab Director"
+        },
+        summary: "The AI and Robotics Teaching Fellowship is a full-time teaching and research fellowship. Fellows will teach middle school and high school students electronics, design, programming, robotics, AI concepts, and DIY project building while also contributing to research, competitions, curriculum, and lab development.",
+        sections: [
+          {
+            title: "Key Responsibilities",
+            items: [
+              "Teach middle school and high school students electronics, design, programming, robotics, AI, and maker skills.",
+              "Help students build DIY projects, prototypes, robots, circuits, and competition-ready systems.",
+              "Guide students for competitions, demos, exhibitions, school programs, workshops, and project showcases.",
+              "Prepare lesson plans, worksheets, kits, project briefs, rubrics, demos, and classroom/lab activities.",
+              "Support research and development around AI, robotics education, hands-on learning, and lab curriculum.",
+              "Coordinate with schools, parents, mentors, interns, and lab staff to ensure smooth student learning experiences."
+            ]
+          },
+          {
+            title: "Example Work Areas",
+            items: [
+              "Intro electronics, Arduino/ESP32 projects, Scratch/Python programming, robotics builds, AI demos, and design challenges.",
+              "Competition preparation, project reviews, student portfolios, parent demos, school showcases, and lab exhibitions.",
+              "Curriculum experiments that connect hands-on projects with AI, robotics, design thinking, and real engineering practice."
+            ]
+          },
+          {
+            title: "Preferred Skills",
+            items: [
+              "Strong communication and ability to teach technical topics to young learners with patience and clarity.",
+              "Hands-on comfort with electronics, programming, robotics, design, fabrication, or DIY project building.",
+              "Experience mentoring students, conducting workshops, or participating in competitions is a plus.",
+              "Interest in AI, robotics education, curriculum building, student outcomes, and applied research."
+            ]
+          },
+          {
+            title: "Expected Outcomes",
+            items: [
+              "Students completing meaningful DIY projects, competition builds, demos, and hands-on learning milestones.",
+              "Teaching resources, project kits, curriculum notes, worksheets, session plans, and student progress records.",
+              "Research and documentation that improves MakerWorks Lab teaching methods and AI/robotics learning programs."
+            ]
+          }
+        ],
+        suitableFor: "Engineering, Science, Education, Robotics, AI/ML, Electronics, and candidates interested in teaching plus research.",
+        selectionFocus: "Teaching ability, technical fundamentals, student empathy, research interest, and full-time commitment."
+      },
+      "growth-partnerships": {
+        title: "Growth & Partnerships Intern",
+        subtitle: "Role 7 of 7",
+        details: {
+          openings: "1 opening",
+          mode: "Remote / Hybrid",
+          location: "Remote / MakerWorks Lab touchpoints as required",
+          stipend: "INR 10,000 per month",
+          duration: "2 months, extendable based on performance and project needs",
+          commitment: "Monday to Friday, 9:00 AM to 6:00 PM; Saturdays optional as mutually agreed",
+          reporting: "Abhay Waghmare, Lab Director"
+        },
+        summary: "The Growth and Partnerships Intern will reach out to people about MakerWorks Lab programs and offers, get prospects onto calls, provide clear information, help them decide, and support in-person visits, demos, and follow-ups.",
+        sections: [
+          {
+            title: "Key Responsibilities",
+            items: [
+              "Research and reach out to schools, parents, colleges, partners, corporates, potential customers, and ecosystem contacts.",
+              "Explain MakerWorks Lab programs, workshops, internships, fellowships, demos, labs, and offers clearly.",
+              "Get interested prospects onto calls and provide information that helps them make a decision.",
+              "Accommodate and coordinate in-person visits, lab tours, demos, meetings, and follow-up conversations.",
+              "Maintain CRM sheets, lead status, contact details, call notes, email drafts, follow-ups, and weekly reports.",
+              "Protect contact lists, pricing, partner conversations, customer information, and internal business data."
+            ]
+          },
+          {
+            title: "Example Work Areas",
+            items: [
+              "School outreach, parent inquiries, college collaborations, partner demos, workshop leads, and local ecosystem mapping.",
+              "Call scripts, WhatsApp follow-ups, email drafts, visit scheduling, demo coordination, and feedback collection.",
+              "Weekly reporting on leads, call outcomes, objections, visit interest, conversion blockers, and next actions."
+            ]
+          },
+          {
+            title: "Preferred Skills",
+            items: [
+              "Clear verbal and written communication in English; Hindi or Marathi is a plus for local outreach.",
+              "Comfort with calling, email, WhatsApp, LinkedIn, spreadsheets, follow-ups, and professional coordination.",
+              "Interest in education, technology, startups, partnerships, sales, and community building.",
+              "Persistence, maturity, confidentiality, and ability to update status without being chased."
+            ]
+          },
+          {
+            title: "Expected Outcomes",
+            items: [
+              "More qualified calls, visits, demos, and follow-ups for MakerWorks Lab programs and offers.",
+              "Updated lead tracker, outreach logs, call summaries, prospect notes, and weekly progress reports.",
+              "Clearer pipeline of schools, parents, partners, customers, and ecosystem opportunities."
+            ]
+          }
+        ],
+        suitableFor: "Management, Marketing, Business, Communication, Engineering, and students interested in startup growth.",
+        selectionFocus: "Communication, follow-up discipline, call confidence, trustworthiness, and outcome orientation."
+      }
+    };
+
+    const roleDetailsModal = new bootstrap.Modal(document.getElementById('roleDetailsModal'));
+    const roleDetailsTitle = document.getElementById('roleDetailsTitle');
+    const roleDetailsKicker = document.getElementById('roleDetailsKicker');
+    const roleDetailsBody = document.getElementById('roleDetailsBody');
+
+    function detailGrid(details) {
+      return Object.entries(details).map(([label, value]) => `
+        <span><small>${label}</small>${value}</span>
+      `).join('');
+    }
+
+    function roleSection(section) {
+      return `
+        <div class="role-detail-section">
+          <h4>${section.title}</h4>
+          <ul>${section.items.map((item) => `<li>${item}</li>`).join('')}</ul>
+        </div>
+      `;
+    }
+
+    document.querySelectorAll('[data-role]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const role = roleDetails[button.dataset.role];
+        if (!role) return;
+
+        roleDetailsTitle.textContent = role.title;
+        roleDetailsKicker.textContent = role.subtitle;
+        roleDetailsBody.innerHTML = `
+          <div class="role-detail-body">
+            <div class="role-detail-grid">${detailGrid(role.details)}</div>
+            <p class="role-detail-summary">${role.summary}</p>
+            ${role.sections.map(roleSection).join('')}
+            <div class="role-detail-note">
+              <div><strong>Suitable for:</strong> ${role.suitableFor}</div>
+              <div class="mt-2"><strong>Selection focus:</strong> ${role.selectionFocus}</div>
+            </div>
+          </div>
+        `;
+        roleDetailsModal.show();
+      });
     });
   </script>
 </body>
