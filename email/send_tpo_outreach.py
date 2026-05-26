@@ -27,25 +27,13 @@ from send_mwl_email import (  # noqa: E402
 )
 
 
-ENGINEERING_SUBJECTS = [
-    "11 paid MakerWorks Lab internships for 2nd, 3rd and 4th year students",
-    "AI, robotics and prototyping roles for serious {{COLLEGE_NAME}} builders",
-    "MakerWorks Lab openings: AI, robotics, electronics, design and teaching",
-    "Paid hands-on engineering internships for project-driven students",
-    "Share with students who have built projects: MakerWorks Lab internships",
+DEFAULT_SUBJECTS = [
+    "11 paid MakerWorks Lab internships for {{COLLEGE_NAME}} students",
+    "AI, robotics, electronics and PCB roles for {{COLLEGE_NAME}} students",
+    "MakerWorks Lab summer openings: AI, robotics, electronics, design and teaching",
+    "Paid hands-on engineering internships for {{COLLEGE_NAME}} students",
+    "Share with student builders: MakerWorks Lab internships in Mumbai",
 ]
-CONTENT_PARTNERSHIP_SUBJECTS = [
-    "Content and growth internships for {{COLLEGE_NAME}} students",
-    "MakerWorks Lab summer roles: technical media, content and partnerships",
-    "Share with media, BMS and design students: MakerWorks Lab Mumbai internships",
-    "Paid content and partnerships internships for {{COLLEGE_NAME}} students",
-    "Mumbai summer roles in technical storytelling and education growth",
-]
-SUBJECTS_BY_CAMPAIGN = {
-    "engineering": ENGINEERING_SUBJECTS,
-    "content-partnership": CONTENT_PARTNERSHIP_SUBJECTS,
-}
-DEFAULT_SUBJECTS = ENGINEERING_SUBJECTS
 REQUIRED_COLUMNS = {"email", "college_name", "greeting", "college_note"}
 BOLD = "\033[1m"
 RESET = "\033[0m"
@@ -96,7 +84,7 @@ def render_template(template: str, row: dict[str, str], *, escape_values: bool =
 def choose_subject(args: argparse.Namespace) -> str:
     if args.subject:
         return args.subject
-    return random.choice(SUBJECTS_BY_CAMPAIGN[args.campaign])
+    return random.choice(DEFAULT_SUBJECTS)
 
 
 def bold_text(value: str) -> str:
@@ -111,15 +99,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--contacts", default=Path("email/tpo_mumbai_contacts.csv"), type=Path)
     parser.add_argument("--html", default=Path("email/tpo_mumbai_internship_outreach.html"), type=Path)
     parser.add_argument(
-        "--campaign",
-        choices=sorted(SUBJECTS_BY_CAMPAIGN),
-        default="engineering",
-        help="Subject-line set to use when --subject is not provided.",
-    )
-    parser.add_argument(
         "--subject",
         default=None,
-        help="Optional fixed subject override. By default, each email randomly uses one subject from the selected campaign.",
+        help=f"Optional fixed subject override. By default, each email randomly uses one of {len(DEFAULT_SUBJECTS)} subjects.",
     )
     parser.add_argument("--from-email", default=DEFAULT_FROM_EMAIL)
     parser.add_argument("--from-name", default=DEFAULT_FROM_NAME)
@@ -154,8 +136,7 @@ def main() -> int:
     if args.subject:
         print(f"Subject override: {bold_text(args.subject)}")
     else:
-        subject_count = len(SUBJECTS_BY_CAMPAIGN[args.campaign])
-        print(f"Subject mode: random pick from {subject_count} {args.campaign} subject lines per email")
+        print(f"Subject mode: random pick from {len(DEFAULT_SUBJECTS)} subject lines per email")
     print(f"Delay: {args.delay_seconds} seconds between emails")
     print("Delivery mode: one personalized To-only email per recipient")
 
