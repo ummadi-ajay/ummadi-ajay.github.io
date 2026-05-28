@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import html
+import mimetypes
 import os
 import random
 import re
@@ -28,7 +29,7 @@ from send_mwl_email import (  # noqa: E402
 
 
 ENGINEERING_SUBJECTS = [
-    "11 paid MakerWorks Lab internships for 2nd, 3rd and 4th year students",
+    "14 paid MakerWorks Lab internships for 2nd, 3rd and 4th year students",
     "AI, robotics and prototyping roles for serious {{COLLEGE_NAME}} builders",
     "MakerWorks Lab openings: AI, robotics, electronics, design and teaching",
     "Paid hands-on engineering internships for project-driven students",
@@ -49,6 +50,21 @@ DEFAULT_SUBJECTS = ENGINEERING_SUBJECTS
 REQUIRED_COLUMNS = {"email", "college_name", "greeting", "college_note"}
 BOLD = "\033[1m"
 RESET = "\033[0m"
+
+
+def read_attachments(paths: list[Path]) -> list[tuple[str, str, str, bytes]]:
+    attachments: list[tuple[str, str, str, bytes]] = []
+    for path in paths:
+        if not path.is_file():
+            raise ValueError(f"Attachment not found: {path}")
+
+        content_type, _encoding = mimetypes.guess_type(path.name)
+        if content_type:
+            maintype, subtype = content_type.split("/", 1)
+        else:
+            maintype, subtype = "application", "octet-stream"
+        attachments.append((path.name, maintype, subtype, path.read_bytes()))
+    return attachments
 
 
 def read_contacts(path: Path) -> list[dict[str, str]]:
@@ -129,6 +145,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--smtp-host", default="smtp.gmail.com")
     parser.add_argument("--smtp-port", default=465, type=int)
     parser.add_argument("--timeout", default=30, type=int)
+    parser.add_argument(
+        "--attachment",
+        action="append",
+        default=[],
+        type=Path,
+        help="Optional file to attach. Repeat this flag for multiple attachments.",
+    )
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--yes", action="store_true")
     return parser.parse_args()
@@ -143,6 +166,7 @@ def main() -> int:
     try:
         contacts = read_contacts(args.contacts)
         template = args.html.read_text(encoding="utf-8")
+        attachments = read_attachments(args.attachment)
     except (OSError, ValueError) as exc:
         print(exc, file=sys.stderr)
         return 1
@@ -151,6 +175,10 @@ def main() -> int:
     print(f"Contacts: {len(contacts)}")
     print(f"From: {args.from_name} <{args.from_email}>")
     print(f"Reply-To: {args.reply_to}")
+    if attachments:
+        print("Attachments:")
+        for filename, maintype, subtype, content in attachments:
+            print(f"  - {filename} ({maintype}/{subtype}, {len(content):,} bytes)")
     if args.subject:
         print(f"Subject override: {bold_text(args.subject)}")
     else:
@@ -201,6 +229,13 @@ def main() -> int:
                     from_email=args.from_email,
                     reply_to=args.reply_to,
                 )
+                for filename, maintype, subtype, content in attachments:
+                    message.add_attachment(
+                        content,
+                        maintype=maintype,
+                        subtype=subtype,
+                        filename=filename,
+                    )
                 smtp.send_message(message)
                 print(
                     f"[{index}/{total}] Sent to {contact['email']} | "

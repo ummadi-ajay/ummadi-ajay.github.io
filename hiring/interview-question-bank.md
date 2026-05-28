@@ -7,12 +7,12 @@ Roles covered:
 - AI Research Intern: 2 openings
 - Autonomous Robotics Intern: 2 openings
 - Electronics & PCB Design Intern: 2 openings
-- Technical Media & Content Intern: 1 opening
-- Design Engineering Intern: 1 opening
+- Technical Media & Content Intern: 2 openings
+- Design Engineering Intern: 2 openings
 - AI & Robotics Teaching Fellowship: 2 openings
-- Growth & Partnerships Intern: 1 opening
+- Growth & Partnerships Intern: 2 openings
 
-Total target hiring count: 11 people across 7 role tracks.
+Total target hiring count: 14 people across 7 role tracks.
 
 ## How To Use This
 
