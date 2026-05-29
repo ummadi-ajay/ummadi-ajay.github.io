@@ -9,9 +9,9 @@
   <!-- Primary Meta Tags -->
   <meta name="title" content="MakerWorks - Beginner Level Program | Robotics & Coding for Kids in Mumbai">
   <meta name="description"
-    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
+    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 8–10 to learn robotics, coding, electronics, 3D design, and playful AI through hands-on projects.">
   <meta name="keywords"
-    content="MakerWorks Beginner Level, robotics for kids Mumbai, coding for children, micro:bit classes Mumbai, STEM for kids, robotics projects, electronics for kids">
+    content="MakerWorks Beginner Level, robotics for kids Mumbai, coding for children, micro:bit classes Mumbai, AI for kids, Teachable Machine, STEM for kids, robotics projects, electronics for kids">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -30,7 +30,7 @@
   <meta property="og:url" content="https://makerworkslab.in/programs/beginner/">
   <meta property="og:title" content="MakerWorks - Beginner Level Program | Robotics & Coding for Kids in Mumbai">
   <meta property="og:description"
-    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
+    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 8–10 to learn robotics, coding, electronics, 3D design, and playful AI through hands-on projects.">
   <meta property="og:image" content="https://makerworkslab.in/images/beginner-hero.jpg">
 
   <!-- Twitter -->
@@ -38,7 +38,7 @@
   <meta property="twitter:url" content="https://makerworkslab.in/programs/beginner/">
   <meta property="twitter:title" content="MakerWorks - Beginner Level Program | Robotics & Coding for Kids in Mumbai">
   <meta property="twitter:description"
-    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects.">
+    content="Enroll in MakerWorks Beginner Level Program. A fun and creative 2-year program for kids aged 8–10 to learn robotics, coding, electronics, 3D design, and playful AI through hands-on projects.">
   <meta property="twitter:image" content="https://makerworkslab.in/images/beginner-hero.jpg">
 
   <!-- Stylesheets -->
@@ -57,7 +57,7 @@
       {
         "@type": "Course",
         "name": "Beginner Level Program",
-        "description": "A fun and creative 2-year program for kids aged 7–10 to learn robotics, coding, and electronics through hands-on projects at MakerWorks.",
+        "description": "A fun and creative 2-year program for kids aged 8-10 to learn robotics, coding, electronics, 3D design, and playful AI through hands-on projects at MakerWorks.",
         "provider": {
           "@type": "EducationalOrganization",
           "name": "MakerWorks",
@@ -709,6 +709,10 @@
       --track-color: #ff9900;
     }
 
+    .track-ai {
+      --track-color: #8b5cf6;
+    }
+
     .track-design {
       --track-color: #10b981;
     }
@@ -716,7 +720,7 @@
     .curriculum-column-title {
       font-family: 'Bricolage Grotesque', sans-serif;
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: clamp(1.05rem, 1.2vw, 1.35rem);
       color: var(--dark);
       margin-bottom: 2rem;
       display: flex;
@@ -1284,7 +1288,8 @@
   <section class="program-hero">
     <div class="hero-content" data-aos="fade-up">
       <h1>The Spark of <br>Junior Engineering</h1>
-      <p>A fun-filled 2-year creative learning program for curious minds aged 8–10</p>
+      <p>A fun-filled 2-year creative learning program for curious minds aged 8–10, with robotics, coding, electronics,
+        3D design, and playful AI exploration.</p>
       <a href="https://wa.me/919137114223?text=Hi,%20I%20am%20interested%20in%20the%20Junior%20Beginner%20Program!"
         class="btn" target="_blank">
         Enroll Now <i class="fab fa-whatsapp"></i>
@@ -1410,10 +1415,10 @@
 
     <div class="row g-4 mt-2">
 
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-3 col-md-6 order-3" data-aos="fade-up" data-aos-delay="300">
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-          <h5>micro:bit & MakeCode Programming</h5>
+          <h5>Programming</h5>
           <p>
             Master the fundamentals of computer science using the BBC micro:bit and Microsoft's powerful visual coding
             environment.
@@ -1426,10 +1431,10 @@
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-3 col-md-6 order-1" data-aos="fade-up" data-aos-delay="100">
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-          <h5>Electronics & Sensor Logic</h5>
+          <h5>Electronics, Hardware & Circuit Design</h5>
           <p>
             Dive into the physical world of circuits. Students learn how sensors "see" the world and how components
             interact.
@@ -1442,10 +1447,26 @@
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-lg-3 col-md-6 order-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h5>AI</h5>
+          <p>
+            Students meet AI safely through perception games, Teachable Machine, model testing, bias checks, and simple
+            creative demos.
+          </p>
+          <ul>
+            <li>Image, sound & pose models</li>
+            <li>Confidence and bias checks</li>
+            <li>Responsible demo explanations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 order-2" data-aos="fade-up" data-aos-delay="200">
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-cube"></i></div>
-          <h5>3D Design & Rapid Prototyping</h5>
+          <h5>Design, CAD & 3D</h5>
           <p>
             Bridge the gap between digital design and physical reality by creating custom parts and structural
             enclosures.
@@ -1454,21 +1475,6 @@
             <li>Spatial Geometry</li>
             <li>Tinkercad Mastery</li>
             <li>3D Printing Workflow</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-brain"></i></div>
-          <h5>Advanced Engineering Mindset</h5>
-          <p>
-            We focus on developing the critical thinking and problem-solving skills used by world-class engineers.
-          </p>
-          <ul>
-            <li>Iterative Debugging</li>
-            <li>Project Lifecycle</li>
-            <li>Public Presentation</li>
           </ul>
         </div>
       </div>
@@ -1482,15 +1488,15 @@
       <span class="section-badge">The Roadmap</span>
       <h2 class="section-title-premium">Session-wise Learning Breakdown</h2>
       <p class="text-muted mx-auto" style="max-width: 650px;">
-        Our Beginner Program follows a carefully planned module-wise structure across 30 comprehensive segments,
-        ensuring structured growth from basic logic to complex robotic systems.
+        Our Beginner Program follows four clear tracks across 30 core modules, with guided AI labs that connect
+        pattern recognition to playful physical demos.
       </p>
     </div>
 
     <div class="row g-4">
 
       <!-- COLUMN 1: PROGRAMMING -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-3 order-3" data-aos="fade-up" data-aos-delay="300">
         <div class="curriculum-track-container track-programming">
           <h3 class="curriculum-column-title"><i class="fas fa-code"></i> Programming</h3>
           <div class="curriculum">
@@ -1670,9 +1676,9 @@
       </div>
 
       <!-- COLUMN 2: ELECTRONICS -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-3 order-1" data-aos="fade-up" data-aos-delay="100">
         <div class="curriculum-track-container track-electronics">
-          <h3 class="curriculum-column-title"><i class="fas fa-bolt"></i> Electronics</h3>
+          <h3 class="curriculum-column-title"><i class="fas fa-bolt"></i> Electronics, Hardware & Circuit Design</h3>
           <div class="curriculum">
 
             <div class="curriculum-item">
@@ -1849,10 +1855,122 @@
         </div>
       </div>
 
-      <!-- COLUMN 3: DESIGN & PROJECTS -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+      <!-- COLUMN 3: AI -->
+      <div class="col-lg-3 order-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="curriculum-track-container track-ai">
+          <h3 class="curriculum-column-title"><i class="fas fa-brain"></i> AI</h3>
+          <div class="curriculum">
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div>
+                  <span class="module-number">AI Lab 01</span>
+                  <h4>Pattern Recognition</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Perception through cameras and microphones</li>
+                  <li><i class="fas fa-circle"></i> Examples vs hand-written rules</li>
+                  <li><i class="fas fa-circle"></i> Classifying simple objects and gestures</li>
+                  <li><i class="fas fa-circle"></i> What AI can and cannot understand</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div>
+                  <span class="module-number">AI Lab 02</span>
+                  <h4>Teachable Machine Basics</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Image, sound, and pose classes</li>
+                  <li><i class="fas fa-circle"></i> Gathering balanced training examples</li>
+                  <li><i class="fas fa-circle"></i> Training a simple model</li>
+                  <li><i class="fas fa-circle"></i> Testing live predictions safely</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div>
+                  <span class="module-number">AI Lab 03</span>
+                  <h4>Model Confidence</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Reading confidence scores</li>
+                  <li><i class="fas fa-circle"></i> Testing with new examples</li>
+                  <li><i class="fas fa-circle"></i> Spotting noisy or unfair data</li>
+                  <li><i class="fas fa-circle"></i> Repeat-test-improve cycle</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div>
+                  <span class="module-number">AI Lab 04</span>
+                  <h4>AI Demo Storyboarding</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Designing a visible AI demo</li>
+                  <li><i class="fas fa-circle"></i> Linking AI outputs to actions</li>
+                  <li><i class="fas fa-circle"></i> Explaining model decisions</li>
+                  <li><i class="fas fa-circle"></i> Presenting AI responsibly</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div>
+                  <span class="module-number">AI Lab 05</span>
+                  <h4>Sound & Pose Interaction</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Snap, clap, whistle classifier</li>
+                  <li><i class="fas fa-circle"></i> Pose-based game controller idea</li>
+                  <li><i class="fas fa-circle"></i> Testing background noise</li>
+                  <li><i class="fas fa-circle"></i> Choosing reliable inputs</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curriculum-item">
+              <div class="curriculum-header">
+                <div>
+                  <span class="module-number">AI Lab 06</span>
+                  <h4>AI + Robot Behavior</h4>
+                </div>
+              </div>
+              <div class="curriculum-content">
+                <ul>
+                  <li><i class="fas fa-circle"></i> Prediction as a simple trigger</li>
+                  <li><i class="fas fa-circle"></i> LED, buzzer, or servo response</li>
+                  <li><i class="fas fa-circle"></i> Explaining mistakes clearly</li>
+                  <li><i class="fas fa-circle"></i> Responsible final demo rules</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMN 4: DESIGN, CAD & 3D -->
+      <div class="col-lg-3 order-2" data-aos="fade-up" data-aos-delay="200">
         <div class="curriculum-track-container track-design">
-          <h3 class="curriculum-column-title"><i class="fas fa-cube"></i> Design & Projects</h3>
+          <h3 class="curriculum-column-title"><i class="fas fa-cube"></i> Design, CAD & 3D</h3>
           <div class="curriculum">
 
             <div class="curriculum-item">
@@ -1983,10 +2101,10 @@
               </div>
               <div class="curriculum-content">
                 <ul>
-                  <li><i class="fas fa-circle"></i> Flowcharting the logic</li>
-                  <li><i class="fas fa-circle"></i> Schematic Drawing</li>
-                  <li><i class="fas fa-circle"></i> Feasibility Study</li>
-                  <li><i class="fas fa-circle"></i> Prototyping Roadmap</li>
+                  <li><i class="fas fa-circle"></i> Flowcharting solution logic</li>
+                  <li><i class="fas fa-circle"></i> Circuit and enclosure planning</li>
+                  <li><i class="fas fa-circle"></i> Feasibility and constraints</li>
+                  <li><i class="fas fa-circle"></i> Prototype roadmap</li>
                 </ul>
               </div>
             </div>
@@ -2042,21 +2160,21 @@
 
     <div class="row g-4 mt-2">
 
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-3 col-md-6 order-3" data-aos="fade-up" data-aos-delay="300">
         <div class="outcome-card track-programming">
           <h5><i class="fas fa-terminal"></i> Programming Goals</h5>
           <ul class="mt-3">
             <li>Logical thinking & Algorithm design</li>
             <li>Microsoft MakeCode Prototyping</li>
+            <li>Variables, loops, and events</li>
             <li>Hardware-Software Syncing</li>
-            <li>Data handling & State management</li>
           </ul>
         </div>
       </div>
 
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-3 col-md-6 order-1" data-aos="fade-up" data-aos-delay="100">
         <div class="outcome-card track-electronics">
-          <h5><i class="fas fa-microchip"></i> Engineering Goals</h5>
+          <h5><i class="fas fa-microchip"></i> Electronics & Circuit Goals</h5>
           <ul class="mt-3">
             <li>Electrical breadboarding skills</li>
             <li>Component integration & Safety</li>
@@ -2066,14 +2184,26 @@
         </div>
       </div>
 
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-lg-3 col-md-6 order-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="outcome-card track-ai">
+          <h5><i class="fas fa-brain"></i> AI Goals</h5>
+          <ul class="mt-3">
+            <li>Teachable Machine AI demos</li>
+            <li>Image, sound, and pose classification</li>
+            <li>Confidence, bias, and data checks</li>
+            <li>Responsible AI demo explanations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 order-2" data-aos="fade-up" data-aos-delay="200">
         <div class="outcome-card track-design">
-          <h5><i class="fas fa-drafting-pencil"></i> Creative Goals</h5>
+          <h5><i class="fas fa-drafting-pencil"></i> Design, CAD & 3D Goals</h5>
           <ul class="mt-3">
             <li>3D Modeling & CAD foundations</li>
+            <li>Tinkercad design workflow</li>
             <li>Iterative product design</li>
             <li>System documentation</li>
-            <li>Final Capstone Presentation</li>
           </ul>
         </div>
       </div>
@@ -2090,35 +2220,35 @@
 
     <div class="row g-4 mt-2 text-center">
 
-      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+      <div class="col-md-3 order-3" data-aos="zoom-in" data-aos-delay="300">
         <div class="ui-card">
           <div class="ui-icon"><i class="fas fa-play"></i></div>
-          <h6>The Spark</h6>
+          <h6>Programming</h6>
           <p>Foundations in visual coding & basic electronics logic.</p>
         </div>
       </div>
 
-      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+      <div class="col-md-3 order-1" data-aos="zoom-in" data-aos-delay="100">
         <div class="ui-card">
           <div class="ui-icon"><i class="fas fa-puzzle-piece"></i></div>
-          <h6>Integration</h6>
+          <h6>Electronics & Circuits</h6>
           <p>Weekly hands-on projects merging code with sensors.</p>
         </div>
       </div>
 
-      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+      <div class="col-md-3 order-4" data-aos="zoom-in" data-aos-delay="400">
         <div class="ui-card">
-          <div class="ui-icon"><i class="fas fa-tools"></i></div>
-          <h6>Creation</h6>
-          <p>Designing custom parts & programming complex systems.</p>
+          <div class="ui-icon"><i class="fas fa-brain"></i></div>
+          <h6>AI</h6>
+          <p>Training Teachable Machine models, checking confidence, and explaining model limits.</p>
         </div>
       </div>
 
-      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+      <div class="col-md-3 order-2" data-aos="zoom-in" data-aos-delay="200">
         <div class="ui-card">
-          <div class="ui-icon"><i class="fas fa-award"></i></div>
-          <h6>Realization</h6>
-          <p>Final capstone project & professional certification.</p>
+          <div class="ui-icon"><i class="fas fa-cube"></i></div>
+          <h6>Design, CAD & 3D</h6>
+          <p>Designing custom parts, building the final capstone, and earning certification.</p>
         </div>
       </div>
 
@@ -2144,7 +2274,7 @@
               <div class="cert-check"><i class="fas fa-check"></i></div>
               <div>
                 <h6 class="fw-bold mb-1">30 Hands-on Modules</h6>
-                <p class="small text-muted mb-0">Complete mastery over basic coding, electronics, and design.</p>
+                <p class="small text-muted mb-0">Complete mastery over basic coding, electronics, AI exploration, and design.</p>
               </div>
             </li>
             <li>
@@ -2384,8 +2514,9 @@
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
                   Over the 30 modules, they learn <strong>Block-based Coding</strong> (via micro:bit), <strong>Basic
-                    Electronics</strong> (Ohm's Law, Breadboarding), <strong>3D Design</strong> (CAD fundamentals), and
-                  <strong>Robotics Automation</strong>. It’s a multi-disciplinary approach.
+                    Electronics</strong> (Ohm's Law, Breadboarding), <strong>3D Design</strong> (CAD fundamentals),
+                  <strong>playful AI</strong> using Teachable Machine, and <strong>Robotics Automation</strong>. It’s a
+                  multi-disciplinary approach.
                 </div>
               </div>
             </div>
