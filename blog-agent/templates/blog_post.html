@@ -11,19 +11,39 @@
     <meta name="description" content="{{ meta_description }}">
     <meta name="keywords" content="{{ keywords }}">
     <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="MakerWorks Lab">
+    <meta property="og:locale" content="en_IN">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://makerworkslab.in/blog/{{ slug }}.html">
     <meta property="og:title" content="{{ title }} | MakerWorks Blog">
     <meta property="og:description" content="{{ meta_description }}">
+    {% if image_info %}
     <meta property="og:image" content="https://makerworkslab.in/blog/blogphotos/{{ slug }}.jpg">
+    <meta property="og:image:secure_url" content="https://makerworkslab.in/blog/blogphotos/{{ slug }}.jpg">
+    {% else %}
+    <meta property="og:image" content="https://makerworkslab.in/images/social/blog.jpg">
+    <meta property="og:image:secure_url" content="https://makerworkslab.in/images/social/blog.jpg">
+    {% endif %}
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://makerworkslab.in/blog/{{ slug }}.html">
     <meta name="twitter:title" content="{{ title }} | MakerWorks Blog">
     <meta name="twitter:description" content="{{ meta_description }}">
+    {% if image_info %}
+    <meta name="twitter:image" content="https://makerworkslab.in/blog/blogphotos/{{ slug }}.jpg">
+    {% else %}
+    <meta name="twitter:image" content="https://makerworkslab.in/images/social/blog.jpg">
+    {% endif %}
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="canonical" href="https://makerworkslab.in/blog/{{ slug }}.html">
 
     <!-- Stylesheets -->

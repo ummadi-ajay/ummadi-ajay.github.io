@@ -579,7 +579,7 @@ function breadcrumbSchema(role) {
 }
 
 function baseHead({ title, description, canonical, keywords, ogType = 'website', jsonLd = [] }) {
-  const image = `${SITE_URL}/gallery/galleryphotos/preparation%20for%20competition.webp`;
+  const image = `${SITE_URL}/images/social/hiring.jpg`;
   const jsonScripts = jsonLd.map((data) => `<script type="application/ld+json">
 ${JSON.stringify(data, null, 2)}
   </script>`).join('\n');
@@ -592,18 +592,26 @@ ${JSON.stringify(data, null, 2)}
   <link rel="canonical" href="${escapeAttr(canonical)}">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta property="og:site_name" content="MakerWorks Lab">
+  <meta property="og:locale" content="en_IN">
   <meta property="og:type" content="${escapeAttr(ogType)}">
   <meta property="og:url" content="${escapeAttr(canonical)}">
   <meta property="og:title" content="${escapeAttr(title)}">
   <meta property="og:description" content="${escapeAttr(description)}">
   <meta property="og:image" content="${image}">
+  <meta property="og:image:secure_url" content="${image}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="${escapeAttr(canonical)}">
   <meta name="twitter:title" content="${escapeAttr(title)}">
   <meta name="twitter:description" content="${escapeAttr(description)}">
   <meta name="twitter:image" content="${image}">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.webp">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
