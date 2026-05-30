@@ -580,6 +580,7 @@ function breadcrumbSchema(role) {
 
 function baseHead({ title, description, canonical, keywords, ogType = 'website', jsonLd = [] }) {
   const image = `${SITE_URL}/images/social/hiring.jpg`;
+  const previewTitle = 'MakerWorks Lab | Robotics & AI';
   const jsonScripts = jsonLd.map((data) => `<script type="application/ld+json">
 ${JSON.stringify(data, null, 2)}
   </script>`).join('\n');
@@ -596,7 +597,7 @@ ${JSON.stringify(data, null, 2)}
   <meta property="og:locale" content="en_IN">
   <meta property="og:type" content="${escapeAttr(ogType)}">
   <meta property="og:url" content="${escapeAttr(canonical)}">
-  <meta property="og:title" content="${escapeAttr(title)}">
+  <meta property="og:title" content="${escapeAttr(previewTitle)}">
   <meta property="og:description" content="${escapeAttr(description)}">
   <meta property="og:image" content="${image}">
   <meta property="og:image:secure_url" content="${image}">
@@ -605,7 +606,7 @@ ${JSON.stringify(data, null, 2)}
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="${escapeAttr(canonical)}">
-  <meta name="twitter:title" content="${escapeAttr(title)}">
+  <meta name="twitter:title" content="${escapeAttr(previewTitle)}">
   <meta name="twitter:description" content="${escapeAttr(description)}">
   <meta name="twitter:image" content="${image}">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
