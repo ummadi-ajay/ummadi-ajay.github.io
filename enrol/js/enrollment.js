@@ -521,7 +521,7 @@ function schedulePartialLeadNotification() {
 }
 
 function getProgramLabel(program) {
-  if (program === 'Portfolio') return 'Portfolio Building Program';
+  if (program === 'Portfolio') return 'Portfolio Program';
   if (program) return `${program} Level`;
   return '';
 }
@@ -672,7 +672,7 @@ function getRecommendedProgram() {
   if (!Number.isNaN(gradeNum) && gradeNum >= 9) {
     return {
       program: 'Portfolio',
-      hint: 'Portfolio Building Program is recommended for Grade 9 and above.'
+      hint: 'Portfolio Program is recommended for Grade 9 and above.'
     };
   }
 

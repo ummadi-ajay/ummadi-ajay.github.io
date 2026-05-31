@@ -118,7 +118,7 @@
             "name": "What age group can join MakerWorks robotics classes?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "MakerWorks robotics programs are designed for kids and teens aged 8 to 17 years."
+              "text": "MakerWorks robotics programs are designed for kids and teens aged 8 to 17 years, with the Portfolio Program recommended from Grade 9 and above."
             }
           },
           {
@@ -427,6 +427,58 @@
       backdrop-filter: blur(20px);
       display: flex;
       flex-direction: column;
+    }
+
+    .program-card-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 0 1.25rem;
+    }
+
+    .program-card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 38px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--meta-bg, #f8fafc);
+      color: var(--meta-color, #475569);
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .program-card-meta i {
+      flex: 0 0 auto;
+      color: var(--meta-icon, var(--primary));
+      font-size: 0.95rem;
+    }
+
+    .program-card-meta--single-row {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .program-card-meta--single-row span {
+      justify-content: center;
+      padding: 8px 6px;
+      text-align: center;
+      font-size: 0.7rem;
+    }
+
+    .program-card-meta--single-row i {
+      font-size: 0.85rem;
+    }
+
+    .program-price-note {
+      display: block;
+      margin-top: 2px;
+      color: #64748b;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.35;
     }
 
     .card-premium:hover {
@@ -891,77 +943,61 @@
     </section>
 
     <section id="physical-ai-featured" class="py-5"
-      style="background: #06111f; color: #fff; overflow: hidden; position: relative;">
+      style="background: #fbfbfd; color: #1d1d1f; overflow: hidden; position: relative;">
       <div class="container position-relative py-5">
         <div class="row align-items-center g-5">
           <div class="col-lg-7" data-aos="fade-right">
-            <span class="badge mb-3 px-3 py-2 fw-bold text-uppercase"
-              style="background: rgba(20, 184, 166, 0.16); color: #7dd3fc; border: 1px solid rgba(125, 211, 252, 0.35); border-radius: 8px; letter-spacing: 0;">Physical AI Lab</span>
+            <span class="section-tag mb-3 d-inline-block">Physical AI Lab</span>
             <h2 class="display-4 fw-800 mb-4"
               style="font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: 0; line-height: 1;">AI that
               moves,<br>sees, and learns.</h2>
-            <p class="fs-5 mb-5 opacity-75">At MakerWorks Lab, AI does not stop at prompts and screens. Students work at
+            <p class="fs-5 mb-5 text-muted">At MakerWorks Lab, AI does not stop at prompts and screens. Students work at
               the intersection of models, sensors, actuators, cameras, robot arms, and open-source hardware using
               Hugging Face LeRobot and Reachy Mini.</p>
 
-            <div class="row g-4 mb-5">
-              <div class="col-sm-6">
-                <div class="d-flex align-items-center gap-3">
-                  <div class="p-3 rounded-circle" style="background: rgba(255,255,255,0.1);">
-                    <i class="bi bi-robot fs-4" style="color: #7dd3fc;"></i>
-                  </div>
-                  <div>
-                    <span class="d-block small opacity-50">Embodied AI</span>
-                    <span class="fw-bold fs-5">LeRobot Arms</span>
-                  </div>
+            <div class="physical-ai-feature-grid mb-5">
+              <div class="physical-ai-feature">
+                <i class="bi bi-robot"></i>
+                <div>
+                  <span>Embodied AI</span>
+                  <strong>LeRobot Arms</strong>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="d-flex align-items-center gap-3">
-                  <div class="p-3 rounded-circle" style="background: rgba(255,255,255,0.1);">
-                    <i class="bi bi-camera-video fs-4" style="color: #facc15;"></i>
-                  </div>
-                  <div>
-                    <span class="d-block small opacity-50">Perception</span>
-                    <span class="fw-bold fs-5">Vision + Sensors</span>
-                  </div>
+              <div class="physical-ai-feature">
+                <i class="bi bi-camera-video"></i>
+                <div>
+                  <span>Perception</span>
+                  <strong>Vision + Sensors</strong>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="d-flex align-items-center gap-3">
-                  <div class="p-3 rounded-circle" style="background: rgba(255,255,255,0.1);">
-                    <i class="bi bi-database-check fs-4" style="color: #fb923c;"></i>
-                  </div>
-                  <div>
-                    <span class="d-block small opacity-50">Robot Learning</span>
-                    <span class="fw-bold fs-5">Data + Training</span>
-                  </div>
+              <div class="physical-ai-feature">
+                <i class="bi bi-database-check"></i>
+                <div>
+                  <span>Robot Learning</span>
+                  <strong>Data + Training</strong>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="d-flex align-items-center gap-3">
-                  <div class="p-3 rounded-circle" style="background: rgba(255,255,255,0.1);">
-                    <i class="bi bi-cpu fs-4" style="color: #34d399;"></i>
-                  </div>
-                  <div>
-                    <span class="d-block small opacity-50">Hardware Core</span>
-                    <span class="fw-bold fs-5">Control Systems</span>
-                  </div>
+              <div class="physical-ai-feature">
+                <i class="bi bi-cpu"></i>
+                <div>
+                  <span>Hardware Core</span>
+                  <strong>Control Systems</strong>
                 </div>
               </div>
             </div>
 
-            <div class="d-flex flex-wrap gap-3">
-              <a href="/projects/lerobot-so100m.html"
-                class="btn-premium bg-white text-dark px-4 py-3 fw-bold text-decoration-none d-inline-flex align-items-center gap-2"
-                style="border-radius: 8px;">
-                Explore LeRobot Project <i class="bi bi-arrow-right"></i>
-              </a>
+            <div class="physical-ai-actions">
               <a href="https://wa.me/919137114223?text=Hi,%20I%20want%20to%20know%20more%20about%20MakerWorks%20Physical%20AI,%20LeRobot,%20and%20Reachy%20Mini."
                 target="_blank"
-                class="btn-premium px-4 py-3 fw-bold text-decoration-none d-inline-flex align-items-center gap-2"
-                style="border-radius: 8px; color: #fff; border: 1px solid rgba(255,255,255,0.28); background: rgba(255,255,255,0.08);">
-                Ask About Physical AI <i class="bi bi-whatsapp"></i>
+                class="btn-premium btn-primary-mw physical-ai-action">
+                Ask About Physical AI (AI + Hardware) <i class="bi bi-whatsapp"></i>
+              </a>
+              <a href="/projects/lerobot-so100m.html" class="btn-premium btn-outline-mw physical-ai-action">
+                Explore LeRobot <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="https://www.reachy-mini.org/" target="_blank"
+                class="btn-premium btn-outline-mw physical-ai-action">
+                Explore Reachy Mini <i class="bi bi-box-arrow-up-right"></i>
               </a>
             </div>
           </div>
@@ -1000,16 +1036,79 @@
       </div>
       <style>
         #physical-ai-featured {
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          border-top: 1px solid var(--glass-border);
+          border-bottom: 1px solid var(--glass-border);
+        }
+
+        .physical-ai-feature-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 16px;
+        }
+
+        .physical-ai-feature {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          min-width: 0;
+          padding: 16px;
+          background: #fff;
+          border: 1px solid var(--glass-border);
+          border-radius: 8px;
+        }
+
+        .physical-ai-feature i {
+          flex: 0 0 auto;
+          display: inline-grid;
+          place-items: center;
+          width: 42px;
+          height: 42px;
+          border-radius: 8px;
+          background: rgba(13, 110, 253, 0.08);
+          color: var(--primary);
+          font-size: 1.25rem;
+        }
+
+        .physical-ai-feature span {
+          display: block;
+          color: #6e6e73;
+          font-size: 0.88rem;
+          font-weight: 700;
+          line-height: 1.25;
+        }
+
+        .physical-ai-feature strong {
+          display: block;
+          color: var(--dark);
+          font-size: 1.08rem;
+          line-height: 1.25;
+        }
+
+        .physical-ai-actions {
+          display: grid;
+          grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .physical-ai-action {
+          width: 100%;
+          min-height: 64px;
+          border-radius: 8px;
+          padding: 12px 14px;
+          font-size: 0.92rem;
+          line-height: 1.25;
+          justify-content: center;
+          text-align: center;
+          gap: 8px;
+          white-space: normal;
         }
 
         .physical-ai-showcase {
-          background: #0c1b2f;
-          border: 1px solid rgba(125, 211, 252, 0.22);
+          background: #fff;
+          border: 1px solid var(--glass-border);
           border-radius: 8px;
           padding: 18px;
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
         }
 
         .physical-ai-video-stack {
@@ -1027,7 +1126,7 @@
           aspect-ratio: 16 / 9;
           overflow: hidden;
           border-radius: 8px;
-          background: #020617;
+          background: #f5f5f7;
         }
 
         .physical-ai-video-frame iframe {
@@ -1039,24 +1138,34 @@
         }
 
         .physical-ai-chip {
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          border: 1px solid var(--glass-border);
           border-radius: 8px;
           padding: 14px;
-          background: rgba(255, 255, 255, 0.06);
+          background: #fbfbfd;
         }
 
         .physical-ai-chip span {
           display: block;
-          color: #7dd3fc;
+          color: var(--primary);
           font-weight: 800;
           margin-bottom: 4px;
         }
 
         .physical-ai-chip strong {
           display: block;
-          color: rgba(255, 255, 255, 0.82);
+          color: #424245;
           font-size: 0.92rem;
           line-height: 1.45;
+        }
+
+        @media (max-width: 767.98px) {
+          .physical-ai-feature-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .physical-ai-actions {
+            grid-template-columns: 1fr;
+          }
         }
       </style>
     </section>
@@ -1141,16 +1250,37 @@
                 </div>
               </div>
 
-              <h3 class="fw-bold h2 mb-2 text-dark">Beginner</h3>
-              <p class="text-muted small mb-4" style="min-height: 48px;">Spark curiosity with foundational making
-                basics.</p>
+              <h3 class="fw-bold h2 mb-2 text-dark">Beginner Level</h3>
+              <p class="text-muted small mb-3" style="min-height: 48px;">A creative 1-year program for robotics,
+                coding, electronics, 3D design, and playful AI exploration.</p>
+
+              <div class="program-card-meta program-card-meta--single-row"
+                style="--meta-bg: #f0f9ff; --meta-color: #075985; --meta-icon: #0284c7;">
+                <span><i class="bi bi-person-check"></i> Ages 8-10</span>
+                <span><i class="bi bi-calendar2-check"></i> 1 year</span>
+                <span><i class="bi bi-clock"></i> 2 hrs / week</span>
+                <span><i class="bi bi-lightning-charge"></i> No prior</span>
+              </div>
 
               <div class="mb-4">
-                <span class="display-6 fw-bold text-dark">₹9,992</span>
+                <span class="display-6 fw-bold text-dark">₹9,999</span>
                 <span class="text-muted small">/mo</span>
+                <span class="program-price-note">For 10 hrs/month. GST extra.</span>
               </div>
 
               <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Robotics, coding & electronics</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">3D design and printing</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Playful AI exploration</span>
+                </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
                   <span class="text-secondary small fw-medium">Basic programming concepts</span>
@@ -1161,27 +1291,7 @@
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Real-time hardware interaction</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Current, Voltage & Resistance</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Ohm’s Law & Circuits</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Ultrasonic sensors & Servos</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">3D Designing & Printing</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Creative Project Building</span>
+                  <span class="text-secondary small fw-medium">Creative project building</span>
                 </li>
               </ul>
 
@@ -1213,50 +1323,48 @@
                 </span>
               </div>
 
-              <h3 class="fw-bold h2 mb-2 text-dark">Intermediate</h3>
-              <p class="text-muted small mb-4" style="min-height: 48px;">Innovate with sensors, code & robots.</p>
+              <h3 class="fw-bold h2 mb-2 text-dark">Intermediate Level</h3>
+              <p class="text-muted small mb-3" style="min-height: 48px;">A foundational 2-year technical program across
+                Arduino, electronics, Python, MicroPython, Raspberry Pi, AI, and CAD.</p>
+
+              <div class="program-card-meta"
+                style="--meta-bg: #faf5ff; --meta-color: #6b21a8; --meta-icon: #9333ea;">
+                <span><i class="bi bi-person-check"></i> Ages 11-14</span>
+                <span><i class="bi bi-calendar2-check"></i> 2-year course</span>
+                <span><i class="bi bi-clock"></i> 2 sessions/week</span>
+                <span><i class="bi bi-cpu"></i> Systems tech</span>
+              </div>
 
               <div class="mb-4">
-                <span class="display-6 fw-bold text-dark">₹14,992</span>
+                <span class="display-6 fw-bold text-dark">₹14,999</span>
                 <span class="text-muted small">/mo</span>
+                <span class="program-price-note">For 10 hrs/month. GST extra.</span>
               </div>
 
               <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Arduino C++ Programming</span>
+                  <span class="text-secondary small fw-medium">Arduino and electronics systems</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Sensor Integration & Data</span>
+                  <span class="text-secondary small fw-medium">Python and MicroPython basics</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Real-world Embedded Apps</span>
+                  <span class="text-secondary small fw-medium">Raspberry Pi exploration</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">IoT Fundamentals & Protocols</span>
+                  <span class="text-secondary small fw-medium">Teachable Machine AI</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Cloud Integration (Blynk/ThingSpeak)</span>
+                  <span class="text-secondary small fw-medium">TinkerCAD to Fusion or AutoCAD</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Smart Home Automation</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Robotics Kinematics & Control</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Computer Vision Basics</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">AI/ML Fundamentals</span>
+                  <span class="text-secondary small fw-medium">IoT and embedded projects</span>
                 </li>
               </ul>
 
@@ -1271,10 +1379,10 @@
             </div>
           </div>
 
-          <!-- Advanced Card (Orange/Red Style) -->
+          <!-- Portfolio Program Card (Orange/Red Style) -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="h-100 p-4 rounded-5 d-flex flex-column position-relative"
-              onclick="window.location.href='/programs/advanced/';"
+              onclick="window.location.href='/programs/portfolio/';"
               style="cursor: pointer; background: linear-gradient(135deg, rgba(225, 29, 72, 0.03) 0%, #ffffff 50%); border: 2px solid #ffe4e6; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
 
               <div class="mb-4 d-flex justify-content-between align-items-start">
@@ -1284,55 +1392,53 @@
                 </div>
               </div>
 
-              <h3 class="fw-bold h2 mb-2 text-dark">Advanced</h3>
-              <p class="text-muted small mb-4" style="min-height: 48px;">Master complexity, AI & full-stack dev.</p>
+              <h3 class="fw-bold h2 mb-2 text-dark">Portfolio Program</h3>
+              <p class="text-muted small mb-3" style="min-height: 48px;">A serious engineering track that turns
+                robotics, AI, CAD, electronics, and competition work into visible proof.</p>
+
+              <div class="program-card-meta"
+                style="--meta-bg: #fff1f2; --meta-color: #9f1239; --meta-icon: #e11d48;">
+                <span><i class="bi bi-person-check"></i> Grade 9+</span>
+                <span><i class="bi bi-diagram-3"></i> 1:1 roadmap</span>
+                <span><i class="bi bi-clock"></i> 2 hrs/week</span>
+                <span><i class="bi bi-folder-check"></i> Portfolio proof</span>
+              </div>
 
               <div class="mb-4">
-                <span class="display-6 fw-bold text-dark">₹19,992</span>
+                <span class="display-6 fw-bold text-dark">₹24,999</span>
                 <span class="text-muted small">/mo</span>
+                <span class="program-price-note">For 10 hrs/month. GST extra.</span>
               </div>
 
               <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">ROS 2 Navigation Stack</span>
+                  <span class="text-secondary small fw-medium">Project portfolio pages</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Kinematics & Dynamics</span>
+                  <span class="text-secondary small fw-medium">Demo-ready prototypes</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Autonomous Mapping (SLAM)</span>
+                  <span class="text-secondary small fw-medium">Build logs and technical writing</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">OpenCV & Image Processing</span>
+                  <span class="text-secondary small fw-medium">Competition and hackathon prep</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Neural Networks (TensorFlow)</span>
+                  <span class="text-secondary small fw-medium">Capstone direction and polish</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Edge AI Implementation</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">FreeRTOS & Real-time Systems</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">PCB Design & Fabrication</span>
-                </li>
-                <li class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">GitHub Portfolio & Docs</span>
+                  <span class="text-secondary small fw-medium">Presentation-ready demos</span>
                 </li>
               </ul>
 
               <div class="mt-auto">
-                <a href="/programs/advanced/"
+                <a href="/programs/portfolio/"
                   class="btn w-100 rounded-pill fw-bold py-3 icon-link justify-content-center"
                   style="background: #ffe4e6; color: #e11d48; border: none; transition: all 0.2s;"
                   onmouseover="this.style.background='#fecdd3'" onmouseout="this.style.background='#ffe4e6'">
@@ -2491,9 +2597,9 @@ void loop() {
               <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body px-0 pt-4 pb-0">
                   <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
-                    Our programs are specifically designed for kids and teens aged <strong>8–17 years</strong>, covering
-                    beginner to advanced engineering tracks. We tailor the curriculum to match each age group's learning
-                    capabilities and interests.
+                    Our programs are specifically designed for kids and teens aged <strong>8–17 years</strong>. Beginner
+                    is recommended for ages <strong>8–10</strong>, Intermediate for ages <strong>11–14</strong>, and
+                    the Portfolio Program from <strong>Grade 9 and above</strong>.
                   </p>
                 </div>
               </div>
