@@ -669,10 +669,10 @@ function getRecommendedProgram() {
   const age = calculateAge(document.getElementById('dob')?.value);
   const gradeNum = parseInt(grade);
 
-  if (!Number.isNaN(gradeNum) && gradeNum >= 9) {
+  if (!Number.isNaN(gradeNum) && gradeNum >= 8) {
     return {
       program: 'Portfolio',
-      hint: 'Portfolio Program is recommended for Grade 9 and above.'
+      hint: 'Portfolio Program is recommended for Grade 8 and above.'
     };
   }
 

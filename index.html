@@ -118,7 +118,7 @@
             "name": "What age group can join MakerWorks robotics classes?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "MakerWorks robotics programs are designed for kids and teens aged 8 to 17 years, with the Portfolio Program recommended from Grade 9 and above."
+              "text": "MakerWorks robotics programs are designed for kids and teens aged 8 to 17 years, with the Portfolio Program recommended from Grade 8 and above."
             }
           },
           {
@@ -457,28 +457,92 @@
     }
 
     .program-card-meta--single-row {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 6px;
+      height: 58px;
+      align-items: stretch;
     }
 
     .program-card-meta--single-row span {
       justify-content: center;
-      padding: 8px 6px;
+      min-height: 0;
+      height: 100%;
+      padding: 8px 7px;
       text-align: center;
       font-size: 0.7rem;
+      overflow-wrap: anywhere;
     }
 
     .program-card-meta--single-row i {
       font-size: 0.85rem;
     }
 
-    .program-price-note {
-      display: block;
-      margin-top: 2px;
+    .program-overview-card {
+      min-height: 820px;
+    }
+
+    .program-overview-card .program-card-top {
+      min-height: 64px;
+      margin-bottom: 1rem !important;
+    }
+
+    .program-overview-card .program-card-title {
+      min-height: 58px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 0.5rem !important;
+      line-height: 1.12;
+    }
+
+    .program-overview-card .program-card-copy {
+      min-height: 78px;
+      line-height: 1.55;
+    }
+
+    .program-overview-card .program-price-block {
+      min-height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-bottom: 1.35rem !important;
+    }
+
+    .program-price-line {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .program-price-amount {
+      color: var(--dark);
+      font-size: clamp(2.15rem, 3.2vw, 2.65rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .program-price-cycle {
       color: #64748b;
-      font-size: 0.78rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      line-height: 1.35;
+    }
+
+    .program-tax-note {
+      color: #64748b;
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .program-overview-card .program-feature-list {
+      min-height: 390px;
+    }
+
+    .program-overview-card .program-feature-list li {
+      min-height: 28px;
+      align-items: flex-start !important;
     }
 
     .card-premium:hover {
@@ -1239,59 +1303,68 @@
         <div class="row g-4 align-items-stretch justify-content-center">
           <!-- Beginner Card (Blue Style) -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="h-100 p-4 rounded-5 d-flex flex-column position-relative"
+            <div class="program-overview-card h-100 p-4 rounded-5 d-flex flex-column position-relative"
               onclick="window.location.href='/programs/beginner/';"
               style="cursor: pointer; background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, #ffffff 50%); border: 2px solid #e0f2fe; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
 
-              <div class="mb-4 d-flex justify-content-between align-items-start">
+              <div class="program-card-top mb-4 d-flex justify-content-between align-items-start">
                 <div class="p-3 rounded-4 d-flex align-items-center justify-content-center"
                   style="background: #fff; width: 64px; height: 64px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #f3f4f6;">
                   <i class="bi bi-lightbulb-fill fs-3 text-primary"></i>
                 </div>
               </div>
 
-              <h3 class="fw-bold h2 mb-2 text-dark">Beginner Level</h3>
-              <p class="text-muted small mb-3" style="min-height: 48px;">A creative 1-year program for robotics,
+              <h3 class="program-card-title fw-bold h2 text-dark">Beginner Level</h3>
+              <p class="program-card-copy text-muted small mb-3">A creative 1-year program for robotics,
                 coding, electronics, 3D design, and playful AI exploration.</p>
 
               <div class="program-card-meta program-card-meta--single-row"
                 style="--meta-bg: #f0f9ff; --meta-color: #075985; --meta-icon: #0284c7;">
-                <span><i class="bi bi-person-check"></i> Ages 8-10</span>
-                <span><i class="bi bi-calendar2-check"></i> 1 year</span>
-                <span><i class="bi bi-clock"></i> 2 hrs / week</span>
+                <span><i class="bi bi-person-check"></i> Ages 8 - 10</span>
                 <span><i class="bi bi-lightning-charge"></i> No prior</span>
+                <span><i class="bi bi-diagram-3"></i> 1:1</span>
               </div>
 
-              <div class="mb-4">
-                <span class="display-6 fw-bold text-dark">₹9,999</span>
-                <span class="text-muted small">/mo</span>
-                <span class="program-price-note">For 10 hrs/month. GST extra.</span>
+              <div class="program-price-block">
+                <div class="program-price-line">
+                  <span class="program-price-amount">₹9,999</span>
+                  <span class="program-price-cycle">/mo</span>
+                  <span class="program-tax-note">+GST</span>
+                </div>
               </div>
 
-              <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
+              <ul class="program-feature-list list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Robotics, coding & electronics</span>
+                  <span class="text-secondary small fw-medium">Micro:bit coding and electronics</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">3D design and printing</span>
+                  <span class="text-secondary small fw-medium">Ground robots and autonomous robots</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Playful AI exploration</span>
+                  <span class="text-secondary small fw-medium">Wireless controlled robots</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Basic programming concepts</span>
+                  <span class="text-secondary small fw-medium">3D design with TinkerCAD</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Problem-solving with logic</span>
+                  <span class="text-secondary small fw-medium">Fabrication tools: cutting and drilling</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Creative project building</span>
+                  <span class="text-secondary small fw-medium">Soldering basics</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">Capstone project build</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #0284c7; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">VEX, Mekathlon and Coolest Projects participation</span>
                 </li>
               </ul>
 
@@ -1308,11 +1381,11 @@
 
           <!-- Intermediate Card (Purple Style) -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="h-100 p-4 rounded-5 d-flex flex-column position-relative"
+            <div class="program-overview-card h-100 p-4 rounded-5 d-flex flex-column position-relative"
               onclick="window.location.href='/programs/intermediate/';"
               style="cursor: pointer; background: linear-gradient(135deg, rgba(147, 51, 234, 0.03) 0%, #ffffff 50%); border: 2px solid #f3e8ff; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
 
-              <div class="mb-4 d-flex justify-content-between align-items-start">
+              <div class="program-card-top mb-4 d-flex justify-content-between align-items-start">
                 <div class="p-3 rounded-4 d-flex align-items-center justify-content-center"
                   style="background: #fff; width: 64px; height: 64px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #f3f4f6;">
                   <i class="bi bi-gear-wide-connected fs-3" style="color: #9333ea;"></i>
@@ -1323,36 +1396,37 @@
                 </span>
               </div>
 
-              <h3 class="fw-bold h2 mb-2 text-dark">Intermediate Level</h3>
-              <p class="text-muted small mb-3" style="min-height: 48px;">A foundational 2-year technical program across
+              <h3 class="program-card-title fw-bold h2 text-dark">Intermediate Level</h3>
+              <p class="program-card-copy text-muted small mb-3">A foundational 2-year technical program across
                 Arduino, electronics, Python, MicroPython, Raspberry Pi, AI, and CAD.</p>
 
-              <div class="program-card-meta"
+              <div class="program-card-meta program-card-meta--single-row"
                 style="--meta-bg: #faf5ff; --meta-color: #6b21a8; --meta-icon: #9333ea;">
-                <span><i class="bi bi-person-check"></i> Ages 11-14</span>
-                <span><i class="bi bi-calendar2-check"></i> 2-year course</span>
-                <span><i class="bi bi-clock"></i> 2 sessions/week</span>
-                <span><i class="bi bi-cpu"></i> Systems tech</span>
+                <span><i class="bi bi-person-check"></i> Ages 11 - 14</span>
+                <span><i class="bi bi-diagram-3"></i> 1:1</span>
+                <span><i class="bi bi-cpu"></i> Engineering track</span>
               </div>
 
-              <div class="mb-4">
-                <span class="display-6 fw-bold text-dark">₹14,999</span>
-                <span class="text-muted small">/mo</span>
-                <span class="program-price-note">For 10 hrs/month. GST extra.</span>
+              <div class="program-price-block">
+                <div class="program-price-line">
+                  <span class="program-price-amount">₹14,999</span>
+                  <span class="program-price-cycle">/mo</span>
+                  <span class="program-tax-note">+GST</span>
+                </div>
               </div>
 
-              <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
+              <ul class="program-feature-list list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Arduino and electronics systems</span>
+                  <span class="text-secondary small fw-medium">Arduino and Python certification pathways</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Python and MicroPython basics</span>
+                  <span class="text-secondary small fw-medium">Arduino and Arduino (C++) programming</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
-                  <span class="text-secondary small fw-medium">Raspberry Pi exploration</span>
+                  <span class="text-secondary small fw-medium">Raspberry Pi based robotics</span>
                 </li>
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
@@ -1365,6 +1439,14 @@
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
                   <span class="text-secondary small fw-medium">IoT and embedded projects</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">VEX, WRO, FTC and Coolest Projects</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #9333ea; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">ISEF and IRIS project preparation</span>
                 </li>
               </ul>
 
@@ -1381,36 +1463,37 @@
 
           <!-- Portfolio Program Card (Orange/Red Style) -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="h-100 p-4 rounded-5 d-flex flex-column position-relative"
+            <div class="program-overview-card h-100 p-4 rounded-5 d-flex flex-column position-relative"
               onclick="window.location.href='/programs/portfolio/';"
               style="cursor: pointer; background: linear-gradient(135deg, rgba(225, 29, 72, 0.03) 0%, #ffffff 50%); border: 2px solid #ffe4e6; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
 
-              <div class="mb-4 d-flex justify-content-between align-items-start">
+              <div class="program-card-top mb-4 d-flex justify-content-between align-items-start">
                 <div class="p-3 rounded-4 d-flex align-items-center justify-content-center"
                   style="background: #fff; width: 64px; height: 64px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #f3f4f6;">
                   <i class="bi bi-rocket-takeoff-fill fs-3" style="color: #e11d48;"></i>
                 </div>
               </div>
 
-              <h3 class="fw-bold h2 mb-2 text-dark">Portfolio Program</h3>
-              <p class="text-muted small mb-3" style="min-height: 48px;">A serious engineering track that turns
+              <h3 class="program-card-title fw-bold h2 text-dark">Portfolio Program</h3>
+              <p class="program-card-copy text-muted small mb-3">A serious engineering track that turns
                 robotics, AI, CAD, electronics, and competition work into visible proof.</p>
 
-              <div class="program-card-meta"
+              <div class="program-card-meta program-card-meta--single-row"
                 style="--meta-bg: #fff1f2; --meta-color: #9f1239; --meta-icon: #e11d48;">
-                <span><i class="bi bi-person-check"></i> Grade 9+</span>
+                <span><i class="bi bi-person-check"></i> Grade 8+</span>
                 <span><i class="bi bi-diagram-3"></i> 1:1 roadmap</span>
-                <span><i class="bi bi-clock"></i> 2 hrs/week</span>
-                <span><i class="bi bi-folder-check"></i> Portfolio proof</span>
+                <span><i class="bi bi-folder-check"></i> Ivy League portfolio proof</span>
               </div>
 
-              <div class="mb-4">
-                <span class="display-6 fw-bold text-dark">₹24,999</span>
-                <span class="text-muted small">/mo</span>
-                <span class="program-price-note">For 10 hrs/month. GST extra.</span>
+              <div class="program-price-block">
+                <div class="program-price-line">
+                  <span class="program-price-amount">₹24,999</span>
+                  <span class="program-price-cycle">/mo</span>
+                  <span class="program-tax-note">+GST</span>
+                </div>
               </div>
 
-              <ul class="list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
+              <ul class="program-feature-list list-unstyled mb-4 d-flex flex-column gap-2 flex-grow-1">
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
                   <span class="text-secondary small fw-medium">Project portfolio pages</span>
@@ -1434,6 +1517,10 @@
                 <li class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
                   <span class="text-secondary small fw-medium">Presentation-ready demos</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill flex-shrink-0" style="color: #e11d48; font-size: 1rem;"></i>
+                  <span class="text-secondary small fw-medium">WRO, IRIS, FTC and more olympiads</span>
                 </li>
               </ul>
 
@@ -2599,7 +2686,7 @@ void loop() {
                   <p class="text-muted" style="line-height: 1.8; font-size: 1rem; padding-left: 66px;">
                     Our programs are specifically designed for kids and teens aged <strong>8–17 years</strong>. Beginner
                     is recommended for ages <strong>8–10</strong>, Intermediate for ages <strong>11–14</strong>, and
-                    the Portfolio Program from <strong>Grade 9 and above</strong>.
+                    the Portfolio Program from <strong>Grade 8 and above</strong>.
                   </p>
                 </div>
               </div>
