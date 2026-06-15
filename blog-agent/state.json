@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 4,
+  "last_topic_index": 5,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -18,17 +18,11 @@
     "untitled-post",
     "computer-vision-for-robotics-giving-robots-the-power-to-see",
     "humanoid-robots-ai-the-future-walking-among-us-20260604",
-    "unlocking-the-future-a-deep-dive-into-autonomous-vehicles"
+    "unlocking-the-future-a-deep-dive-into-autonomous-vehicles",
+    "soaring-smarter-the-incredible-world-of-ai-powered-drones"
   ],
-  "last_run": "2026-06-11T08:58:41.754597",
+  "last_run": "2026-06-15T10:42:58.351360",
   "recent_posts": [
-    {
-      "slug": "the-brains-behind-the-bots-exploring-ai-in-robotics-with-mak",
-      "title": "The Brains Behind the Bots: Exploring AI in Robotics with MakerWorks",
-      "badge": "AI & Robotics",
-      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
-      "short_description": "Uncover the secrets of AI in robotics! Learn about machine learning, neural networks, and how robots get their 'smart brain'."
-    },
     {
       "slug": "untitled-post",
       "title": "Untitled Post",
@@ -56,6 +50,13 @@
       "badge": "Autonomous",
       "badge_color": "linear-gradient(135deg, #20c997, #0dcaf0)",
       "short_description": "Dive into autonomous vehicles! Discover how self-driving cars work with LiDAR, sensor fusion, and AI. A guide for young innovators."
+    },
+    {
+      "slug": "soaring-smarter-the-incredible-world-of-ai-powered-drones",
+      "title": "Soaring Smarter: The Incredible World of AI-Powered Drones",
+      "badge": "Drones",
+      "badge_color": "linear-gradient(135deg, #fd7e14, #ffc107)",
+      "short_description": "Discover the magic of AI-powered drones! Learn how they see, think, and act autonomously, revolutionizing industries in India."
     }
   ]
 }
