@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 5,
+  "last_topic_index": 6,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -19,17 +19,11 @@
     "computer-vision-for-robotics-giving-robots-the-power-to-see",
     "humanoid-robots-ai-the-future-walking-among-us-20260604",
     "unlocking-the-future-a-deep-dive-into-autonomous-vehicles",
-    "soaring-smarter-the-incredible-world-of-ai-powered-drones"
+    "soaring-smarter-the-incredible-world-of-ai-powered-drones",
+    "cobots-your-future-robot-teammates-makerworks"
   ],
-  "last_run": "2026-06-15T10:42:58.351360",
+  "last_run": "2026-06-22T10:20:45.675698",
   "recent_posts": [
-    {
-      "slug": "untitled-post",
-      "title": "Untitled Post",
-      "badge": "AI & Robotics",
-      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
-      "short_description": ""
-    },
     {
       "slug": "computer-vision-for-robotics-giving-robots-the-power-to-see",
       "title": "Computer Vision for Robotics: Giving Robots the Power to See",
@@ -57,6 +51,13 @@
       "badge": "Drones",
       "badge_color": "linear-gradient(135deg, #fd7e14, #ffc107)",
       "short_description": "Discover the magic of AI-powered drones! Learn how they see, think, and act autonomously, revolutionizing industries in India."
+    },
+    {
+      "slug": "cobots-your-future-robot-teammates-makerworks",
+      "title": "Cobots: Your Future Robot Teammates - MakerWorks",
+      "badge": "Industrial",
+      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
+      "short_description": "Explore the exciting world of collaborative robots (cobots)! Learn how these safe, smart machines work with humans."
     }
   ]
 }
