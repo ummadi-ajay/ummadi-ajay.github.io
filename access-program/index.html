@@ -93,7 +93,7 @@
 
         .hero-section {
             position: relative;
-            padding: 80px 0 60px;
+            padding: 80px 0 40px;
             text-align: center;
         }
 
@@ -126,7 +126,30 @@
             line-height: 1.6;
             color: #475569;
             max-width: 800px;
-            margin: 0 auto 48px;
+            margin: 0 auto 36px;
+        }
+
+        /* Pricing Switch Custom Toggle */
+        .pricing-switch {
+            width: 60px;
+            height: 32px;
+            padding: 0;
+            margin: 0;
+        }
+        .pricing-switch .form-check-input {
+            width: 60px;
+            height: 32px;
+            cursor: pointer;
+            margin: 0;
+            background-color: #cbd5e1;
+            border-color: transparent;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='%23fff' d='M9.305 1.622L1.486 9.44a.8.8 0 000 1.13l7.819 7.819a.8.8 0 001.13 0l7.819-7.819a.8.8 0 000-1.13L10.436 1.622a.8.8 0 00-1.13 0z'/%3e%3c/svg%3e");
+            box-shadow: none !important;
+            transition: background-position 0.25s ease-in-out, background-color 0.25s ease-in-out;
+        }
+        .pricing-switch .form-check-input:checked {
+            background-color: var(--primary);
+            background-position: right center;
         }
 
         /* Tier Cards */
@@ -140,7 +163,7 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             display: flex;
-            flex-column: column;
+            flex-direction: column;
             justify-content: space-between;
         }
 
@@ -183,15 +206,21 @@
             margin: 24px 0;
             display: flex;
             align-items: baseline;
-            gap: 4px;
+            gap: 6px;
         }
 
         .price-val {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 800;
             font-family: 'Bricolage Grotesque', sans-serif;
             color: var(--dark);
             line-height: 1;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        
+        .price-val.updating {
+            opacity: 0;
+            transform: translateY(-5px);
         }
 
         .price-period {
@@ -282,6 +311,89 @@
             background: var(--primary-dark);
             border-color: var(--primary-dark);
             box-shadow: 0 12px 24px rgba(13, 110, 253, 0.2);
+        }
+
+        /* Facility Cards */
+        .facility-card {
+            background: #ffffff;
+            border: 1.5px solid rgba(0,0,0,0.05);
+            border-radius: 24px;
+            padding: 32px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .facility-card:hover {
+            border-color: rgba(13, 110, 253, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            transform: translateY(-5px);
+        }
+        .facility-icon-wrap {
+            width: 56px;
+            height: 56px;
+            background: rgba(13, 110, 253, 0.06);
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        /* Comparison Table */
+        .comparison-table-wrap {
+            background: #ffffff;
+            border: 1.5px solid rgba(0,0,0,0.06);
+            border-radius: 32px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            overflow-x: auto;
+        }
+        .comparison-table th {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 20px;
+            border-bottom: 2px solid rgba(0,0,0,0.06);
+        }
+        .comparison-table td {
+            padding: 20px;
+            font-size: 0.95rem;
+            border-bottom: 1.5px solid rgba(0,0,0,0.04);
+            vertical-align: middle;
+        }
+
+        /* Side Info Card in Form Section */
+        .side-info-card {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: #ffffff;
+            border-radius: 40px;
+            padding: 48px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--card-shadow);
+        }
+        .side-info-list {
+            list-style: none;
+            padding: 0;
+            margin: 32px 0 0 0;
+        }
+        .side-info-list li {
+            margin-bottom: 24px;
+            display: flex;
+            gap: 16px;
+        }
+        .side-info-list li i {
+            color: #38bdf8;
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+        .testimonial-block {
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+            margin-top: 40px;
         }
 
         /* Glassmorphic Application Form Card */
@@ -411,6 +523,7 @@
         @media (max-width: 991px) {
             .app-form-card { padding: 30px; border-radius: 28px; }
             .hero-section { padding-top: 50px; }
+            .side-info-card { padding: 30px; border-radius: 28px; margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -431,6 +544,19 @@
             <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
                 Unlock direct physical access to the MakerWorks Lab makerspace in Mumbai. Whether you are an MVP-stage startup, an early-stage builder, or an ideator student, gain access to advanced prototyping tools, micro-labs, and our collaborative tech ecosystem.
             </p>
+            
+            <!-- Pricing Toggle -->
+            <div class="d-flex justify-content-center align-items-center gap-3 mb-5" data-aos="fade-up" data-aos-delay="250">
+                <span class="fw-bold text-muted">Monthly</span>
+                <div class="form-check form-switch pricing-switch">
+                    <input class="form-check-input" type="checkbox" id="billingToggle">
+                    <label class="form-check-label" for="billingToggle"></label>
+                </div>
+                <span class="fw-bold text-dark d-flex align-items-center gap-2">
+                    Annually 
+                    <span class="badge bg-danger-subtle text-danger rounded-pill fw-bold" style="font-size: 0.75rem; padding: 4px 8px;">Save 15%</span>
+                </span>
+            </div>
         </div>
     </section>
 
@@ -440,14 +566,14 @@
             <div class="row g-4 justify-content-center">
                 <!-- Tier 1: Innovators Cafe -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="tier-card d-flex flex-column justify-content-between">
+                    <div class="tier-card">
                         <div class="tier-header-block">
                             <div class="tier-header">
                                 <h3>Innovators Cafe</h3>
                                 <span class="badge bg-light text-muted fw-semibold">Ideators & Students</span>
                             </div>
                             <div class="tier-price">
-                                <span class="price-val">₹3,000</span>
+                                <span class="price-val" id="price-cafe" data-monthly="3,000" data-annual="2,550">₹3,000</span>
                                 <span class="price-period">+ GST / month</span>
                             </div>
                             <div class="tier-meta">
@@ -456,27 +582,27 @@
                                 <br><strong>Caution Deposit:</strong> ₹1,500 (refundable)
                             </div>
                             
-                            <h5 class="feature-section-title"><i class="bi bi-building"></i> Facilities</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities</h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Floating Seat (Innovators Cafe)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Power Supply (common areas)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> High-Speed WiFi (Fiber connection)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Floating Seat (Innovators Cafe)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Power Supply (common areas)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi (Fiber connection)</li>
                             </ul>
 
-                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected"></i> Services</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i> Services</h5>
                             <ul class="feature-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Access to Prototyping (as per rate card)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Access to Innovation Ecosystem</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Monthly Events & Programs</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to Prototyping (as per rate card)</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to Innovation Ecosystem</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Monthly Events & Programs</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Innovators Cafe')" class="btn-apply">Select Innovators Cafe</a>
+                        <a href="#apply" onclick="selectTier('Innovators Cafe')" class="btn-apply mt-4">Select Innovators Cafe</a>
                     </div>
                 </div>
 
                 <!-- Tier 2: Maker’s Office -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="tier-card featured d-flex flex-column justify-content-between">
+                    <div class="tier-card featured">
                         <span class="featured-badge">Most Popular</span>
                         <div class="tier-header-block">
                             <div class="tier-header">
@@ -484,7 +610,7 @@
                                 <span class="badge bg-primary-subtle text-primary fw-semibold">Startups & Builders</span>
                             </div>
                             <div class="tier-price">
-                                <span class="price-val">₹7,000</span>
+                                <span class="price-val" id="price-office" data-monthly="7,000" data-annual="5,950">₹7,000</span>
                                 <span class="price-period">+ GST / month</span>
                             </div>
                             <div class="tier-meta">
@@ -493,34 +619,34 @@
                                 <br><strong>Caution Deposit:</strong> ₹1,500 (refundable)
                             </div>
                             
-                            <h5 class="feature-section-title"><i class="bi bi-building"></i> Facilities</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities</h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Co-building seat (Maker’s Office)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Dedicated Power (common areas)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> High-Speed WiFi & Mini Storage Access</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Co-building seat (Maker’s Office)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power (common areas)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi & Mini Storage Access</li>
                             </ul>
 
-                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected"></i> Services</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i> Services</h5>
                             <ul class="feature-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Access to Prototyping (as per rate card)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Mentorship & Expert Consultations</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Funding Channels & Demo Day Access</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to Prototyping (as per rate card)</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Mentorship & Expert Consultations</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Funding Channels & Demo Day Access</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Maker’s Office')" class="btn-apply">Select Maker’s Office</a>
+                        <a href="#apply" onclick="selectTier('Maker’s Office')" class="btn-apply mt-4">Select Maker’s Office</a>
                     </div>
                 </div>
 
                 <!-- Tier 3: Startup Garage -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="tier-card d-flex flex-column justify-content-between">
+                    <div class="tier-card">
                         <div class="tier-header-block">
                             <div class="tier-header">
                                 <h3>Startup Garage</h3>
                                 <span class="badge bg-dark text-white fw-semibold">MVP Startups (TRL 4+)</span>
                             </div>
                             <div class="tier-price">
-                                <span class="price-val">₹20,000</span>
+                                <span class="price-val" id="price-garage" data-monthly="20,000" data-annual="17,000">₹20,000</span>
                                 <span class="price-period">+ GST / month</span>
                             </div>
                             <div class="tier-meta">
@@ -529,33 +655,205 @@
                                 <br><strong>Caution Deposit:</strong> ₹20,000 (refundable)
                             </div>
                             
-                            <h5 class="feature-section-title"><i class="bi bi-building"></i> Facilities</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities</h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Dedicated Workbench (Startup Garage)</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Dedicated Power Supply</li>
-                                <li><i class="bi bi-check-circle-fill"></i> High-Speed WiFi & Full Storage Locker</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Workbench (Startup Garage)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power Supply</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi & Full Storage Locker</li>
                             </ul>
 
-                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected"></i> Services</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i> Services</h5>
                             <ul class="feature-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Fastrack Prototyping Queue</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Monthly Incubation & Mentorship Reviews</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Demo Days, Innovation Events & Ecosystem</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Fastrack Prototyping Queue</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Monthly Incubation & Mentorship Reviews</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Demo Days, Innovation Events & Ecosystem</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Startup Garage')" class="btn-apply">Select Startup Garage</a>
+                        <a href="#apply" onclick="selectTier('Startup Garage')" class="btn-apply mt-4">Select Startup Garage</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Application Form Section -->
+    <!-- Lab Facilities Section -->
+    <section class="py-5 bg-white border-top border-bottom">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <span class="section-tag" data-aos="fade-down">Advanced Infrastructure</span>
+                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;" data-aos="fade-up">Available Lab Equipment & Facilities</h2>
+                <p class="text-secondary mt-3 max-width-600 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Our access program connects members with cutting-edge tools across specialized micro-labs, managed by physical prototyping engineers.
+                </p>
+            </div>
+            
+            <div class="row g-4 mt-4">
+                <!-- Facility 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="facility-card">
+                        <div class="facility-icon-wrap"><i class="bi bi-printer-fill"></i></div>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">3D Printing & Fab Lab</h4>
+                        <p class="text-secondary small mb-0">High-speed prototyping utilizing Bambu Lab FDM platforms and SLA resin printers. Support for PLA, PETG, ABS, and TPU materials.</p>
+                    </div>
+                </div>
+                <!-- Facility 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="facility-card">
+                        <div class="facility-icon-wrap"><i class="bi bi-cpu-fill"></i></div>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Electronics & IoT Lab</h4>
+                        <p class="text-secondary small mb-0">Equipped with Rigol Digital Oscilloscopes, waveform generators, multi-channel power supplies, logic analyzers, and premium hot-air soldering stations.</p>
+                    </div>
+                </div>
+                <!-- Facility 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="facility-card">
+                        <div class="facility-icon-wrap"><i class="bi bi-tools"></i></div>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Wood & Metal Workshop</h4>
+                        <p class="text-secondary small mb-0">Direct access to scroll saws, precise drill presses, high-RPM rotary tools, sanding stations, and heavy-duty hand tools.</p>
+                    </div>
+                </div>
+                <!-- Facility 4 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="facility-card">
+                        <div class="facility-icon-wrap"><i class="bi bi-motherboard-fill"></i></div>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">PCB Fabrication Lab</h4>
+                        <p class="text-secondary small mb-0">Custom PCB milling machines for rapid double-sided board extraction, chemical etching setups, and SMD component pick-and-place stations.</p>
+                    </div>
+                </div>
+                <!-- Facility 5 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="facility-card">
+                        <div class="facility-icon-wrap"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Laser Cutting Studio</h4>
+                        <p class="text-secondary small mb-0">40W CO2 Laser cutter and engraver. Precision cutting and marking of acrylic, wood, leather, and sheet materials for custom casings.</p>
+                    </div>
+                </div>
+                <!-- Facility 6 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="facility-card">
+                        <div class="facility-icon-wrap"><i class="bi bi-robot"></i></div>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Physical AI Arena</h4>
+                        <p class="text-secondary small mb-0">Dedicated test environments, visual tracking arrays, obstacle tracks, and reference setups for mobile robots (OpenDuck) and humanoid arms (Reachy Mini).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Matrix Section -->
+    <section class="py-5 bg-light">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <span class="section-tag" data-aos="fade-down">Feature Comparison</span>
+                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;" data-aos="fade-up">Compare Access Tiers</h2>
+            </div>
+            
+            <div class="comparison-table-wrap" data-aos="fade-up" data-aos-delay="100">
+                <table class="table comparison-table mb-0">
+                    <thead>
+                        <tr class="text-start">
+                            <th style="min-width: 250px;">Access Benefits</th>
+                            <th class="text-center" style="width: 25%;">Innovators Cafe</th>
+                            <th class="text-center" style="width: 25%;">Maker's Office</th>
+                            <th class="text-center" style="width: 25%;">Startup Garage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Access Hours</strong></td>
+                            <td class="text-center text-muted">Mon–Fri, 10 AM–6 PM</td>
+                            <td class="text-center fw-semibold text-primary">Mon–Sat, 10 AM–10 PM</td>
+                            <td class="text-center fw-bold text-dark">Mon–Sat, 10 AM–10 PM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Seat Allocation</strong></td>
+                            <td class="text-center text-secondary">Floating Seat (Common)</td>
+                            <td class="text-center text-secondary">Co-building Seat</td>
+                            <td class="text-center fw-bold text-success">Dedicated Workbench</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Included Users</strong></td>
+                            <td class="text-center text-secondary">1 Person</td>
+                            <td class="text-center text-secondary">1 Person</td>
+                            <td class="text-center fw-bold text-dark">2 Persons (Expandable)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>High-Speed WiFi & Power</strong></td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i> (Dedicated line)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage Facilities</strong></td>
+                            <td class="text-center text-muted">—</td>
+                            <td class="text-center text-secondary">Mini Locker</td>
+                            <td class="text-center fw-bold text-dark">Large Lockable Cage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Incubation & Mentorship Reviews</strong></td>
+                            <td class="text-center text-muted">As per rate card</td>
+                            <td class="text-center text-secondary">As per rate card</td>
+                            <td class="text-center fw-bold text-success">Monthly Included</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prototyping Priority Queue</strong></td>
+                            <td class="text-center text-muted">Standard</td>
+                            <td class="text-center text-secondary">Standard</td>
+                            <td class="text-center fw-bold text-success">Fast-Track Queue</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section (Split Screen) -->
     <section id="apply" class="py-5 my-5">
         <div class="container">
-            <div class="row g-5 justify-content-center">
-                <div class="col-lg-8">
-                    <div class="app-form-card" data-aos="fade-up">
+            <div class="row g-5 align-items-stretch">
+                <!-- Left Side: Why Join / Testimonials -->
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="side-info-card">
+                        <div>
+                            <span class="badge bg-primary-subtle text-primary rounded-pill fw-bold px-3 py-2 mb-4" style="font-size: 0.72rem;">STAGED ONBOARDING</span>
+                            <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Why Join the Access Program?</h2>
+                            <p class="text-light-50 mt-3 text-secondary" style="color: #cbd5e1;">More than just a co-working space, MakerWorks Lab is Mumbai's physical incubation ecosystem for engineering builders.</p>
+                            
+                            <ul class="side-info-list">
+                                <li>
+                                    <i class="bi bi-cpu"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">State-of-the-Art Prototyping</h5>
+                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Don't spend lakhs on tools. Access industrial 3D printers, laser cutters, CNCs, and PCB fab labs instantly.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="bi bi-people-fill"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">Ecosystem & Community</h5>
+                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Rub shoulders with hardware developers, robot building students, and tech investors every day.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="bi bi-award-fill"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">Incubation Support</h5>
+                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Pitching opportunities, VC demo days, and structured mentorship to validate and scale product stages.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="testimonial-block">
+                            <p class="fst-italic small mb-2" style="color: #e2e8f0;">"MakerWorks gave us the bench space, tools, and technical support to scale our mobile humanoid robot prototype from early idea to TRL 5 in less than 3 months."</p>
+                            <div class="fw-bold small text-white">— Ajay Ummadi, Physical AI Lab Lead</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: The Form -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="app-form-card">
                         <div id="formSection">
                             <h2 class="fw-800 mb-3" style="font-family: 'Bricolage Grotesque', sans-serif;">Access Program Application</h2>
                             <p class="text-secondary small mb-5">Select a pass and fill in your project details. A coordinator will contact you to discuss scheduling and lab capabilities.</p>
@@ -739,6 +1037,36 @@
             const btnText = document.getElementById('btnText');
             const btnSpinner = document.getElementById('btnSpinner');
 
+            // Interactive Pricing Switch Logic
+            const billingToggle = document.getElementById('billingToggle');
+            const priceCafe = document.getElementById('price-cafe');
+            const priceOffice = document.getElementById('price-office');
+            const priceGarage = document.getElementById('price-garage');
+            
+            if (billingToggle && priceCafe && priceOffice && priceGarage) {
+                billingToggle.addEventListener('change', function() {
+                    const isAnnual = billingToggle.checked;
+                    
+                    // Add updating anim class
+                    [priceCafe, priceOffice, priceGarage].forEach(el => el.classList.add('updating'));
+                    
+                    setTimeout(() => {
+                        if (isAnnual) {
+                            priceCafe.textContent = '₹' + priceCafe.dataset.annual;
+                            priceOffice.textContent = '₹' + priceOffice.dataset.annual;
+                            priceGarage.textContent = '₹' + priceGarage.dataset.annual;
+                        } else {
+                            priceCafe.textContent = '₹' + priceCafe.dataset.monthly;
+                            priceOffice.textContent = '₹' + priceOffice.dataset.monthly;
+                            priceGarage.textContent = '₹' + priceGarage.dataset.monthly;
+                        }
+                        
+                        // Remove anim class
+                        [priceCafe, priceOffice, priceGarage].forEach(el => el.classList.remove('updating'));
+                    }, 200);
+                });
+            }
+
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
@@ -754,6 +1082,7 @@
                     organization: document.getElementById('orgName').value,
                     trl_level: document.getElementById('trlLevel').value,
                     project_desc: document.getElementById('projectDetails').value,
+                    billing_cycle: (billingToggle && billingToggle.checked) ? 'Annual (15% off)' : 'Monthly',
                     timestamp: serverTimestamp(),
                     status: 'applied'
                 };
@@ -775,7 +1104,7 @@
                                 name: formData.full_name,
                                 email: formData.email,
                                 time: new Date().toLocaleString(),
-                                message: `Access Tier: ${formData.tier}\nPhone: ${formData.phone}\nOrg: ${formData.organization}\nTRL Stage: ${formData.trl_level}\nProject: ${formData.project_desc}`
+                                message: `Access Tier: ${formData.tier}\nBilling Cycle: ${formData.billing_cycle}\nPhone: ${formData.phone}\nOrg: ${formData.organization}\nTRL Stage: ${formData.trl_level}\nProject: ${formData.project_desc}`
                             };
                             await emailjs.send(EMAILJS_SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams);
                             console.log("EmailJS: Email notification successfully triggered.");
