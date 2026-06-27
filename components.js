@@ -217,10 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
     if (navPlaceholder) {
-        loadComponent('navbar-placeholder', '/components/navbar.html');
+        loadComponent('navbar-placeholder', '/components/navbar.html?t=' + new Date().getTime());
     }
     if (footerPlaceholder) {
-        loadComponent('footer-placeholder', '/components/footer.html');
+        loadComponent('footer-placeholder', '/components/footer.html?t=' + new Date().getTime());
     }
 
     // Initialize AOS if available

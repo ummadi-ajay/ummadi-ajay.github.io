@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reachy Mini: Expressive Humanoid Robotics Guide | MakerWorks</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Reachy Mini Guide | MakerWorks">
+    <meta name="description"
+        content="A complete, professional tutorial and wiki for Reachy Mini. Explore building, mechanical configuration, motor calibration, Python SDK integration, and animated head control.">
+    <link class="canonical" href="https://makerworkslab.in/projects/reachy-mini.html">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Scripts -->
+    <script src="../components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        body {
+            background-color: #f5f5f7;
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .wiki-container {
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+            border-right: 1px solid rgba(0,0,0,0.05);
+            padding-right: 20px;
+        }
+
+        .sidebar-link {
+            display: block;
+            padding: 8px 16px;
+            color: #6e6e73;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-link:hover, .sidebar-link.active {
+            background: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+            font-weight: 600;
+        }
+
+        .content-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+        }
+
+        .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
+            color: #1d1d1f;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .blog-content h2 { margin-top: 4rem; font-size: 2.2rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 0.8rem; }
+        .blog-content h3 { margin-top: 3rem; font-size: 1.6rem; }
+        .blog-content h4 { margin-top: 2rem; font-size: 1.2rem; }
+
+        .blog-content p, .blog-content li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #424245;
+        }
+
+        .blog-content img {
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .code-block-wrapper {
+            position: relative;
+            background: #1e1e1e;
+            border-radius: 14px;
+            padding: 0.5rem;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .code-block-header {
+            background: #2d2d2d;
+            padding: 8px 16px;
+            color: #aaa;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .tip-box {
+            background: #e3f2fd;
+            border-left: 6px solid #0d6efd;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 6px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .spec-table {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+
+        .spec-table th { background: #fdfdfd; font-weight: 700; }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                margin-bottom: 30px;
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="container wiki-container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <nav class="sidebar mb-5">
+                    <h5 class="fw-bold mb-3 px-3">Quick Navigation</h5>
+                    <a href="#introduction" class="sidebar-link active">Introduction</a>
+                    <a href="#whats-new" class="sidebar-link">Orbita Head & Expression</a>
+                    <a href="#specification" class="sidebar-link">Hardware Specs</a>
+                    <a href="#environment" class="sidebar-link">SDK & System Setup</a>
+                    <a href="#control-example" class="sidebar-link">Python SDK Example</a>
+                    <a href="#faq" class="sidebar-link">FAQ & Troubleshooting</a>
+                    <a href="#citation" class="sidebar-link">Citations & Resources</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 blog-content">
+                <div class="content-card">
+                    <h1 id="introduction" class="display-4 fw-bold">Reachy Mini: Humanoid Companion & AI Agent</h1>
+                    <img src="projectimages/reachymini.jpeg" alt="Reachy Mini Hero Image">
+                    
+                    <p class="lead"><strong>Reachy Mini</strong> by Pollen Robotics is a highly expressive, open-source humanoid desktop robot. Equipped with the revolutionary 3-DOF <strong>Orbita Joint</strong>, animated LCD eyes, and a lightweight robot arm, Reachy Mini serves as an ideal platform for exploring social robotics, Embodied AI, and interactive controls.</p>
+
+                    <h2 id="whats-new">Orbita Head & Expressive Mechanism</h2>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded-4 text-center">
+                                <i class="bi bi-eye-fill fs-2 text-primary"></i>
+                                <h4 class="h6 mt-3">Animated LCD Eyes</h4>
+                                <p class="small text-muted">Dual circular LCD displays render dynamic pupil movement, blinks, and emotions.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded-4 text-center">
+                                <i class="bi bi-arrow-repeat fs-2 text-primary"></i>
+                                <h4 class="h6 mt-3">Orbita 3-DOF Neck</h4>
+                                <p class="small text-muted">Patented parallel mechanism allows smooth pitch, roll, and yaw with speed and agility.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded-4 text-center">
+                                <i class="bi bi-plugin fs-2 text-primary"></i>
+                                <h4 class="h6 mt-3">Embodied Integration</h4>
+                                <p class="small text-muted">Designed to serve as a physical avatar for Large Language Models (LLMs) and vision systems.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 id="specification">Hardware & Specification</h2>
+                    <p>Reachy Mini is powered by a central computer (Raspberry Pi 4 or Raspberry Pi 5) connected to smart motor buses and a control board. Below is the reference architecture specification:</p>
+                    
+                    <div class="table-responsive mb-4">
+                        <table class="table spec-table">
+                            <thead>
+                                <tr>
+                                    <th>Subsystem</th>
+                                    <th>Specification Details</th>
+                                    <th>Interface Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Processor Core</strong></td>
+                                    <td>Raspberry Pi 4B (4GB/8GB) / Raspberry Pi 5</td>
+                                    <td>Broadcom SOC / PCIe</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Neck Actuators</strong></td>
+                                    <td>3x Custom servos with parallel linkage</td>
+                                    <td>USB-to-Serial Bus (Dynamixel Protocol)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Arm Joints</strong></td>
+                                    <td>XL-320 or XL-430 smart serial servos</td>
+                                    <td>Half-Duplex TTL Bus</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Vision Sensor</strong></td>
+                                    <td>Wide-angle USB camera module in chest/head</td>
+                                    <td>UVC Driver (V4L2)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>LCD Screens</strong></td>
+                                    <td>2x SPI GC9A01 1.28-inch circular screens</td>
+                                    <td>SPI Bus (GPIO)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-info-circle-fill text-primary me-2"></i>
+                        <strong>Pro-Tip:</strong> The parallel linkages of the Orbita head must be calibrated symmetrically. An uncalibrated head can cause motor binding and trigger safety shutoffs.
+                    </div>
+
+                    <h2 id="environment">SDK & System Setup</h2>
+                    <p>You can run controls directly on Reachy Mini or connect remotely over gRPC using the python library.</p>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><span>Bash</span><i class="bi bi-copy"></i></div>
+                        <pre><code class="language-bash"># Create virtual environment
+python3 -m venv reachy_env
+source reachy_env/bin/activate
+
+# Install reachy-sdk
+pip install reachy-sdk --upgrade
+
+# Install extra dependencies for simulation support
+pip install reachy-sdk[sim] pyovspace numpy</code></pre>
+                    </div>
+
+                    <h2 id="control-example">Python SDK Control Code</h2>
+                    <p>The following Python script connects to Reachy Mini and demonstrates basic head tracking/orientation commands using the SDK:</p>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><span>Python</span><i class="bi bi-copy"></i></div>
+                        <pre><code class="language-python">import time
+from reachy_sdk import ReachySDK
+
+# Connect to Reachy Mini (use local IP or localhost in sim)
+reachy = ReachySDK(host='192.168.1.100')
+
+# Enable motor torque
+reachy.turn_on('head')
+
+print("Sending neck orientation commands...")
+# Move Orbita neck to look straight with subtle tilt
+reachy.head.look_at(x=1.0, y=0.0, z=0.2, duration=2.0)
+time.sleep(2.0)
+
+# Tilt right
+reachy.head.look_at(x=1.0, y=-0.3, z=0.0, duration=1.5)
+time.sleep(2.0)
+
+# Tilt left
+reachy.head.look_at(x=1.0, y=0.3, z=0.0, duration=1.5)
+time.sleep(2.0)
+
+# Reset position
+reachy.head.look_at(x=1.0, y=0.0, z=0.0, duration=1.0)
+time.sleep(1.0)
+
+# Safely turn off torque
+reachy.turn_off('head')
+print("Completed successfully!")</code></pre>
+                    </div>
+
+                    <h2 id="faq">Troubleshooting (FAQ)</h2>
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Circular LCD screens stay black
+                          </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body text-muted">Verify the SPI wiring and power connections on the GPIO header. Ensure that SPI interface is enabled in your Raspberry Pi configuration (<code>sudo raspi-config</code>).</div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            gRPC Connection Timeout
+                          </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body text-muted">Check if the reachy server daemon is running on the robot using: <code>systemctl status reachy_sdk_server</code>. Also ensure both your control PC and the robot are on the same local network subnet.</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h2 id="citation">Citations & Resources</h2>
+                    <p class="small text-muted">Reachy Mini is developed by Pollen Robotics under open-source hardware/software licenses. For resources, documentation, and assemblies, visit:</p>
+                    <ul class="small">
+                        <li><a href="https://www.reachy-mini.org/" target="_blank">Pollen Robotics: Reachy Mini Home</a></li>
+                        <li><a href="https://github.com/pollen-robotics" target="_blank">Pollen Robotics GitHub Repositories</a></li>
+                        <li><a href="https://forum.pollen-robotics.com/" target="_blank">Reachy Community Forum</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <a href="index.html" class="btn btn-link text-decoration-none text-muted">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+
+            // Auto-highlight sidebar active link
+            const sections = document.querySelectorAll('h2[id], h1[id]');
+            const navLinks = document.querySelectorAll('.sidebar-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 120) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
