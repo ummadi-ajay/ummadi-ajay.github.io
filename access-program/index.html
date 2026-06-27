@@ -370,13 +370,16 @@
             border-radius: 24px;
             padding: 32px;
             height: 100%;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .facility-card:hover {
-            border-color: rgba(13, 110, 253, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
-            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.05);
+            transform: translateY(-8px);
         }
 
         .facility-icon-wrap {
@@ -390,6 +393,59 @@
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 24px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .facility-card:hover .facility-icon-wrap {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .facility-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .facility-desc {
+            color: #64748b;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .facility-specs-wrap {
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            padding-top: 16px;
+        }
+
+        .spec-label {
+            font-weight: 800;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #475569;
+            display: block;
+        }
+
+        .badge-tool {
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 600;
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
+        }
+
+        .facility-card:hover .badge-tool {
+            background: rgba(13, 110, 253, 0.06);
+            color: var(--primary);
+            border-color: rgba(13, 110, 253, 0.1);
         }
 
         /* Comparison Table */
@@ -827,67 +883,113 @@
                 </p>
             </div>
 
-            <div class="row g-4 mt-4">
+             <div class="row g-4 mt-4">
                 <!-- Facility 1 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="facility-card">
-                        <div class="facility-icon-wrap"><i class="bi bi-printer-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">3D Printing & Fab Lab
-                        </h4>
-                        <p class="text-secondary small mb-0">High-speed prototyping utilizing Bambu Lab FDM platforms
-                            and SLA resin printers. Support for PLA, PETG, ABS, and TPU materials.</p>
+                        <div>
+                            <div class="facility-icon-wrap"><i class="bi bi-printer-fill"></i></div>
+                            <h4 class="facility-title">3D Printing & Fab Lab</h4>
+                            <p class="facility-desc">High-speed prototyping utilizing advanced FDM platforms and SLA resin printers. Ideal for structural enclosure validation and custom casing parts.</p>
+                        </div>
+                        <div class="facility-specs-wrap mt-3">
+                            <span class="spec-label">Key Equipment:</span>
+                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                <span class="badge badge-tool">Bambu Lab X1C</span>
+                                <span class="badge badge-tool">Formlabs SLA</span>
+                                <span class="badge badge-tool">TPU & Carbon Filaments</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Facility 2 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="facility-card">
-                        <div class="facility-icon-wrap"><i class="bi bi-cpu-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Electronics & IoT Lab
-                        </h4>
-                        <p class="text-secondary small mb-0">Equipped with Rigol Digital Oscilloscopes, waveform
-                            generators, multi-channel power supplies, logic analyzers, and premium hot-air soldering
-                            stations.</p>
+                        <div>
+                            <div class="facility-icon-wrap"><i class="bi bi-cpu-fill"></i></div>
+                            <h4 class="facility-title">Electronics & IoT Lab</h4>
+                            <p class="facility-desc">Full-spectrum hardware testing and debugging suite with multi-channel instruments, logic analysis, and ESD-safe workspaces.</p>
+                        </div>
+                        <div class="facility-specs-wrap mt-3">
+                            <span class="spec-label">Key Equipment:</span>
+                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                <span class="badge badge-tool">Rigol Oscilloscopes</span>
+                                <span class="badge badge-tool">Logic Analyzers</span>
+                                <span class="badge badge-tool">ESD Rework Stations</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Facility 3 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="facility-card">
-                        <div class="facility-icon-wrap"><i class="bi bi-tools"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Wood & Metal Workshop
-                        </h4>
-                        <p class="text-secondary small mb-0">Direct access to scroll saws, precise drill presses,
-                            high-RPM rotary tools, sanding stations, and heavy-duty hand tools.</p>
+                        <div>
+                            <div class="facility-icon-wrap"><i class="bi bi-tools"></i></div>
+                            <h4 class="facility-title">Wood & Metal Workshop</h4>
+                            <p class="facility-desc">Heavy-duty workshop section for mechanical chassis shaping, frame building, post-processing, and manual drilling.</p>
+                        </div>
+                        <div class="facility-specs-wrap mt-3">
+                            <span class="spec-label">Key Equipment:</span>
+                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                <span class="badge badge-tool">Precision Drill Press</span>
+                                <span class="badge badge-tool">Band & Scroll Saws</span>
+                                <span class="badge badge-tool">High-RPM Rotary Tools</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Facility 4 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="facility-card">
-                        <div class="facility-icon-wrap"><i class="bi bi-motherboard-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">PCB Fabrication Lab
-                        </h4>
-                        <p class="text-secondary small mb-0">Custom PCB milling machines for rapid double-sided board
-                            extraction, chemical etching setups, and SMD component pick-and-place stations.</p>
+                        <div>
+                            <div class="facility-icon-wrap"><i class="bi bi-motherboard-fill"></i></div>
+                            <h4 class="facility-title">PCB Fabrication Lab</h4>
+                            <p class="facility-desc">In-house rapid prototyping for double-sided boards, SMD stencil application, and automated component placement.</p>
+                        </div>
+                        <div class="facility-specs-wrap mt-3">
+                            <span class="spec-label">Key Equipment:</span>
+                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                <span class="badge badge-tool">PCB CNC Milling</span>
+                                <span class="badge badge-tool">Reflow Oven</span>
+                                <span class="badge badge-tool">Pick & Place Stations</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Facility 5 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="facility-card">
-                        <div class="facility-icon-wrap"><i class="bi bi-lightning-charge-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Laser Cutting Studio
-                        </h4>
-                        <p class="text-secondary small mb-0">40W CO2 Laser cutter and engraver. Precision cutting and
-                            marking of acrylic, wood, leather, and sheet materials for custom casings.</p>
+                        <div>
+                            <div class="facility-icon-wrap"><i class="bi bi-lightning-charge-fill"></i></div>
+                            <h4 class="facility-title">Laser Cutting Studio</h4>
+                            <p class="facility-desc">High-speed precision laser cutting and etching system for wood, acrylics, and structural casings.</p>
+                        </div>
+                        <div class="facility-specs-wrap mt-3">
+                            <span class="spec-label">Key Equipment:</span>
+                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                <span class="badge badge-tool">40W CO2 Laser</span>
+                                <span class="badge badge-tool">Rotary Engraving</span>
+                                <span class="badge badge-tool">Air Assist Filters</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Facility 6 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="facility-card">
-                        <div class="facility-icon-wrap"><i class="bi bi-robot"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Physical AI Arena
-                        </h4>
-                        <p class="text-secondary small mb-0">Dedicated test environments, visual tracking arrays,
-                            obstacle tracks, and reference setups for mobile robots (OpenDuck) and humanoid arms (Reachy
-                            Mini).</p>
+                        <div>
+                            <div class="facility-icon-wrap"><i class="bi bi-robot"></i></div>
+                            <h4 class="facility-title">Physical AI Arena</h4>
+                            <p class="facility-desc">Sandbox environment featuring sensor calibration arrays and obstacle tracks to safely test autonomous vehicles and arms.</p>
+                        </div>
+                        <div class="facility-specs-wrap mt-3">
+                            <span class="spec-label">Key Equipment:</span>
+                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                <span class="badge badge-tool">OptiTrack Mocap</span>
+                                <span class="badge badge-tool">Reachy Mini Arm Setup</span>
+                                <span class="badge badge-tool">OpenDuck Test Track</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
