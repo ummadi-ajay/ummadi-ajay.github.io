@@ -202,6 +202,32 @@
             border: 2px solid var(--primary);
         }
 
+        .tier-img-container {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: #f8fafc;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            margin-bottom: 24px;
+        }
+
+        .tier-img-container img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1.414;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tier-card:hover .tier-img-container img {
+            transform: scale(1.05);
+        }
+
+        .tier-card.featured:hover .tier-img-container {
+            box-shadow: 0 12px 30px rgba(13, 110, 253, 0.15);
+        }
+
         .featured-badge {
             position: absolute;
             top: -16px;
@@ -638,6 +664,9 @@
                 <!-- Tier 1: Innovators Cafe -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="tier-card">
+                        <div class="tier-img-container">
+                            <img src="images/ignite-pass.jpg" alt="Ignite Pass">
+                        </div>
                         <div class="tier-header-block">
                             <div class="tier-header">
                                 <h3>Innovators Cafe</h3>
@@ -685,6 +714,9 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="tier-card featured">
                         <span class="featured-badge">Most Popular</span>
+                        <div class="tier-img-container">
+                            <img src="images/build-pass.jpg" alt="Build Pass">
+                        </div>
                         <div class="tier-header-block">
                             <div class="tier-header">
                                 <h3>Maker’s Office</h3>
@@ -733,6 +765,9 @@
                 <!-- Tier 3: Startup Garage -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="tier-card">
+                        <div class="tier-img-container">
+                            <img src="images/dominate-pass.jpg" alt="Dominate Pass">
+                        </div>
                         <div class="tier-header-block">
                             <div class="tier-header">
                                 <h3>Startup Garage</h3>
@@ -1103,7 +1138,7 @@
                             <p class="fst-italic small mb-2" style="color: #e2e8f0;">"MakerWorks gave us the bench
                                 space, tools, and technical support to scale our mobile humanoid robot prototype from
                                 early idea to TRL 5 in less than 3 months."</p>
-                            <div class="fw-bold small text-white">— Ajay Ummadi</div>
+                            <div class="fw-bold small text-white">— Ajay Ummadi, Robotics Developer</div>
                         </div>
                     </div>
                 </div>
