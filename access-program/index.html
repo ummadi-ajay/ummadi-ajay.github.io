@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Access Program | MakerWorks Lab | Open Hardware & Physical AI Hub</title>
-    <meta name="description" content="Join the MakerWorks Access Program. Get access to advanced prototyping tools, dedicated workbenches, High-Speed WiFi, and mentorship for startups, builders, and students in Mumbai.">
+    <meta name="description"
+        content="Join the MakerWorks Access Program. Get access to advanced prototyping tools, dedicated workbenches, High-Speed WiFi, and mentorship for startups, builders, and students in Mumbai.">
     <link rel="canonical" href="https://makerworkslab.in/access-program/">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 
@@ -21,7 +22,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://makerworkslab.in/access-program/">
     <meta property="og:title" content="Access Program | MakerWorks Lab Mumbai">
-    <meta property="og:description" content="Your Space. Your Tools. Your Next Big Build. Access our Mumbai makerspace and prototyping lab.">
+    <meta property="og:description"
+        content="Your Space. Your Tools. Your Next Big Build. Access our Mumbai makerspace and prototyping lab.">
     <meta property="og:image" content="https://makerworkslab.in/images/social/projects.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -29,7 +31,7 @@
     <script src="/components.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-    
+
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -38,14 +40,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    
+
     <noscript>
-        <style>[data-aos] { opacity: 1 !important; transform: none !important; }</style>
+        <style>
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
     </noscript>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
 
     <style>
@@ -83,12 +92,25 @@
             animation: pulse 15s infinite alternate;
         }
 
-        .bg-glow-1 { top: -10%; right: -10%; }
-        .bg-glow-2 { bottom: -10%; left: -10%; background: radial-gradient(circle, rgba(102, 16, 242, 0.04) 0%, rgba(102, 16, 242, 0) 70%); }
+        .bg-glow-1 {
+            top: -10%;
+            right: -10%;
+        }
+
+        .bg-glow-2 {
+            bottom: -10%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(102, 16, 242, 0.04) 0%, rgba(102, 16, 242, 0) 70%);
+        }
 
         @keyframes pulse {
-            0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.2) translate(50px, 50px); }
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.2) translate(50px, 50px);
+            }
         }
 
         .hero-section {
@@ -136,6 +158,7 @@
             padding: 0;
             margin: 0;
         }
+
         .pricing-switch .form-check-input {
             width: 60px;
             height: 32px;
@@ -147,6 +170,7 @@
             box-shadow: none !important;
             transition: background-position 0.25s ease-in-out, background-color 0.25s ease-in-out;
         }
+
         .pricing-switch .form-check-input:checked {
             background-color: var(--primary);
             background-position: right center;
@@ -158,8 +182,8 @@
             border-radius: 32px;
             padding: 40px;
             height: 100%;
-            border: 1.5px solid rgba(0,0,0,0.06);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1.5px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             display: flex;
@@ -217,7 +241,7 @@
             line-height: 1;
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
-        
+
         .price-val.updating {
             opacity: 0;
             transform: translateY(-5px);
@@ -233,7 +257,7 @@
             font-size: 0.88rem;
             color: #64748b;
             padding-bottom: 24px;
-            border-bottom: 1.5px solid rgba(0,0,0,0.06);
+            border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
             margin-bottom: 28px;
         }
 
@@ -316,17 +340,19 @@
         /* Facility Cards */
         .facility-card {
             background: #ffffff;
-            border: 1.5px solid rgba(0,0,0,0.05);
+            border: 1.5px solid rgba(0, 0, 0, 0.05);
             border-radius: 24px;
             padding: 32px;
             height: 100%;
             transition: all 0.3s ease;
         }
+
         .facility-card:hover {
             border-color: rgba(13, 110, 253, 0.15);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
             transform: translateY(-5px);
         }
+
         .facility-icon-wrap {
             width: 56px;
             height: 56px;
@@ -343,23 +369,25 @@
         /* Comparison Table */
         .comparison-table-wrap {
             background: #ffffff;
-            border: 1.5px solid rgba(0,0,0,0.06);
+            border: 1.5px solid rgba(0, 0, 0, 0.06);
             border-radius: 32px;
             padding: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
             overflow-x: auto;
         }
+
         .comparison-table th {
             font-family: 'Bricolage Grotesque', sans-serif;
             font-size: 1.1rem;
             font-weight: 800;
             padding: 20px;
-            border-bottom: 2px solid rgba(0,0,0,0.06);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.06);
         }
+
         .comparison-table td {
             padding: 20px;
             font-size: 0.95rem;
-            border-bottom: 1.5px solid rgba(0,0,0,0.04);
+            border-bottom: 1.5px solid rgba(0, 0, 0, 0.04);
             vertical-align: middle;
         }
 
@@ -375,21 +403,25 @@
             justify-content: space-between;
             box-shadow: var(--card-shadow);
         }
+
         .side-info-list {
             list-style: none;
             padding: 0;
             margin: 32px 0 0 0;
         }
+
         .side-info-list li {
             margin-bottom: 24px;
             display: flex;
             gap: 16px;
         }
+
         .side-info-list li i {
             color: #38bdf8;
             font-size: 1.3rem;
             margin-top: 3px;
         }
+
         .testimonial-block {
             border-left: 3px solid var(--primary);
             padding-left: 20px;
@@ -414,18 +446,20 @@
             margin-bottom: 8px;
         }
 
-        .form-control, .form-select {
+        .form-control,
+        .form-select {
             padding: 14px 20px;
             border-radius: 16px;
-            border: 1.5px solid rgba(0,0,0,0.08);
-            background: rgba(255,255,255,0.8);
+            border: 1.5px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.8);
             font-weight: 600;
             font-size: 0.95rem;
             color: var(--dark);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-control:focus,
+        .form-select:focus {
             border-color: var(--primary);
             background: #fff;
             box-shadow: 0 0 0 5px rgba(13, 110, 253, 0.1);
@@ -460,13 +494,17 @@
             display: none;
             width: 22px;
             height: 22px;
-            border: 3px solid rgba(255,255,255,.3);
+            border: 3px solid rgba(255, 255, 255, .3);
             border-radius: 50%;
             border-top-color: #fff;
             animation: spin 0.8s linear infinite;
         }
 
-        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
         .success-screen {
             display: none;
@@ -475,8 +513,15 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .success-icon {
@@ -495,7 +540,7 @@
 
         .faq-accordion .accordion-item {
             border: none;
-            border-bottom: 1.5px solid rgba(0,0,0,0.06);
+            border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
             background: transparent;
             padding: 10px 0;
         }
@@ -520,10 +565,31 @@
             line-height: 1.6;
         }
 
+        .career-card-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .career-card-hover:hover {
+            border-color: rgba(13, 110, 253, 0.25) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06) !important;
+            transform: translateY(-3px);
+            background: #ffffff !important;
+        }
+
         @media (max-width: 991px) {
-            .app-form-card { padding: 30px; border-radius: 28px; }
-            .hero-section { padding-top: 50px; }
-            .side-info-card { padding: 30px; border-radius: 28px; margin-bottom: 30px; }
+            .app-form-card {
+                padding: 30px;
+                border-radius: 28px;
+            }
+
+            .hero-section {
+                padding-top: 50px;
+            }
+
+            .side-info-card {
+                padding: 30px;
+                border-radius: 28px;
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
@@ -540,21 +606,26 @@
     <section class="hero-section">
         <div class="container">
             <span class="section-tag" data-aos="fade-down">MakerWorks Access Program</span>
-            <h1 data-aos="fade-up" data-aos-delay="100">Your Space. Your Tools.<br>Your Next <span class="text-primary">Big Build</span></h1>
+            <h1 data-aos="fade-up" data-aos-delay="100">Your Space. Your Tools.<br>Your Next <span
+                    class="text-primary">Big Build</span></h1>
             <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
-                Unlock direct physical access to the MakerWorks Lab makerspace in Mumbai. Whether you are an MVP-stage startup, an early-stage builder, or an ideator student, gain access to advanced prototyping tools, micro-labs, and our collaborative tech ecosystem.
+                Unlock direct physical access to the MakerWorks Lab makerspace in Mumbai. Whether you are an MVP-stage
+                startup, an early-stage builder, or an ideator student, gain access to advanced prototyping tools,
+                micro-labs, and our collaborative tech ecosystem.
             </p>
-            
+
             <!-- Pricing Toggle -->
-            <div class="d-flex justify-content-center align-items-center gap-3 mb-5" data-aos="fade-up" data-aos-delay="250">
+            <div class="d-flex justify-content-center align-items-center gap-3 mb-5" data-aos="fade-up"
+                data-aos-delay="250">
                 <span class="fw-bold text-muted">Monthly</span>
                 <div class="form-check form-switch pricing-switch">
                     <input class="form-check-input" type="checkbox" id="billingToggle">
                     <label class="form-check-label" for="billingToggle"></label>
                 </div>
                 <span class="fw-bold text-dark d-flex align-items-center gap-2">
-                    Annually 
-                    <span class="badge bg-danger-subtle text-danger rounded-pill fw-bold" style="font-size: 0.75rem; padding: 4px 8px;">Save 15%</span>
+                    Annually
+                    <span class="badge bg-danger-subtle text-danger rounded-pill fw-bold"
+                        style="font-size: 0.75rem; padding: 4px 8px;">Save 15%</span>
                 </span>
             </div>
         </div>
@@ -573,7 +644,8 @@
                                 <span class="badge bg-light text-muted fw-semibold">Ideators & Students</span>
                             </div>
                             <div class="tier-price">
-                                <span class="price-val" id="price-cafe" data-monthly="3,000" data-annual="2,550">₹3,000</span>
+                                <span class="price-val" id="price-cafe" data-monthly="3,000"
+                                    data-annual="2,550">₹3,000</span>
                                 <span class="price-period">+ GST / month</span>
                             </div>
                             <div class="tier-meta">
@@ -581,22 +653,31 @@
                                 <br><strong>Access Hours:</strong> Mon–Fri, 10 AM–6 PM
                                 <br><strong>Caution Deposit:</strong> ₹1,500 (refundable)
                             </div>
-                            
-                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities</h5>
+
+                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities
+                            </h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Floating Seat (Innovators Cafe)</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Power Supply (common areas)</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi (Fiber connection)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Floating Seat
+                                    (Innovators Cafe)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Power Supply
+                                    (common areas)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi
+                                    (Fiber connection)</li>
                             </ul>
 
-                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i> Services</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i>
+                                Services</h5>
                             <ul class="feature-list">
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to Prototyping (as per rate card)</li>
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to Innovation Ecosystem</li>
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Monthly Events & Programs</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to
+                                    Prototyping (as per rate card)</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to
+                                    Innovation Ecosystem</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Monthly Events &
+                                    Programs</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Innovators Cafe')" class="btn-apply mt-4">Select Innovators Cafe</a>
+                        <a href="#apply" onclick="selectTier('Innovators Cafe')" class="btn-apply mt-4">Select
+                            Innovators Cafe</a>
                     </div>
                 </div>
 
@@ -607,33 +688,45 @@
                         <div class="tier-header-block">
                             <div class="tier-header">
                                 <h3>Maker’s Office</h3>
-                                <span class="badge bg-primary-subtle text-primary fw-semibold">Startups & Builders</span>
+                                <span class="badge bg-primary-subtle text-primary fw-semibold">Startups &
+                                    Builders</span>
                             </div>
                             <div class="tier-price">
-                                <span class="price-val" id="price-office" data-monthly="7,000" data-annual="5,950">₹7,000</span>
+                                <span class="price-val" id="price-office" data-monthly="7,000"
+                                    data-annual="5,950">₹7,000</span>
                                 <span class="price-period">+ GST / month</span>
                             </div>
                             <div class="tier-meta">
-                                <strong>Eligibility:</strong> Early-stage startups, independent builders, and hardware creators.
+                                <strong>Eligibility:</strong> Early-stage startups, independent builders, and hardware
+                                creators.
                                 <br><strong>Access Hours:</strong> Mon–Sat, 10 AM–10 PM
                                 <br><strong>Caution Deposit:</strong> ₹1,500 (refundable)
                             </div>
-                            
-                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities</h5>
+
+                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities
+                            </h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Co-building seat (Maker’s Office)</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power (common areas)</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi & Mini Storage Access</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Co-building seat
+                                    (Maker’s Office)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power
+                                    (common areas)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi &
+                                    Mini Storage Access</li>
                             </ul>
 
-                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i> Services</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i>
+                                Services</h5>
                             <ul class="feature-list">
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to Prototyping (as per rate card)</li>
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Mentorship & Expert Consultations</li>
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Funding Channels & Demo Day Access</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Access to
+                                    Prototyping (as per rate card)</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Mentorship & Expert
+                                    Consultations</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Funding Channels &
+                                    Demo Day Access</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Maker’s Office')" class="btn-apply mt-4">Select Maker’s Office</a>
+                        <a href="#apply" onclick="selectTier('Maker’s Office')" class="btn-apply mt-4">Select Maker’s
+                            Office</a>
                     </div>
                 </div>
 
@@ -646,7 +739,8 @@
                                 <span class="badge bg-dark text-white fw-semibold">MVP Startups (TRL 4+)</span>
                             </div>
                             <div class="tier-price">
-                                <span class="price-val" id="price-garage" data-monthly="20,000" data-annual="17,000">₹20,000</span>
+                                <span class="price-val" id="price-garage" data-monthly="20,000"
+                                    data-annual="17,000">₹20,000</span>
                                 <span class="price-period">+ GST / month</span>
                             </div>
                             <div class="tier-meta">
@@ -654,22 +748,31 @@
                                 <br><strong>Access Hours:</strong> Mon–Sat, 10 AM–10 PM
                                 <br><strong>Caution Deposit:</strong> ₹20,000 (refundable)
                             </div>
-                            
-                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities</h5>
+
+                            <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities
+                            </h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Workbench (Startup Garage)</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power Supply</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi & Full Storage Locker</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Workbench
+                                    (Startup Garage)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power
+                                    Supply</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi &
+                                    Full Storage Locker</li>
                             </ul>
 
-                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i> Services</h5>
+                            <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i>
+                                Services</h5>
                             <ul class="feature-list">
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Fastrack Prototyping Queue</li>
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Monthly Incubation & Mentorship Reviews</li>
-                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Demo Days, Innovation Events & Ecosystem</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Fastrack
+                                    Prototyping Queue</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Monthly Incubation
+                                    & Mentorship Reviews</li>
+                                <li><i class="bi bg-light rounded-circle text-success bi-check"></i> Demo Days,
+                                    Innovation Events & Ecosystem</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Startup Garage')" class="btn-apply mt-4">Select Startup Garage</a>
+                        <a href="#apply" onclick="selectTier('Startup Garage')" class="btn-apply mt-4">Select Startup
+                            Garage</a>
                     </div>
                 </div>
             </div>
@@ -681,59 +784,75 @@
         <div class="container my-5">
             <div class="text-center mb-5">
                 <span class="section-tag" data-aos="fade-down">Advanced Infrastructure</span>
-                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;" data-aos="fade-up">Available Lab Equipment & Facilities</h2>
+                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;" data-aos="fade-up">
+                    Available Lab Equipment & Facilities</h2>
                 <p class="text-secondary mt-3 max-width-600 mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Our access program connects members with cutting-edge tools across specialized micro-labs, managed by physical prototyping engineers.
+                    Our access program connects members with cutting-edge tools across specialized micro-labs, managed
+                    by physical prototyping engineers.
                 </p>
             </div>
-            
+
             <div class="row g-4 mt-4">
                 <!-- Facility 1 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="facility-card">
                         <div class="facility-icon-wrap"><i class="bi bi-printer-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">3D Printing & Fab Lab</h4>
-                        <p class="text-secondary small mb-0">High-speed prototyping utilizing Bambu Lab FDM platforms and SLA resin printers. Support for PLA, PETG, ABS, and TPU materials.</p>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">3D Printing & Fab Lab
+                        </h4>
+                        <p class="text-secondary small mb-0">High-speed prototyping utilizing Bambu Lab FDM platforms
+                            and SLA resin printers. Support for PLA, PETG, ABS, and TPU materials.</p>
                     </div>
                 </div>
                 <!-- Facility 2 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="facility-card">
                         <div class="facility-icon-wrap"><i class="bi bi-cpu-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Electronics & IoT Lab</h4>
-                        <p class="text-secondary small mb-0">Equipped with Rigol Digital Oscilloscopes, waveform generators, multi-channel power supplies, logic analyzers, and premium hot-air soldering stations.</p>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Electronics & IoT Lab
+                        </h4>
+                        <p class="text-secondary small mb-0">Equipped with Rigol Digital Oscilloscopes, waveform
+                            generators, multi-channel power supplies, logic analyzers, and premium hot-air soldering
+                            stations.</p>
                     </div>
                 </div>
                 <!-- Facility 3 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="facility-card">
                         <div class="facility-icon-wrap"><i class="bi bi-tools"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Wood & Metal Workshop</h4>
-                        <p class="text-secondary small mb-0">Direct access to scroll saws, precise drill presses, high-RPM rotary tools, sanding stations, and heavy-duty hand tools.</p>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Wood & Metal Workshop
+                        </h4>
+                        <p class="text-secondary small mb-0">Direct access to scroll saws, precise drill presses,
+                            high-RPM rotary tools, sanding stations, and heavy-duty hand tools.</p>
                     </div>
                 </div>
                 <!-- Facility 4 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="facility-card">
                         <div class="facility-icon-wrap"><i class="bi bi-motherboard-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">PCB Fabrication Lab</h4>
-                        <p class="text-secondary small mb-0">Custom PCB milling machines for rapid double-sided board extraction, chemical etching setups, and SMD component pick-and-place stations.</p>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">PCB Fabrication Lab
+                        </h4>
+                        <p class="text-secondary small mb-0">Custom PCB milling machines for rapid double-sided board
+                            extraction, chemical etching setups, and SMD component pick-and-place stations.</p>
                     </div>
                 </div>
                 <!-- Facility 5 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="facility-card">
                         <div class="facility-icon-wrap"><i class="bi bi-lightning-charge-fill"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Laser Cutting Studio</h4>
-                        <p class="text-secondary small mb-0">40W CO2 Laser cutter and engraver. Precision cutting and marking of acrylic, wood, leather, and sheet materials for custom casings.</p>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Laser Cutting Studio
+                        </h4>
+                        <p class="text-secondary small mb-0">40W CO2 Laser cutter and engraver. Precision cutting and
+                            marking of acrylic, wood, leather, and sheet materials for custom casings.</p>
                     </div>
                 </div>
                 <!-- Facility 6 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="facility-card">
                         <div class="facility-icon-wrap"><i class="bi bi-robot"></i></div>
-                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Physical AI Arena</h4>
-                        <p class="text-secondary small mb-0">Dedicated test environments, visual tracking arrays, obstacle tracks, and reference setups for mobile robots (OpenDuck) and humanoid arms (Reachy Mini).</p>
+                        <h4 class="fw-800" style="font-family: 'Bricolage Grotesque', sans-serif;">Physical AI Arena
+                        </h4>
+                        <p class="text-secondary small mb-0">Dedicated test environments, visual tracking arrays,
+                            obstacle tracks, and reference setups for mobile robots (OpenDuck) and humanoid arms (Reachy
+                            Mini).</p>
                     </div>
                 </div>
             </div>
@@ -745,9 +864,10 @@
         <div class="container my-5">
             <div class="text-center mb-5">
                 <span class="section-tag" data-aos="fade-down">Feature Comparison</span>
-                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;" data-aos="fade-up">Compare Access Tiers</h2>
+                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;" data-aos="fade-up">
+                    Compare Access Tiers</h2>
             </div>
-            
+
             <div class="comparison-table-wrap" data-aos="fade-up" data-aos-delay="100">
                 <table class="table comparison-table mb-0">
                     <thead>
@@ -781,7 +901,8 @@
                             <td><strong>High-Speed WiFi & Power</strong></td>
                             <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
                             <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
-                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i> (Dedicated line)</td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i> (Dedicated
+                                line)</td>
                         </tr>
                         <tr>
                             <td><strong>Storage Facilities</strong></td>
@@ -807,6 +928,130 @@
         </div>
     </section>
 
+    <!-- Active Internships & Fellowships Section -->
+    <section class="py-5 bg-white border-top border-bottom">
+        <div class="container my-5">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <span class="section-tag">Build With Us</span>
+                    <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Want to Join Our Core Lab Team?</h2>
+                    <p class="text-secondary mt-3 mb-0">
+                        At MakerWorks Lab, our Access Program members work side-by-side with our core fellows and interns. We are currently hiring <strong>14 talented people across 7 key tracks</strong> to build, teach, and document open-source Physical AI and hardware projects (like Reachy Mini, LeRobot, and OpenDuck).
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0" data-aos="fade-left">
+                    <a href="/hiring/" target="_blank" class="btn btn-dark rounded-pill px-4 py-3 fw-bold shadow-sm">
+                        Explore Open Careers <i class="bi bi-box-arrow-up-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Role 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-100 p-4 bg-light border rounded-4 d-flex flex-column justify-content-between career-card-hover">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="badge bg-primary text-white px-3 py-2 rounded-3" style="font-size: 1.1rem;"><i class="bi bi-cpu-fill"></i></span>
+                                <h5 class="fw-800 mb-0" style="font-family: 'Bricolage Grotesque', sans-serif;">AI Research</h5>
+                            </div>
+                            <p class="text-secondary small mb-3">Work on deep learning, computer vision, embodied AI, and physical model workflows using LeRobot and Reachy Mini.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <span class="small fw-bold text-primary"><i class="bi bi-people-fill me-1"></i> 2 Openings</span>
+                            <span class="small text-muted"><i class="bi bi-cash-coin me-1"></i> ₹10k/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-100 p-4 bg-light border rounded-4 d-flex flex-column justify-content-between career-card-hover">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="badge bg-warning text-dark px-3 py-2 rounded-3" style="font-size: 1.1rem;"><i class="bi bi-robot"></i></span>
+                                <h5 class="fw-800 mb-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Autonomous Robotics</h5>
+                            </div>
+                            <p class="text-secondary small mb-3">Build mobile robot platforms, motor drivers, actuators, sensors, and support student competition teams.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <span class="small fw-bold text-primary"><i class="bi bi-people-fill me-1"></i> 2 Openings</span>
+                            <span class="small text-muted"><i class="bi bi-cash-coin me-1"></i> ₹10k/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-100 p-4 bg-light border rounded-4 d-flex flex-column justify-content-between career-card-hover">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="badge bg-success text-white px-3 py-2 rounded-3" style="font-size: 1.1rem;"><i class="bi bi-plug-fill"></i></span>
+                                <h5 class="fw-800 mb-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Electronics & PCB</h5>
+                            </div>
+                            <p class="text-secondary small mb-3">Design custom schematics and double-sided layouts using KiCad for IoT, sensors, and motor controls.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <span class="small fw-bold text-primary"><i class="bi bi-people-fill me-1"></i> 2 Openings</span>
+                            <span class="small text-muted"><i class="bi bi-cash-coin me-1"></i> ₹10k/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-100 p-4 bg-light border rounded-4 d-flex flex-column justify-content-between career-card-hover">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="badge bg-danger text-white px-3 py-2 rounded-3" style="font-size: 1.1rem;"><i class="bi bi-bezier2"></i></span>
+                                <h5 class="fw-800 mb-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Design Engineering</h5>
+                            </div>
+                            <p class="text-secondary small mb-3">CAD modeling, 3D printing mechanisms, laser cutting custom enclosures, and design-for-assembly builds.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <span class="small fw-bold text-primary"><i class="bi bi-people-fill me-1"></i> 2 Openings</span>
+                            <span class="small text-muted"><i class="bi bi-cash-coin me-1"></i> ₹10k/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-100 p-4 bg-light border rounded-4 d-flex flex-column justify-content-between career-card-hover">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="badge bg-info text-dark px-3 py-2 rounded-3" style="font-size: 1.1rem;"><i class="bi bi-person-workspace"></i></span>
+                                <h5 class="fw-800 mb-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Teaching Fellowship</h5>
+                            </div>
+                            <p class="text-secondary small mb-3">Teach middle and high school students DIY programming, electronics, robotics, and guide science fair projects.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <span class="small fw-bold text-primary"><i class="bi bi-people-fill me-1"></i> 2 Openings</span>
+                            <span class="small text-muted"><i class="bi bi-cash-coin me-1"></i> ₹10k/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="h-100 p-4 bg-light border rounded-4 d-flex flex-column justify-content-between career-card-hover">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="badge text-white px-3 py-2 rounded-3" style="font-size: 1.1rem; background-color: #6f42c1;"><i class="bi bi-camera-reels-fill"></i></span>
+                                <h5 class="fw-800 mb-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Media & Content</h5>
+                            </div>
+                            <p class="text-secondary small mb-3">Shoot video/photo logs, edit process reels, write explainers, and manage lab social channels.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <span class="small fw-bold text-primary"><i class="bi bi-people-fill me-1"></i> 2 Openings</span>
+                            <span class="small text-muted"><i class="bi bi-cash-coin me-1"></i> ₹10k/mo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Application Form Section (Split Screen) -->
     <section id="apply" class="py-5 my-5">
         <div class="container">
@@ -815,49 +1060,63 @@
                 <div class="col-lg-5" data-aos="fade-right">
                     <div class="side-info-card">
                         <div>
-                            <span class="badge bg-primary-subtle text-primary rounded-pill fw-bold px-3 py-2 mb-4" style="font-size: 0.72rem;">STAGED ONBOARDING</span>
-                            <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Why Join the Access Program?</h2>
-                            <p class="text-light-50 mt-3 text-secondary" style="color: #cbd5e1;">More than just a co-working space, MakerWorks Lab is Mumbai's physical incubation ecosystem for engineering builders.</p>
-                            
+                            <span class="badge bg-primary-subtle text-primary rounded-pill fw-bold px-3 py-2 mb-4"
+                                style="font-size: 0.72rem;">STAGED ONBOARDING</span>
+                            <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Why
+                                Join the Access Program?</h2>
+                            <p class="text-light-50 mt-3 text-secondary" style="color: #cbd5e1;">More than just a
+                                co-working space, MakerWorks Lab is Mumbai's physical incubation ecosystem for
+                                engineering builders.</p>
+
                             <ul class="side-info-list">
                                 <li>
                                     <i class="bi bi-cpu"></i>
                                     <div>
                                         <h5 class="fw-bold mb-1">State-of-the-Art Prototyping</h5>
-                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Don't spend lakhs on tools. Access industrial 3D printers, laser cutters, CNCs, and PCB fab labs instantly.</p>
+                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Don't spend lakhs
+                                            on tools. Access industrial 3D printers, laser cutters, CNCs, and PCB fab
+                                            labs instantly.</p>
                                     </div>
                                 </li>
                                 <li>
                                     <i class="bi bi-people-fill"></i>
                                     <div>
                                         <h5 class="fw-bold mb-1">Ecosystem & Community</h5>
-                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Rub shoulders with hardware developers, robot building students, and tech investors every day.</p>
+                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Rub shoulders with
+                                            hardware developers, robot building students, and tech investors every day.
+                                        </p>
                                     </div>
                                 </li>
                                 <li>
                                     <i class="bi bi-award-fill"></i>
                                     <div>
                                         <h5 class="fw-bold mb-1">Incubation Support</h5>
-                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Pitching opportunities, VC demo days, and structured mentorship to validate and scale product stages.</p>
+                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Pitching
+                                            opportunities, VC demo days, and structured mentorship to validate and scale
+                                            product stages.</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="testimonial-block">
-                            <p class="fst-italic small mb-2" style="color: #e2e8f0;">"MakerWorks gave us the bench space, tools, and technical support to scale our mobile humanoid robot prototype from early idea to TRL 5 in less than 3 months."</p>
-                            <div class="fw-bold small text-white">— Ajay Ummadi, Physical AI Lab Lead</div>
+                            <p class="fst-italic small mb-2" style="color: #e2e8f0;">"MakerWorks gave us the bench
+                                space, tools, and technical support to scale our mobile humanoid robot prototype from
+                                early idea to TRL 5 in less than 3 months."</p>
+                            <div class="fw-bold small text-white">— Ajay Ummadi</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Right Side: The Form -->
                 <div class="col-lg-7" data-aos="fade-left">
                     <div class="app-form-card">
                         <div id="formSection">
-                            <h2 class="fw-800 mb-3" style="font-family: 'Bricolage Grotesque', sans-serif;">Access Program Application</h2>
-                            <p class="text-secondary small mb-5">Select a pass and fill in your project details. A coordinator will contact you to discuss scheduling and lab capabilities.</p>
-                            
+                            <h2 class="fw-800 mb-3" style="font-family: 'Bricolage Grotesque', sans-serif;">Access
+                                Program Application</h2>
+                            <p class="text-secondary small mb-5">Select a pass and fill in your project details. A
+                                coordinator will contact you to discuss scheduling and lab capabilities.</p>
+
                             <form id="accessAppForm">
                                 <div class="row g-4">
                                     <div class="col-md-6">
@@ -871,21 +1130,25 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="fullName" placeholder="e.g. Rahul Sharma" required>
+                                        <input type="text" class="form-control" id="fullName"
+                                            placeholder="e.g. Rahul Sharma" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label class="form-label">WhatsApp Contact Number</label>
-                                        <input type="tel" class="form-control" id="whatsApp" placeholder="+91 XXXXX XXXXX" required>
+                                        <input type="tel" class="form-control" id="whatsApp"
+                                            placeholder="+91 XXXXX XXXXX" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="e.g. rahul@example.com" required>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="e.g. rahul@example.com" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label class="form-label">Organization / Startup / College</label>
-                                        <input type="text" class="form-control" id="orgName" placeholder="e.g. Spark Tech / IIT Bombay" required>
+                                        <input type="text" class="form-control" id="orgName"
+                                            placeholder="e.g. Spark Tech / IIT Bombay" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Current Product Phase (TRL)</label>
@@ -899,8 +1162,11 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <label class="form-label">Briefly describe your hardware/robotics project or build goal</label>
-                                        <textarea class="form-control" id="projectDetails" rows="4" placeholder="Describe the physical product, microcontrollers used, components to 3D print, and what prototyping services you need..." required></textarea>
+                                        <label class="form-label">Briefly describe your hardware/robotics project or
+                                            build goal</label>
+                                        <textarea class="form-control" id="projectDetails" rows="4"
+                                            placeholder="Describe the physical product, microcontrollers used, components to 3D print, and what prototyping services you need..."
+                                            required></textarea>
                                     </div>
 
                                     <div class="col-12 text-center mt-4">
@@ -908,7 +1174,9 @@
                                             <span id="btnText">Submit Access Request</span>
                                             <div class="loading-spinner" id="btnSpinner"></div>
                                         </button>
-                                        <p class="text-muted mt-3 small"><i class="bi bi-shield-lock-fill text-primary"></i> Data securely processed via Firebase Cloud Services</p>
+                                        <p class="text-muted mt-3 small"><i
+                                                class="bi bi-shield-lock-fill text-primary"></i> Data securely processed
+                                            via Firebase Cloud Services</p>
                                     </div>
                                 </div>
                             </form>
@@ -919,12 +1187,18 @@
                             <div class="success-icon">
                                 <i class="bi bi-check-lg"></i>
                             </div>
-                            <h2 class="fw-800 mb-3" style="font-family: 'Bricolage Grotesque', sans-serif;">Application Staged</h2>
-                            <p class="text-muted fs-5 mb-5 px-lg-5">Your Access Program application has been successfully saved. A lab coordinator will reach out to you within 24 hours to schedule an onboarding tour.</p>
-                            
-                            <div class="bg-white border rounded-4 p-4 mb-5 text-start shadow-sm mx-auto" style="max-width: 500px;">
-                                <div class="mb-2"><i class="bi bi-telephone-outbound-fill text-primary me-2"></i> Lab Coordinator: +91 91371 14223</div>
-                                <div><i class="bi bi-envelope-open-fill text-primary me-2"></i> email: enquiries@makerworkslab.in</div>
+                            <h2 class="fw-800 mb-3" style="font-family: 'Bricolage Grotesque', sans-serif;">Application
+                                Staged</h2>
+                            <p class="text-muted fs-5 mb-5 px-lg-5">Your Access Program application has been
+                                successfully saved. A lab coordinator will reach out to you within 24 hours to schedule
+                                an onboarding tour.</p>
+
+                            <div class="bg-white border rounded-4 p-4 mb-5 text-start shadow-sm mx-auto"
+                                style="max-width: 500px;">
+                                <div class="mb-2"><i class="bi bi-telephone-outbound-fill text-primary me-2"></i> Lab
+                                    Coordinator: +91 91371 14223</div>
+                                <div><i class="bi bi-envelope-open-fill text-primary me-2"></i> email:
+                                    enquiries@makerworkslab.in</div>
                             </div>
 
                             <a href="/" class="btn btn-dark rounded-pill px-5 py-3 fw-800 shadow-lg">Return to Home</a>
@@ -940,57 +1214,72 @@
         <div class="container my-5">
             <div class="text-center mb-5">
                 <span class="section-tag">Access Program Details</span>
-                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Frequently Asked <span class="text-primary">Questions</span></h2>
+                <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Frequently Asked
+                    <span class="text-primary">Questions</span></h2>
             </div>
-            
+
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-9">
                     <div class="accordion faq-accordion" id="faqAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
                                     What prototyping tools can we access at MakerWorks Lab?
                                 </button>
                             </h2>
                             <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Our Mumbai facility has dedicated labs for High-Speed 3D printing (Bambu Lab A1 Mini), Advanced Electronics & Testing (oscilloscopes, power supplies, logic analyzers), Wood & Metal tools, and Microcontrollers (ESP32, Raspberry Pi, Arduino). Prototyping services are rendered based on membership tiers or our standardized rate cards.
+                                    Our Mumbai facility has dedicated labs for High-Speed 3D printing (Bambu Lab A1
+                                    Mini), Advanced Electronics & Testing (oscilloscopes, power supplies, logic
+                                    analyzers), Wood & Metal tools, and Microcontrollers (ESP32, Raspberry Pi, Arduino).
+                                    Prototyping services are rendered based on membership tiers or our standardized rate
+                                    cards.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
                                     What is the Caution Deposit, and is it refundable?
                                 </button>
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Yes, the Caution Deposit is 100% refundable when your membership expires or is canceled. The deposit is held to cover any potential damages to high-value laboratory equipment or workspace amenities.
+                                    Yes, the Caution Deposit is 100% refundable when your membership expires or is
+                                    canceled. The deposit is held to cover any potential damages to high-value
+                                    laboratory equipment or workspace amenities.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3">
                                     Can we bring guests or clients to the lab?
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Members on the Startup Garage tier are allowed up to 2 guest entries per week for project reviews, product demonstrations, or meetings. For other tiers, guest entries require prior booking or lab manager approval.
+                                    Members on the Startup Garage tier are allowed up to 2 guest entries per week for
+                                    project reviews, product demonstrations, or meetings. For other tiers, guest entries
+                                    require prior booking or lab manager approval.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4">
                                     Is lab safety training mandatory before using heavy machinery?
                                 </button>
                             </h2>
                             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Yes, all members must undergo a mandatory 45-minute lab safety induction tour before gaining keycard entry and operating machinery. Safety goggles, static protection, and safe tool operation guidelines must be strictly adhered to.
+                                    Yes, all members must undergo a mandatory 45-minute lab safety induction tour before
+                                    gaining keycard entry and operating machinery. Safety goggles, static protection,
+                                    and safe tool operation guidelines must be strictly adhered to.
                                 </div>
                             </div>
                         </div>
@@ -1023,7 +1312,7 @@
         const db = getDatabase(app);
 
         // Globally accessible tier selection helper
-        window.selectTier = function(tierName) {
+        window.selectTier = function (tierName) {
             const tierSelect = document.getElementById('accessTier');
             if (tierSelect) {
                 tierSelect.value = tierName;
@@ -1031,7 +1320,7 @@
             }
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('accessAppForm');
             const submitBtn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
@@ -1042,14 +1331,14 @@
             const priceCafe = document.getElementById('price-cafe');
             const priceOffice = document.getElementById('price-office');
             const priceGarage = document.getElementById('price-garage');
-            
+
             if (billingToggle && priceCafe && priceOffice && priceGarage) {
-                billingToggle.addEventListener('change', function() {
+                billingToggle.addEventListener('change', function () {
                     const isAnnual = billingToggle.checked;
-                    
+
                     // Add updating anim class
                     [priceCafe, priceOffice, priceGarage].forEach(el => el.classList.add('updating'));
-                    
+
                     setTimeout(() => {
                         if (isAnnual) {
                             priceCafe.textContent = '₹' + priceCafe.dataset.annual;
@@ -1060,14 +1349,14 @@
                             priceOffice.textContent = '₹' + priceOffice.dataset.monthly;
                             priceGarage.textContent = '₹' + priceGarage.dataset.monthly;
                         }
-                        
+
                         // Remove anim class
                         [priceCafe, priceOffice, priceGarage].forEach(el => el.classList.remove('updating'));
                     }, 200);
                 });
             }
 
-            form.addEventListener('submit', async function(e) {
+            form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 submitBtn.disabled = true;
@@ -1133,7 +1422,7 @@
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize AOS (Animate on Scroll)
             const initAOS = () => {
                 if (typeof AOS !== 'undefined') {
