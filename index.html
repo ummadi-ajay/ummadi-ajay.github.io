@@ -1877,78 +1877,127 @@
     </section>
 
     <!-- Community Events Section -->
-    <section id="community-events" class="py-5" style="background: #fafafa; position: relative;">
-      <div class="container">
+    <section id="community-events" class="py-5" style="background: #fafafa; position: relative; overflow: hidden;">
+      <!-- Decorative Background Orbs -->
+      <div style="position: absolute; top: -50px; left: -50px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(13, 110, 253, 0.15) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
+      <div style="position: absolute; bottom: -50px; right: -50px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 102, 0, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
+      
+      <!-- Dot Pattern -->
+      <div style="position: absolute; inset: 0; background-image: radial-gradient(#0d6efd 1.5px, transparent 1.5px); background-size: 35px 35px; opacity: 0.04; z-index: 0;"></div>
+
+      <div class="container" style="position: relative; z-index: 1;">
         <!-- Section Header -->
         <div class="section-header text-center mb-5" data-aos="fade-up">
           <span class="section-tag" style="background: linear-gradient(135deg, #6f42c1, #0d6efd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-            Community
+            Ecosystem
           </span>
-          <h2 class="section-title">We Host Events Too.</h2>
-          <p class="fs-5 text-muted mb-0" style="max-width: 700px; margin: 0 auto;">Join our workshops, hackathons, and community meetups to connect, learn, and build together.</p>
+          <h2 class="section-title">We Host <span style="background: linear-gradient(135deg, #ff6600, #0d6efd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Epic Events.</span></h2>
+          <p class="fs-5 text-muted mb-0" style="max-width: 700px; margin: 0 auto;">Join our workshops, hackathons, and community meetups to connect, learn, and build the future together.</p>
         </div>
 
-        <div class="row justify-content-center g-4 mt-2">
+        <div class="row justify-content-center g-5 mt-2">
           <!-- Upcoming Event -->
           <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="text-center mb-3">
-                <span class="badge bg-primary px-3 py-2 rounded-pill fw-semibold shadow-sm" style="font-size: 0.85rem;"><i class="bi bi-calendar-event me-2"></i>Upcoming Event</span>
-            </div>
-            <div class="luma-container">
-              <iframe
-                src="https://lu.ma/embed/event/i8ryge1o/simple"
-                width="100%"
-                height="450"
-                frameborder="0"
-                style="border: 1px solid #eaeaea; border-radius: 24px; background: white;"
-                allowfullscreen=""
-                aria-hidden="false"
-                tabindex="0"
-              ></iframe>
+            <div class="event-card-wrapper upcoming-event">
+              <div class="event-card-glow"></div>
+              <div class="text-center mb-4 position-relative z-1">
+                  <span class="badge px-4 py-2 rounded-pill fw-bold shadow-sm" style="background: linear-gradient(135deg, #0d6efd, #0099ff); font-size: 0.85rem; letter-spacing: 0.5px;">
+                      <i class="bi bi-rocket-takeoff-fill me-2"></i>Upcoming Event
+                  </span>
+              </div>
+              <div class="luma-container position-relative z-1">
+                <iframe
+                  src="https://lu.ma/embed/event/i8ryge1o/simple"
+                  width="100%"
+                  height="450"
+                  frameborder="0"
+                  style="border: none; border-radius: 20px; background: white;"
+                  allowfullscreen=""
+                  aria-hidden="false"
+                  tabindex="0"
+                ></iframe>
+              </div>
             </div>
           </div>
           
           <!-- Past Event -->
           <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
-             <div class="text-center mb-3">
-                <span class="badge bg-secondary px-3 py-2 rounded-pill fw-semibold shadow-sm" style="font-size: 0.85rem;"><i class="bi bi-clock-history me-2"></i>Past Highlight</span>
-            </div>
-            <div class="luma-container past-event">
-              <iframe
-                src="https://lu.ma/embed/event/ids6x4q4/simple"
-                width="100%"
-                height="450"
-                frameborder="0"
-                style="border: 1px solid #eaeaea; border-radius: 24px; background: white;"
-                allowfullscreen=""
-                aria-hidden="false"
-                tabindex="0"
-              ></iframe>
+             <div class="event-card-wrapper past-event-wrapper">
+              <div class="text-center mb-4 position-relative z-1">
+                  <span class="badge bg-white text-dark px-4 py-2 rounded-pill fw-bold shadow-sm border" style="font-size: 0.85rem; letter-spacing: 0.5px;">
+                      <i class="bi bi-clock-history me-2 text-muted"></i>Past Highlight
+                  </span>
+              </div>
+              <div class="luma-container past-event position-relative z-1">
+                <iframe
+                  src="https://lu.ma/embed/event/ids6x4q4/simple"
+                  width="100%"
+                  height="450"
+                  frameborder="0"
+                  style="border: none; border-radius: 20px; background: white;"
+                  allowfullscreen=""
+                  aria-hidden="false"
+                  tabindex="0"
+                ></iframe>
+                <!-- Overlay for past event -->
+                <div class="past-event-overlay"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       
       <style>
+        .event-card-wrapper {
+            position: relative;
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .event-card-glow {
+            position: absolute;
+            top: 40px; left: -10px; right: -10px; bottom: -10px;
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.4), rgba(255, 102, 0, 0.3));
+            filter: blur(35px);
+            opacity: 0;
+            border-radius: 24px;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+        .upcoming-event:hover .event-card-glow {
+            opacity: 1;
+        }
         .luma-container {
             border-radius: 24px; 
             overflow: hidden; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04); 
-            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06); 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             background: white;
-            padding: 10px;
-            border: 1px solid rgba(0,0,0,0.03);
+            padding: 8px;
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
         }
         .luma-container.past-event {
-            opacity: 0.85;
-            filter: grayscale(20%);
+            filter: grayscale(50%);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03); 
         }
-        .luma-container:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.08); 
-            opacity: 1;
-            filter: none;
-            border-color: rgba(13, 110, 253, 0.2);
+        .past-event-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.1);
+            pointer-events: none;
+            border-radius: 24px;
+        }
+        .event-card-wrapper:hover { 
+            transform: translateY(-10px); 
+        }
+        .upcoming-event:hover .luma-container {
+            border-color: rgba(13, 110, 253, 0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1); 
+        }
+        .past-event-wrapper:hover .luma-container.past-event {
+            filter: grayscale(0%);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+            border-color: rgba(0,0,0,0.1);
         }
       </style>
     </section>
