@@ -193,6 +193,7 @@
                     <h5 class="fw-bold mb-3 px-3">Quick Navigation</h5>
                     <a href="#introduction" class="sidebar-link active">Introduction</a>
                     <a href="#whats-new" class="sidebar-link">What's New (SO101)</a>
+                    <a href="#ai-pipeline" class="sidebar-link">Imitation Learning Pipeline</a>
                     <a href="#specification" class="sidebar-link">Hardware & BOM</a>
                     <a href="#environment" class="sidebar-link">Environment Setup</a>
                     <a href="#printing" class="sidebar-link">3D Printing Steps</a>
@@ -217,27 +218,50 @@
                     <h2 id="whats-new">What's New in SO-ARM101</h2>
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-diagram-3-fill fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">Wiring Optimization</h4>
-                                <p class="small text-muted">Improved design prevents disconnection at joint 3 and removes motion limits.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-diagram-3-fill fs-1" style="color: #0d6efd;"></i>
+                                <h4 class="h6 mt-3 fw-bold">Wiring Optimization</h4>
+                                <p class="small text-muted mb-0">Improved design prevents disconnection at joint 3 and removes motion limits.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-gear-wide-connected fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">Optimized Ratios</h4>
-                                <p class="small text-muted">New motor gear ratios eliminate the need for external gearboxes.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-gear-wide-connected fs-1" style="color: #6f42c1;"></i>
+                                <h4 class="h6 mt-3 fw-bold">Optimized Ratios</h4>
+                                <p class="small text-muted mb-0">New motor gear ratios eliminate the need for external gearboxes.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-cpu-fill fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">Real-time Follow</h4>
-                                <p class="small text-muted">Leader arm follows follower in real-time, crucial for human intervention training.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-cpu-fill fs-1" style="color: #ff6600;"></i>
+                                <h4 class="h6 mt-3 fw-bold">Real-time Follow</h4>
+                                <p class="small text-muted mb-0">Leader arm follows follower in real-time, crucial for human intervention training.</p>
                             </div>
                         </div>
                     </div>
+
+                    <h2 id="ai-pipeline">Imitation Learning Pipeline (ACT)</h2>
+                    <p>The SO-ARM100/101 combined with LeRobot utilizes <strong>Action Chunking with Transformers (ACT)</strong> to teach the robot complex tasks purely through human demonstration. Here is how the pipeline flows:</p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item px-0 py-3 border-bottom">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-camera-video me-2 text-primary"></i> 1. Observation Space</h5>
+                            </div>
+                            <p class="mb-1 text-muted">The robot observes its environment through 1-3 RGB camera feeds (wrist, top, front) and its current joint positions (proprioception). These inputs are passed through a ResNet backbone to extract visual features, which are then fused with the joint data.</p>
+                        </li>
+                        <li class="list-group-item px-0 py-3 border-bottom">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-diagram-3 me-2 text-primary"></i> 2. Transformer Policy</h5>
+                            </div>
+                            <p class="mb-1 text-muted">A Conditional VAE (CVAE) encodes the human demonstration trajectories into a latent style variable. A Transformer Encoder-Decoder architecture then predicts a sequence of future actions (action chunks) based on the latent variable and the current observations.</p>
+                        </li>
+                        <li class="list-group-item px-0 py-3">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-robot me-2 text-primary"></i> 3. Action Chunking</h5>
+                            </div>
+                            <p class="mb-1 text-muted">Instead of predicting a single next move, the model predicts a "chunk" of the next 100 actions (at 50Hz, this is 2 seconds of movement). Temporal ensembling averages overlapping predictions to produce incredibly smooth and robust physical execution.</p>
+                        </li>
+                    </ul>
 
                     <h2 id="specification">Hardware & Specification</h2>
                     <p>The system relies on Feetech ST-3215 series bus servos. The "Arm Kit Pro" version supports 12V operation for higher torque on the follower arm.</p>

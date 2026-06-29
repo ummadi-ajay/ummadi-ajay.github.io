@@ -174,6 +174,7 @@
                     <h5 class="fw-bold mb-3 px-3">Quick Navigation</h5>
                     <a href="#introduction" class="sidebar-link active">Introduction</a>
                     <a href="#whats-new" class="sidebar-link">Orbita Head & Expression</a>
+                    <a href="#ai-capabilities" class="sidebar-link">AI & Teleoperation</a>
                     <a href="#specification" class="sidebar-link">Hardware Specs</a>
                     <a href="#environment" class="sidebar-link">SDK & System Setup</a>
                     <a href="#control-example" class="sidebar-link">Python SDK Example</a>
@@ -193,27 +194,51 @@
                     <h2 id="whats-new">Orbita Head & Expressive Mechanism</h2>
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-eye-fill fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">Animated LCD Eyes</h4>
-                                <p class="small text-muted">Dual circular LCD displays render dynamic pupil movement, blinks, and emotions.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-eye-fill fs-1" style="color: #0d6efd;"></i>
+                                <h4 class="h6 mt-3 fw-bold">Animated LCD Eyes</h4>
+                                <p class="small text-muted mb-0">Dual circular LCD displays render dynamic pupil movement, blinks, and emotions.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-arrow-repeat fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">Orbita 3-DOF Neck</h4>
-                                <p class="small text-muted">Patented parallel mechanism allows smooth pitch, roll, and yaw with speed and agility.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-arrow-repeat fs-1" style="color: #6f42c1;"></i>
+                                <h4 class="h6 mt-3 fw-bold">Orbita 3-DOF Neck</h4>
+                                <p class="small text-muted mb-0">Patented parallel mechanism allows smooth pitch, roll, and yaw with speed and agility.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-plugin fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">Embodied Integration</h4>
-                                <p class="small text-muted">Designed to serve as a physical avatar for Large Language Models (LLMs) and vision systems.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-robot fs-1" style="color: #ff6600;"></i>
+                                <h4 class="h6 mt-3 fw-bold">Embodied Integration</h4>
+                                <p class="small text-muted mb-0">Designed to serve as a physical avatar for Large Language Models (LLMs) and vision systems.</p>
                             </div>
                         </div>
                     </div>
+
+                    <h2 id="ai-capabilities">AI & Teleoperation Capabilities</h2>
+                    <p>Reachy Mini is not just a robotic arm—it is a full research platform for modern AI, supporting complex multi-modal interactions and deep learning pipelines.</p>
+                    
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item px-0 py-3 border-bottom">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-headset me-2 text-primary"></i> VR Teleoperation (WebRTC)</h5>
+                            </div>
+                            <p class="mb-1 text-muted">Using a WebRTC backend, you can teleoperate Reachy Mini from anywhere in the world using a Meta Quest headset. Operators see through the robot's chest-mounted camera in real-time, allowing them to record human-quality demonstrations for training neural networks.</p>
+                        </li>
+                        <li class="list-group-item px-0 py-3 border-bottom">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-brain me-2 text-primary"></i> LLM Voice Agents</h5>
+                            </div>
+                            <p class="mb-1 text-muted">Integrate Reachy Mini with Whisper STT and large language models (like GPT-4o or Llama 3) to create conversational agents. The robot can process spoken queries, generate responses, and synchronize its head movements and LCD eye expressions dynamically to the conversational context.</p>
+                        </li>
+                        <li class="list-group-item px-0 py-3">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-cpu me-2 text-primary"></i> Imitation Learning (ACT)</h5>
+                            </div>
+                            <p class="mb-1 text-muted">The platform supports recording state-action pairs (camera frames + joint positions) at 30-50Hz. This data can be directly fed into architectures like Action Chunking with Transformers (ACT) to train the robot to perform autonomous pick-and-place or manipulation tasks.</p>
+                        </li>
+                    </ul>
 
                     <h2 id="specification">Hardware & Specification</h2>
                     <p>Reachy Mini is powered by a central computer (Raspberry Pi 4 or Raspberry Pi 5) connected to smart motor buses and a control board. Below is the reference architecture specification:</p>

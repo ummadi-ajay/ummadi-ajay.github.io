@@ -174,6 +174,7 @@
                     <h5 class="fw-bold mb-3 px-3">Quick Navigation</h5>
                     <a href="#introduction" class="sidebar-link active">Introduction</a>
                     <a href="#whats-new" class="sidebar-link">What's New in V2</a>
+                    <a href="#sensor-fusion" class="sidebar-link">Sensor Fusion & Arch</a>
                     <a href="#specification" class="sidebar-link">Hardware & BOM</a>
                     <a href="#firmware" class="sidebar-link">micro-ROS Firmware</a>
                     <a href="#navigation" class="sidebar-link">SLAM & LIDAR Navigation</a>
@@ -192,27 +193,50 @@
                     <h2 id="whats-new">What's New in Mini V2</h2>
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-cpu fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">micro-ROS Control</h4>
-                                <p class="small text-muted">Integrated micro-ROS agent coordinates actuator velocity directly over WiFi or serial.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-cpu fs-1" style="color: #0d6efd;"></i>
+                                <h4 class="h6 mt-3 fw-bold">micro-ROS Control</h4>
+                                <p class="small text-muted mb-0">Integrated micro-ROS agent coordinates actuator velocity directly over WiFi or serial.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-radar fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">LIDAR Navigation</h4>
-                                <p class="small text-muted">A 360-degree LIDAR scanner sits on the top deck for real-time laser mapping.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-radar fs-1" style="color: #6f42c1;"></i>
+                                <h4 class="h6 mt-3 fw-bold">LIDAR Navigation</h4>
+                                <p class="small text-muted mb-0">A 360-degree LIDAR scanner sits on the top deck for real-time laser mapping.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="p-3 border rounded-4 text-center">
-                                <i class="bi bi-layers-fill fs-2 text-primary"></i>
-                                <h4 class="h6 mt-3">3D Printed Chassis</h4>
-                                <p class="small text-muted">Fully open-source STL files make repairing or modifying the robot simple.</p>
+                            <div class="p-3 border rounded-4 text-center h-100 bg-light">
+                                <i class="bi bi-layers-fill fs-1" style="color: #ff6600;"></i>
+                                <h4 class="h6 mt-3 fw-bold">3D Printed Chassis</h4>
+                                <p class="small text-muted mb-0">Fully open-source STL files make repairing or modifying the robot simple.</p>
                             </div>
                         </div>
                     </div>
+
+                    <h2 id="sensor-fusion">Sensor Fusion & Architecture</h2>
+                    <p>OpenDuck Mini V2 relies on a multi-layered sensor fusion architecture to achieve millimeter-accurate indoor localization.</p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item px-0 py-3 border-bottom">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-gear me-2 text-primary"></i> 1. Dead Reckoning (Encoders)</h5>
+                            </div>
+                            <p class="mb-1 text-muted">The N20 motors feature high-resolution magnetic Hall-effect encoders. The ESP32 utilizes hardware interrupts to read encoder ticks, calculating exact wheel displacement. This provides high-frequency (100Hz) baseline odometry.</p>
+                        </li>
+                        <li class="list-group-item px-0 py-3 border-bottom">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-compass me-2 text-primary"></i> 2. Inertial Correction (IMU)</h5>
+                            </div>
+                            <p class="mb-1 text-muted">Because wheels slip on carpets and tiles, the MPU6050 6-DOF IMU tracks angular velocity (yaw rate) and linear acceleration. An Extended Kalman Filter (EKF) on the Raspberry Pi fuses the IMU data with wheel odometry to eliminate rotational drift.</p>
+                        </li>
+                        <li class="list-group-item px-0 py-3">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 fw-bold text-dark"><i class="bi bi-radar me-2 text-primary"></i> 3. Global Localization (LIDAR)</h5>
+                            </div>
+                            <p class="mb-1 text-muted">The RPLidar A1 continuously scans the environment at 8Hz, matching laser points against a static occupancy grid map using AMCL (Adaptive Monte Carlo Localization) to correct any accumulated odometry errors and ground the robot in global space.</p>
+                        </li>
+                    </ul>
 
                     <h2 id="specification">Hardware & Specification</h2>
                     <p>The system utilizes standard N20 encoder gearmotors, an ESP32 microcontroller for real-time motor PID speed control, and a Raspberry Pi host processor for mapping and logic.</p>
