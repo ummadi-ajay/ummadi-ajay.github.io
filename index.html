@@ -1009,16 +1009,20 @@
     </section>
 
     <section id="physical-ai-featured" class="py-5"
-      style="background: #fbfbfd; color: #1d1d1f; overflow: hidden; position: relative;">
-      <div class="container position-relative py-5">
+      style="background: #ffffff; color: #1d1d1f; overflow: hidden; position: relative;">
+      
+      <!-- Premium Background Glows -->
+      <div style="position: absolute; top: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(13, 110, 253, 0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none;"></div>
+      <div style="position: absolute; bottom: -150px; right: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(111, 66, 193, 0.06) 0%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none;"></div>
+
+      <div class="container position-relative py-5 z-1">
         <!-- Theory Row (Text on left, Features & Actions on right) -->
         <div class="row align-items-center g-5 mb-5">
           <div class="col-lg-6" data-aos="fade-right">
-            <span class="section-tag mb-3 d-inline-block">Physical AI Lab</span>
+            <span class="section-tag mb-3 d-inline-block" style="background: linear-gradient(135deg, #6f42c1, #0d6efd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Physical AI Lab</span>
             <h2 class="display-4 fw-800 mb-4"
-              style="font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: 0; line-height: 1.15;">AI that
-              moves, sees, and learns.</h2>
-            <p class="fs-5 mb-0 text-muted">At MakerWorks Lab, AI does not stop at prompts and screens. Students work at
+              style="font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -1px; line-height: 1.15;">AI that <span style="background: linear-gradient(135deg, #0d6efd, #6f42c1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Moves, Sees, and Learns.</span></h2>
+            <p class="fs-5 mb-0 text-muted" style="line-height: 1.7;">At MakerWorks Lab, AI does not stop at prompts and screens. Students work at
               the intersection of models, sensors, actuators, cameras, robot arms, and open-source hardware using
               Hugging Face LeRobot, Reachy Mini, and OpenDuck Mini V2.</p>
           </div>
@@ -1054,18 +1058,18 @@
               </div>
             </div>
 
-            <div class="physical-ai-actions">
+            <div class="physical-ai-actions mt-4">
               <a href="https://wa.me/919137114223?text=Hi,%20I%20want%20to%20know%20more%20about%20MakerWorks%20Physical%20AI,%20LeRobot,%20Reachy%20Mini,%20and%20OpenDuck%20V2."
-                target="_blank" class="btn-premium btn-primary-mw physical-ai-action">
+                target="_blank" class="btn-premium btn-primary-mw physical-ai-action" style="grid-column: span 2; font-size: 1rem; padding: 16px; background: linear-gradient(135deg, #0d6efd, #0099ff); border: none; color: white; box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);">
                 Ask About Physical AI (AI + Hardware) <i class="bi bi-whatsapp"></i>
               </a>
-              <a href="/projects/lerobot-so100m.html" class="btn-premium btn-outline-mw physical-ai-action">
+              <a href="/projects/lerobot-so100m.html" class="btn-premium btn-outline-mw physical-ai-action action-secondary">
                 Explore LeRobot <i class="bi bi-arrow-right"></i>
               </a>
-              <a href="/projects/reachy-mini.html" class="btn-premium btn-outline-mw physical-ai-action">
+              <a href="/projects/reachy-mini.html" class="btn-premium btn-outline-mw physical-ai-action action-secondary">
                 Explore Reachy Mini <i class="bi bi-arrow-right"></i>
               </a>
-              <a href="/projects/openduck.html" class="btn-premium btn-outline-mw physical-ai-action">
+              <a href="/projects/openduck.html" class="btn-premium btn-outline-mw physical-ai-action action-secondary" style="grid-column: span 2;">
                 Explore OpenDuck V2 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -1076,50 +1080,61 @@
         <div class="row" data-aos="fade-up">
           <div class="col-12">
             <div class="physical-ai-video-stack">
-              <div class="physical-ai-video-card">
-                <div class="physical-ai-video-frame">
-                  <iframe src="https://www.youtube.com/embed/JvdBJZ-qR18"
-                    title="Your open-source companion - Reachy Mini" loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="physical-ai-video-body">
-                  <span class="video-card-title">Reachy Mini</span>
-                  <p class="video-card-desc">Expressive desktop robotics and embodied agents</p>
-                  <a href="/projects/reachy-mini.html" class="btn-premium btn-outline-mw mt-auto pt-2 pb-2 w-100 justify-content-center text-center d-flex align-items-center gap-2" style="min-height: 40px; font-size: 0.85rem;">
-                    View Guide & Wiki <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="physical-ai-video-card">
-                <div class="physical-ai-video-frame">
-                  <iframe src="https://www.youtube.com/embed/oitT8geMat0"
-                    title="What Is Hugging Face LeRobot? Demo with the Hiwonder SO-ARM101 Open-Source Robot Arm"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="physical-ai-video-body">
-                  <span class="video-card-title">Hugging Face LeRobot</span>
-                  <p class="video-card-desc">Robot arms, teleoperation, datasets, policies</p>
-                  <a href="/projects/lerobot-so100m.html" class="btn-premium btn-outline-mw mt-auto pt-2 pb-2 w-100 justify-content-center text-center d-flex align-items-center gap-2" style="min-height: 40px; font-size: 0.85rem;">
-                    View Guide & Wiki <i class="bi bi-arrow-right"></i>
-                  </a>
+              <div class="video-card-wrapper">
+                <div class="video-card-glow"></div>
+                <div class="physical-ai-video-card">
+                  <div class="physical-ai-video-frame">
+                    <iframe src="https://www.youtube.com/embed/JvdBJZ-qR18"
+                      title="Your open-source companion - Reachy Mini" loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="physical-ai-video-body">
+                    <span class="video-card-title">Reachy Mini</span>
+                    <p class="video-card-desc">Expressive desktop robotics and embodied agents</p>
+                    <a href="/projects/reachy-mini.html" class="btn-premium btn-outline-mw mt-auto pt-2 pb-2 w-100 justify-content-center text-center d-flex align-items-center gap-2" style="min-height: 40px; font-size: 0.85rem;">
+                      View Guide & Wiki <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div class="physical-ai-video-card">
-                <div class="physical-ai-video-frame">
-                  <iframe src="https://www.youtube.com/embed/7_LW7u-nk6Q?start=286"
-                    title="OpenDuck Mini V2 video" loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              
+              <div class="video-card-wrapper">
+                <div class="video-card-glow"></div>
+                <div class="physical-ai-video-card">
+                  <div class="physical-ai-video-frame">
+                    <iframe src="https://www.youtube.com/embed/oitT8geMat0"
+                      title="What Is Hugging Face LeRobot? Demo with the Hiwonder SO-ARM101 Open-Source Robot Arm"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="physical-ai-video-body">
+                    <span class="video-card-title">Hugging Face LeRobot</span>
+                    <p class="video-card-desc">Robot arms, teleoperation, datasets, policies</p>
+                    <a href="/projects/lerobot-so100m.html" class="btn-premium btn-outline-mw mt-auto pt-2 pb-2 w-100 justify-content-center text-center d-flex align-items-center gap-2" style="min-height: 40px; font-size: 0.85rem;">
+                      View Guide & Wiki <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
                 </div>
-                <div class="physical-ai-video-body">
-                  <span class="video-card-title">OpenDuck Mini V2</span>
-                  <p class="video-card-desc">Smart wheeled platform, navigation, and digital fabrication</p>
-                  <a href="/projects/openduck.html" class="btn-premium btn-outline-mw mt-auto pt-2 pb-2 w-100 justify-content-center text-center d-flex align-items-center gap-2" style="min-height: 40px; font-size: 0.85rem;">
-                    View Guide & Wiki <i class="bi bi-arrow-right"></i>
-                  </a>
+              </div>
+              
+              <div class="video-card-wrapper">
+                <div class="video-card-glow"></div>
+                <div class="physical-ai-video-card">
+                  <div class="physical-ai-video-frame">
+                    <iframe src="https://www.youtube.com/embed/7_LW7u-nk6Q?start=286"
+                      title="OpenDuck Mini V2 video" loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="physical-ai-video-body">
+                    <span class="video-card-title">OpenDuck Mini V2</span>
+                    <p class="video-card-desc">Smart wheeled platform, navigation, and digital fabrication</p>
+                    <a href="/projects/openduck.html" class="btn-premium btn-outline-mw mt-auto pt-2 pb-2 w-100 justify-content-center text-center d-flex align-items-center gap-2" style="min-height: 40px; font-size: 0.85rem;">
+                      View Guide & Wiki <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1128,50 +1143,56 @@
       </div>
       <style>
         #physical-ai-featured {
-          border-top: 1px solid var(--glass-border);
-          border-bottom: 1px solid var(--glass-border);
+          border-top: 1px solid rgba(0,0,0,0.03);
+          border-bottom: 1px solid rgba(0,0,0,0.03);
         }
 
         .physical-ai-feature-grid {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 16px;
+          gap: 20px;
         }
 
         .physical-ai-feature {
           display: flex;
           align-items: center;
-          gap: 14px;
+          gap: 16px;
           min-width: 0;
-          padding: 16px;
-          background: #fff;
-          border: 1px solid var(--glass-border);
-          border-radius: 12px;
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(13, 110, 253, 0.08);
+          border-radius: 16px;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
 
         .physical-ai-feature:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-          border-color: var(--primary);
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(13, 110, 253, 0.08);
+          border-color: rgba(13, 110, 253, 0.3);
+          background: #ffffff;
         }
 
         .physical-ai-feature i {
           flex: 0 0 auto;
           display: inline-grid;
           place-items: center;
-          width: 44px;
-          height: 44px;
-          border-radius: 10px;
-          background: rgba(13, 110, 253, 0.06);
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+          background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1));
           color: var(--primary);
-          font-size: 1.3rem;
-          transition: all 0.3s ease;
+          font-size: 1.4rem;
+          transition: all 0.4s ease;
         }
 
         .physical-ai-feature:hover i {
-          background: var(--primary);
+          background: linear-gradient(135deg, #0d6efd, #6f42c1);
           color: #ffffff;
+          transform: scale(1.1) rotate(5deg);
+          box-shadow: 0 8px 15px rgba(13, 110, 253, 0.3);
         }
 
         .physical-ai-feature span {
@@ -1180,13 +1201,16 @@
           font-size: 0.88rem;
           font-weight: 700;
           line-height: 1.25;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
 
         .physical-ai-feature strong {
           display: block;
           color: var(--dark);
-          font-size: 1.08rem;
+          font-size: 1.15rem;
           line-height: 1.25;
+          margin-top: 2px;
         }
 
         .physical-ai-actions {
@@ -1203,15 +1227,29 @@
 
         .physical-ai-action {
           width: 100%;
-          min-height: 64px;
-          border-radius: 8px;
+          min-height: 60px;
+          border-radius: 12px;
           padding: 12px 14px;
-          font-size: 0.92rem;
+          font-size: 0.95rem;
           line-height: 1.25;
           justify-content: center;
           text-align: center;
           gap: 8px;
           white-space: normal;
+          transition: all 0.3s ease;
+        }
+        
+        .action-secondary {
+            background: rgba(13, 110, 253, 0.03);
+            border: 1px solid rgba(13, 110, 253, 0.15);
+            color: var(--primary);
+        }
+        .action-secondary:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
         }
 
         .physical-ai-video-stack {
@@ -1219,23 +1257,46 @@
           grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 24px;
         }
+        
+        .video-card-wrapper {
+          position: relative;
+          height: 100%;
+        }
+
+        .video-card-glow {
+          position: absolute;
+          top: 20px; left: -5px; right: -5px; bottom: -5px;
+          background: linear-gradient(135deg, rgba(13, 110, 253, 0.3), rgba(111, 66, 193, 0.2));
+          filter: blur(25px);
+          opacity: 0;
+          border-radius: 24px;
+          transition: opacity 0.5s ease;
+          z-index: 0;
+        }
+
+        .video-card-wrapper:hover .video-card-glow {
+          opacity: 1;
+        }
 
         .physical-ai-video-card {
+          position: relative;
+          z-index: 1;
+          height: 100%;
           min-width: 0;
           background: #ffffff;
-          border: 1px solid #e5e5e7;
-          border-radius: 16px;
+          border: 1px solid rgba(0,0,0,0.06);
+          border-radius: 20px;
           overflow: hidden;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
           display: flex;
           flex-direction: column;
         }
 
-        .physical-ai-video-card:hover {
-          transform: translateY(-8px);
+        .video-card-wrapper:hover .physical-ai-video-card {
+          transform: translateY(-10px);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-          border-color: var(--primary);
+          border-color: rgba(13, 110, 253, 0.2);
         }
 
         .physical-ai-video-frame {
