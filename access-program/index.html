@@ -342,25 +342,26 @@
             margin-top: auto;
         }
 
-        .btn-apply:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.15);
+        a.btn-apply:hover, .tier-card a.btn-apply:hover {
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 10px 20px rgba(253, 13, 145, 0.15) !important;
             transform: translateY(-2px);
         }
 
-        .tier-card.featured .btn-apply {
+        .tier-card.featured a.btn-apply {
             background: var(--primary);
-            color: white;
+            color: #ffffff !important;
             border-color: var(--primary);
             box-shadow: 0 8px 16px rgba(13, 110, 253, 0.1);
         }
 
-        .tier-card.featured .btn-apply:hover {
-            background: var(--primary-dark);
-            border-color: var(--primary-dark);
-            box-shadow: 0 12px 24px rgba(13, 110, 253, 0.2);
+        .tier-card.featured a.btn-apply:hover {
+            background: #ffffff !important;
+            color: var(--primary) !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 12px 24px rgba(13, 110, 253, 0.2) !important;
         }
 
         /* Facility Cards */
@@ -438,7 +439,7 @@
             font-size: 0.72rem;
             padding: 4px 10px;
             border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             transition: all 0.2s ease;
         }
 
@@ -567,8 +568,8 @@
         }
 
         .btn-submit:hover:not(:disabled) {
-            transform: translateY(-3px);
-            background: #000;
+            transform: scale(1.02);
+            color: #fff;
             box-shadow: 0 25px 50px rgba(15, 23, 42, 0.25);
         }
 
@@ -650,6 +651,7 @@
         .career-card-hover {
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .career-card-hover:hover {
             border-color: rgba(13, 110, 253, 0.25) !important;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06) !important;
@@ -725,7 +727,7 @@
                         </div>
                         <div class="tier-header-block">
                             <div class="tier-header">
-                                <h3>Innovators Cafe</h3>
+                                <h3>Ignite Pass</h3>
                                 <span class="badge bg-light text-muted fw-semibold">Ideators & Students</span>
                             </div>
                             <div class="tier-price">
@@ -742,9 +744,12 @@
                             <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities
                             </h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Open Lab Space Access</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Standard Workbench Power & Outlets</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi (Fiber connection)</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Open Lab Space
+                                    Access</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Standard Workbench
+                                    Power & Outlets</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi
+                                    (Fiber connection)</li>
                             </ul>
 
                             <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i>
@@ -758,8 +763,8 @@
                                     Programs</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Innovators Cafe')" class="btn-apply mt-4">Select
-                            Innovators Cafe</a>
+                        <a href="#apply" onclick="selectTier('Ignite Pass')" class="btn-apply mt-4">Select
+                            Ignite Pass</a>
                     </div>
                 </div>
 
@@ -772,7 +777,7 @@
                         </div>
                         <div class="tier-header-block">
                             <div class="tier-header">
-                                <h3>Maker’s Office</h3>
+                                <h3>Builder Pass</h3>
                                 <span class="badge bg-primary-subtle text-primary fw-semibold">Startups &
                                     Builders</span>
                             </div>
@@ -791,9 +796,12 @@
                             <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities
                             </h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Shared Prototyping Bench Access</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power Outlets</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi & Lab Storage Access</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Shared Prototyping
+                                    Bench Access</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Power
+                                    Outlets</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi &
+                                    Lab Storage Access</li>
                             </ul>
 
                             <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i>
@@ -807,8 +815,8 @@
                                     Demo Day Access</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Maker’s Office')" class="btn-apply mt-4">Select Maker’s
-                            Office</a>
+                        <a href="#apply" onclick="selectTier('Builder Pass')" class="btn-apply mt-4">Select Builder
+                            Pass</a>
                     </div>
                 </div>
 
@@ -820,7 +828,7 @@
                         </div>
                         <div class="tier-header-block">
                             <div class="tier-header">
-                                <h3>Startup Garage</h3>
+                                <h3>Dominate Pass</h3>
                                 <span class="badge bg-dark text-white fw-semibold">MVP Startups (TRL 4+)</span>
                             </div>
                             <div class="tier-price">
@@ -837,9 +845,12 @@
                             <h5 class="feature-section-title"><i class="bi bi-building text-primary"></i> Facilities
                             </h5>
                             <ul class="feature-list facility-list">
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Hardware Prototyping Bay</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Multi-phase AC/DC Lab Power Supply</li>
-                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi & Dedicated Equipment Storage</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Dedicated Hardware
+                                    Prototyping Bay</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> Multi-phase AC/DC
+                                    Lab Power Supply</li>
+                                <li><i class="bi bg-light rounded-circle text-primary bi-check"></i> High-Speed WiFi &
+                                    Dedicated Equipment Storage</li>
                             </ul>
 
                             <h5 class="feature-section-title"><i class="bi bi-gear-wide-connected text-primary"></i>
@@ -853,8 +864,8 @@
                                     Innovation Events & Ecosystem</li>
                             </ul>
                         </div>
-                        <a href="#apply" onclick="selectTier('Startup Garage')" class="btn-apply mt-4">Select Startup
-                            Garage</a>
+                        <a href="#apply" onclick="selectTier('Dominate Pass')" class="btn-apply mt-4">Select Dominate
+                            Pass</a>
                     </div>
                 </div>
             </div>
@@ -875,9 +886,9 @@
                     <thead>
                         <tr class="text-start">
                             <th style="min-width: 250px;">Access Benefits</th>
-                            <th class="text-center" style="width: 25%;">Innovators Cafe</th>
-                            <th class="text-center" style="width: 25%;">Maker's Office</th>
-                            <th class="text-center" style="width: 25%;">Startup Garage</th>
+                            <th class="text-center" style="width: 25%;">Ignite Pass</th>
+                            <th class="text-center" style="width: 25%;">Builder Pass</th>
+                            <th class="text-center" style="width: 25%;">Dominate Pass</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -903,7 +914,8 @@
                             <td><strong>High-Speed WiFi & Power</strong></td>
                             <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
                             <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
-                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i> (Dedicated line)</td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i> (Dedicated
+                                line)</td>
                         </tr>
                         <tr>
                             <td><strong>Equipment/Parts Storage</strong></td>
@@ -931,269 +943,165 @@
 
 
 
-    <!-- Application Form Section (Split Screen) -->
+    <!-- Application Form Section -->
     <section id="apply" class="py-5 my-5">
         <div class="container">
-            <div class="row g-5 align-items-stretch">
-                <!-- Left Side: Why Join / Testimonials -->
-                <div class="col-lg-5" data-aos="fade-right">
-                    <div class="side-info-card">
-                        <div>
-                            <span class="badge bg-primary-subtle text-primary rounded-pill fw-bold px-3 py-2 mb-4"
-                                style="font-size: 0.72rem;">STAGED ONBOARDING</span>
-                            <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Why
-                                Join the Access Program?</h2>
-                            <p class="text-light-50 mt-3 text-secondary" style="color: #cbd5e1;">More than just a
-                                co-working space, MakerWorks Lab is Mumbai's physical incubation ecosystem for
-                                engineering builders.</p>
-
-                            <ul class="side-info-list">
-                                <li>
-                                    <i class="bi bi-cpu"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">State-of-the-Art Prototyping</h5>
-                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Don't spend lakhs
-                                            on tools. Access industrial 3D printers, laser cutters, CNCs, and PCB fab
-                                            labs instantly.</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="bi bi-people-fill"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">Ecosystem & Community</h5>
-                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Rub shoulders with
-                                            hardware developers, robot building students, and tech investors every day.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="bi bi-award-fill"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">Incubation Support</h5>
-                                        <p class="text-secondary small mb-0" style="color: #94a3b8;">Pitching
-                                            opportunities, VC demo days, and structured mentorship to validate and scale
-                                            product stages.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="testimonial-block">
-                            <p class="fst-italic small mb-2" style="color: #e2e8f0;">"MakerWorks gave us the bench
-                                space, tools, and technical support to scale our mobile humanoid robot prototype from
-                                early idea to TRL 5 in less than 3 months."</p>
-                            <div class="fw-bold small text-white">— Ajay Ummadi, Robotics Developer</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Side: The Form -->
-                <div class="col-lg-7" data-aos="fade-left">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
                     <div class="app-form-card">
                         <div id="formSection">
-                            <h2 class="fw-800 mb-3" style="font-family: 'Bricolage Grotesque', sans-serif;">Access
-                                Program Application</h2>
-                            <p class="text-secondary small mb-5">Select a pass and fill in your hardware project details. A
-                                coordinator will contact you to discuss scheduling and lab capabilities.</p>
+                            <h2 class="fw-800 mb-3 text-center" style="font-family: 'Bricolage Grotesque', sans-serif;">
+                                Access Program Application</h2>
+                            <p class="text-secondary text-center small mb-5">Select a membership pass and enter your
+                                details to apply. A coordinator will contact you to schedule onboarding.</p>
 
-                            <form id="accessAppForm">
+                            <form id="accessAppForm" novalidate>
                                 <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Preferred Access Tier</label>
+
+                                    <!-- Name -->
+                                    <div class="col-12">
+                                        <label class="form-label fw-700">Name</label>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label text-muted small">First Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="firstName" required autocomplete="given-name">
+                                                <div class="invalid-feedback">First name is required.</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label text-muted small">Last Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="lastName" required autocomplete="family-name">
+                                                <div class="invalid-feedback">Last name is required.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Phone -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="phone">Phone <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="phone" required autocomplete="tel" pattern="[0-9]{10}">
+                                        <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="email" required autocomplete="email">
+                                        <div class="invalid-feedback">Enter a valid email address.</div>
+                                        <div class="form-check mt-2">
+                                            <input class="form-check-input" type="checkbox" id="newsletterCheck">
+                                            <label class="form-check-label text-muted small" for="newsletterCheck">Sign up for news and updates</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Hardware Startup Question -->
+                                    <div class="col-12">
+                                        <label class="form-label">Are you a hardware startup/maker building a hardware product? <span class="text-danger">*</span></label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="isHardware" id="isHardwareYes" value="Yes" required>
+                                            <label class="form-check-label" for="isHardwareYes">Yes</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="isHardware" id="isHardwareNo" value="No">
+                                            <label class="form-check-label" for="isHardwareNo">No</label>
+                                        </div>
+                                        <div class="invalid-feedback" id="isHardwareError" style="display:none;"></div>
+                                    </div>
+
+                                    <!-- Startup Name -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="startupName">Name of the Startup (if applicable)</label>
+                                        <input type="text" class="form-control" id="startupName" autocomplete="organization">
+                                    </div>
+
+                                    <!-- LinkedIn -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="linkedinUrl">LinkedIn Profile</label>
+                                        <input type="url" class="form-control" id="linkedinUrl" autocomplete="url">
+                                        <div class="invalid-feedback">Enter a valid LinkedIn URL (https://...).</div>
+                                    </div>
+
+                                    <!-- Startup Description -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="startupDesc">Description of Startup (if applicable) <small class="text-muted">(max 800 words)</small></label>
+                                        <textarea class="form-control" id="startupDesc" rows="4" maxlength="6000"></textarea>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <span id="descError" class="text-danger small" style="display:none;">Description exceeds 800 words.</span>
+                                            <span id="descWordCount" class="text-muted small ms-auto">0 / 800 words</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Is Registered? -->
+                                    <div class="col-12">
+                                        <label class="form-label">Is your startup registered? <span class="text-danger">*</span></label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="isRegistered" id="isRegisteredYes" value="Yes" required>
+                                            <label class="form-check-label" for="isRegisteredYes">Yes</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="isRegistered" id="isRegisteredNo" value="No">
+                                            <label class="form-check-label" for="isRegisteredNo">No</label>
+                                        </div>
+                                        <div class="invalid-feedback" id="isRegisteredError" style="display:none;"></div>
+                                    </div>
+
+                                    <!-- Product Name -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="productName">Product Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="productName" required>
+                                        <div class="invalid-feedback">Product name is required.</div>
+                                    </div>
+
+                                    <!-- Product Stage -->
+                                    <div class="col-12">
+                                        <label class="form-label">Product Stage <span class="text-danger">*</span></label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="productStage" id="stageIdea" value="Idea" required>
+                                            <label class="form-check-label" for="stageIdea">Idea</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="productStage" id="stagePOC" value="POC">
+                                            <label class="form-check-label" for="stagePOC">POC</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="productStage" id="stageMVP" value="MVP/Prototype">
+                                            <label class="form-check-label" for="stageMVP">MVP/Prototype</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="productStage" id="stageGTM" value="GTM Ready">
+                                            <label class="form-check-label" for="stageGTM">GTM Ready</label>
+                                        </div>
+                                        <div class="invalid-feedback" id="productStageError" style="display:none;"></div>
+                                    </div>
+
+                                    <!-- Material Link -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="materialLink">Link to relevant material (portfolio, pitch deck, or profile, if any) <span class="text-danger">*</span></label>
+                                        <input type="url" class="form-control" id="materialLink" required>
+                                        <div class="invalid-feedback">Enter a valid URL (https://...).</div>
+                                    </div>
+
+                                    <!-- Which Program -->
+                                    <div class="col-12">
+                                        <label class="form-label" for="accessTier">Which program are you applying for? <span class="text-danger">*</span></label>
                                         <select class="form-select" id="accessTier" required>
-                                            <option value="" disabled selected>Choose a membership tier</option>
-                                            <option value="Innovators Cafe">Innovators Cafe (₹3,000/mo)</option>
-                                            <option value="Maker’s Office">Maker’s Office (₹7,000/mo)</option>
-                                            <option value="Startup Garage">Startup Garage (₹20,000/mo)</option>
+                                            <option value="" disabled selected>Select a program</option>
+                                            <option value="Ignite Pass">Ignite Pass (₹3,000/mo)</option>
+                                            <option value="Builder Pass">Builder Pass (₹7,000/mo)</option>
+                                            <option value="Dominate Pass">Dominate Pass (₹20,000/mo)</option>
                                         </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="fullName"
-                                            placeholder="e.g. Rahul Sharma" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">WhatsApp Contact Number</label>
-                                        <input type="tel" class="form-control" id="whatsApp"
-                                            placeholder="+91 XXXXX XXXXX" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email"
-                                            placeholder="e.g. rahul@example.com" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">Organization / Startup / College</label>
-                                        <input type="text" class="form-control" id="orgName"
-                                            placeholder="e.g. Spark Tech / IIT Bombay" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Project / Startup Name</label>
-                                        <input type="text" class="form-control" id="projectName"
-                                            placeholder="e.g. Robocortex AI (or 'N/A')">
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">Team Size (Access Required For)</label>
-                                        <select class="form-select" id="teamSize" required>
-                                            <option value="" disabled selected>Select number of members</option>
-                                            <option value="Solo Builder">Solo Builder (1 person)</option>
-                                            <option value="Small Team">Small Team (2-4 people)</option>
-                                            <option value="Mid Size Team">Mid-size Team (5-8 people)</option>
-                                            <option value="Large Team">Large Team (9+ people)</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Target Access Duration</label>
-                                        <select class="form-select" id="accessDuration" required>
-                                            <option value="" disabled selected>Choose intended period</option>
-                                            <option value="1 Month">1 Month Trial</option>
-                                            <option value="3 Months">3 Months incubation</option>
-                                            <option value="6 Months">6 Months acceleration</option>
-                                            <option value="12+ Months">12+ Months long-term</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">Current Product Phase (TRL)</label>
-                                        <select class="form-select" id="trlLevel" required>
-                                            <option value="" disabled selected>Select development stage</option>
-                                            <option value="Idea Stage">Idea / Research Phase</option>
-                                            <option value="Proof of Concept">Proof of Concept (PoC)</option>
-                                            <option value="MVP Completed">Minimum Viable Product (MVP)</option>
-                                            <option value="Market Ready">Market Ready / Scaling</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Estimated Monthly Prototyping Budget (INR)</label>
-                                        <select class="form-select" id="protoBudget" required>
-                                            <option value="" disabled selected>Select budget range</option>
-                                            <option value="Under ₹5,000">Under ₹5,000</option>
-                                            <option value="₹5,000 - ₹20,000">₹5,000 - ₹20,000</option>
-                                            <option value="₹20,000 - ₹50,000">₹20,000 - ₹50,000</option>
-                                            <option value="₹50,000+">₹50,000+</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label class="form-label d-block mb-2">Primary Technology Domains (Select all that apply)</label>
-                                        <div class="row g-2 px-1">
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input tech-domain-cb" type="checkbox" value="Physical AI / Embodied AI" id="techAI">
-                                                    <label class="form-check-label small text-secondary" for="techAI">Physical / Embodied AI</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input tech-domain-cb" type="checkbox" value="Robotics / Kinematics" id="techRobotics">
-                                                    <label class="form-check-label small text-secondary" for="techRobotics">Robotics & Kinematics</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input tech-domain-cb" type="checkbox" value="IoT & Connected Devices" id="techIoT">
-                                                    <label class="form-check-label small text-secondary" for="techIoT">IoT & Connected Devices</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input tech-domain-cb" type="checkbox" value="PCB & Embedded Electronics" id="techPCB">
-                                                    <label class="form-check-label small text-secondary" for="techPCB">PCB & Embedded Hardware</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input tech-domain-cb" type="checkbox" value="Autonomous Drones / Vehicles" id="techUAV">
-                                                    <label class="form-check-label small text-secondary" for="techUAV">Drones / Autonomous Vehicles</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input tech-domain-cb" type="checkbox" value="Other Hardware Domains" id="techOther">
-                                                    <label class="form-check-label small text-secondary" for="techOther">Other Hardware Domains</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label class="form-label d-block mb-2">Specific Lab Facilities Needed (Select all that apply)</label>
-                                        <div class="row g-2 px-1">
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input lab-facility-cb" type="checkbox" value="3D Printing & Fab Lab" id="facility3D">
-                                                    <label class="form-check-label small text-secondary" for="facility3D">3D Printing & Fab Lab</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input lab-facility-cb" type="checkbox" value="Electronics & IoT Lab" id="facilityElec">
-                                                    <label class="form-check-label small text-secondary" for="facilityElec">Electronics & IoT Lab</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input lab-facility-cb" type="checkbox" value="Wood & Metal Workshop" id="facilityWood">
-                                                    <label class="form-check-label small text-secondary" for="facilityWood">Wood & Metal Workshop</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input lab-facility-cb" type="checkbox" value="PCB Fabrication Lab" id="facilityPCB">
-                                                    <label class="form-check-label small text-secondary" for="facilityPCB">PCB Fabrication Lab</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input lab-facility-cb" type="checkbox" value="Laser Cutting Studio" id="facilityLaser">
-                                                    <label class="form-check-label small text-secondary" for="facilityLaser">Laser Cutting Studio</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input lab-facility-cb" type="checkbox" value="Physical AI Arena" id="facilityAI">
-                                                    <label class="form-check-label small text-secondary" for="facilityAI">Physical AI Arena (MoCap)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label class="form-label">Core Hardware Components (Microcontrollers, Actuators, Sensors, Motors)</label>
-                                        <textarea class="form-control" id="coreComponents" rows="2"
-                                            placeholder="e.g. ESP32, Raspberry Pi 5, brushless motors, LiDAR sensor, depth cameras, Dynamixel servos..."
-                                            required></textarea>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label class="form-label">What is the current bottleneck of your build?</label>
-                                        <textarea class="form-control" id="buildBottleneck" rows="2"
-                                            placeholder="e.g. Designing double-sided PCBs, printing large TPU enclosures, calibrating robot arms, lack of workspace, etc."
-                                            required></textarea>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label class="form-label">Briefly describe your hardware/robotics project or
-                                            build goal</label>
-                                        <textarea class="form-control" id="projectDetails" rows="3"
-                                            placeholder="Describe the physical product, what prototyping services you need..."
-                                            required></textarea>
+                                        <div class="invalid-feedback">Please select a program.</div>
                                     </div>
 
                                     <div class="col-12 text-center mt-4">
                                         <button type="submit" class="btn btn-submit" id="submitBtn">
-                                            <span id="btnText">Submit Access Request</span>
+                                            <span id="btnText">Submit</span>
                                             <div class="loading-spinner" id="btnSpinner"></div>
                                         </button>
-                                        <p class="text-muted mt-3 small"><i
-                                                class="bi bi-shield-lock-fill text-primary"></i> Data securely processed
-                                            via Firebase Cloud Services</p>
+                                        <p class="text-muted mt-3 small"><i class="bi bi-shield-lock-fill text-primary"></i> Data securely processed via Firebase Cloud Services</p>
                                     </div>
                                 </div>
                             </form>
+
                         </div>
 
                         <!-- Success Screen -->
@@ -1201,9 +1109,9 @@
                             <div class="success-icon">
                                 <i class="bi bi-check-lg"></i>
                             </div>
-                            <h2 class="fw-800 mb-3" style="font-family: 'Bricolage Grotesque', sans-serif;">Application
-                                Staged</h2>
-                            <p class="text-muted fs-5 mb-5 px-lg-5">Your Access Program application has been
+                            <h2 class="fw-800 mb-3 text-center" style="font-family: 'Bricolage Grotesque', sans-serif;">
+                                Application Staged</h2>
+                            <p class="text-muted fs-5 mb-5 px-lg-5 text-center">Your Access Program application has been
                                 successfully saved. A lab coordinator will reach out to you within 24 hours to schedule
                                 an onboarding tour.</p>
 
@@ -1215,7 +1123,10 @@
                                     enquiries@makerworkslab.in</div>
                             </div>
 
-                            <a href="/" class="btn btn-dark rounded-pill px-5 py-3 fw-800 shadow-lg">Return to Home</a>
+                            <div class="text-center">
+                                <a href="/" class="btn btn-dark rounded-pill px-5 py-3 fw-800 shadow-lg">Return to
+                                    Home</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1229,7 +1140,8 @@
             <div class="text-center mb-5">
                 <span class="section-tag">Access Program Details</span>
                 <h2 class="fw-800 display-6" style="font-family: 'Bricolage Grotesque', sans-serif;">Frequently Asked
-                    <span class="text-primary">Questions</span></h2>
+                    <span class="text-primary">Questions</span>
+                </h2>
             </div>
 
             <div class="row justify-content-center mt-5">
@@ -1370,33 +1282,133 @@
                 });
             }
 
+            function validateField(el) {
+                if (['radio', 'checkbox', 'submit'].includes(el.type) || el.tagName === 'BUTTON') {
+                    if (el.name === 'isHardware') {
+                        document.getElementById('isHardwareError').style.display = document.querySelector('input[name="isHardware"]:checked') ? 'none' : 'block';
+                    } else if (el.name === 'isRegistered') {
+                        document.getElementById('isRegisteredError').style.display = document.querySelector('input[name="isRegistered"]:checked') ? 'none' : 'block';
+                    } else if (el.name === 'productStage') {
+                        document.getElementById('productStageError').style.display = document.querySelector('input[name="productStage"]:checked') ? 'none' : 'block';
+                    }
+                    return;
+                }
+
+                const val = el.value.trim();
+
+                if (!val) {
+                    if (el.hasAttribute('required')) {
+                        el.classList.add('is-invalid');
+                        el.classList.remove('is-valid');
+                    } else {
+                        el.classList.remove('is-invalid', 'is-valid');
+                    }
+                    if (el.id === 'startupDesc') document.getElementById('descError').style.display = 'none';
+                    return;
+                }
+
+                let isValid = true;
+                let customMsg = '';
+
+                if (el.id === 'phone') {
+                    isValid = /^\d{10}$/.test(val);
+                    customMsg = 'Enter a valid 10-digit phone number.';
+                } else if (el.id === 'email') {
+                    isValid = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(val);
+                    customMsg = 'Enter a valid email address.';
+                } else if (el.id === 'linkedinUrl' || el.id === 'materialLink') {
+                    isValid = /^https:\/\/.+/.test(val);
+                    customMsg = 'Must be a full URL starting with https://';
+                } else if (el.id === 'startupDesc') {
+                    const words = val.split(/\s+/).filter(w => w.length > 0);
+                    isValid = words.length <= 800;
+                    document.getElementById('descError').style.display = isValid ? 'inline' : 'none';
+                }
+
+                if (isValid) {
+                    el.classList.remove('is-invalid');
+                    el.classList.add('is-valid');
+                } else {
+                    el.classList.add('is-invalid');
+                    el.classList.remove('is-valid');
+                    if (customMsg && el.nextElementSibling && el.nextElementSibling.classList.contains('invalid-feedback')) {
+                        el.nextElementSibling.textContent = customMsg;
+                    }
+                }
+            }
+
+            // Live validation listeners
+            form.addEventListener('focusout', (e) => {
+                if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
+                    validateField(e.target);
+                }
+            });
+            form.addEventListener('input', (e) => {
+                if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
+                    if (e.target.classList.contains('is-invalid') || e.target.classList.contains('is-valid')) {
+                        validateField(e.target);
+                    }
+                }
+            });
+            form.addEventListener('change', (e) => {
+                if (['SELECT'].includes(e.target.tagName) || e.target.type === 'radio' || e.target.type === 'checkbox') {
+                    validateField(e.target);
+                }
+            });
+
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
+
+                // Run validation on all fields
+                Array.from(form.elements).forEach(validateField);
+                
+                // Trigger radio checks explicitly
+                if (!document.querySelector('input[name="isHardware"]:checked')) document.getElementById('isHardwareError').style.display = 'block';
+                if (!document.querySelector('input[name="isRegistered"]:checked')) document.getElementById('isRegisteredError').style.display = 'block';
+                if (!document.querySelector('input[name="productStage"]:checked')) document.getElementById('productStageError').style.display = 'block';
+
+                const firstInvalid = form.querySelector('.is-invalid, .invalid-feedback[style*="block"]');
+                if (firstInvalid) {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
 
                 submitBtn.disabled = true;
                 btnText.style.display = 'none';
                 btnSpinner.style.display = 'block';
 
-                const techDomains = Array.from(document.querySelectorAll('.tech-domain-cb:checked')).map(cb => cb.value);
-                const labFacilities = Array.from(document.querySelectorAll('.lab-facility-cb:checked')).map(cb => cb.value);
+                const firstName = document.getElementById('firstName').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const newsletter = document.getElementById('newsletterCheck').checked;
+                const linkedinUrl = document.getElementById('linkedinUrl').value.trim();
+                const startupName = document.getElementById('startupName').value.trim();
+                const startupDesc = document.getElementById('startupDesc').value.trim();
+                const productName = document.getElementById('productName').value.trim();
+                const materialLink = document.getElementById('materialLink').value.trim();
+                const tier = document.getElementById('accessTier').value;
+
+                const isHardwareEl = document.querySelector('input[name="isHardware"]:checked');
+                const isRegisteredEl = document.querySelector('input[name="isRegistered"]:checked');
+                const productStageEl = document.querySelector('input[name="productStage"]:checked');
 
                 const formData = {
-                    tier: document.getElementById('accessTier').value,
-                    full_name: document.getElementById('fullName').value,
-                    phone: document.getElementById('whatsApp').value,
-                    email: document.getElementById('email').value,
-                    organization: document.getElementById('orgName').value,
-                    project_name: document.getElementById('projectName').value || 'N/A',
-                    team_size: document.getElementById('teamSize').value,
-                    access_duration: document.getElementById('accessDuration').value,
-                    trl_level: document.getElementById('trlLevel').value,
-                    proto_budget: document.getElementById('protoBudget').value,
-                    tech_domains: techDomains,
-                    lab_facilities_needed: labFacilities,
-                    core_components: document.getElementById('coreComponents').value,
-                    build_bottleneck: document.getElementById('buildBottleneck').value,
-                    project_desc: document.getElementById('projectDetails').value,
-                    billing_cycle: (billingToggle && billingToggle.checked) ? 'Annual (15% off)' : 'Monthly',
+                    first_name: firstName,
+                    last_name: lastName,
+                    full_name: firstName + ' ' + lastName,
+                    phone: phone,
+                    email: email,
+                    newsletter_signup: newsletter,
+                    is_hardware_startup: isHardwareEl.value,
+                    startup_name: startupName || 'N/A',
+                    linkedin_url: linkedinUrl,
+                    startup_description: startupDesc || 'N/A',
+                    is_registered: isRegisteredEl.value,
+                    product_name: productName,
+                    product_stage: productStageEl.value,
+                    material_link: materialLink,
+                    tier: tier,
                     timestamp: serverTimestamp(),
                     status: 'applied'
                 };
@@ -1418,7 +1430,7 @@
                                 name: formData.full_name,
                                 email: formData.email,
                                 time: new Date().toLocaleString(),
-                                message: `Access Tier: ${formData.tier}\nBilling Cycle: ${formData.billing_cycle}\nPhone: ${formData.phone}\nOrg: ${formData.organization}\nProject Name: ${formData.project_name}\nTeam Size: ${formData.team_size}\nDuration: ${formData.access_duration}\nTRL Stage: ${formData.trl_level}\nProto Budget: ${formData.proto_budget}\nTech Domains: ${formData.tech_domains.join(', ')}\nFacilities: ${formData.lab_facilities_needed.join(', ')}\nCore Components: ${formData.core_components}\nBottleneck: ${formData.build_bottleneck}\nProject Description: ${formData.project_desc}`
+                                message: `Program: ${formData.tier}\nPhone: ${formData.phone}\nStartup: ${formData.startup_name}\nLinkedIn: ${formData.linkedin_url}\nIs Hardware Startup: ${formData.is_hardware_startup}\nRegistered: ${formData.is_registered}\nProduct: ${formData.product_name} (${formData.product_stage})\nMaterial: ${formData.material_link}\nDescription: ${formData.startup_description}`
                             };
                             await emailjs.send(EMAILJS_SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams);
                             console.log("EmailJS: Email notification successfully triggered.");
@@ -1444,6 +1456,30 @@
                     btnSpinner.style.display = 'none';
                 }
             });
+        });
+    </script>
+    <script>
+        // Live word counter for startup description
+        document.addEventListener('DOMContentLoaded', function () {
+            const descTA = document.getElementById('startupDesc');
+            const wordCountEl = document.getElementById('descWordCount');
+            const descErrorEl = document.getElementById('descError');
+            if (descTA && wordCountEl) {
+                descTA.addEventListener('input', function () {
+                    const words = descTA.value.trim().split(/\s+/).filter(w => w.length > 0);
+                    const count = descTA.value.trim() === '' ? 0 : words.length;
+                    wordCountEl.textContent = count + ' / 800 words';
+                    if (count > 800) {
+                        wordCountEl.classList.add('text-danger');
+                        wordCountEl.classList.remove('text-muted');
+                        descErrorEl.style.display = 'inline';
+                    } else {
+                        wordCountEl.classList.remove('text-danger');
+                        wordCountEl.classList.add('text-muted');
+                        descErrorEl.style.display = 'none';
+                    }
+                });
+            }
         });
     </script>
     <script>
