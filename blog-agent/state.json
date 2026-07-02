@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 8,
+  "last_topic_index": 9,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -22,17 +22,11 @@
     "soaring-smarter-the-incredible-world-of-ai-powered-drones",
     "cobots-your-future-robot-teammates-makerworks",
     "industrial-robotics-automation-powering-indias-future-factor",
-    "robots-in-scrubs-exploring-surgical-and-medical-robotics"
+    "robots-in-scrubs-exploring-surgical-and-medical-robotics",
+    "space-robotics-our-unsung-heroes-of-cosmic-exploration"
   ],
-  "last_run": "2026-06-29T09:14:59.555331",
+  "last_run": "2026-07-02T07:50:16.104037",
   "recent_posts": [
-    {
-      "slug": "unlocking-the-future-a-deep-dive-into-autonomous-vehicles",
-      "title": "Unlocking the Future: A Deep Dive into Autonomous Vehicles",
-      "badge": "Autonomous",
-      "badge_color": "linear-gradient(135deg, #20c997, #0dcaf0)",
-      "short_description": "Dive into autonomous vehicles! Discover how self-driving cars work with LiDAR, sensor fusion, and AI. A guide for young innovators."
-    },
     {
       "slug": "soaring-smarter-the-incredible-world-of-ai-powered-drones",
       "title": "Soaring Smarter: The Incredible World of AI-Powered Drones",
@@ -60,6 +54,13 @@
       "badge": "Medical",
       "badge_color": "linear-gradient(135deg, #198754, #20c997)",
       "short_description": "Explore the fascinating world of surgical and medical robots, from precision surgery to rehabilitation, and how they're revolutionizing healthcare."
+    },
+    {
+      "slug": "space-robotics-our-unsung-heroes-of-cosmic-exploration",
+      "title": "Space Robotics: Our Unsung Heroes of Cosmic Exploration",
+      "badge": "Space",
+      "badge_color": "linear-gradient(135deg, #212529, #6c757d)",
+      "short_description": "Explore the incredible world of space robotics! From Mars rovers to orbital mechanics, learn how robots are our eyes and hands in the cosmos."
     }
   ]
 }
