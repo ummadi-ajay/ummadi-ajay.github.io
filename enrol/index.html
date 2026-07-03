@@ -45,22 +45,22 @@
       theme: {
         extend: {
           colors: {
-            "primary": "#4f46e5",
-            "primary-dark": "#4338ca",
-            "secondary": "#a855f7",
-            "accent": "#06b6d4",
+            "primary": "#1e3a8a",
+            "primary-dark": "#172554",
+            "secondary": "#1e40af",
+            "accent": "#2563eb",
             "surface": "#ffffff",
-            "on-surface": "#1a1a2e",
-            "on-surface-variant": "#64748b",
+            "on-surface": "#0f172a",
+            "on-surface-variant": "#475569",
             "border-color": "#e2e8f0",
-            "success": "#10b981",
-            "warning": "#f59e0b"
+            "success": "#16a34a",
+            "warning": "#d97706"
           },
           fontFamily: { "sans": ["Inter", "sans-serif"] },
           boxShadow: {
-            'premium': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
-            'card': '0 10px 40px -10px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)',
-            'glow': '0 0 20px rgba(79, 70, 229, 0.15)'
+            'premium': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+            'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+            'glow': 'none'
           }
         }
       }
@@ -83,7 +83,7 @@
     }
 
     .pulse-glow {
-      animation: pulseGlow 2s ease-in-out infinite;
+      /* Animation removed for formal design */
     }
 
     @keyframes pulseGlow {
@@ -146,7 +146,7 @@
   <div id="formValidationToast" role="alert" aria-live="assertive"
     class="fixed left-1/2 top-20 z-[120] hidden w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 rounded-3xl border border-red-100 bg-white/95 p-4 shadow-2xl backdrop-blur-xl">
     <div class="flex items-start gap-3">
-      <div class="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-2xl bg-red-50">
+      <div class="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-red-50">
         <span class="material-symbols-outlined text-red-500">error</span>
       </div>
       <div class="min-w-0 flex-1">
@@ -175,249 +175,143 @@
   </header>
 
   <div class="flex flex-1 pt-20 md:pt-28 pb-8 md:pb-12 w-full max-w-6xl mx-auto px-3 md:px-6">
-    <main class="w-full space-y-6 md:space-y-8">
+    <main class="w-full space-y-6 md:space-y-5">
 
       <!-- Hero Section -->
-      <div class="relative overflow-hidden bg-white/40 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-12 shadow-card text-center border border-white/60">
-        <div class="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-[80px] animate-pulse"></div>
-        <div class="absolute bottom-0 left-0 w-48 md:w-72 h-48 md:h-72 bg-gradient-to-tr from-accent/20 to-primary/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-[60px]"></div>
+      <div class="bg-white rounded-lg p-8 md:p-12 shadow-sm border border-slate-200 text-center">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded border border-slate-200 uppercase tracking-wide">Admissions Open 2026</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Student Enrollment Application</h1>
+        <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+          Apply to join MakerWorks Lab. We are Mumbai's premier innovation hub for Robotics and AI, established by IIT Kharagpur graduates.
+        </p>
 
-        <div class="relative z-10">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 border border-primary/10 rounded-full mb-6 md:mb-8 shadow-sm">
-            <span class="w-2.5 h-2.5 bg-success rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.4)]"></span>
-            <span class="text-[10px] md:text-xs font-bold text-slate-600 uppercase tracking-[0.2em]">Admissions Open 2026</span>
+        <div class="flex flex-wrap justify-center gap-4">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-slate-400">school</span>
+            <span class="text-sm font-medium text-slate-700">Expert Guidance</span>
           </div>
-
-          <h1 class="text-4xl md:text-7xl font-black tracking-tight mb-4 md:mb-6 leading-[1.1]">
-            <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Ignite Your </span><br class="hidden md:block"/>
-            <span class="text-on-surface">Future in Robotics</span>
-          </h1>
-          <p class="text-base md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-8 md:mb-10 font-medium">
-            Join <strong>MakerWorks Lab</strong> — Founded by <strong>IIT Kharagpur</strong> graduates. Mumbai's premier innovation hub for the next generation of <strong>Robotics & AI</strong> leaders.
-          </p>
-
-          <div class="flex flex-wrap justify-center gap-3 md:gap-5">
-            <div class="flex items-center gap-2 md:gap-3 bg-white/90 backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-2xl shadow-premium border border-slate-100/50 hover:scale-105 transition-transform cursor-default">
-              <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary text-xl">school</span>
-              </div>
-              <span class="text-xs md:text-sm font-bold text-slate-700">IIT Mentors</span>
-            </div>
-            <div class="flex items-center gap-2 md:gap-3 bg-white/90 backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-2xl shadow-premium border border-slate-100/50 hover:scale-105 transition-transform cursor-default">
-              <div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
-                <span class="material-symbols-outlined text-secondary text-xl">devices</span>
-              </div>
-              <span class="text-xs md:text-sm font-bold text-slate-700">Hands-on Mastery</span>
-            </div>
-            <div class="flex items-center gap-2 md:gap-3 bg-white/90 backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-2xl shadow-premium border border-slate-100/50 hover:scale-105 transition-transform cursor-default">
-              <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
-                <span class="material-symbols-outlined text-accent text-xl">emoji_events</span>
-              </div>
-              <span class="text-xs md:text-sm font-bold text-slate-700">Global Competition</span>
-            </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-slate-400">devices</span>
+            <span class="text-sm font-medium text-slate-700">Hands-on Curriculum</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-slate-400">emoji_events</span>
+            <span class="text-sm font-medium text-slate-700">Competitive Excellence</span>
           </div>
         </div>
       </div>
 
-      <!-- Mentors Section -->
-      <div class="bg-white/40 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-card border border-white/60">
-        <div class="flex items-center gap-4 mb-8 md:mb-12 justify-center text-center">
-          <div>
-            <h3 class="text-2xl md:text-4xl font-black text-on-surface mb-2">Excellence in Guidance</h3>
-            <p class="text-sm md:text-base text-slate-500 font-medium">Learn from the brightest minds from IIT Kharagpur</p>
-          </div>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <!-- Vinay -->
-          <div class="group p-6 md:p-8 bg-white/50 rounded-3xl border border-blue-100 hover:border-blue-400 hover:bg-blue-50/30 transition-all duration-500 shadow-sm hover:shadow-xl">
-            <div class="flex items-center gap-5 md:gap-6 mb-6">
-              <img src="/makers/mentors/vinay.jpg" alt="Vinay Ummadi"
-                class="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover shadow-lg ring-4 ring-blue-50 flex-shrink-0">
-              <div>
-                <h4 class="font-black text-xl text-slate-800">Vinay</h4>
-                <p class="text-sm text-blue-600 font-bold uppercase tracking-wider">Co-Founder & Robotics Lead</p>
-                <div class="flex items-center gap-2 mt-1">
-                  <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                  <p class="text-xs text-slate-500 font-bold">IIT Kharagpur · AI & Robotics</p>
-                </div>
-              </div>
-            </div>
-            <p class="text-sm md:text-base text-slate-600 leading-relaxed font-medium italic italic-slate-400">
-              "Your friends and mentors in life define your trajectory. We are here to ensure yours points towards innovation."
-            </p>
-          </div>
-
-          <!-- Pavan -->
-          <div class="group p-6 md:p-8 bg-white/50 rounded-3xl border border-purple-100 hover:border-purple-400 hover:bg-purple-50/30 transition-all duration-500 shadow-sm hover:shadow-xl">
-            <div class="flex items-center gap-5 md:gap-6 mb-6">
-              <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl md:text-3xl shadow-lg ring-4 ring-purple-50">P</div>
-              <div>
-                <h4 class="font-black text-xl text-slate-800">Pavan</h4>
-                <p class="text-sm text-purple-600 font-bold uppercase tracking-wider">Co-Founder & AI Lead</p>
-                <div class="flex items-center gap-2 mt-1">
-                  <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
-                  <p class="text-xs text-slate-500 font-bold">IIT Kharagpur · AI & Machine Learning</p>
-                </div>
-              </div>
-            </div>
-            <p class="text-sm md:text-base text-slate-600 leading-relaxed font-medium italic">
-              Integrating intelligent systems with robotics to nurture creativity in young minds through hands-on mastery.
-            </p>
-          </div>
-
-          <!-- Abhay -->
-          <div class="p-6 bg-white/40 rounded-3xl border border-amber-100/50 hover:bg-amber-50/20 transition-all">
-            <div class="flex items-center gap-4 mb-4">
-              <img src="/makers/mentors/abhay.jpg" alt="Abhay Waghmare"
-                class="w-12 h-12 rounded-xl object-cover shadow-md ring-4 ring-amber-50 flex-shrink-0">
-              <div>
-                <h4 class="font-bold text-slate-800">Abhay</h4>
-                <p class="text-xs text-amber-600 font-bold">Hardware & Workshop Expert</p>
-              </div>
-            </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
-              Ex-Software Engineer (US) with a decade of experience. Expert in mechanical structures and complex industrial workshop instruments.
-            </p>
-          </div>
-
-          <!-- Nabham -->
-          <div class="p-6 bg-white/40 rounded-3xl border border-emerald-100/50 hover:bg-emerald-50/20 transition-all">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">N</div>
-              <div>
-                <h4 class="font-bold text-slate-800">Nabham</h4>
-                <p class="text-xs text-emerald-600 font-bold">3D Modeling Specialist</p>
-              </div>
-            </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
-              Mechatronics expert from Manipal. Specialist in Fusion360, Solidworks, and bringing digital ideas to life via 3D Printing.
-            </p>
-          </div>
-        </div>
-      </div>
 
       <!-- Terms & Conditions -->
-      <div id="policies-section" class="bg-white rounded-3xl p-8 md:p-12 shadow-card border border-slate-100">
-        <div class="flex items-center gap-4 mb-8">
-          <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-amber-600 text-2xl">gavel</span>
-          </div>
-          <div>
-            <h2 class="text-2xl font-black text-on-surface">Policies & Commitments</h2>
-            <p class="text-sm text-slate-500 font-medium">Please review and acknowledge to continue</p>
-          </div>
+      <div id="policies-section" class="bg-white rounded-lg p-5 md:p-6 shadow-sm border border-slate-200">
+        <div class="mb-6 border-b border-slate-200 pb-4">
+          <h2 class="text-xl font-bold text-slate-900">Policies & Commitments</h2>
+          <p class="text-sm text-slate-600 mt-1">Please review and acknowledge all policies to proceed.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600">
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Learning Process:</strong> I understand that designing, building, and programming robotics systems is complex and requires time, effort, persistence, and consistent dedication.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Commitment:</strong> I acknowledge the financial, time, and effort commitments and agree to participate in scheduled classes, activities, and hands-on sessions.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Expectations:</strong> I agree that no significant outcomes are expected in the first six months because this time is focused on fundamentals in hardware and programming.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>No Guarantee of Success:</strong> I acknowledge that MakerWorks Lab provides guidance, resources, and instruction, but does not guarantee specific outcomes in competitions or academic programs.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Safety Guidelines:</strong> I agree to follow all safety protocols while working with robotics hardware, tools, and materials.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Ownership and Responsibility:</strong> I understand that personal equipment, components, or materials are my responsibility, and MakerWorks Lab is not liable for loss or damage.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Non-Refundable Fees:</strong> I understand that fees paid for MakerWorks Lab Robotics Programs are non-refundable unless otherwise discussed in special arrangements.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Class Rescheduling:</strong> Classes can be rescheduled within the paid quarter with at least one week advance notice; hours cannot be carried forward.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Code of Conduct:</strong> I agree to maintain a respectful and collaborative attitude toward instructors and fellow students.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Termination:</strong> MakerWorks Lab may terminate participation for failure to follow terms, disruption, unethical behavior, or unsafe behavior.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Invoice and Late Fee:</strong> I understand invoices must be paid within 14 days, after which a 5% late fee may be applied.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Taxes:</strong> I understand all displayed or communicated fees are exclusive of taxes and an additional 18% GST will be applied.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Quarter Validity:</strong> I acknowledge fees paid for a specific quarter are valid only for that quarter and cannot be carried forward.</span>
           </label>
-          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
+          <label class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-md border border-slate-100 hover:bg-slate-100/50 transition-all cursor-pointer group">
             <input type="checkbox" required class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary transition-all">
             <span class="font-medium group-hover:text-on-surface"><strong>Missed Sessions:</strong> I understand missed sessions must be coordinated with the mentor and completed within the same quarter or they will be forfeited.</span>
           </label>
         </div>
 
-        <p id="policyStatus" class="mt-5 text-sm font-semibold text-amber-700 bg-amber-50 border border-amber-100 rounded-2xl px-4 py-3 flex items-start gap-2">
+        <p id="policyStatus" class="mt-5 text-sm font-semibold text-amber-700 bg-amber-50 border border-amber-100 rounded-md px-4 py-3 flex items-start gap-2">
           <span class="material-symbols-outlined text-base mt-0.5">info</span>
           <span data-policy-status-text>Please check all policies and commitments to continue.</span>
         </p>
       </div>
 
       <!-- Enrollment Form -->
-      <div class="bg-white rounded-3xl p-8 md:p-10 shadow-card">
-        <form id="enrollment-form" class="space-y-10" novalidate>
+      <div class="bg-white rounded-lg p-5 md:p-6 shadow-sm border border-slate-200">
+        <form id="enrollment-form" class="space-y-5" novalidate>
 
           <!-- Section Header -->
-          <div class="flex items-center gap-4 pb-6 border-b border-slate-100">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-white text-xl">person</span>
-            </div>
-            <div>
-              <h2 class="text-2xl font-bold text-on-surface">Student Details</h2>
-              <p class="text-sm text-slate-500">Tell us about the student</p>
-            </div>
+          <div class="pb-4 border-b border-slate-200">
+            <h2 class="text-xl font-bold text-slate-900">Student Details</h2>
+            <p class="text-sm text-slate-600 mt-1">Please provide the student's personal information.</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-base">badge</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Student Name *
               </label>
               <input id="studentName" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all"
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all"
                 placeholder="Full Name" type="text" />
             </div>
 
             <div class="flex flex-col gap-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-base">calendar_today</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Date of Birth *
               </label>
               <input id="dob" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all"
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all"
                 type="date" />
             </div>
 
             <div class="flex flex-col gap-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-base">straighten</span>
+              <label class="text-sm font-semibold text-slate-700">
                 T-Shirt Size *
               </label>
               <select id="tshirt" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer">
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer">
                 <option value="" disabled selected>Select size</option>
                 <option value="XS">XS</option>
                 <option value="S">Small</option>
@@ -428,13 +322,12 @@
             </div>
 
             <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-base">photo_camera</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Student Photo *
               </label>
               <div class="flex items-start gap-4">
                 <label
-                  class="block flex-1 border-2 border-dashed border-slate-200 rounded-2xl p-8 text-center bg-slate-50/50 hover:bg-slate-100/80 hover:border-primary/50 transition-all cursor-pointer group">
+                  class="block flex-1 border-2 border-dashed border-slate-200 rounded-md p-8 text-center bg-slate-50/50 hover:bg-slate-100/80 hover:border-primary/50 transition-all cursor-pointer group">
                   <span id="photoIcon"
                     class="material-symbols-outlined text-4xl text-slate-300 group-hover:text-primary mb-3 transition-colors">add_a_photo</span>
                   <p id="photoText" class="text-sm font-medium text-slate-500">Click or drag to upload photo</p>
@@ -442,7 +335,7 @@
                   <input type="file" id="photoFile" class="hidden" accept="image/*" />
                 </label>
                 <div id="photoPreviewContainer"
-                  class="hidden w-24 h-24 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-lg flex-shrink-0">
+                  class="hidden w-24 h-24 rounded-md overflow-hidden border-2 border-primary/20 shadow-lg flex-shrink-0">
                   <img id="photoPreview" class="w-full h-full object-cover" alt="Preview" />
                 </div>
               </div>
@@ -450,35 +343,27 @@
           </div>
 
           <!-- School Section -->
-          <div class="flex items-center gap-4 pt-8 pb-6 border-t border-slate-100">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-white text-xl">school</span>
-            </div>
-            <div>
-              <h2 class="text-2xl font-bold text-on-surface">School Details</h2>
-              <p class="text-sm text-slate-500">Where does the student study?</p>
-            </div>
+          <div class="pt-8 pb-4 border-b border-slate-200">
+            <h2 class="text-xl font-bold text-slate-900">School Details</h2>
+            <p class="text-sm text-slate-600 mt-1">Where does the student study?</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-emerald-600 text-base">domain</span>
+              <label class="text-sm font-semibold text-slate-700">
                 School Name *
               </label>
               <input id="schoolName" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all"
                 placeholder="School name" type="text" />
             </div>
 
             <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-emerald-600 text-base">123</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Study Grade *
               </label>
               <select id="studyGrade" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all appearance-none cursor-pointer">
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all appearance-none cursor-pointer">
                 <option value="" disabled selected>Select grade</option>
                 <option value="3">Grade 3</option>
                 <option value="4">Grade 4</option>
@@ -499,65 +384,54 @@
           </div>
 
           <!-- Parent Section -->
-          <div class="flex items-center gap-4 pt-8 pb-6 border-t border-slate-100">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-white text-xl">family_restroom</span>
-            </div>
-            <div>
-              <h2 class="text-2xl font-bold text-on-surface">Parent Details</h2>
-              <p class="text-sm text-slate-500">Contact information for billing</p>
-            </div>
+          <div class="pt-8 pb-4 border-b border-slate-200">
+            <h2 class="text-xl font-bold text-slate-900">Parent Details</h2>
+            <p class="text-sm text-slate-600 mt-1">Contact information for billing</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-amber-600 text-base">person</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Parent/Guardian Name *
               </label>
               <input id="parentName" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
                 placeholder="Full name" type="text" />
             </div>
 
             <div class="flex flex-col gap-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-amber-600 text-base">phone</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Contact Number *
               </label>
               <input id="parentPhone" required inputmode="numeric" maxlength="10" pattern="[0-9]{10}" autocomplete="tel"
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
                 placeholder="10 digit mobile number" type="tel" />
             </div>
 
             <div class="flex flex-col gap-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-amber-600 text-base">mail</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Email Address *
               </label>
               <input id="email" required autocomplete="email"
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all"
                 placeholder="parent@email.com" type="email" />
             </div>
 
             <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-amber-600 text-base">home</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Shipping Address *
               </label>
               <textarea id="address" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all min-h-[100px]"
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all min-h-[100px]"
                 placeholder="Full address for kit delivery"></textarea>
             </div>
 
             <div class="flex flex-col gap-2 md:col-span-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-amber-600 text-base">public</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Country *
               </label>
               <select id="country" required
-                class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all appearance-none cursor-pointer">
+                class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all appearance-none cursor-pointer">
                 <option value="India" selected>India</option>
                 <option value="Other">Other (International)</option>
               </select>
@@ -565,72 +439,58 @@
           </div>
 
           <!-- Optional Billing Details -->
-          <div class="flex items-center gap-4 pt-8 pb-6 border-t border-slate-100">
-            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-white text-xl">corporate_fare</span>
-            </div>
-            <div>
-              <h2 class="text-2xl font-bold text-on-surface">Company Billing <span class="text-xs font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded-md ml-2">Optional</span></h2>
-              <p class="text-sm text-slate-500">For B2B GST Input Credit</p>
-            </div>
+          <div class="pt-8 pb-4 border-b border-slate-200">
+            <h2 class="text-xl font-bold text-slate-900">Company Billing <span class="text-xs font-normal text-slate-500 bg-slate-100 px-2 py-1 rounded border border-slate-200 ml-2">Optional</span></h2>
+            <p class="text-sm text-slate-600 mt-1">For B2B GST Input Credit</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col gap-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-indigo-600 text-base">domain</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Company Name
               </label>
-              <input id="companyName" class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all" placeholder="Optional" type="text" />
+              <input id="companyName" class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all" placeholder="Optional" type="text" />
             </div>
 
             <div class="flex flex-col gap-2">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-indigo-600 text-base">receipt_long</span>
+              <label class="text-sm font-semibold text-slate-700">
                 GST Number
               </label>
-              <input id="gstNumber" class="w-full bg-slate-50/80 border-2 border-transparent rounded-2xl px-5 py-4 text-on-surface focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all uppercase" placeholder="22AAAAA0000A1Z5" type="text" maxlength="15" />
+              <input id="gstNumber" class="w-full bg-slate-50/80 border-2 border-transparent rounded-md px-3 py-2 text-on-surface focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all uppercase" placeholder="22AAAAA0000A1Z5" type="text" maxlength="15" />
             </div>
           </div>
 
           <!-- Experience Section -->
-          <div class="flex items-center gap-4 pt-8 pb-6 border-t border-slate-100">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-white text-xl">science</span>
-            </div>
-            <div>
-              <h2 class="text-2xl font-bold text-on-surface">Student Experience</h2>
-              <p class="text-sm text-slate-500">To be filled by student</p>
-            </div>
+          <div class="pt-8 pb-4 border-b border-slate-200">
+            <h2 class="text-xl font-bold text-slate-900">Student Experience</h2>
+            <p class="text-sm text-slate-600 mt-1">To be filled by student</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="experience-picker flex flex-col gap-3" data-experience-picker data-experience-input="expRobotics" data-experience-placeholder="Choose hardware experience">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-cyan-600 text-base">hardware</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Robotics Hardware *
               </label>
               <input type="hidden" id="expRobotics">
               <details id="expRoboticsDropdown" class="relative">
-                <summary class="flex min-h-[4.35rem] w-full list-none items-center justify-between rounded-2xl border-2 border-transparent bg-slate-50/80 px-5 py-4 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-cyan-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/10 [&::-webkit-details-marker]:hidden">
+                <summary class="flex min-h-[2.5rem] w-full list-none items-center justify-between rounded-md border-2 border-transparent bg-slate-50/80 px-3 py-2 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-cyan-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/10 [&::-webkit-details-marker]:hidden">
                   <span id="expRoboticsSummary">Choose hardware experience</span>
                   <span class="experience-expand-icon material-symbols-outlined text-cyan-600 transition-transform">expand_more</span>
                 </summary>
-                <div class="absolute left-0 right-0 z-40 mt-2 grid gap-2 rounded-2xl border-2 border-slate-200 bg-white p-3 shadow-2xl">
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                <div class="absolute left-0 right-0 z-40 mt-2 grid gap-2 rounded-md border-2 border-slate-200 bg-white p-3 shadow-2xl">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expRoboticsChoice" value="New to Robotics" data-experience-option class="sr-only">
                     New to robotics hardware
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expRoboticsChoice" value="Basic Electronics" data-experience-option class="sr-only">
                     Tried basic circuits or electronics kits
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expRoboticsChoice" value="Guided Builds" data-experience-option class="sr-only">
                     Built robots or models with guidance
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expRoboticsChoice" value="Independent Maker" data-experience-option class="sr-only">
                     Can build and troubleshoot independently
                   </label>
@@ -639,30 +499,29 @@
               <p class="experience-error hidden text-xs font-semibold text-red-500">Choose hardware experience.</p>
             </div>
             <div class="experience-picker flex flex-col gap-3" data-experience-picker data-experience-input="expProgramming" data-experience-placeholder="Choose programming experience">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-cyan-600 text-base">code</span>
+              <label class="text-sm font-semibold text-slate-700">
                 Programming *
               </label>
               <input type="hidden" id="expProgramming">
               <details id="expProgrammingDropdown" class="relative">
-                <summary class="flex min-h-[4.35rem] w-full list-none items-center justify-between rounded-2xl border-2 border-transparent bg-slate-50/80 px-5 py-4 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-cyan-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/10 [&::-webkit-details-marker]:hidden">
+                <summary class="flex min-h-[2.5rem] w-full list-none items-center justify-between rounded-md border-2 border-transparent bg-slate-50/80 px-3 py-2 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-cyan-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/10 [&::-webkit-details-marker]:hidden">
                   <span id="expProgrammingSummary">Choose programming experience</span>
                   <span class="experience-expand-icon material-symbols-outlined text-cyan-600 transition-transform">expand_more</span>
                 </summary>
-                <div class="absolute left-0 right-0 z-40 mt-2 grid gap-2 rounded-2xl border-2 border-slate-200 bg-white p-3 shadow-2xl">
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                <div class="absolute left-0 right-0 z-40 mt-2 grid gap-2 rounded-md border-2 border-slate-200 bg-white p-3 shadow-2xl">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expProgrammingChoice" value="New to Coding" data-experience-option class="sr-only">
                     New to coding
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expProgrammingChoice" value="Scratch or Block Coding" data-experience-option class="sr-only">
                     Comfortable with Scratch or block coding
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expProgrammingChoice" value="Microcontroller Coding" data-experience-option class="sr-only">
                     Tried Arduino, Micro:bit, or sensor coding
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="expProgrammingChoice" value="Text Programming" data-experience-option class="sr-only">
                     Can write Python, C, C++, or similar code
                   </label>
@@ -671,30 +530,29 @@
               <p class="experience-error hidden text-xs font-semibold text-red-500">Choose programming experience.</p>
             </div>
             <div class="experience-picker flex flex-col gap-3" data-experience-picker data-experience-input="exp3D" data-experience-placeholder="Choose design experience">
-              <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                <span class="material-symbols-outlined text-cyan-600 text-base">view_in_ar</span>
+              <label class="text-sm font-semibold text-slate-700">
                 3D Modeling & Printing *
               </label>
               <input type="hidden" id="exp3D">
               <details id="exp3DDropdown" class="relative">
-                <summary class="flex min-h-[4.35rem] w-full list-none items-center justify-between rounded-2xl border-2 border-transparent bg-slate-50/80 px-5 py-4 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-cyan-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/10 [&::-webkit-details-marker]:hidden">
+                <summary class="flex min-h-[2.5rem] w-full list-none items-center justify-between rounded-md border-2 border-transparent bg-slate-50/80 px-3 py-2 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-cyan-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/10 [&::-webkit-details-marker]:hidden">
                   <span id="exp3DSummary">Choose design experience</span>
                   <span class="experience-expand-icon material-symbols-outlined text-cyan-600 transition-transform">expand_more</span>
                 </summary>
-                <div class="absolute left-0 right-0 z-40 mt-2 grid gap-2 rounded-2xl border-2 border-slate-200 bg-white p-3 shadow-2xl">
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                <div class="absolute left-0 right-0 z-40 mt-2 grid gap-2 rounded-md border-2 border-slate-200 bg-white p-3 shadow-2xl">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="exp3DChoice" value="New to 3D Design" data-experience-option class="sr-only">
                     New to 3D design and printing
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="exp3DChoice" value="Basic Modeling" data-experience-option class="sr-only">
                     Can create simple 3D models
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="exp3DChoice" value="Printed Projects" data-experience-option class="sr-only">
                     Designed models that were 3D printed
                   </label>
-                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
+                  <label class="relative flex cursor-pointer items-center rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-all hover:border-cyan-400 hover:bg-cyan-50/50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-700">
                     <input type="radio" name="exp3DChoice" value="Parametric Design" data-experience-option class="sr-only">
                     Can create detailed parametric or mechanical designs
                   </label>
@@ -705,12 +563,11 @@
           </div>
 
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-              <span class="material-symbols-outlined text-cyan-600 text-base">edit_note</span>
+            <label class="text-sm font-semibold text-slate-700">
               Anything else about the child's learning or achievements?
             </label>
             <textarea id="studentAchievements"
-              class="w-full rounded-2xl border-2 border-transparent bg-slate-50/80 px-5 py-4 text-on-surface outline-none transition-all min-h-[120px] hover:bg-white hover:border-cyan-300 focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10"
+              class="w-full rounded-md border-2 border-transparent bg-slate-50/80 px-3 py-2 text-on-surface outline-none transition-all min-h-[120px] hover:bg-white hover:border-cyan-300 focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10"
               placeholder="Share interests or achievements in design, building, electronics, robotics, coding, competitions, school projects, etc."></textarea>
           </div>
 
@@ -721,15 +578,9 @@
           </div>
 
           <!-- Program Section -->
-          <div class="flex items-center gap-4 pt-8 pb-6 border-t border-slate-100">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-white text-xl">rocket_launch</span>
-            </div>
-            <div>
-              <h2 class="text-2xl font-bold text-on-surface">Choose Your Program</h2>
-              <p class="text-sm text-slate-500">We recommend the right track based on age and grade</p>
-            </div>
+          <div class="pt-8 pb-4 border-b border-slate-200">
+            <h2 class="text-xl font-bold text-slate-900">Choose Your Program</h2>
+            <p class="text-sm text-slate-600 mt-1">We recommend the right track based on age and grade</p>
           </div>
 
           <!-- Pricing Structure -->
@@ -778,7 +629,7 @@
 
             <!-- Mobile View -->
             <div class="md:hidden space-y-4 relative z-10">
-              <div class="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
+              <div class="bg-white rounded-md p-5 border border-blue-100 shadow-sm">
                 <p class="font-black text-blue-600 text-lg mb-4">Beginner Level</p>
                 <div class="grid grid-cols-3 gap-2">
                   <div class="bg-blue-50/70 rounded-xl p-3 text-center border border-blue-100">
@@ -795,7 +646,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white rounded-2xl p-5 border border-purple-100 shadow-sm">
+              <div class="bg-white rounded-md p-5 border border-purple-100 shadow-sm">
                 <p class="font-black text-purple-600 text-lg mb-4">Intermediate Level</p>
                 <div class="grid grid-cols-3 gap-2">
                   <div class="bg-purple-50/70 rounded-xl p-3 text-center border border-purple-100">
@@ -812,7 +663,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white rounded-2xl p-5 border border-cyan-100 shadow-sm">
+              <div class="bg-white rounded-md p-5 border border-cyan-100 shadow-sm">
                 <p class="font-black text-cyan-600 text-lg mb-4">Portfolio Program</p>
                 <div class="grid grid-cols-3 gap-2">
                   <div class="bg-cyan-50/70 rounded-xl p-3 text-center border border-cyan-100">
@@ -849,11 +700,11 @@
             </div>
 
             <label
-              class="program-card relative flex flex-col sm:flex-row items-center gap-3 md:gap-4 p-4 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-400 hover:bg-blue-50/30 cursor-pointer transition-all has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50/50 has-[:checked]:shadow-glow">
+              class="program-card relative flex flex-col sm:flex-row items-center gap-3 md:gap-4 p-3 md:p-4 rounded-md border-2 border-slate-200 bg-white hover:border-blue-400 hover:bg-blue-50/30 cursor-pointer transition-all has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50/50 has-[:checked]:shadow-glow">
               <input type="radio" name="programDivision" value="Beginner" class="hidden peer">
               <div id="badge-beginner" class="absolute -top-3 right-4 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg hidden">RECOMMENDED</div>
               <div
-                class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg flex-shrink-0">
+                class="w-12 h-12 md:w-14 md:h-14 rounded-md bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg flex-shrink-0">
                 <span class="material-symbols-outlined text-white text-xl md:text-2xl">looks_one</span>
               </div>
               <div class="flex-1 text-center sm:text-left w-full">
@@ -867,11 +718,11 @@
             </label>
 
             <label
-              class="program-card relative flex flex-col sm:flex-row items-center gap-3 md:gap-4 p-4 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-purple-400 hover:bg-purple-50/30 cursor-pointer transition-all has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50/50 has-[:checked]:shadow-glow">
+              class="program-card relative flex flex-col sm:flex-row items-center gap-3 md:gap-4 p-3 md:p-4 rounded-md border-2 border-slate-200 bg-white hover:border-purple-400 hover:bg-purple-50/30 cursor-pointer transition-all has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50/50 has-[:checked]:shadow-glow">
               <input type="radio" name="programDivision" value="Intermediate" class="hidden peer">
               <div id="badge-intermediate" class="absolute -top-3 right-4 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg hidden">RECOMMENDED</div>
               <div
-                class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg flex-shrink-0">
+                class="w-12 h-12 md:w-14 md:h-14 rounded-md bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg flex-shrink-0">
                 <span class="material-symbols-outlined text-white text-xl md:text-2xl">looks_two</span>
               </div>
               <div class="flex-1 text-center sm:text-left w-full">
@@ -885,11 +736,11 @@
             </label>
 
             <label
-              class="program-card relative flex flex-col sm:flex-row items-center gap-3 md:gap-4 p-4 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-cyan-400 hover:bg-cyan-50/30 cursor-pointer transition-all has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50/50 has-[:checked]:shadow-glow">
+              class="program-card relative flex flex-col sm:flex-row items-center gap-3 md:gap-4 p-3 md:p-4 rounded-md border-2 border-slate-200 bg-white hover:border-cyan-400 hover:bg-cyan-50/30 cursor-pointer transition-all has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50/50 has-[:checked]:shadow-glow">
               <input type="radio" name="programDivision" value="Portfolio" class="hidden peer">
               <div id="badge-portfolio" class="absolute -top-3 right-4 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg hidden">RECOMMENDED</div>
               <div
-                class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg flex-shrink-0">
+                class="w-12 h-12 md:w-14 md:h-14 rounded-md bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg flex-shrink-0">
                 <span class="material-symbols-outlined text-white text-xl md:text-2xl">workspace_premium</span>
               </div>
               <div class="flex-1 text-center sm:text-left w-full">
@@ -904,49 +755,43 @@
           </div>
 
           <!-- Schedule Preferences -->
-          <div class="space-y-5 md:space-y-6 pt-6 border-t border-slate-100">
-            <div class="flex items-center gap-3 md:gap-4">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg">
-                <span class="material-symbols-outlined text-white text-lg md:text-xl">event_available</span>
-              </div>
-              <div>
-                <h2 class="text-xl md:text-2xl font-bold text-on-surface">Class Schedule Preference</h2>
-                <p class="text-xs md:text-sm text-slate-500">Preferred days and time for regular classes</p>
-              </div>
+          <div class="space-y-5 md:space-y-6 pt-8 border-t border-slate-200">
+            <div class="pb-4 border-b border-slate-200">
+              <h2 class="text-xl font-bold text-slate-900">Class Schedule Preference</h2>
+              <p class="text-sm text-slate-600 mt-1">Preferred days and time for regular classes</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-4">
               <div class="flex flex-col gap-3">
-                <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                  <span class="material-symbols-outlined text-sky-600 text-base">calendar_month</span>
+                <label class="text-sm font-semibold text-slate-700">
                   Preferred Class Days *
                 </label>
                 <div id="preferredDaysGroup" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-3">
-                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-md border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                     <input type="checkbox" name="preferredClassDays" value="Sat" class="sr-only">
                     Sat
                   </label>
-                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-md border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                     <input type="checkbox" name="preferredClassDays" value="Sun" class="sr-only">
                     Sun
                   </label>
-                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-md border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                     <input type="checkbox" name="preferredClassDays" value="Mon" class="sr-only">
                     Mon
                   </label>
-                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-md border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                     <input type="checkbox" name="preferredClassDays" value="Tue" class="sr-only">
                     Tue
                   </label>
-                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-md border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                     <input type="checkbox" name="preferredClassDays" value="Wed" class="sr-only">
                     Wed
                   </label>
-                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-md border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                     <input type="checkbox" name="preferredClassDays" value="Thu" class="sr-only">
                     Thu
                   </label>
-                  <label class="schedule-day-card relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
+                  <label class="schedule-day-card relative flex items-center justify-center rounded-md border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                     <input type="checkbox" name="preferredClassDays" value="Fri" class="sr-only">
                     Fri
                   </label>
@@ -956,16 +801,15 @@
               </div>
 
               <div class="flex flex-col gap-3">
-                <label class="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                  <span class="material-symbols-outlined text-sky-600 text-base">schedule</span>
+                <label class="text-sm font-semibold text-slate-700">
                   Preferred Class Start Times *
                 </label>
                 <details id="preferredTimeSlotsDropdown" class="relative">
-                  <summary class="flex w-full list-none items-center justify-between rounded-2xl border-2 border-transparent bg-slate-50/80 px-5 py-4 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-sky-300 focus:outline-none focus:ring-4 focus:ring-sky-500/10 [&::-webkit-details-marker]:hidden">
+                  <summary class="flex w-full list-none items-center justify-between rounded-md border-2 border-transparent bg-slate-50/80 px-3 py-2 text-sm font-bold text-slate-600 cursor-pointer transition-all hover:bg-white hover:border-sky-300 focus:outline-none focus:ring-4 focus:ring-sky-500/10 [&::-webkit-details-marker]:hidden">
                     <span id="preferredTimeSlotsSummary">Select start times</span>
                     <span class="material-symbols-outlined text-sky-600 transition-transform details-open:rotate-180">expand_more</span>
                   </summary>
-                  <div id="preferredTimeSlotsGroup" class="absolute left-0 right-0 z-40 mt-2 grid max-h-72 grid-cols-1 gap-2 overflow-y-auto rounded-2xl border-2 border-slate-200 bg-white p-3 shadow-2xl sm:grid-cols-2">
+                  <div id="preferredTimeSlotsGroup" class="absolute left-0 right-0 z-40 mt-2 grid max-h-72 grid-cols-1 gap-2 overflow-y-auto rounded-md border-2 border-slate-200 bg-white p-3 shadow-2xl sm:grid-cols-2">
                     <label class="schedule-time-card relative flex items-center justify-center rounded-xl border-2 border-slate-200 bg-white px-3 py-3 text-xs md:text-sm font-bold text-slate-600 cursor-pointer hover:border-sky-400 hover:bg-sky-50/50 transition-all has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700">
                       <input type="checkbox" name="preferredClassTimeSlots" value="8:00 AM" class="sr-only">
                       8:00 AM
@@ -1056,7 +900,7 @@
 
             <div class="grid grid-cols-3 gap-2 md:gap-4">
               <label
-                class="hours-card relative flex flex-col items-center p-3 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:shadow-glow">
+                class="hours-card relative flex flex-col items-center p-3 md:p-6 rounded-md border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:shadow-glow">
                 <input type="radio" name="tinkeringHours" value="2" class="hidden peer" checked>
                 <span class="text-2xl md:text-3xl font-black text-slate-800">2</span>
                 <span class="text-[10px] md:text-sm font-medium text-slate-600">Hrs/Wk</span>
@@ -1068,7 +912,7 @@
               </label>
 
               <label
-                class="hours-card relative flex flex-col items-center p-3 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:shadow-glow">
+                class="hours-card relative flex flex-col items-center p-3 md:p-6 rounded-md border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:shadow-glow">
                 <input type="radio" name="tinkeringHours" value="3" class="hidden peer">
                 <span class="text-2xl md:text-3xl font-black text-slate-800">3</span>
                 <span class="text-[10px] md:text-sm font-medium text-slate-600">Hrs/Wk</span>
@@ -1080,7 +924,7 @@
               </label>
 
               <label
-                class="hours-card relative flex flex-col items-center p-3 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:shadow-glow">
+                class="hours-card relative flex flex-col items-center p-3 md:p-6 rounded-md border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:shadow-glow">
                 <input type="radio" name="tinkeringHours" value="4" class="hidden peer">
                 <span class="text-2xl md:text-3xl font-black text-slate-800">4</span>
                 <span class="text-[10px] md:text-sm font-medium text-slate-600">Hrs/Wk</span>
@@ -1095,101 +939,51 @@
 
           <!-- Price Summary Card -->
           <div id="priceSummary"
-            class="relative overflow-hidden bg-gradient-to-br from-primary via-indigo-600 to-violet-700 rounded-3xl p-8 text-white shadow-xl">
-            <div
-              class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50">
-            </div>
-
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-6">
+            class="relative overflow-hidden bg-slate-900 rounded-lg p-8 text-white shadow-sm border border-slate-700">
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-4">
               <div class="text-center md:text-left">
-                <p class="text-white/70 text-sm font-medium uppercase tracking-wider mb-1">Selected Program</p>
+                <p class="text-slate-400 text-sm font-medium uppercase tracking-wider mb-1">Selected Program</p>
                 <p id="summaryProgram" class="text-2xl font-bold">-</p>
-                <p id="summaryClasses" class="text-white/60 text-sm">-</p>
+                <p id="summaryClasses" class="text-slate-300 text-sm">-</p>
               </div>
 
-              <div class="h-px md:h-16 w-full md:w-px bg-white/20"></div>
+              <div class="h-px md:h-16 w-full md:w-px bg-slate-700"></div>
 
               <div class="text-center md:text-right">
-                <p class="text-white/70 text-sm font-medium uppercase tracking-wider mb-1">Total Amount</p>
+                <p class="text-slate-400 text-sm font-medium uppercase tracking-wider mb-1">Total Amount</p>
                 <p id="summaryPrice" class="text-4xl md:text-5xl font-black tracking-tight">₹0</p>
-                <p class="text-white/60 text-xs mt-1">Excluding 18% GST</p>
+                <p class="text-slate-300 text-xs mt-1">Excluding 18% GST</p>
               </div>
             </div>
           </div>
 
           <!-- Add-ons Section -->
-          <div class="flex items-center gap-3 md:gap-4 pt-8 pb-4 md:pb-6 border-t border-slate-100">
-            <div
-              class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-white text-lg md:text-xl">shopping_bag</span>
-            </div>
-            <div>
-              <h2 class="text-xl md:text-2xl font-bold text-on-surface">Learning Kit & Trial Option</h2>
-              <p class="text-xs md:text-sm text-slate-500">Kit is included by default for regular enrollment</p>
-            </div>
+          <div class="pt-6 pb-3 border-b border-t border-slate-200">
+            <h2 class="text-lg font-bold text-slate-900">Add-ons & Trial Option</h2>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-            <!-- MWL Tinkering Kit -->
-            <div
-              class="p-4 md:p-6 bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-2xl border-2 border-orange-200">
-              <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                <div
-                  class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg flex-shrink-0">
-                  <span class="material-symbols-outlined text-white text-xl md:text-2xl">inventory_2</span>
-                </div>
-                <div class="flex-1">
-                  <h4 class="font-bold text-slate-800 text-sm md:text-base">MWL Tinkering Kit</h4>
-                  <p class="text-xs md:text-sm text-slate-600">Mandatory for most students and recommended for hands-on learning</p>
+          <div class="flex flex-col gap-3">
+            <label class="flex items-center justify-between p-4 bg-slate-50/50 rounded-md border border-slate-200 cursor-pointer hover:bg-slate-100/50 transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="check-kit" name="tinkeringKit" value="Yes" class="w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary" checked>
+                <div>
+                  <h4 class="font-bold text-slate-800 text-sm">MWL Tinkering Kit</h4>
+                  <p class="text-xs text-slate-500">Includes comprehensive components for regular projects</p>
                 </div>
               </div>
-              <ul class="text-xs md:text-sm text-slate-600 space-y-1 md:space-y-2 mb-3 md:mb-4">
-                <li class="flex items-center gap-2"><span
-                    class="material-symbols-outlined text-success text-sm">check_circle</span> Comprehensive Components & parts</li>
-                <li class="flex items-center gap-2"><span
-                    class="material-symbols-outlined text-success text-sm">check_circle</span> Take-home materials</li>
-                <li class="flex items-center gap-2"><span
-                    class="material-symbols-outlined text-success text-sm">check_circle</span> Required for most regular program projects</li>
-              </ul>
-              <div class="flex items-center justify-between pt-3 md:pt-4 border-t border-orange-200">
-                <span class="text-lg md:text-2xl font-black text-orange-600">₹9,999 + GST</span>
-                <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" id="check-kit" name="tinkeringKit" value="Yes" class="w-5 h-5 text-primary rounded border-orange-300 focus:ring-primary" checked>
-                  <span class="text-sm font-medium text-slate-700">Add</span>
-                </label>
-              </div>
-            </div>
+              <span class="text-sm font-bold text-slate-700 whitespace-nowrap ml-4">₹9,999 + GST</span>
+            </label>
 
-            <!-- Experiment Month -->
-            <div class="p-4 md:p-6 bg-gradient-to-br from-teal-50 to-teal-100/50 rounded-2xl border-2 border-teal-200">
-              <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                <div
-                  class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg flex-shrink-0">
-                  <span class="material-symbols-outlined text-white text-xl md:text-2xl">science</span>
-                </div>
-                <div class="flex-1">
-                  <h4 class="font-bold text-slate-800 text-sm md:text-base">Experiment Month</h4>
-                  <p class="text-xs md:text-sm text-slate-600">Try before you commit — you only pay for the first month</p>
+            <label class="flex items-center justify-between p-4 bg-slate-50/50 rounded-md border border-slate-200 cursor-pointer hover:bg-slate-100/50 transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="check-month" name="experimentMonth" value="Yes" class="w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary">
+                <div>
+                  <h4 class="font-bold text-slate-800 text-sm">Experiment Month</h4>
+                  <p class="text-xs text-slate-500">Try before you commit — you only pay for the first month</p>
                 </div>
               </div>
-              <ul class="text-xs md:text-sm text-slate-600 space-y-1 md:space-y-2 mb-3 md:mb-4">
-                <li class="flex items-center gap-2"><span
-                    class="material-symbols-outlined text-success text-sm">check_circle</span> 10 hrs of hands-on tinkering experience
-                </li>
-                <li class="flex items-center gap-2"><span
-                    class="material-symbols-outlined text-success text-sm">check_circle</span> Attitude and Aptitude assessment</li>
-                <li class="flex items-center gap-2"><span
-                    class="material-symbols-outlined text-success text-sm">check_circle</span> Pay only the first month fee for the selected program</li>
-
-              </ul>
-              <div class="flex items-center justify-between pt-3 md:pt-4 border-t border-teal-200">
-                <span id="experiment-price" class="text-lg md:text-2xl font-black text-teal-600">As per selected program + GST</span>
-                <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" id="check-month" name="experimentMonth" value="Yes" class="w-5 h-5 text-primary rounded border-teal-300 focus:ring-primary">
-                  <span class="text-sm font-medium text-slate-700">Add</span>
-                </label>
-              </div>
-            </div>
+              <span id="experiment-price" class="text-sm font-bold text-slate-700 whitespace-nowrap ml-4 text-right">As per program</span>
+            </label>
           </div>
 
           <!-- Payment Frequency -->
@@ -1202,7 +996,7 @@
 
             <div class="grid grid-cols-3 gap-2 md:gap-4">
               <label
-                class="relative flex flex-col items-center p-3 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10">
+                class="relative flex flex-col items-center p-3 md:p-6 rounded-md border-2 border-slate-200 bg-white hover:border-primary hover:bg-primary/5 cursor-pointer transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10">
                 <input type="radio" name="paymentFreq" value="Quarterly" class="hidden peer" required checked>
                 <span
                   class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-100 flex items-center justify-center text-lg md:text-xl font-black mb-2 peer-checked:bg-primary peer-checked:text-white transition-all">Q</span>
@@ -1211,7 +1005,7 @@
               </label>
 
               <label
-                class="relative flex flex-col items-center p-3 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-emerald-500 hover:bg-emerald-50 cursor-pointer transition-all has-[:checked]:border-emerald-500 has-[:checked]:bg-emerald-50">
+                class="relative flex flex-col items-center p-3 md:p-6 rounded-md border-2 border-slate-200 bg-white hover:border-emerald-500 hover:bg-emerald-50 cursor-pointer transition-all has-[:checked]:border-emerald-500 has-[:checked]:bg-emerald-50">
                 <input type="radio" name="paymentFreq" value="Half-Yearly" class="hidden peer" required>
                 <span
                   class="absolute top-1 right-1 md:top-3 md:right-3 bg-emerald-100 text-emerald-700 text-[8px] md:text-xs font-bold px-1 md:px-2 py-0.5 md:py-1 rounded-full">5%
@@ -1223,7 +1017,7 @@
               </label>
 
               <label
-                class="relative flex flex-col items-center p-3 md:p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-violet-500 hover:bg-violet-50 cursor-pointer transition-all has-[:checked]:border-violet-500 has-[:checked]:bg-violet-50">
+                class="relative flex flex-col items-center p-3 md:p-6 rounded-md border-2 border-slate-200 bg-white hover:border-violet-500 hover:bg-violet-50 cursor-pointer transition-all has-[:checked]:border-violet-500 has-[:checked]:bg-violet-50">
                 <input type="radio" name="paymentFreq" value="Yearly" class="hidden peer" required>
                 <span
                   class="absolute top-1 right-1 md:top-3 md:right-3 bg-violet-100 text-violet-700 text-[8px] md:text-xs font-bold px-1 md:px-2 py-0.5 md:py-1 rounded-full">10%
@@ -1248,10 +1042,9 @@
                 <p class="text-xs text-slate-400">Excluding 18% GST</p>
               </div>
             </div>
-            <div class="gradient-border hidden md:block">
+            <div class="hidden md:block">
               <button id="btn-submit" type="submit"
-                class="gradient-border-inner w-full py-4 md:py-5 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 md:gap-3 pulse-glow">
-                <span class="material-symbols-outlined text-xl md:text-2xl">rocket_launch</span>
+                class="w-full py-4 bg-blue-700 text-white font-bold text-base md:text-lg rounded-lg hover:bg-blue-800 transition-colors flex items-center justify-center gap-2">
                 Review Details & Continue to Payment
                 <span class="material-symbols-outlined">arrow_forward</span>
               </button>
@@ -1274,7 +1067,7 @@
       <p id="mobileTotalPrice" class="text-2xl font-black text-primary leading-none tracking-tighter">₹0</p>
     </div>
     <button id="btn-submit-mobile" onclick="document.getElementById('enrollment-form').requestSubmit()" 
-      class="flex-1 bg-gradient-to-r from-primary to-indigo-600 text-white font-black py-4 rounded-2xl shadow-xl shadow-primary/25 active:scale-[0.97] transition-all text-sm uppercase tracking-wider">
+      class="flex-1 bg-gradient-to-r from-primary to-indigo-600 text-white font-black py-4 rounded-md shadow-xl shadow-primary/25 active:scale-[0.97] transition-all text-sm uppercase tracking-wider">
       Review & Continue
     </button>
   </div>
