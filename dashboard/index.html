@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakerWorks Lab - Student Progress Hub</title>
+  <meta name="description" content="Track student progress, check off completed milestones, and view mentor feedback.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e40af', // Dark corporate blue
+            secondary: '#3b82f6', // Bright blue
+            accent: '#f59e0b', // Amber
+            success: '#10b981', // Emerald
+            dark: '#0f172a', // Slate 900
+          },
+          boxShadow: {
+            'glow': '0 0 15px rgba(59, 130, 246, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2 text-slate-900 font-bold hover:opacity-85 transition-opacity">
+          <div class="w-10 h-10 rounded bg-primary flex items-center justify-center text-white font-black text-xl">MW</div>
+          <div>
+            <span class="block text-lg leading-none tracking-tight">MakerWorks</span>
+            <span class="block text-[10px] text-slate-500 uppercase tracking-widest font-bold">Progress Hub</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mode Toggle & Navigation -->
+      <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+        <!-- Role Switching Toggle -->
+        <div class="bg-slate-100 p-1 rounded-md flex items-center border border-slate-200">
+          <button id="btn-parent-mode" onclick="setRole('parent')"
+            class="px-3 py-1.5 rounded text-xs font-semibold transition-all flex items-center gap-1 bg-white text-slate-800 shadow-sm">
+            <span class="material-symbols-outlined text-sm">family_restroom</span>
+            Parent View
+          </button>
+          <button id="btn-mentor-mode" onclick="setRole('mentor')"
+            class="px-3 py-1.5 rounded text-xs font-semibold transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900">
+            <span class="material-symbols-outlined text-sm">co_present</span>
+            Mentor Panel
+          </button>
+        </div>
+
+        <a href="/" class="text-xs font-semibold text-slate-600 hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">home</span> Back to Website
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- Top Info bar: Student Select -->
+    <div class="bg-white rounded-lg border border-slate-200 p-4 mb-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+        <label for="studentSelect" class="text-sm font-semibold text-slate-700 whitespace-nowrap">Select Student Profile:</label>
+        <select id="studentSelect" onchange="loadStudentProfile(this.value)"
+          class="w-full sm:w-64 bg-slate-50 border border-slate-300 rounded px-3 py-2 text-sm text-slate-800 font-medium focus:ring-1 focus:ring-primary focus:border-primary">
+          <optgroup label="Beginner Track" id="opt-beginner"></optgroup>
+          <optgroup label="Intermediate Track" id="opt-intermediate"></optgroup>
+          <optgroup label="Portfolio Track" id="opt-portfolio"></optgroup>
+        </select>
+      </div>
+
+      <div class="flex items-center gap-4 w-full md:w-auto justify-end">
+        <span id="role-badge" class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded border border-blue-200 flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">family_restroom</span> Parent (Read-only)
+        </span>
+        <button id="save-indicator" onclick="forceSaveData()" class="hidden text-xs bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-3 rounded flex items-center gap-1 transition-colors">
+          <span class="material-symbols-outlined text-sm">save</span> Save Progress
+        </button>
+      </div>
+    </div>
+
+    <!-- Dashboard Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Column 1 & 2: Student Card & Course Checklist -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <!-- Student Profile Card -->
+        <div class="bg-white rounded-lg border border-slate-200 p-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-32 h-32 bg-primary/5 rounded-full blur-xl"></div>
+          
+          <div class="flex items-center gap-4 relative z-10">
+            <div id="profile-initial" class="w-16 h-16 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-2xl shadow-md border-2 border-slate-200">
+              A
+            </div>
+            <div>
+              <h2 id="profile-name" class="text-xl font-bold text-slate-900">Student Name</h2>
+              <p id="profile-track" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Track Level</p>
+              <div class="flex items-center gap-3 mt-2 text-xs text-slate-600">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-slate-400">calendar_today</span> Joined: June 2026</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-slate-400">verified</span> Active Student</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Circular Progress SVG -->
+          <div class="flex items-center gap-4 relative z-10">
+            <div class="relative w-20 h-20 flex items-center justify-center">
+              <svg class="w-full h-full transform -rotate-90">
+                <circle cx="40" cy="40" r="34" stroke="#f1f5f9" stroke-width="6" fill="transparent" />
+                <circle id="progress-circle" cx="40" cy="40" r="34" stroke="#3b82f6" stroke-width="6" fill="transparent"
+                  stroke-dasharray="213.6" stroke-dashoffset="213.6" class="transition-all duration-700 ease-out" />
+              </svg>
+              <span id="progress-text" class="absolute font-extrabold text-sm text-slate-800">0%</span>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 font-semibold uppercase">Overall Progress</p>
+              <p id="progress-status" class="text-sm font-bold text-slate-800">Beginning Journey</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curriculum Module Checklists -->
+        <div class="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div class="border-b border-slate-100 pb-4 mb-6">
+            <h3 class="text-lg font-bold text-slate-900">Curriculum & Milestone Checklist</h3>
+            <p class="text-xs text-slate-500">Mentors mark off segments upon successful concept explanation and execution.</p>
+          </div>
+
+          <div id="curriculum-container" class="space-y-6">
+            <!-- Dynamic checklist elements loaded by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Column 3: Badges, Feedback and Portfolio projects -->
+      <div class="space-y-6">
+
+        <!-- unlocked badges -->
+        <div class="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent">emoji_events</span> Achievements & Badges
+          </h3>
+          <div id="badges-container" class="grid grid-cols-3 gap-3">
+            <!-- Dynamic badges loaded by JS -->
+          </div>
+        </div>
+
+        <!-- Mentor Remarks -->
+        <div class="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">rate_review</span> Weekly Mentor Remarks
+          </h3>
+          
+          <!-- Parent read only view -->
+          <div id="remarks-parent-view" class="bg-slate-50 p-4 rounded border border-slate-200 italic text-sm text-slate-600 leading-relaxed">
+            "No feedback added yet. Check back after the next session!"
+          </div>
+
+          <!-- Mentor editable view -->
+          <div id="remarks-mentor-view" class="hidden space-y-3">
+            <textarea id="remarks-textarea" rows="4" placeholder="Enter remarks on student's performance, strengths, or homework..."
+              class="w-full text-sm p-3 bg-slate-50 border border-slate-300 rounded focus:ring-1 focus:ring-primary focus:border-primary text-slate-800"></textarea>
+            <div class="flex justify-between items-center">
+              <span id="remarks-status" class="text-[10px] text-slate-400">Not saved yet</span>
+              <button onclick="saveRemarks()" class="bg-primary hover:bg-blue-800 text-white text-xs font-bold py-1.5 px-3 rounded shadow transition-colors flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs">save</span> Save Remarks
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Capstone Projects -->
+        <div class="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-success">architecture</span> Portfolio Projects
+          </h3>
+
+          <div id="portfolio-container" class="space-y-3 mb-4">
+            <!-- Dynamic projects list -->
+          </div>
+
+          <!-- Mentor project editor -->
+          <div id="portfolio-mentor-editor" class="hidden border-t border-slate-100 pt-4 mt-4 space-y-3">
+            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Add Completed Project</h4>
+            <div class="flex gap-2">
+              <input type="text" id="project-input" placeholder="e.g. Smart Irrigation Robot"
+                class="flex-grow text-xs p-2 bg-slate-50 border border-slate-300 rounded focus:ring-1 focus:ring-primary focus:border-primary">
+              <button onclick="addPortfolioProject()" class="bg-success hover:bg-emerald-700 text-white text-xs font-bold px-3 rounded shadow transition-colors">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>© 2026 MakerWorks Lab. Designed for innovation and hand-on learning.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white text-xs font-medium px-4 py-3 rounded-md shadow-lg transform translate-y-10 opacity-0 transition-all duration-300 flex items-center gap-2 z-50">
+    <span class="material-symbols-outlined text-success">check_circle</span>
+    <span id="toast-message">Data saved successfully!</span>
+  </div>
+
+  <!-- Dashboard Logics -->
+  <script>
+    // State of the application
+    let currentRole = 'parent'; // 'parent' or 'mentor'
+    let selectedStudent = '';
+    let studentData = {};
+
+    // Standard Curriculums based on student categories
+    const curriculums = {
+      Beginner: [
+        {
+          module: "Module 1: Electronics Fundamentals",
+          tasks: [
+            "Identify resistors, LEDs, and breadboard connections",
+            "Build series and parallel LED circuits",
+            "Understand battery voltage and basic switch mechanics",
+            "Solve basic circuit troubleshooting scenarios"
+          ]
+        },
+        {
+          module: "Module 2: Micro:bit & Block Programming",
+          tasks: [
+            "Use loops and conditions to light up LED grids",
+            "Incorporate light/temperature sensors to trigger animations",
+            "Program buttons and accelerometer to register movement",
+            "Create a simple radio signal messaging system"
+          ]
+        },
+        {
+          module: "Module 3: Sensing the Environment",
+          tasks: [
+            "Calibrate and program ultrasonic distance sensors",
+            "Configure light sensors to act as a security trigger",
+            "Create a smart alarm buzzer trigger based on input variables"
+          ]
+        },
+        {
+          module: "Module 4: Mechanical Assemblies",
+          tasks: [
+            "Mount geared DC motors to a 2WD structural chassis",
+            "Program simple motor directions (forward, backward, turn)",
+            "Calibrate wheels for linear travel precision"
+          ]
+        },
+        {
+          module: "Module 5: Capstone Challenge",
+          tasks: [
+            "Integrate chassis, sensor, and microcontrollers",
+            "Build an Autonomous Obstacle Avoiding Rover",
+            "Demonstrate rover escaping a mock maze playground"
+          ]
+        }
+      ],
+      Intermediate: [
+        {
+          module: "Module 1: Arduino & C++ Coding",
+          tasks: [
+            "Write basic syntax: variables, conditionals, functions",
+            "Program analog inputs (potentiometers) and PWM outputs",
+            "Read output logs via Serial Monitor to debug variables"
+          ]
+        },
+        {
+          module: "Module 2: Actuators & Drivers",
+          tasks: [
+            "Connect and configure L298N double motor driver shields",
+            "Program servo motors to rotate in precise angle sweeps",
+            "Manage high current loads safely using external power banks"
+          ]
+        },
+        {
+          module: "Module 3: IoT & Wireless Control",
+          tasks: [
+            "Connect ESP32 microcontrollers to local Wi-Fi networks",
+            "Build a basic local IP webserver control dashboard",
+            "Create a Bluetooth-controlled car app pairing"
+          ]
+        },
+        {
+          module: "Module 4: CAD & 3D Modeling",
+          tasks: [
+            "Design custom bracket mounts in Fusion 360",
+            "Export STL files and configure slicing speeds/infill density",
+            "Set up and execute a safe 3D printing build plate project"
+          ]
+        },
+        {
+          module: "Module 5: Capstone Challenge",
+          tasks: [
+            "Design and print custom elements for an Automated Plant Waterer",
+            "Integrate soil moisture sensors, relays, and mini water pump",
+            "Submit project source code and circuit schematics"
+          ]
+        }
+      ],
+      Portfolio: [
+        {
+          module: "Module 1: Industrial RTOS & Custom PCBs",
+          tasks: [
+            "Map custom microchip circuits using EasyEDA/KiCad",
+            "Program multi-task queues in FreeRTOS environments",
+            "Understand PCB trace widths and voltage regulator configurations"
+          ]
+        },
+        {
+          module: "Module 2: Linux & Single Board Computers",
+          tasks: [
+            "Perform SSH command line setup on headless Raspberry Pi 5",
+            "Write Python automated script daemons running on boot",
+            "Configure camera nodes and network streaming streams"
+          ]
+        },
+        {
+          module: "Module 3: Physical AI & Computer Vision",
+          tasks: [
+            "Integrate OpenCV libraries to recognize specific colors",
+            "Train and deploy a lightweight YOLO object recognition model",
+            "Link model output coordinates to mechanical coordinate outputs"
+          ]
+        },
+        {
+          module: "Module 4: Kinematics & Manipulators",
+          tasks: [
+            "Configure multi-degree-of-freedom metal servo arms",
+            "Write coordinate formulas for inverse kinematics controls",
+            "Calibrate gripper payload pressure limit variables"
+          ]
+        },
+        {
+          module: "Module 5: Capstone Challenge",
+          tasks: [
+            "Build an AI-powered Pick-and-Place Robotic Arm",
+            "Arm successfully sorts colored blocks automatically in real-time",
+            "Host complete project documentation and code repo on GitHub"
+          ]
+        }
+      ]
+    };
+
+    // Preloaded list of student profiles
+    const defaultStudents = {
+      // Beginners
+      "Aadvik Singh": { track: "Beginner", completed: [0, 1, 2, 4], remarks: "Aadvik has built solid foundational knowledge on electrical nodes. He struggled slightly with programming logic, but showed great resolve. The smart car project obstacle coding is now 80% finished.", projects: ["LED Traffic Light Controller"], joined: "March 2026" },
+      "Vihaan Joshi": { track: "Beginner", completed: [0, 1], remarks: "Vihaan is doing great in block coding. Next session we start configuring structural gears.", projects: [], joined: "April 2026" },
+      "Aarav": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6, 7], remarks: "Aarav is working through advanced sensor configurations. Excellent attitude.", projects: ["Light-sensing Intruder Alarm"], joined: "January 2026" },
+      "Ivaan Jain": { track: "Beginner", completed: [0], remarks: "Introductory session completed. Excited to begin building series/parallel circuits.", projects: [], joined: "June 2026" },
+      "Bhargav Sarilla": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], remarks: "Excellent completion pace! Bhargav is nearly ready to advance to Intermediate level.", projects: ["Dual-motor Obstacle Evader"], joined: "February 2026" },
+      "Arjun Mahajan": { track: "Beginner", completed: [0, 1, 2, 3, 4], remarks: "Arjun completed his block animation modules. Ready for gears.", projects: [], joined: "May 2026" },
+      "Shourya Maru": { track: "Beginner", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
+      "Geet": { track: "Beginner", completed: [0, 1, 2], remarks: "", projects: [], joined: "May 2026" },
+      "Kimaya Jain": { track: "Beginner", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "April 2026" },
+      "Divyana Erande": { track: "Beginner", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
+      "Aashman Sirsalewal": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5], remarks: "Shows active interest in circuit diagnostics.", projects: [], joined: "April 2026" },
+      "Maanvi": { track: "Beginner", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "May 2026" },
+      "Agastya Desai": { track: "Beginner", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
+      "shenaya Chakraborty": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6], remarks: "", projects: [], joined: "March 2026" },
+      "Nitanth Reddy": { track: "Beginner", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "May 2026" },
+      "Jiaan Bhojani": { track: "Beginner", completed: [0, 1, 2], remarks: "", projects: [], joined: "June 2026" },
+
+      // Intermediates
+      "purv tapria": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], remarks: "Purv has made outstanding progress in Fusion 360. He modeled a custom bracket set and successfully sliced/printed it. Next week we finish the automated plant watering circuitry.", projects: ["Bluetooth Smart Car", "3D Printed Chassis Shell"], joined: "December 2025" },
+      "Avyan Bhojnagrwala": { track: "Intermediate", completed: [0, 1, 2, 3, 4], remarks: "Developing strong familiarity with Arduino analog ports.", projects: [], joined: "February 2026" },
+      "Avyukt Chokhani": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7], remarks: "Shows advanced code logic structure. Solves assignments independently.", projects: ["Digital Thermometer System"], joined: "January 2026" },
+      "pranav shah": { track: "Intermediate", completed: [0, 1, 2], remarks: "", projects: [], joined: "April 2026" },
+      "jash kyal": { track: "Intermediate", completed: [0, 1, 2, 3, 4], remarks: "", projects: [], joined: "March 2026" },
+      "vivaan Saraf": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8], remarks: "Excellent job in IoT controller setup.", projects: ["ESP32 Home Automation Mock"], joined: "November 2025" },
+      "dhanak seth": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5], remarks: "", projects: [], joined: "February 2026" },
+      "Avyukt Jain": { track: "Intermediate", completed: [0, 1, 2], remarks: "", projects: [], joined: "May 2026" },
+      "Tanay periwal": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6], remarks: "", projects: [], joined: "January 2026" },
+      "Mahi Jain": { track: "Intermediate", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
+      "siddharth chandwani": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], remarks: "Very focused on PCB design basics.", projects: [], joined: "October 2025" },
+      "tritesh karunmanchi": { track: "Intermediate", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "March 2026" },
+      "Aryaa": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5], remarks: "", projects: [], joined: "February 2026" },
+      "Nirvaan": { track: "Intermediate", completed: [0, 1, 2], remarks: "", projects: [], joined: "May 2026" },
+      "Tejsva Tibrewala": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6], remarks: "", projects: [], joined: "December 2025" },
+      "Lakshiv": { track: "Intermediate", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
+      "Shlok Rawat": { track: "Intermediate", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "April 2026" },
+
+      // Portfolio
+      "Kiara Bhandari": { track: "Portfolio", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], remarks: "Kiara has completed the full portfolio modules. Her Capstone AI Pick-and-Place robot is 100% active, successfully sorting items by color and volume. Exceptional portfolio piece.", projects: ["Autonomous Sorption Arm (YOLOv8)", "Home Server Controller (Raspberry Pi)"], joined: "August 2025" },
+      "suubh Gupta": { track: "Portfolio", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], remarks: "Currently training the YOLO object recognition weights. Needs to tweak lighting parameters next session.", projects: ["Color Segmenter Camera Mount"], joined: "October 2025" },
+      "Ansh hegde": { track: "Portfolio", completed: [0, 1, 2, 3, 4, 5, 6], remarks: "Doing very well mapping circuits in KiCad.", projects: [], joined: "November 2025" }
+    };
+
+    // Initialize application data
+    function initializeData() {
+      const stored = localStorage.getItem('mwl_student_data');
+      if (stored) {
+        studentData = JSON.parse(stored);
+      } else {
+        studentData = defaultStudents;
+        localStorage.setItem('mwl_student_data', JSON.stringify(studentData));
+      }
+      populateSelectOptions();
+    }
+
+    // Populate dropdown grouped options
+    function populateSelectOptions() {
+      const begGroup = document.getElementById('opt-beginner');
+      const intGroup = document.getElementById('opt-intermediate');
+      const portGroup = document.getElementById('opt-portfolio');
+
+      begGroup.innerHTML = '';
+      intGroup.innerHTML = '';
+      portGroup.innerHTML = '';
+
+      Object.keys(studentData).forEach(name => {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+
+        const track = studentData[name].track;
+        if (track === 'Beginner') {
+          begGroup.appendChild(option);
+        } else if (track === 'Intermediate') {
+          intGroup.appendChild(option);
+        } else if (track === 'Portfolio') {
+          portGroup.appendChild(option);
+        }
+      });
+
+      // Default load first student
+      const firstStudent = Object.keys(studentData)[0];
+      loadStudentProfile(firstStudent);
+    }
+
+    // Switch Role between Parent and Mentor
+    function setRole(role) {
+      currentRole = role;
+      
+      const parentBtn = document.getElementById('btn-parent-mode');
+      const mentorBtn = document.getElementById('btn-mentor-mode');
+      const badge = document.getElementById('role-badge');
+      const saveBtn = document.getElementById('save-indicator');
+      const remarksParent = document.getElementById('remarks-parent-view');
+      const remarksMentor = document.getElementById('remarks-mentor-view');
+      const portfolioMentor = document.getElementById('portfolio-mentor-editor');
+
+      if (role === 'mentor') {
+        currentRole = 'mentor';
+        parentBtn.className = "px-3 py-1.5 rounded text-xs font-semibold transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900";
+        mentorBtn.className = "px-3 py-1.5 rounded text-xs font-semibold transition-all flex items-center gap-1 bg-white text-slate-800 shadow-sm";
+        badge.className = "bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded border border-orange-200 flex items-center gap-1";
+        badge.innerHTML = `<span class="material-symbols-outlined text-sm">co_present</span> Mentor Control`;
+        saveBtn.classList.remove('hidden');
+        remarksParent.classList.add('hidden');
+        remarksMentor.classList.remove('hidden');
+        portfolioMentor.classList.remove('hidden');
+      } else {
+        currentRole = 'parent';
+        parentBtn.className = "px-3 py-1.5 rounded text-xs font-semibold transition-all flex items-center gap-1 bg-white text-slate-800 shadow-sm";
+        mentorBtn.className = "px-3 py-1.5 rounded text-xs font-semibold transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900";
+        badge.className = "bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded border border-blue-200 flex items-center gap-1";
+        badge.innerHTML = `<span class="material-symbols-outlined text-sm">family_restroom</span> Parent View`;
+        saveBtn.classList.add('hidden');
+        remarksParent.classList.remove('hidden');
+        remarksMentor.classList.add('hidden');
+        portfolioMentor.classList.add('hidden');
+      }
+
+      // Re-render curriculum so checkboxes become editable/disabled
+      renderCurriculum();
+    }
+
+    // Load Student Profile Data
+    function loadStudentProfile(name) {
+      selectedStudent = name;
+      document.getElementById('studentSelect').value = name;
+      
+      const data = studentData[name];
+      if (!data) return;
+
+      // Update basic details
+      document.getElementById('profile-name').textContent = name;
+      document.getElementById('profile-initial').textContent = name.charAt(0);
+      document.getElementById('profile-track').textContent = data.track + " Curriculum";
+      
+      // Update remarks
+      document.getElementById('remarks-textarea').value = data.remarks || '';
+      const remarksView = document.getElementById('remarks-parent-view');
+      if (data.remarks && data.remarks.trim() !== '') {
+        remarksView.textContent = `"${data.remarks}"`;
+        remarksView.classList.remove('text-slate-400');
+        remarksView.classList.add('text-slate-600');
+      } else {
+        remarksView.textContent = `"No weekly remarks logged by the mentor yet. Stay tuned!"`;
+        remarksView.classList.remove('text-slate-600');
+        remarksView.classList.add('text-slate-400');
+      }
+
+      renderCurriculum();
+      renderPortfolio();
+      document.getElementById('remarks-status').textContent = 'Loaded';
+    }
+
+    // Render Checklist based on selected student's track and completed tasks
+    function renderCurriculum() {
+      const data = studentData[selectedStudent];
+      const container = document.getElementById('curriculum-container');
+      container.innerHTML = '';
+
+      const trackCurriculum = curriculums[data.track];
+      let taskCounter = 0;
+      let completedCount = 0;
+      let totalTasks = 0;
+
+      trackCurriculum.forEach((mod, modIdx) => {
+        const modEl = document.createElement('div');
+        modEl.className = "border border-slate-100 rounded-md bg-slate-50/30 overflow-hidden";
+
+        const modHeader = document.createElement('div');
+        modHeader.className = "bg-slate-100/70 p-3 font-semibold text-sm text-slate-800 border-b border-slate-100 flex items-center justify-between";
+        modHeader.innerHTML = `<span>${mod.module}</span>`;
+        modEl.appendChild(modHeader);
+
+        const taskList = document.createElement('div');
+        taskList.className = "p-3 space-y-2.5";
+
+        mod.tasks.forEach(taskText => {
+          const isChecked = data.completed.includes(taskCounter);
+          if (isChecked) completedCount++;
+          totalTasks++;
+
+          const item = document.createElement('label');
+          item.className = `flex items-start gap-3 text-xs md:text-sm font-medium ${currentRole === 'mentor' ? 'cursor-pointer hover:bg-slate-100/50 p-1.5 rounded transition-all' : ''}`;
+          
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.className = "w-4 h-4 mt-0.5 text-primary rounded border-slate-300 focus:ring-primary";
+          checkbox.checked = isChecked;
+          
+          if (currentRole === 'parent') {
+            checkbox.disabled = true;
+            item.classList.add('text-slate-600');
+          } else {
+            const currentCounter = taskCounter;
+            checkbox.onchange = (e) => toggleTask(currentCounter, e.target.checked);
+          }
+
+          const spanText = document.createElement('span');
+          spanText.textContent = taskText;
+          if (isChecked) {
+            spanText.className = "line-through text-slate-400";
+          }
+
+          item.appendChild(checkbox);
+          item.appendChild(spanText);
+          taskList.appendChild(item);
+
+          taskCounter++;
+        });
+
+        modEl.appendChild(taskList);
+        container.appendChild(modEl);
+      });
+
+      // Update progress metrics
+      const percent = totalTasks > 0 ? Math.round((completedCount / totalTasks) * 100) : 0;
+      document.getElementById('progress-text').textContent = percent + '%';
+      
+      // Update SVG circular offset (circumference = 2 * PI * r = 2 * 3.14159 * 34 = 213.6)
+      const offset = 213.6 - (percent / 100) * 213.6;
+      document.getElementById('progress-circle').setAttribute('stroke-dashoffset', offset);
+
+      // Color progress based on percentage
+      const progressCircle = document.getElementById('progress-circle');
+      if (percent < 30) {
+        progressCircle.setAttribute('stroke', '#64748b'); // Slate
+        document.getElementById('progress-status').textContent = 'Orientation & Basics';
+      } else if (percent < 75) {
+        progressCircle.setAttribute('stroke', '#3b82f6'); // Blue
+        document.getElementById('progress-status').textContent = 'Active Building';
+      } else if (percent < 100) {
+        progressCircle.setAttribute('stroke', '#10b981'); // Emerald
+        document.getElementById('progress-status').textContent = 'Finishing Capstone';
+      } else {
+        progressCircle.setAttribute('stroke', '#8b5cf6'); // Violet (Mastery)
+        document.getElementById('progress-status').textContent = 'Completed Course!';
+      }
+
+      renderBadges(percent);
+    }
+
+    // Render achievements
+    function renderBadges(percent) {
+      const container = document.getElementById('badges-container');
+      container.innerHTML = '';
+
+      const track = studentData[selectedStudent].track;
+      
+      // Define 3 badges based on track
+      const badges = [
+        { name: "Safety First", icon: "security", desc: "Safety orientation pass", threshold: 10 },
+        { name: track === "Beginner" ? "Circuit Builder" : track === "Intermediate" ? "Coding Core" : "PCB Designer", icon: "settings_input_component", desc: "Completed Module 1", threshold: 25 },
+        { name: "Capstone Maker", icon: "rocket_launch", desc: "Successful Capstone execution", threshold: 95 }
+      ];
+
+      badges.forEach(badge => {
+        const isUnlocked = percent >= badge.threshold;
+        
+        const card = document.createElement('div');
+        card.className = `flex flex-col items-center p-3 rounded-md border text-center transition-all ${
+          isUnlocked 
+            ? 'bg-amber-50/50 border-amber-200 shadow-sm scale-100 hover:scale-105' 
+            : 'bg-slate-50 border-slate-100 opacity-40'
+        }`;
+
+        card.innerHTML = `
+          <span class="material-symbols-outlined text-2xl ${isUnlocked ? 'text-amber-500 fill-current' : 'text-slate-400'}">${badge.icon}</span>
+          <span class="text-[10px] md:text-xs font-bold text-slate-800 mt-1 block truncate max-w-full">${badge.name}</span>
+          <span class="text-[8px] text-slate-400 block">${isUnlocked ? 'Unlocked' : 'Locked'}</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Render Portfolio projects
+    function renderPortfolio() {
+      const data = studentData[selectedStudent];
+      const container = document.getElementById('portfolio-container');
+      container.innerHTML = '';
+
+      if (!data.projects || data.projects.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-400 italic">No capstone project details uploaded yet.</p>`;
+        return;
+      }
+
+      data.projects.forEach((proj, idx) => {
+        const projCard = document.createElement('div');
+        projCard.className = "flex items-center justify-between p-2.5 bg-slate-50 rounded border border-slate-200 text-xs md:text-sm font-semibold";
+        projCard.innerHTML = `
+          <div class="flex items-center gap-2 text-slate-800">
+            <span class="material-symbols-outlined text-sm text-success">done_all</span>
+            <span>${proj}</span>
+          </div>
+        `;
+
+        if (currentRole === 'mentor') {
+          const delBtn = document.createElement('button');
+          delBtn.className = "text-red-500 hover:text-red-700 text-xs font-bold";
+          delBtn.innerHTML = '<span class="material-symbols-outlined text-xs">delete</span>';
+          delBtn.onclick = () => deletePortfolioProject(idx);
+          projCard.appendChild(delBtn);
+        }
+
+        container.appendChild(projCard);
+      });
+    }
+
+    // Actions
+    function toggleTask(taskIdx, isChecked) {
+      const data = studentData[selectedStudent];
+      if (isChecked) {
+        if (!data.completed.includes(taskIdx)) {
+          data.completed.push(taskIdx);
+        }
+      } else {
+        data.completed = data.completed.filter(idx => idx !== taskIdx);
+      }
+      
+      saveToStorageQuiet();
+      renderCurriculum();
+    }
+
+    function saveRemarks() {
+      const remarkText = document.getElementById('remarks-textarea').value;
+      studentData[selectedStudent].remarks = remarkText;
+      
+      saveToStorage();
+      document.getElementById('remarks-status').textContent = 'Saved!';
+      setTimeout(() => {
+        document.getElementById('remarks-status').textContent = 'Idle';
+      }, 2000);
+    }
+
+    function addPortfolioProject() {
+      const input = document.getElementById('project-input');
+      const val = input.value.trim();
+      if (!val) return;
+
+      if (!studentData[selectedStudent].projects) {
+        studentData[selectedStudent].projects = [];
+      }
+      
+      studentData[selectedStudent].projects.push(val);
+      input.value = '';
+      
+      saveToStorage();
+      renderPortfolio();
+    }
+
+    function deletePortfolioProject(idx) {
+      studentData[selectedStudent].projects.splice(idx, 1);
+      saveToStorage();
+      renderPortfolio();
+    }
+
+    // Storage updates
+    function saveToStorageQuiet() {
+      localStorage.setItem('mwl_student_data', JSON.stringify(studentData));
+    }
+
+    function saveToStorage() {
+      saveToStorageQuiet();
+      showToast("Student data successfully updated!");
+    }
+
+    function forceSaveData() {
+      saveToStorage();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.remove('translate-y-10', 'opacity-0');
+      
+      setTimeout(() => {
+        toast.classList.add('translate-y-10', 'opacity-0');
+      }, 3000);
+    }
+
+    // Init page
+    window.onload = function() {
+      initializeData();
+    }
+  </script>
+</body>
+
+</html>
