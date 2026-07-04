@@ -242,98 +242,153 @@
     let currentRole = 'parent'; // 'parent' or 'mentor'
     let selectedStudent = '';
     let studentData = {};
-
-    // Standard Unified Curriculum
+    // Standard Unified Curriculum (Expanded Topics)
     const baseCurriculum = [
       {
-        module: "Module 1: Basic",
+        module: "Module 1: Basic (20 Assignments, 2 Mini Projects)",
         tasks: [
-          "20 Assignments Completed",
-          "2 Mini Projects Completed"
+          "Display Text & Custom Icons on LED Matrix (Assignments 1-5)",
+          "Configure Coordinates, Sprites & Coordinate Math (Assignments 6-12)",
+          "Implement Basic Event Handlers & Audio Beeps (Assignments 13-20)",
+          "Mini Project 1: Animated Digital Name Badge",
+          "Mini Project 2: Interactive Mood Indicator Cards"
         ]
       },
       {
-        module: "Module 2: Input",
+        module: "Module 2: Input (20 Assignments, 3 Mini Projects)",
         tasks: [
-          "20 Assignments Completed",
-          "3 Mini Projects Completed"
+          "Handle Button Presses, Double Clicks & Long Holds (Assignments 1-6)",
+          "Calibrate Light Sensors & Ambient Temperature Reads (Assignments 7-12)",
+          "Map Accelerometer Gestures, Tilts & Freefall Bounds (Assignments 13-20)",
+          "Mini Project 1: Pedometer / Step Counter App",
+          "Mini Project 2: Digital Security Intrusion Alarm",
+          "Mini Project 3: Smart Greenhouse Temp Checker"
         ]
       },
       {
-        module: "Module 3: Music",
+        module: "Module 3: Music (10 Assignments, 1 Mini Project)",
         tasks: [
-          "10 Assignments Completed",
-          "1 Mini Project Completed"
+          "Configure Rhythms, Melodies & Pitch Frequencies (Assignments 1-5)",
+          "Calibrate Built-in Microphone Sound Thresholds (Assignments 6-10)",
+          "Mini Project 1: Light-Activated Theremin Instrument"
         ]
       },
       {
-        module: "Module 4: Logic",
+        module: "Module 4: Logic (20 Assignments, 3 Mini Projects)",
         tasks: [
-          "20 Assignments Completed",
-          "3 Mini Projects Completed"
+          "Implement IF-ELSE Branches & Conditional Flows (Assignments 1-7)",
+          "Use Logical Comparators (Greater/Less/Equal) (Assignments 8-14)",
+          "Design AND, OR, & NOT Logic Gate Scenarios (Assignments 15-20)",
+          "Mini Project 1: Rock-Paper-Scissors Dueler Game",
+          "Mini Project 2: Balanced Dual-Player Score Judge",
+          "Mini Project 3: Fast-reaction Dice Speed Meter"
         ]
       },
       {
-        module: "Module 5: Loops",
+        module: "Module 5: Loops (30 Assignments, 5 Mini Projects)",
         tasks: [
-          "30 Assignments Completed",
-          "5 Mini Projects Completed"
+          "Write Basic REPEAT Loops & Action Sequences (Assignments 1-10)",
+          "Program WHILE Loops & Conditional Breaks (Assignments 11-20)",
+          "Design FOR Index Loops & Nested LED Arrays (Assignments 21-30)",
+          "Mini Project 1: Loading Progress Bar LED Animation",
+          "Mini Project 2: Symmetrical Matrix Grid Art Painter",
+          "Mini Project 3: Binaural Beat Tempo Generator",
+          "Mini Project 4: Binary LED Counter Dashboard",
+          "Mini Project 5: Interactive Reaction Speed Game"
         ]
       },
       {
-        module: "Module 6: Variables & Math",
+        module: "Module 6: Variables & Math (20 Assignments, 2 Mini Projects)",
         tasks: [
-          "20 Assignments Completed",
-          "2 Mini Projects Completed"
+          "Define, Alter & Increment/Decrement Variables (Assignments 1-7)",
+          "Generate Random Numbers & Set Calculation Constraints (Assignments 8-14)",
+          "Use Modulo Arithmetic, Rounding & Absolute Values (Assignments 15-20)",
+          "Mini Project 1: Two-Player Arena Match Scoreboard",
+          "Mini Project 2: Auto-Generated Math Quiz System"
         ]
       },
       {
-        module: "Module 7: Radio",
+        module: "Module 7: Radio (15 Assignments, 2 Mini Projects)",
         tasks: [
-          "15 Assignments Completed",
-          "2 Mini Projects Completed"
+          "Configure Custom Multi-channel Radio Groups (Assignments 1-5)",
+          "Broadcast & Receive Number / String Packets (Assignments 6-10)",
+          "Measure & Filter Signal Strength Indexes (RSSI) (Assignments 11-15)",
+          "Mini Project 1: Double-Way Walkie-Talkie Transceiver",
+          "Mini Project 2: Remote Controlled Rover Command Box"
         ]
       },
       {
-        module: "Module 8: LEDs",
+        module: "Module 8: LEDs (25 Assignments, 4 Mini Projects)",
         tasks: [
-          "25 Assignments Completed",
-          "4 Mini Projects Completed"
+          "Address Individual X/Y Pixel Positions & States (Assignments 1-8)",
+          "Integrate & Command External NeoPixel Rings (Assignments 9-16)",
+          "Design Gradient Shifting & Brightness Cycles (Assignments 17-25)",
+          "Mini Project 1: Dynamic LED Lightshow & Equalizer",
+          "Mini Project 2: Classic Retro Snake Game Clone",
+          "Mini Project 3: Scrolling Text News Feed Ticker",
+          "Mini Project 4: Interactive Coordinate Maze Run"
         ]
       },
       {
-        module: "Module 9: Functions",
+        module: "Module 9: Functions (20 Assignments, 2 Mini Projects)",
         tasks: [
-          "20 Assignments Completed",
-          "2 Mini Projects Completed"
+          "Declare Modules & Standard Input Parameter Lists (Assignments 1-7)",
+          "Format return data & local variable namespaces (Assignments 8-14)",
+          "Handle Recursive Callings & Event Routing (Assignments 15-20)",
+          "Mini Project 1: Dynamic Geometric Area Solver App",
+          "Mini Project 2: Advanced Lightshow Pattern Switcher"
         ]
       },
       {
-        module: "Module 10: Arrays",
+        module: "Module 10: Arrays (15 Assignments, 2 Mini Projects)",
         tasks: [
-          "15 Assignments Completed",
-          "2 Mini Projects Completed"
+          "Declare List Formats, Set Lengths & Index values (Assignments 1-5)",
+          "Iterate Array Lists & Log Sensor Time-Series Data (Assignments 6-10)",
+          "Execute Array Bubble Sorting & Element Swappings (Assignments 11-15)",
+          "Mini Project 1: Multi-Track Melody Jukebox Selector",
+          "Mini Project 2: Simon Says Pattern Memory Game"
         ]
       },
       {
-        module: "Module 11: Hardware",
+        module: "Module 11: Hardware (50 Assignments, 10 Mini Projects)",
         tasks: [
-          "50 Assignments Completed",
-          "10 Mini Projects Completed"
+          "Configure Breadboard Rail Connections & Resistors (Assignments 1-10)",
+          "Control DC Motor Rotations & Speed via PWM Drivers (Assignments 11-20)",
+          "Connect Servo Motors, Relays & AC/DC Converters (Assignments 21-30)",
+          "Calibrate Ultrasonic, Soil Moisture & Keypads (Assignments 31-40)",
+          "Interface ESP32 Wi-Fi Protocols & LCD Displays (Assignments 41-50)",
+          "Mini Project 1: Ultrasonic Distance Measurement Radar",
+          "Mini Project 2: Keypad-secured Digital Locker Box",
+          "Mini Project 3: Temperature-Activated Fan Speed Driver",
+          "Mini Project 4: Smart Irrigation Self-watering System",
+          "Mini Project 5: Line Following Robot Assembly & Tune",
+          "Mini Project 6: Bluetooth Controlled Chassis Car",
+          "Mini Project 7: Joy-stick Controlled 4-DOF Robot Arm",
+          "Mini Project 8: RFID Access Gate Entry Simulator",
+          "Mini Project 9: Solar Tracker Dynamic Panel Mount",
+          "Mini Project 10: Hand-Gesture Recognition Chassis Rover"
         ]
       },
       {
-        module: "Module 12: 3D Designing",
+        module: "Module 12: 3D Designing (50 Assignments, 30 Mini Projects)",
         tasks: [
-          "50 Assignments Completed",
-          "30 Mini Projects Completed"
+          "Sketch 2D Shapes, Apply Constraints & Tangents (Assignments 1-10)",
+          "Execute Body Extrudes, Revolve & Fillets/Chamfers (Assignments 11-20)",
+          "Perform Advanced Sweep, Loft & Threading Modeling (Assignments 21-30)",
+          "Model Assembled Multi-part Bodies & Mechanical Joins (Assignments 31-40)",
+          "Export STL files & Configure Slicer Infill/Supports (Assignments 41-50)",
+          "Create custom brackets, chassis, phone stands, cases, gears, mounts, joints, and keychains (Completed 30 Mini Projects)"
         ]
       },
       {
-        module: "Module 13: Final Capstone Projects",
+        module: "Module 13: Final Capstone Projects (7 Projects, 30 Sessions)",
         tasks: [
-          "7 Final Capstone Projects Completed",
-          "30 Capstone Lab Sessions Completed"
+          "Design & Assembly of Capstone Project 1 (Session 1-4)",
+          "Circuit Calibration & Breadboard Integration (Session 5-10)",
+          "Write Main Code Loop & Edge-case Exception Checks (Session 11-18)",
+          "Print Outer Shells & Mount Hardware Components (Session 19-25)",
+          "Final Code Optimization, Testing & Live Presentation (Session 26-30)",
+          "Completed 7 Final Capstone Projects (including AI Robotic Arm, IoT Server, and Self-Balancing Bot)"
         ]
       }
     ];
@@ -347,56 +402,56 @@
     // Preloaded list of student profiles
     const defaultStudents = {
       // Beginners
-      "Aadvik Singh": { track: "Beginner", completed: [0, 1, 2, 4], remarks: "Aadvik has built solid foundational knowledge on electrical nodes. He struggled slightly with programming logic, but showed great resolve. The smart car project obstacle coding is now 80% finished.", projects: ["LED Traffic Light Controller"], joined: "March 2026" },
-      "Vihaan Joshi": { track: "Beginner", completed: [0, 1], remarks: "Vihaan is doing great in block coding. Next session we start configuring structural gears.", projects: [], joined: "April 2026" },
-      "Aarav": { track: "Beginner", completed: [0, 1, 2, 3, 4], remarks: "Aarav is working through advanced sensor configurations. Excellent attitude.", projects: ["Light-sensing Intruder Alarm"], joined: "January 2026" },
-      "Ivaan Jain": { track: "Beginner", completed: [0], remarks: "Introductory session completed. Excited to begin building series/parallel circuits.", projects: [], joined: "June 2026" },
-      "Bhargav Sarilla": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6, 7], remarks: "Excellent completion pace! Bhargav is nearly ready to advance to Intermediate level.", projects: ["Dual-motor Obstacle Evader"], joined: "February 2026" },
-      "Arjun Mahajan": { track: "Beginner", completed: [0, 1, 2, 3], remarks: "Arjun completed his block animation modules. Ready for gears.", projects: [], joined: "May 2026" },
-      "Shourya Maru": { track: "Beginner", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
-      "Geet": { track: "Beginner", completed: [0, 1, 2], remarks: "", projects: [], joined: "May 2026" },
-      "Kimaya Jain": { track: "Beginner", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "April 2026" },
-      "Divyana Erande": { track: "Beginner", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
-      "Aashman Sirsalewal": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5], remarks: "Shows active interest in circuit diagnostics.", projects: [], joined: "April 2026" },
-      "Maanvi": { track: "Beginner", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "May 2026" },
-      "Agastya Desai": { track: "Beginner", completed: [0, 1], remarks: "", projects: [], joined: "June 2026" },
-      "shenaya Chakraborty": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6], remarks: "", projects: [], joined: "March 2026" },
-      "Nitanth Reddy": { track: "Beginner", completed: [0, 1, 2, 3], remarks: "", projects: [], joined: "May 2026" },
-      "Jiaan Bhojani": { track: "Beginner", completed: [0, 1, 2], remarks: "", projects: [], joined: "June 2026" },
+      "Aadvik Singh": { track: "Beginner", completed: [0, 1, 2, 3, 5, 6, 7, 11], remarks: "Aadvik has built solid foundational knowledge on electrical nodes. He struggled slightly with programming logic, but showed great resolve. The smart car project obstacle coding is now 80% finished.", projects: ["LED Traffic Light Controller"], joined: "March 2026" },
+      "Vihaan Joshi": { track: "Beginner", completed: [0, 1, 2, 5, 6], remarks: "Vihaan is doing great in block coding. Next session we start configuring structural gears.", projects: [], joined: "April 2026" },
+      "Aarav": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13], remarks: "Aarav is working through advanced sensor configurations. Excellent attitude.", projects: ["Light-sensing Intruder Alarm"], joined: "January 2026" },
+      "Ivaan Jain": { track: "Beginner", completed: [0, 1, 5], remarks: "Introductory session completed. Excited to begin building series/parallel circuits.", projects: [], joined: "June 2026" },
+      "Bhargav Sarilla": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], remarks: "Excellent completion pace! Bhargav is nearly ready to advance to Intermediate level.", projects: ["Dual-motor Obstacle Evader"], joined: "February 2026" },
+      "Arjun Mahajan": { track: "Beginner", completed: [0, 1, 2, 3, 5, 6, 7], remarks: "Arjun completed his block animation modules. Ready for gears.", projects: [], joined: "May 2026" },
+      "Shourya Maru": { track: "Beginner", completed: [0, 1, 5, 6], remarks: "", projects: [], joined: "June 2026" },
+      "Geet": { track: "Beginner", completed: [0, 1, 2, 5, 6], remarks: "", projects: [], joined: "May 2026" },
+      "Kimaya Jain": { track: "Beginner", completed: [0, 1, 2, 3, 5, 6, 7, 8], remarks: "", projects: [], joined: "April 2026" },
+      "Divyana Erande": { track: "Beginner", completed: [0, 1, 5], remarks: "", projects: [], joined: "June 2026" },
+      "Aashman Sirsalewal": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 12], remarks: "Shows active interest in circuit diagnostics.", projects: [], joined: "April 2026" },
+      "Maanvi": { track: "Beginner", completed: [0, 1, 2, 3, 5, 6, 7, 8], remarks: "", projects: [], joined: "May 2026" },
+      "Agastya Desai": { track: "Beginner", completed: [0, 1, 5, 6], remarks: "", projects: [], joined: "June 2026" },
+      "shenaya Chakraborty": { track: "Beginner", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13], remarks: "", projects: [], joined: "March 2026" },
+      "Nitanth Reddy": { track: "Beginner", completed: [0, 1, 2, 3, 5, 6, 7], remarks: "", projects: [], joined: "May 2026" },
+      "Jiaan Bhojani": { track: "Beginner", completed: [0, 1, 2, 5, 6, 7], remarks: "", projects: [], joined: "June 2026" },
 
       // Intermediates
-      "purv tapria": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], remarks: "Purv has made outstanding progress in Fusion 360. He modeled a custom bracket set and successfully sliced/printed it. Next week we finish the automated plant watering circuitry.", projects: ["Bluetooth Smart Car", "3D Printed Chassis Shell"], joined: "December 2025" },
-      "Avyan Bhojnagrwala": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7], remarks: "Developing strong familiarity with Arduino analog ports.", projects: [], joined: "February 2026" },
-      "Avyukt Chokhani": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], remarks: "Shows advanced code logic structure. Solves assignments independently.", projects: ["Digital Thermometer System"], joined: "January 2026" },
-      "pranav shah": { track: "Intermediate", completed: [0, 1, 2, 3, 4], remarks: "", projects: [], joined: "April 2026" },
-      "jash kyal": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6], remarks: "", projects: [], joined: "March 2026" },
-      "vivaan Saraf": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], remarks: "Excellent job in IoT controller setup.", projects: ["ESP32 Home Automation Mock"], joined: "November 2025" },
-      "dhanak seth": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8], remarks: "", projects: [], joined: "February 2026" },
-      "Avyukt Jain": { track: "Intermediate", completed: [0, 1, 2, 3, 4], remarks: "", projects: [], joined: "May 2026" },
-      "Tanay periwal": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], remarks: "", projects: [], joined: "January 2026" },
-      "Mahi Jain": { track: "Intermediate", completed: [0, 1, 2], remarks: "", projects: [], joined: "June 2026" },
-      "siddharth chandwani": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], remarks: "Very focused on PCB design basics.", projects: [], joined: "October 2025" },
-      "tritesh karunmanchi": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5], remarks: "", projects: [], joined: "March 2026" },
-      "Aryaa": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], remarks: "", projects: [], joined: "February 2026" },
-      "Nirvaan": { track: "Intermediate", completed: [0, 1, 2, 3, 4], remarks: "", projects: [], joined: "May 2026" },
-      "Tejsva Tibrewala": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], remarks: "", projects: [], joined: "December 2025" },
-      "Lakshiv": { track: "Intermediate", completed: [0, 1, 2], remarks: "", projects: [], joined: "June 2026" },
-      "Shlok Rawat": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5], remarks: "", projects: [], joined: "April 2026" },
+      "purv tapria": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49], remarks: "Purv has made outstanding progress in Fusion 360. He modeled a custom bracket set and successfully sliced/printed it. Next week we finish the automated plant watering circuitry.", projects: ["Bluetooth Smart Car", "3D Printed Chassis Shell"], joined: "December 2025" },
+      "Avyan Bhojnagrwala": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], remarks: "Developing strong familiarity with Arduino analog ports.", projects: [], joined: "February 2026" },
+      "Avyukt Chokhani": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], remarks: "Shows advanced code logic structure. Solves assignments independently.", projects: ["Digital Thermometer System"], joined: "January 2026" },
+      "pranav shah": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], remarks: "", projects: [], joined: "April 2026" },
+      "jash kyal": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], remarks: "", projects: [], joined: "March 2026" },
+      "vivaan Saraf": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44], remarks: "Excellent job in IoT controller setup.", projects: ["ESP32 Home Automation Mock"], joined: "November 2025" },
+      "dhanak seth": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], remarks: "", projects: [], joined: "February 2026" },
+      "Avyukt Jain": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], remarks: "", projects: [], joined: "May 2026" },
+      "Tanay periwal": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32], remarks: "", projects: [], joined: "January 2026" },
+      "Mahi Jain": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], remarks: "", projects: [], joined: "June 2026" },
+      "siddharth chandwani": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49], remarks: "Very focused on PCB design basics.", projects: [], joined: "October 2025" },
+      "tritesh karunmanchi": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], remarks: "", projects: [], joined: "March 2026" },
+      "Aryaa": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], remarks: "", projects: [], joined: "February 2026" },
+      "Nirvaan": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], remarks: "", projects: [], joined: "May 2026" },
+      "Tejsva Tibrewala": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32], remarks: "", projects: [], joined: "December 2025" },
+      "Lakshiv": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], remarks: "", projects: [], joined: "June 2026" },
+      "Shlok Rawat": { track: "Intermediate", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], remarks: "", projects: [], joined: "April 2026" },
 
       // Portfolio
-      "Kiara Bhandari": { track: "Portfolio", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], remarks: "Kiara has completed the full portfolio modules. Her Capstone AI Pick-and-Place robot is 100% active, successfully sorting items by color and volume. Exceptional portfolio piece.", projects: ["Autonomous Sorption Arm (YOLOv8)", "Home Server Controller (Raspberry Pi)"], joined: "August 2025" },
-      "suubh Gupta": { track: "Portfolio", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], remarks: "Currently training the YOLO object recognition weights. Needs to tweak lighting parameters next session.", projects: ["Color Segmenter Camera Mount"], joined: "October 2025" },
-      "Ansh hegde": { track: "Portfolio", completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], remarks: "Doing very well mapping circuits in KiCad.", projects: [], joined: "November 2025" }
+      "Kiara Bhandari": { track: "Portfolio", completed: Array.from({length: 82}, (_, i) => i), remarks: "Kiara has completed the full portfolio modules. Her Capstone AI Pick-and-Place robot is 100% active, successfully sorting items by color and volume. Exceptional portfolio piece.", projects: ["Autonomous Sorption Arm (YOLOv8)", "Home Server Controller (Raspberry Pi)"], joined: "August 2025" },
+      "suubh Gupta": { track: "Portfolio", completed: Array.from({length: 60}, (_, i) => i), remarks: "Currently training the YOLO object recognition weights. Needs to tweak lighting parameters next session.", projects: ["Color Segmenter Camera Mount"], joined: "October 2025" },
+      "Ansh hegde": { track: "Portfolio", completed: Array.from({length: 45}, (_, i) => i), remarks: "Doing very well mapping circuits in KiCad.", projects: [], joined: "November 2025" }
     };
 
     // Initialize application data
     function initializeData() {
-      const stored = localStorage.getItem('mwl_student_data');
+      const stored = localStorage.getItem('mwl_student_data_v3');
       if (stored) {
         studentData = JSON.parse(stored);
       } else {
         studentData = defaultStudents;
-        localStorage.setItem('mwl_student_data', JSON.stringify(studentData));
+        localStorage.setItem('mwl_student_data_v3', JSON.stringify(studentData));
       }
       populateSelectOptions();
     }
@@ -429,7 +484,7 @@
       // Default load first student
       const firstStudent = Object.keys(studentData)[0];
       loadStudentProfile(firstStudent);
-    }
+    }}
 
     // Switch Role between Parent and Mentor
     function setRole(role) {
@@ -704,12 +759,12 @@
 
     // Storage updates
     function saveToStorageQuiet() {
-      localStorage.setItem('mwl_student_data_v2', JSON.stringify(studentData));
+      localStorage.setItem('mwl_student_data_v3', JSON.stringify(studentData));
     }
 
     // Reset local data to clear old cached data if curriculum changed structure
     function initializeData() {
-      const stored = localStorage.getItem('mwl_student_data_v2');
+      const stored = localStorage.getItem('mwl_student_data_v3');
       let parsed = null;
       if (stored) {
         try {
@@ -722,7 +777,7 @@
         studentData = parsed;
       } else {
         studentData = defaultStudents;
-        localStorage.setItem('mwl_student_data_v2', JSON.stringify(studentData));
+        localStorage.setItem('mwl_student_data_v3', JSON.stringify(studentData));
       }
       populateSelectOptions();
     }
