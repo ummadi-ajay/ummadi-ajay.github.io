@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 9,
+  "last_topic_index": 10,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -23,17 +23,11 @@
     "cobots-your-future-robot-teammates-makerworks",
     "industrial-robotics-automation-powering-indias-future-factor",
     "robots-in-scrubs-exploring-surgical-and-medical-robotics",
-    "space-robotics-our-unsung-heroes-of-cosmic-exploration"
+    "space-robotics-our-unsung-heroes-of-cosmic-exploration",
+    "untitled-post-20260706"
   ],
-  "last_run": "2026-07-02T07:50:16.104037",
+  "last_run": "2026-07-06T08:46:08.354786",
   "recent_posts": [
-    {
-      "slug": "soaring-smarter-the-incredible-world-of-ai-powered-drones",
-      "title": "Soaring Smarter: The Incredible World of AI-Powered Drones",
-      "badge": "Drones",
-      "badge_color": "linear-gradient(135deg, #fd7e14, #ffc107)",
-      "short_description": "Discover the magic of AI-powered drones! Learn how they see, think, and act autonomously, revolutionizing industries in India."
-    },
     {
       "slug": "cobots-your-future-robot-teammates-makerworks",
       "title": "Cobots: Your Future Robot Teammates - MakerWorks",
@@ -61,6 +55,13 @@
       "badge": "Space",
       "badge_color": "linear-gradient(135deg, #212529, #6c757d)",
       "short_description": "Explore the incredible world of space robotics! From Mars rovers to orbital mechanics, learn how robots are our eyes and hands in the cosmos."
+    },
+    {
+      "slug": "untitled-post-20260706",
+      "title": "Untitled Post",
+      "badge": "Research",
+      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
+      "short_description": ""
     }
   ]
 }
