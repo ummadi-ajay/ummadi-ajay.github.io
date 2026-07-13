@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 10,
+  "last_topic_index": 11,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -24,17 +24,11 @@
     "industrial-robotics-automation-powering-indias-future-factor",
     "robots-in-scrubs-exploring-surgical-and-medical-robotics",
     "space-robotics-our-unsung-heroes-of-cosmic-exploration",
-    "untitled-post-20260706"
+    "untitled-post-20260706",
+    "squishy-wonders-dive-into-the-world-of-soft-robotics-with-ma"
   ],
-  "last_run": "2026-07-06T08:46:08.354786",
+  "last_run": "2026-07-13T07:47:30.243524",
   "recent_posts": [
-    {
-      "slug": "cobots-your-future-robot-teammates-makerworks",
-      "title": "Cobots: Your Future Robot Teammates - MakerWorks",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Explore the exciting world of collaborative robots (cobots)! Learn how these safe, smart machines work with humans."
-    },
     {
       "slug": "industrial-robotics-automation-powering-indias-future-factor",
       "title": "Industrial Robotics & Automation: Powering India's Future Factories",
@@ -62,6 +56,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": ""
+    },
+    {
+      "slug": "squishy-wonders-dive-into-the-world-of-soft-robotics-with-ma",
+      "title": "Squishy Wonders: Dive into the World of Soft Robotics with MakerWorks!",
+      "badge": "Research",
+      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
+      "short_description": "Discover soft robotics: flexible, bio-inspired robots made from squishy materials. Learn how they work, their applications, and how to get started."
     }
   ]
 }
