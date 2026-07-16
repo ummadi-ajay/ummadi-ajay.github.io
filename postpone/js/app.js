@@ -40,6 +40,12 @@ onAuthStateChanged(auth, (user) => {
     currentUser = user;
     loginSection.classList.add('hidden-state');
     postponeSection.classList.remove('hidden-state');
+    
+    // Populate user info bar
+    const emailDisplay = document.getElementById('user-email-display');
+    const avatar = document.getElementById('user-avatar');
+    if (emailDisplay) emailDisplay.textContent = user.email;
+    if (avatar) avatar.textContent = user.email.charAt(0).toUpperCase();
   } else {
     currentUser = null;
     loginSection.classList.remove('hidden-state');

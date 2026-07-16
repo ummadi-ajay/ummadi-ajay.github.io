@@ -4,149 +4,347 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>MakerWorks Lab | Postpone Class</title>
+  <meta name="description" content="Request a class postponement securely with at least 14 days advance notice.">
+  
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            "primary": "#1e3a8a",
-            "secondary": "#1e40af",
-            "accent": "#2563eb",
-            "surface": "#ffffff",
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out infinite 2s',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'fade-in': 'fadeIn 0.4s ease-out',
           },
-          fontFamily: { "sans": ["Inter", "sans-serif"] },
-          boxShadow: {
-            'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          keyframes: {
+            float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
+            slideUp: { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
           }
         }
       }
     }
   </script>
+
   <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-    
+    * { box-sizing: border-box; }
     body {
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      font-family: 'Inter', sans-serif;
+      background: #050d1a;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
+    .hidden-state { display: none !important; }
+
+    /* Animated grid background */
+    .grid-bg {
+      background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Glowing orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%); top: -100px; left: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(99, 37, 235, 0.2) 0%, transparent 70%); bottom: -50px; right: -50px; }
+    .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(37, 180, 235, 0.15) 0%, transparent 70%); top: 50%; right: 20%; }
+
+    /* Glass card */
     .glass-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-    }
-    
-    .gradient-text {
-      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background: rgba(15, 25, 50, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
     }
 
+    /* Left panel */
+    .left-panel {
+      background: linear-gradient(160deg, #0f2052 0%, #0a1535 50%, #050d1a 100%);
+      border-right: 1px solid rgba(37, 99, 235, 0.15);
+    }
+
+    /* Input styling */
+    .form-input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      transition: all 0.3s ease;
+      color-scheme: dark;
+    }
+    .form-input::placeholder { color: rgba(148, 163, 184, 0.5); }
+    .form-input:focus {
+      background: rgba(37, 99, 235, 0.08);
+      border-color: rgba(37, 99, 235, 0.6);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      outline: none;
+    }
+
+    /* Primary button */
     .btn-primary {
       background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
       transition: all 0.3s ease;
     }
-
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px -10px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     }
-    
-    .hidden-state {
-      display: none !important;
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Step indicators */
+    .policy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+    .policy-item:hover { background: rgba(37, 99, 235, 0.08); border-color: rgba(37,99,235,0.2); }
+
+    /* Logo icon */
+    .logo-icon {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    /* Success animation */
+    @keyframes checkmark {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .checkmark-path { stroke-dasharray: 100; animation: checkmark 0.5s ease-out forwards; }
+
+    /* Spin animation for loading icon */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin { animation: spin 1s linear infinite; display: inline-block; }
+
+    /* User info bar */
+    .user-bar {
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
-<body class="flex items-center justify-center p-4 text-slate-800 font-sans relative overflow-hidden">
-  
-  <!-- Background Decorations -->
-  <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob"></div>
-  <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-indigo-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob animation-delay-2000"></div>
 
-  <div class="w-full max-w-md glass-card rounded-3xl p-8 relative z-10 transition-all duration-500" id="main-container">
-    
-    <!-- Header -->
-    <div class="text-center mb-8">
-      <div class="w-16 h-16 bg-blue-100 rounded-2xl mx-auto flex items-center justify-center mb-4 shadow-inner">
-        <span class="material-symbols-outlined text-4xl text-blue-600">event_busy</span>
-      </div>
-      <h1 class="text-3xl font-black tracking-tight gradient-text mb-2">Class Portal</h1>
-      <p class="text-sm text-slate-500 font-medium">Manage your class schedules securely.</p>
-    </div>
+<body class="grid-bg min-h-screen flex items-center justify-center p-4 relative">
 
-    <!-- Login Section -->
-    <div id="login-section" class="transition-opacity duration-300">
-      <form id="login-form" class="space-y-5">
+  <!-- Background Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Main Card -->
+  <div class="glass-card rounded-3xl overflow-hidden w-full max-w-4xl relative z-10 animate-slide-up" style="min-height: 560px;">
+    <div class="flex flex-col lg:flex-row min-h-full">
+
+      <!-- Left Panel: Branding & Policy -->
+      <div class="left-panel lg:w-2/5 p-8 lg:p-10 flex flex-col justify-between">
+        
+        <!-- Logo -->
         <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1">Student Email</label>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">mail</span>
-            <input type="email" id="email" required class="w-full pl-10 pr-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-slate-400 font-medium" placeholder="student@example.com">
+          <div class="flex items-center gap-3 mb-10">
+            <div class="logo-icon w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-xl">MW</div>
+            <div>
+              <p class="text-white font-bold text-base leading-none">MakerWorks</p>
+              <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mt-0.5">Lab</p>
+            </div>
+          </div>
+
+          <h1 class="text-2xl lg:text-3xl font-black text-white leading-tight mb-2">
+            Postpone<br>
+            <span style="color: #60a5fa;">Your Class</span>
+          </h1>
+          <p class="text-slate-400 text-sm font-medium mb-8">
+            Submit a secure, authenticated request to reschedule your session.
+          </p>
+
+          <!-- Policy Items -->
+          <div class="space-y-2">
+            <div class="policy-item">
+              <span class="material-symbols-outlined text-blue-400 text-xl mt-0.5">schedule</span>
+              <div>
+                <p class="text-white text-xs font-bold">14-Day Advance Notice</p>
+                <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">All postponements must be requested at least 2 weeks before your class date.</p>
+              </div>
+            </div>
+            <div class="policy-item">
+              <span class="material-symbols-outlined text-blue-400 text-xl mt-0.5">verified_user</span>
+              <div>
+                <p class="text-white text-xs font-bold">Secure & Authenticated</p>
+                <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">Login is required so every request is tied to your student identity.</p>
+              </div>
+            </div>
+            <div class="policy-item">
+              <span class="material-symbols-outlined text-blue-400 text-xl mt-0.5">notifications_active</span>
+              <div>
+                <p class="text-white text-xs font-bold">Admin Notification</p>
+                <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">Your mentor is notified instantly and will confirm your rescheduled date.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1">Password</label>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">lock</span>
-            <input type="password" id="password" required class="w-full pl-10 pr-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-slate-400 font-medium" placeholder="••••••••">
-          </div>
-        </div>
-        <button type="submit" id="login-btn" class="w-full btn-primary text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 mt-4">
-          <span>Sign In</span>
-          <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </button>
-        <div id="login-error" class="hidden text-red-500 text-sm font-semibold text-center mt-2 bg-red-50 p-2 rounded-lg border border-red-100"></div>
-      </form>
-    </div>
 
-    <!-- Postpone Class Section -->
-    <div id="postpone-section" class="hidden-state transition-opacity duration-300">
-      <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-6 flex items-start gap-3">
-        <span class="material-symbols-outlined text-blue-500 shrink-0">info</span>
-        <p class="text-xs text-blue-700 font-medium leading-relaxed">
-          Classes can only be postponed with a minimum of <strong>2 weeks (14 days)</strong> advance notice as per MakerWorks Lab policy.
-        </p>
+        <!-- Footer -->
+        <p class="text-slate-600 text-xs mt-8 lg:mt-0">© 2026 MakerWorks Lab. All rights reserved.</p>
       </div>
 
-      <form id="postpone-form" class="space-y-5">
-        <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1">Class Date to Postpone</label>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">calendar_month</span>
-            <input type="date" id="postpone-date" required class="w-full pl-10 pr-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all font-medium text-slate-700">
+      <!-- Right Panel: Forms -->
+      <div class="flex-1 p-8 lg:p-10 flex flex-col justify-center">
+
+        <!-- ── LOGIN SECTION ── -->
+        <div id="login-section" class="animate-fade-in">
+          <div class="mb-8">
+            <h2 class="text-xl font-bold text-white mb-1">Welcome Back</h2>
+            <p class="text-slate-400 text-sm">Sign in with your student account to continue.</p>
           </div>
-          <p id="date-error" class="hidden text-red-500 text-xs font-semibold mt-1"></p>
+
+          <form id="login-form" class="space-y-5">
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Student Email</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">mail</span>
+                <input type="email" id="email" required autocomplete="email"
+                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium"
+                  placeholder="student@example.com" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Password</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">lock</span>
+                <input type="password" id="password" required autocomplete="current-password"
+                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium"
+                  placeholder="••••••••" />
+              </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="login-error" class="hidden text-xs font-semibold text-red-400 bg-red-500/10 border border-red-500/20 p-3 rounded-xl flex items-center gap-2">
+              <span class="material-symbols-outlined text-base shrink-0">error</span>
+              <span id="login-error-text"></span>
+            </div>
+
+            <button type="submit" id="login-btn"
+              class="btn-primary w-full text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 text-sm mt-2">
+              <span>Sign In</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+          </form>
         </div>
-        <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1">Reason for Postponement</label>
-          <textarea id="postpone-reason" required rows="3" class="w-full p-3 bg-white/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all font-medium text-slate-700 placeholder-slate-400" placeholder="Please specify why you need to postpone..."></textarea>
+
+        <!-- ── POSTPONE FORM SECTION ── -->
+        <div id="postpone-section" class="hidden-state animate-fade-in">
+
+          <!-- User Info Bar -->
+          <div class="user-bar" id="user-bar">
+            <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm" id="user-avatar">?</div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white text-xs font-bold truncate" id="user-email-display">Loading...</p>
+              <p class="text-blue-400 text-xs">Student Account</p>
+            </div>
+            <button id="logout-btn" title="Sign Out"
+              class="text-slate-500 hover:text-red-400 transition-colors flex items-center gap-1 text-xs font-semibold shrink-0 ml-2">
+              <span class="material-symbols-outlined text-base">logout</span>
+            </button>
+          </div>
+
+          <div class="mb-6">
+            <h2 class="text-xl font-bold text-white mb-1">Request Postponement</h2>
+            <p class="text-slate-400 text-sm">Select a date at least 14 days in advance.</p>
+          </div>
+
+          <!-- Info Banner -->
+          <div class="flex items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3.5 mb-6">
+            <span class="material-symbols-outlined text-blue-400 text-lg shrink-0 mt-0.5">policy</span>
+            <p class="text-xs text-blue-300 font-medium leading-relaxed">
+              MakerWorks Lab requires a minimum <strong class="text-blue-200">14-day advance notice</strong> for all class postponements. Requests submitted later will not be accepted.
+            </p>
+          </div>
+
+          <form id="postpone-form" class="space-y-5">
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                Class Date to Postpone
+              </label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">calendar_month</span>
+                <input type="date" id="postpone-date" required
+                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium" />
+              </div>
+              <p id="date-error" class="hidden text-red-400 text-xs font-semibold mt-2 flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">warning</span>
+                <span id="date-error-text"></span>
+              </p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                Reason for Postponement
+              </label>
+              <textarea id="postpone-reason" required rows="3"
+                class="form-input w-full p-4 rounded-xl text-sm font-medium resize-none"
+                placeholder="Briefly describe why you need to postpone this class..."></textarea>
+            </div>
+
+            <!-- Submission Message -->
+            <div id="postpone-message" class="hidden text-sm font-semibold p-3.5 rounded-xl flex items-center gap-2"></div>
+
+            <button type="submit" id="submit-btn"
+              class="btn-primary w-full text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 text-sm">
+              <span>Submit Request</span>
+              <span class="material-symbols-outlined text-base">send</span>
+            </button>
+          </form>
         </div>
-        <button type="submit" id="submit-btn" class="w-full btn-primary text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2">
-          <span>Submit Request</span>
-          <span class="material-symbols-outlined text-sm">send</span>
-        </button>
-        <div id="postpone-message" class="hidden text-center text-sm font-semibold mt-3 p-3 rounded-xl"></div>
-      </form>
-      
-      <div class="mt-6 text-center">
-        <button id="logout-btn" class="text-sm font-semibold text-slate-500 hover:text-red-500 transition-colors flex items-center justify-center gap-1 mx-auto">
-          <span class="material-symbols-outlined text-base">logout</span> Sign Out
-        </button>
+
       </div>
     </div>
-    
   </div>
 
+  <script>
+    // Patch error message display to use the new inner span
+    const origLoginError = document.getElementById('login-error');
+    const origLoginErrorText = document.getElementById('login-error-text');
+    
+    // Override textContent setter to populate inner span
+    Object.defineProperty(origLoginError, 'textContent', {
+      set(val) { origLoginErrorText.textContent = val; },
+      get() { return origLoginErrorText.textContent; }
+    });
+  </script>
   <script type="module" src="./js/app.js"></script>
 </body>
 </html>
