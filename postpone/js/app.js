@@ -141,17 +141,21 @@ postponeForm.addEventListener('submit', async (e) => {
   dateError.classList.add('hidden');
   postponeMessage.classList.add('hidden');
   
-  const selectedDate = new Date(postponeDate.value);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  
-  const diffTime = Math.abs(selectedDate - today);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-  
-  if (diffDays < 14 || selectedDate < today) {
-    dateError.textContent = "Class must be postponed at least 2 weeks (14 days) in advance.";
-    dateError.classList.remove('hidden');
-    return;
+  // Only validate date for postponement requests
+  if (requestType === 'postpone') {
+    const selectedDate = new Date(postponeDate.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const diffTime = selectedDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (!postponeDate.value || diffDays < 14) {
+      const dateErrorText = document.getElementById('date-error-text');
+      if (dateErrorText) dateErrorText.textContent = "Class must be postponed at least 2 weeks (14 days) in advance.";
+      dateError.classList.remove('hidden');
+      return;
+    }
   }
   
   submitBtn.disabled = true;
@@ -197,7 +201,8 @@ postponeForm.addEventListener('submit', async (e) => {
     postponeMessage.className = "text-center text-sm font-semibold mt-3 p-3 rounded-xl bg-red-50 text-red-600 border border-red-200";
   } finally {
     submitBtn.disabled = false;
-    submitBtn.innerHTML = '<span>Submit Request</span><span class="material-symbols-outlined text-sm">send</span>';
+    const label = requestType === 'cancel' ? 'Submit Cancellation' : 'Submit Postponement';
+    submitBtn.innerHTML = `<span>${label}</span><span class="material-symbols-outlined text-base">send</span>`;
   }
 });
 
