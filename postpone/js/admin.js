@@ -38,7 +38,15 @@ onValue(postponementsRef, (snapshot) => {
     
     // Format date string
     const submitDate = req.createdAt ? new Date(req.createdAt).toLocaleString() : 'N/A';
-    const requestedDate = new Date(req.postponeDate).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+    const requestedDate = req.postponeDate
+      ? new Date(req.postponeDate).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })
+      : '<span class="text-slate-400 italic">N/A (Cancellation)</span>';
+    
+    // Type badge
+    const isCancellation = req.type === 'cancel';
+    const typeBadge = isCancellation
+      ? `<span class="px-2 py-1 bg-red-100 text-red-700 rounded-full text-xs font-bold border border-red-200 flex items-center gap-1 w-fit"><span class="text-xs">✕</span> Cancel</span>`
+      : `<span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold border border-blue-200 flex items-center gap-1 w-fit"><span class="text-xs">↷</span> Postpone</span>`;
     
     // Status badge coloring
     let statusBadge = `<span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold border border-yellow-200">PENDING</span>`;
@@ -46,6 +54,7 @@ onValue(postponementsRef, (snapshot) => {
     if (req.status === 'REJECTED') statusBadge = `<span class="px-2 py-1 bg-red-100 text-red-700 rounded-full text-xs font-bold border border-red-200">REJECTED</span>`;
 
     tr.innerHTML = `
+      <td class="p-4">${typeBadge}</td>
       <td class="p-4 font-medium text-slate-900">${req.email}</td>
       <td class="p-4 text-slate-700 font-semibold">${requestedDate}</td>
       <td class="p-4 text-slate-600 max-w-xs truncate" title="${req.reason}">${req.reason}</td>

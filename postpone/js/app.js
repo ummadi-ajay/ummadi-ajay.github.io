@@ -23,6 +23,54 @@ const loginBtn = document.getElementById('login-btn');
 const submitBtn = document.getElementById('submit-btn');
 
 let currentUser = null;
+let requestType = 'postpone'; // 'postpone' | 'cancel'
+
+// Switch between Postpone and Cancel modes
+window.setRequestType = function(type) {
+  requestType = type;
+  const dateSection = document.getElementById('date-section');
+  const postponeDate = document.getElementById('postpone-date');
+  const reasonLabel = document.getElementById('reason-label');
+  const submitLabel = document.getElementById('submit-label');
+  const bannerIcon = document.getElementById('banner-icon');
+  const bannerText = document.getElementById('banner-text');
+  const infoBanner = document.getElementById('info-banner');
+  const btnPostpone = document.getElementById('btn-postpone');
+  const btnCancel = document.getElementById('btn-cancel');
+  
+  if (type === 'postpone') {
+    // Show date section
+    dateSection.style.display = 'block';
+    postponeDate.required = true;
+    reasonLabel.textContent = 'Reason for Postponement';
+    postponeDate.placeholder = 'Select new date';
+    submitLabel.textContent = 'Submit Postponement';
+    bannerIcon.textContent = 'policy';
+    bannerText.innerHTML = 'Postponements require a minimum <strong class="text-blue-200">14-day advance notice</strong>. Select a date at least 2 weeks from today.';
+    infoBanner.className = 'flex items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3.5 mb-5';
+    bannerText.className = 'text-xs text-blue-300 font-medium leading-relaxed';
+    bannerIcon.className = 'material-symbols-outlined text-blue-400 text-lg shrink-0 mt-0.5';
+    // Active styles
+    btnPostpone.style.cssText = 'background: rgba(37,99,235,0.2); border-color: rgba(37,99,235,0.5); color: #93c5fd;';
+    btnCancel.style.cssText = 'background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); color: #64748b;';
+  } else {
+    // Hide date section for cancel
+    dateSection.style.display = 'none';
+    postponeDate.required = false;
+    reasonLabel.textContent = 'Reason for Cancellation';
+    postponeDate.placeholder = '';
+    submitLabel.textContent = 'Submit Cancellation';
+    bannerIcon.textContent = 'cancel';
+    bannerText.innerHTML = 'Please provide a clear reason for cancellation. Our admin team will be notified immediately.';
+    infoBanner.className = 'flex items-start gap-3 bg-red-500/10 border border-red-500/20 rounded-xl p-3.5 mb-5';
+    bannerText.className = 'text-xs text-red-300 font-medium leading-relaxed';
+    bannerIcon.className = 'material-symbols-outlined text-red-400 text-lg shrink-0 mt-0.5';
+    // Active styles
+    btnCancel.style.cssText = 'background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: #fca5a5;';
+    btnPostpone.style.cssText = 'background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); color: #64748b;';
+  }
+};
+
 
 // Set minimum date to 14 days from today
 function setMinDate() {
@@ -114,7 +162,8 @@ postponeForm.addEventListener('submit', async (e) => {
     await push(postponementsRef, {
       uid: currentUser.uid,
       email: currentUser.email,
-      postponeDate: postponeDate.value,
+      type: requestType,  // 'postpone' or 'cancel'
+      postponeDate: requestType === 'postpone' ? postponeDate.value : null,
       reason: postponeReason.value.trim(),
       status: 'PENDING',
       createdAt: serverTimestamp()
