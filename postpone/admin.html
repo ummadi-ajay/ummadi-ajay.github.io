@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakerWorks Lab | Postponement Dashboard</title>
+  <meta name="description" content="Admin dashboard to view class postponement requests.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb', // Blue 600
+            secondary: '#3b82f6', // Blue 500
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+  </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded bg-primary flex items-center justify-center text-white font-black text-xl shadow-md">MW</div>
+        <div>
+          <h1 class="text-xl font-bold leading-tight text-slate-900">Admin Dashboard</h1>
+          <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Class Postponements</p>
+        </div>
+      </div>
+      <a href="/" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">home</span> Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900">Postponement Requests</h2>
+        <p class="text-sm text-slate-500 mt-1">Review and manage student class postponement requests.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="flex h-3 w-3 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+        </span>
+        <span class="text-xs font-semibold text-slate-600 uppercase tracking-wide">Live Updates Active</span>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="glass-panel rounded-xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-semibold">
+              <th class="p-4">Student Email</th>
+              <th class="p-4">Requested Date</th>
+              <th class="p-4">Reason</th>
+              <th class="p-4">Submitted At</th>
+              <th class="p-4">Status</th>
+            </tr>
+          </thead>
+          <tbody id="requests-table-body" class="divide-y divide-slate-100 text-sm">
+            <!-- Loading State -->
+            <tr>
+              <td colspan="5" class="p-8 text-center text-slate-500">
+                <span class="material-symbols-outlined animate-spin text-3xl mb-2 text-primary">sync</span>
+                <p>Loading requests from Firebase...</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script type="module" src="./js/admin.js"></script>
+</body>
+</html>

@@ -114,6 +114,25 @@ postponeForm.addEventListener('submit', async (e) => {
       createdAt: serverTimestamp()
     });
     
+    // Initialize EmailJS (using the same public key as your enrollment system)
+    emailjs.init("GFxAVPzBfXX4d-vQR");
+    
+    // Prepare email parameters
+    const templateParams = {
+      from_name: currentUser.email,
+      email: currentUser.email,
+      message: `Student ${currentUser.email} has requested to postpone their class to ${postponeDate.value}. Reason: ${postponeReason.value.trim()}`
+    };
+    
+    // Send email to admin
+    // NOTE: You need to replace 'YOUR_NEW_TEMPLATE_ID' with a real EmailJS template ID
+    // that accepts these parameters (from_name, email, message).
+    try {
+      await emailjs.send("service_atizuna", "YOUR_NEW_TEMPLATE_ID", templateParams);
+    } catch (emailErr) {
+      console.warn("Could not send email notification (check template ID):", emailErr);
+    }
+    
     postponeMessage.textContent = "Your request has been submitted successfully.";
     postponeMessage.className = "text-center text-sm font-semibold mt-3 p-3 rounded-xl bg-green-50 text-green-600 border border-green-200";
     postponeForm.reset();
