@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 11,
+  "last_topic_index": 12,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -25,17 +25,11 @@
     "robots-in-scrubs-exploring-surgical-and-medical-robotics",
     "space-robotics-our-unsung-heroes-of-cosmic-exploration",
     "untitled-post-20260706",
-    "squishy-wonders-dive-into-the-world-of-soft-robotics-with-ma"
+    "squishy-wonders-dive-into-the-world-of-soft-robotics-with-ma",
+    "agricultural-robots-cultivating-the-future-of-farming-in-ind"
   ],
-  "last_run": "2026-07-13T07:47:30.243524",
+  "last_run": "2026-07-16T06:40:49.185875",
   "recent_posts": [
-    {
-      "slug": "industrial-robotics-automation-powering-indias-future-factor",
-      "title": "Industrial Robotics & Automation: Powering India's Future Factories",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Discover industrial robots and automation: types, applications in India, how they work, and their impact on future factories."
-    },
     {
       "slug": "robots-in-scrubs-exploring-surgical-and-medical-robotics",
       "title": "Robots in Scrubs: Exploring Surgical and Medical Robotics",
@@ -63,6 +57,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": "Discover soft robotics: flexible, bio-inspired robots made from squishy materials. Learn how they work, their applications, and how to get started."
+    },
+    {
+      "slug": "agricultural-robots-cultivating-the-future-of-farming-in-ind",
+      "title": "Agricultural Robots: Cultivating the Future of Farming in India",
+      "badge": "Agriculture",
+      "badge_color": "linear-gradient(135deg, #198754, #adb5bd)",
+      "short_description": "Discover how agri-robots and farm automation are revolutionizing farming in India, from precision planting to drone monitoring."
     }
   ]
 }
