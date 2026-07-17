@@ -4,23 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MakerWorks Lab | Admin — Postponements</title>
-  <meta name="description" content="Admin dashboard to approve or reject class postponement requests.">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-  <script>
-    tailwind.config = {
-      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
-    }
-  </script>
-
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } } }</script>
   <style>
     body { font-family: 'Inter', sans-serif; background: #f1f5f9; }
     .stat-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px 24px; }
+    .card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .animate-spin { animation: spin 1s linear infinite; display: inline-block; }
+    .window-active { background: #f0fdf4; border-color: #86efac; }
+    .window-inactive { background: #fafafa; border-color: #e2e8f0; }
+    input[type="date"] { color-scheme: light; }
   </style>
 </head>
 
@@ -42,45 +38,91 @@
     </div>
   </header>
 
-  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-    <!-- Page Title -->
-    <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-      <div>
-        <h1 class="text-2xl font-extrabold text-slate-900">Postponement Requests</h1>
-        <p class="text-sm text-slate-500 mt-1">Approve or reject student class requests in real time.</p>
+    <!-- ── SECTION 1: Postponement Window Config ── -->
+    <div class="card p-6">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center">
+          <span class="material-symbols-outlined text-indigo-600">date_range</span>
+        </div>
+        <div>
+          <h2 class="text-lg font-extrabold text-slate-900">Postponement Windows</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Set the exact date range students are allowed to reschedule their classes.</p>
+        </div>
       </div>
-      <div class="flex items-center gap-2">
-        <span class="relative flex h-2.5 w-2.5">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-        </span>
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Live Updates Active</span>
+
+      <!-- Create New Window Form -->
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-5">
+        <p class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-4">Create New Window</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1.5">Window Label</label>
+            <input type="text" id="win-label" placeholder="e.g. Q3 2026 Window"
+              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1.5">Allowed From</label>
+            <input type="date" id="win-start"
+              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1.5">Allowed Until</label>
+            <input type="date" id="win-end"
+              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white">
+          </div>
+        </div>
+        <div class="mt-4 flex items-center gap-3">
+          <button id="win-save-btn" onclick="saveWindow()"
+            class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl transition-colors flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">add_circle</span>
+            Create Window
+          </button>
+          <span id="win-msg" class="text-xs font-semibold text-green-600 hidden"></span>
+        </div>
+      </div>
+
+      <!-- Existing Windows List -->
+      <div id="windows-list">
+        <p class="text-xs text-slate-400 italic">Loading windows...</p>
       </div>
     </div>
 
-    <!-- Stat Cards -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-      <div class="stat-card">
-        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Total</p>
-        <p class="text-3xl font-black text-slate-900" id="stat-total">—</p>
+    <!-- ── SECTION 2: Stats ── -->
+    <div>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-extrabold text-slate-900">Postponement Requests</h2>
+        <div class="flex items-center gap-2">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+          </span>
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Live Updates</span>
+        </div>
       </div>
-      <div class="stat-card border-l-4 border-yellow-400">
-        <p class="text-xs font-semibold text-yellow-600 uppercase tracking-wide mb-1">Pending</p>
-        <p class="text-3xl font-black text-yellow-600" id="stat-pending">—</p>
-      </div>
-      <div class="stat-card border-l-4 border-green-500">
-        <p class="text-xs font-semibold text-green-600 uppercase tracking-wide mb-1">Approved</p>
-        <p class="text-3xl font-black text-green-600" id="stat-approved">—</p>
-      </div>
-      <div class="stat-card border-l-4 border-red-500">
-        <p class="text-xs font-semibold text-red-600 uppercase tracking-wide mb-1">Rejected</p>
-        <p class="text-3xl font-black text-red-600" id="stat-rejected">—</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        <div class="stat-card">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Total</p>
+          <p class="text-3xl font-black text-slate-900" id="stat-total">—</p>
+        </div>
+        <div class="stat-card border-l-4 border-yellow-400">
+          <p class="text-xs font-semibold text-yellow-600 uppercase tracking-wide mb-1">Pending</p>
+          <p class="text-3xl font-black text-yellow-600" id="stat-pending">—</p>
+        </div>
+        <div class="stat-card border-l-4 border-green-500">
+          <p class="text-xs font-semibold text-green-600 uppercase tracking-wide mb-1">Approved</p>
+          <p class="text-3xl font-black text-green-600" id="stat-approved">—</p>
+        </div>
+        <div class="stat-card border-l-4 border-red-500">
+          <p class="text-xs font-semibold text-red-600 uppercase tracking-wide mb-1">Rejected</p>
+          <p class="text-3xl font-black text-red-600" id="stat-rejected">—</p>
+        </div>
       </div>
     </div>
 
-    <!-- Table -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <!-- ── SECTION 3: Requests Table ── -->
+    <div class="card overflow-hidden">
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
           <thead>
@@ -88,8 +130,7 @@
               <th class="p-4">Type</th>
               <th class="p-4">Student Email</th>
               <th class="p-4">Original Class Date</th>
-              <th class="p-4">New Requested Date</th>
-              <th class="p-4">Quarter</th>
+              <th class="p-4">Requested New Date</th>
               <th class="p-4">Reason</th>
               <th class="p-4">Submitted At</th>
               <th class="p-4">Status</th>
@@ -98,7 +139,7 @@
           </thead>
           <tbody id="requests-table-body" class="text-sm">
             <tr>
-              <td colspan="7" class="p-10 text-center text-slate-500">
+              <td colspan="8" class="p-10 text-center text-slate-500">
                 <span class="material-symbols-outlined text-3xl text-blue-400 animate-spin block mb-2">sync</span>
                 Loading requests from Firebase...
               </td>
