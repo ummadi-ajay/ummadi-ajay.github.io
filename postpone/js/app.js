@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
-import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+import { getDatabase, ref, push, onValue, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 import { FIREBASE_CONFIG } from "../../enrol/js/config.js";
 
 // Initialize Firebase
@@ -83,25 +83,90 @@ function setMinDate() {
 setMinDate();
 
 // Auth State Observer
+let myRequestsUnsubscribe = null;
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUser = user;
     loginSection.classList.add('hidden-state');
     postponeSection.classList.remove('hidden-state');
-    
+
     // Populate user info bar
     const emailDisplay = document.getElementById('user-email-display');
     const avatar = document.getElementById('user-avatar');
     if (emailDisplay) emailDisplay.textContent = user.email;
     if (avatar) avatar.textContent = user.email.charAt(0).toUpperCase();
+
+    // Start listening to this student's requests
+    startMyRequestsListener(user.uid);
   } else {
     currentUser = null;
     loginSection.classList.remove('hidden-state');
     postponeSection.classList.add('hidden-state');
     loginForm.reset();
     postponeForm.reset();
+    if (myRequestsUnsubscribe) { myRequestsUnsubscribe(); myRequestsUnsubscribe = null; }
   }
 });
+
+// Listen to all postponements, filter by UID, render in "My Requests"
+function startMyRequestsListener(uid) {
+  const listEl = document.getElementById('my-requests-list');
+  if (!listEl) return;
+
+  const allRef = ref(db, 'postponements');
+  myRequestsUnsubscribe = onValue(allRef, (snapshot) => {
+    listEl.innerHTML = '';
+    const data = snapshot.val();
+    if (!data) {
+      listEl.innerHTML = `<p class="text-xs text-slate-500 italic">No requests submitted yet.</p>`;
+      return;
+    }
+
+    const myRequests = Object.values(data)
+      .filter(r => r.uid === uid)
+      .sort((a, b) => b.createdAt - a.createdAt);
+
+    if (myRequests.length === 0) {
+      listEl.innerHTML = `<p class="text-xs text-slate-500 italic">No requests submitted yet.</p>`;
+      return;
+    }
+
+    myRequests.forEach(req => {
+      const card = document.createElement('div');
+      card.style.cssText = 'background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px;';
+
+      // Status styles
+      let statusStyle = 'background: rgba(234,179,8,0.15); color: #fbbf24; border: 1px solid rgba(234,179,8,0.3);';
+      let statusLabel = '⏳ Pending';
+      if (req.status === 'APPROVED') {
+        statusStyle = 'background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3);';
+        statusLabel = '✓ Approved';
+      } else if (req.status === 'REJECTED') {
+        statusStyle = 'background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3);';
+        statusLabel = '✗ Rejected';
+      }
+
+      const typeLabel = req.type === 'cancel' ? '✕ Cancel' : '↷ Postpone';
+      const dateLabel = req.postponeDate ? `→ ${new Date(req.postponeDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}` : '';
+      const submittedLabel = req.createdAt ? new Date(req.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) : '';
+
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+          <div>
+            <span style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em;">${typeLabel} ${dateLabel}</span>
+            <p style="font-size:12px; color:#94a3b8; margin-top:3px; line-height:1.4;">${req.reason || '—'}</p>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+            <span style="font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px; ${statusStyle}">${statusLabel}</span>
+            <span style="font-size:10px; color:#64748b;">${submittedLabel}</span>
+          </div>
+        </div>
+      `;
+      listEl.appendChild(card);
+    });
+  });
+}
 
 // Login Handler
 loginForm.addEventListener('submit', async (e) => {
@@ -163,15 +228,21 @@ postponeForm.addEventListener('submit', async (e) => {
   
   try {
     const postponementsRef = ref(db, 'postponements');
-    await push(postponementsRef, {
+    
+    // Build payload — don't include postponeDate for cancellations (Firebase rejects null)
+    const payload = {
       uid: currentUser.uid,
       email: currentUser.email,
-      type: requestType,  // 'postpone' or 'cancel'
-      postponeDate: requestType === 'postpone' ? postponeDate.value : null,
+      type: requestType,
       reason: postponeReason.value.trim(),
       status: 'PENDING',
       createdAt: serverTimestamp()
-    });
+    };
+    if (requestType === 'postpone') {
+      payload.postponeDate = postponeDate.value;
+    }
+    
+    await push(postponementsRef, payload);
     
     // Initialize EmailJS (using the same public key as your enrollment system)
     emailjs.init("GFxAVPzBfXX4d-vQR");
@@ -197,8 +268,12 @@ postponeForm.addEventListener('submit', async (e) => {
     postponeForm.reset();
   } catch (error) {
     console.error("Submission error:", error);
-    postponeMessage.textContent = "An error occurred while submitting your request.";
-    postponeMessage.className = "text-center text-sm font-semibold mt-3 p-3 rounded-xl bg-red-50 text-red-600 border border-red-200";
+    // Show actual Firebase error to help diagnose rule issues
+    let errMsg = "An error occurred while submitting your request.";
+    if (error && error.message) errMsg = `Error: ${error.message}`;
+    postponeMessage.textContent = errMsg;
+    postponeMessage.className = "text-sm font-semibold p-3.5 rounded-xl flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400";
+    postponeMessage.classList.remove('hidden');
   } finally {
     submitBtn.disabled = false;
     const label = requestType === 'cancel' ? 'Submit Cancellation' : 'Submit Postponement';
