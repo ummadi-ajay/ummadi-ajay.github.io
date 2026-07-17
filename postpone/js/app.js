@@ -72,12 +72,65 @@ window.setRequestType = function(type) {
 };
 
 
-// Set minimum date to 14 days from today
+// ── Quarter Utilities ──────────────────────────────────────────
+const QUARTER_NAMES = [
+  { label: 'Q1 (Jan – Mar)', months: [0,1,2],  end: [2,31]  },
+  { label: 'Q2 (Apr – Jun)', months: [3,4,5],  end: [5,30]  },
+  { label: 'Q3 (Jul – Sep)', months: [6,7,8],  end: [8,30]  },
+  { label: 'Q4 (Oct – Dec)', months: [9,10,11], end: [11,31] },
+];
+
+function getQuarterBounds(dateStr) {
+  const d = new Date(dateStr);
+  const month = d.getMonth();
+  const year  = d.getFullYear();
+  const q = QUARTER_NAMES.find(q => q.months.includes(month));
+  const qStart = new Date(year, q.months[0], 1);
+  const qEnd   = new Date(year, q.end[0], q.end[1]);
+  return { label: q.label, qStart, qEnd };
+}
+
+function toDateInputStr(date) {
+  return date.toISOString().split('T')[0];
+}
+
+// Called when student picks original class date
+window.onOriginalDateChange = function() {
+  const originalInput = document.getElementById('original-class-date');
+  const newDateInput  = document.getElementById('postpone-date');
+  const badge         = document.getElementById('quarter-badge');
+  const badgeText     = document.getElementById('quarter-badge-text');
+
+  if (!originalInput.value) {
+    badge.classList.add('hidden');
+    return;
+  }
+
+  const { label, qStart, qEnd } = getQuarterBounds(originalInput.value);
+
+  // Min for new date = max(today+14, qStart)
+  const today14 = new Date();
+  today14.setDate(today14.getDate() + 14);
+  const minDate = today14 > qStart ? today14 : qStart;
+
+  newDateInput.min = toDateInputStr(minDate);
+  newDateInput.max = toDateInputStr(qEnd);
+  newDateInput.value = ''; // reset new date when original changes
+
+  // Show quarter badge
+  badge.classList.remove('hidden');
+  badgeText.textContent = `Invoice Quarter: ${label}  ·  New date must be before ${qEnd.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+};
+
+// Set minimum date to 14 days from today (fallback for cancel mode)
 function setMinDate() {
   const today = new Date();
   today.setDate(today.getDate() + 14);
-  const minDateStr = today.toISOString().split('T')[0];
-  postponeDate.setAttribute('min', minDateStr);
+  // Only set min if no original date picked yet
+  const newDateInput = document.getElementById('postpone-date');
+  if (newDateInput && !newDateInput.min) {
+    newDateInput.min = toDateInputStr(today);
+  }
 }
 
 setMinDate();
@@ -208,16 +261,36 @@ postponeForm.addEventListener('submit', async (e) => {
   
   // Only validate date for postponement requests
   if (requestType === 'postpone') {
-    const selectedDate = new Date(postponeDate.value);
+    const originalVal = document.getElementById('original-class-date').value;
+    const newVal      = postponeDate.value;
+    const dateErrorText = document.getElementById('date-error-text');
+    
+    if (!originalVal) {
+      dateErrorText.textContent = 'Please select your original class date first.';
+      dateError.classList.remove('hidden');
+      return;
+    }
+    if (!newVal) {
+      dateErrorText.textContent = 'Please select a preferred new date.';
+      dateError.classList.remove('hidden');
+      return;
+    }
+    
+    const selectedNew = new Date(newVal);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+    const diffDays = Math.ceil((selectedNew - today) / (1000 * 60 * 60 * 24));
     
-    const diffTime = selectedDate - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (!postponeDate.value || diffDays < 14) {
-      const dateErrorText = document.getElementById('date-error-text');
-      if (dateErrorText) dateErrorText.textContent = "Class must be postponed at least 2 weeks (14 days) in advance.";
+    if (diffDays < 14) {
+      dateErrorText.textContent = 'New date must be at least 14 days from today.';
+      dateError.classList.remove('hidden');
+      return;
+    }
+
+    // Quarter check
+    const { label, qEnd } = getQuarterBounds(originalVal);
+    if (selectedNew > qEnd) {
+      dateErrorText.textContent = `New date must be within the same invoice quarter (${label}).`;
       dateError.classList.remove('hidden');
       return;
     }
@@ -230,16 +303,20 @@ postponeForm.addEventListener('submit', async (e) => {
     const postponementsRef = ref(db, 'postponements');
     
     // Build payload — don't include postponeDate for cancellations (Firebase rejects null)
+    const originalClassDate = document.getElementById('original-class-date').value;
     const payload = {
       uid: currentUser.uid,
       email: currentUser.email,
       type: requestType,
+      originalClassDate,
       reason: postponeReason.value.trim(),
       status: 'PENDING',
       createdAt: serverTimestamp()
     };
     if (requestType === 'postpone') {
       payload.postponeDate = postponeDate.value;
+      const { label } = getQuarterBounds(originalClassDate);
+      payload.quarter = label;
     }
     
     await push(postponementsRef, payload);

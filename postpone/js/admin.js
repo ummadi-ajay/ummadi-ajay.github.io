@@ -61,9 +61,15 @@ onValue(postponementsRef, (snapshot) => {
     tr.className = "hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0";
 
     const submitDate = req.createdAt ? new Date(req.createdAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) : 'N/A';
+    const originalDate = req.originalClassDate
+      ? new Date(req.originalClassDate).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })
+      : `<span class="text-slate-400 italic text-xs">N/A</span>`;
     const requestedDate = req.postponeDate
       ? new Date(req.postponeDate).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })
       : `<span class="text-slate-400 italic text-xs">No date (Cancel)</span>`;
+    const quarterBadge = req.quarter
+      ? `<span class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full text-xs font-bold border border-purple-200">${req.quarter}</span>`
+      : `<span class="text-slate-400 text-xs italic">—</span>`;
 
     // Type badge
     const isCancellation = req.type === 'cancel';
@@ -103,8 +109,10 @@ onValue(postponementsRef, (snapshot) => {
     tr.innerHTML = `
       <td class="p-4">${typeBadge}</td>
       <td class="p-4 font-semibold text-slate-900 text-sm">${req.email || '—'}</td>
+      <td class="p-4 text-slate-600 text-sm">${originalDate}</td>
       <td class="p-4 text-slate-700 text-sm font-medium">${requestedDate}</td>
-      <td class="p-4 text-slate-600 text-sm max-w-[200px] truncate" title="${req.reason || ''}">${req.reason || '—'}</td>
+      <td class="p-4">${quarterBadge}</td>
+      <td class="p-4 text-slate-600 text-sm max-w-[180px] truncate" title="${req.reason || ''}">${req.reason || '—'}</td>
       <td class="p-4 text-slate-400 text-xs">${submitDate}</td>
       <td class="p-4">${statusBadge}</td>
       <td class="p-4">${actionBtns}</td>

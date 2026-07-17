@@ -312,10 +312,28 @@
 
           <form id="postpone-form" class="space-y-4">
 
-            <!-- Date Picker (only shown for Postpone) -->
+            <!-- Step 1: Original Class Date (always shown) -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                Your Original Class Date
+              </label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">event</span>
+                <input type="date" id="original-class-date" required
+                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium"
+                  onchange="onOriginalDateChange()" />
+              </div>
+              <!-- Quarter indicator badge -->
+              <div id="quarter-badge" class="hidden mt-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm text-blue-400">receipt_long</span>
+                <span id="quarter-badge-text" class="text-xs font-semibold text-blue-300"></span>
+              </div>
+            </div>
+
+            <!-- Step 2: New Date (only shown for Postpone) -->
             <div id="date-section">
               <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                Preferred New Date
+                Preferred New Date <span class="normal-case text-slate-600 font-normal">(within same quarter)</span>
               </label>
               <div class="relative">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">calendar_month</span>
