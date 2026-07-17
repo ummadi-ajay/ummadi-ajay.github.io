@@ -27,51 +27,113 @@ let activeWindow = null;      // The admin-set postponement window {label, start
 
 // ── Active Window Listener ────────────────────────────────────────────────────
 // Reads the admin-set window in real time and updates the date picker + banner
-onValue(ref(db, 'postponement_windows'), (snap) => {
-  const data = snap.val();
-  activeWindow = null;
+// Reload window when user changes — called after auth
+function loadUserWindow(email) {
+  onValue(ref(db, 'user_postponement_windows'), (snap) => {
+    const data = snap.val();
+    activeWindow = null;
 
-  if (data) {
-    const windows = Object.values(data);
-    activeWindow = windows.find(w => w.active === true) || null;
-  }
+    if (data && email) {
+      const windows = Object.values(data).filter(w => w.userEmail === email && w.active === true);
+      // Pick the most recently created active window
+      windows.sort((a,b) => b.createdAt - a.createdAt);
+      activeWindow = windows[0] || null;
+    }
 
-  applyWindowToForm();
-});
+    applyWindowToForm();
+  });
+}
 
 function applyWindowToForm() {
-  const windowBanner   = document.getElementById('window-banner');
-  const windowText     = document.getElementById('window-banner-text');
-  const formArea       = document.getElementById('form-area');
-  const noWindowMsg    = document.getElementById('no-window-msg');
-  const dateSection    = document.getElementById('date-section');
+  const windowBanner  = document.getElementById('window-banner');
+  const windowText    = document.getElementById('window-banner-text');
+  const formArea      = document.getElementById('form-area');
+  const noWindowMsg   = document.getElementById('no-window-msg');
+  const alreadyMsg    = document.getElementById('already-submitted-msg');
 
-  if (!windowBanner) return; // Not logged in yet, skip
+  if (!windowBanner) return; // Not logged in yet
+
+  // Hide "already submitted" by default
+  if (alreadyMsg) alreadyMsg.style.display = 'none';
 
   if (activeWindow && requestType === 'postpone') {
-    // Show window info banner
+    // Show window banner
     const startFmt = new Date(activeWindow.startDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     const endFmt   = new Date(activeWindow.endDate).toLocaleDateString('en-US',   { month: 'long', day: 'numeric', year: 'numeric' });
-    windowText.innerHTML = `<strong class="text-blue-200">${activeWindow.label}:</strong> You can reschedule your class to any date between <strong class="text-blue-200">${startFmt}</strong> and <strong class="text-blue-200">${endFmt}</strong>.`;
+    windowText.innerHTML = `<strong class="text-blue-200">${activeWindow.label}:</strong> You can reschedule to any date between <strong class="text-blue-200">${startFmt}</strong> and <strong class="text-blue-200">${endFmt}</strong>.`;
     windowBanner.style.display = 'flex';
 
-    // Constrain the new date picker to the admin window
+    // Constrain date picker
     postponeDate.min = activeWindow.startDate;
     postponeDate.max = activeWindow.endDate;
 
-    if (formArea)   formArea.style.display   = 'block';
-    if (noWindowMsg) noWindowMsg.style.display = 'none';
+    // Check if user already submitted for this window
+    checkExistingSubmission();
   } else if (requestType === 'postpone') {
-    // No active window — hide the form, show message
     windowBanner.style.display = 'none';
-    if (formArea)   formArea.style.display   = 'none';
+    if (formArea)    formArea.style.display    = 'none';
     if (noWindowMsg) noWindowMsg.style.display = 'flex';
   } else {
-    // Cancel mode — window doesn't matter
+    // Cancel mode — window doesn't restrict
     windowBanner.style.display = 'none';
-    if (formArea)   formArea.style.display   = 'block';
+    if (formArea)    formArea.style.display    = 'block';
     if (noWindowMsg) noWindowMsg.style.display = 'none';
   }
+}
+
+// Check if this student already has a request for the current active window
+function checkExistingSubmission() {
+  const formArea    = document.getElementById('form-area');
+  const alreadyMsg  = document.getElementById('already-submitted-msg');
+  const alreadyBody = document.getElementById('already-submitted-body');
+  const noWindowMsg = document.getElementById('no-window-msg');
+
+  if (!currentUser || !activeWindow) return;
+
+  // Read all postponements, filter by this user + this window
+  onValue(ref(db, 'postponements'), (snap) => {
+    const data = snap.val();
+    let existing = null;
+
+    if (data) {
+      const all = Object.values(data);
+      existing = all.find(r =>
+        r.uid === currentUser.uid &&
+        r.type === 'postpone' &&
+        r.windowLabel === activeWindow.quarter
+      ) || null;
+    }
+
+    if (existing) {
+      // Hide form, show status card
+      if (formArea)    formArea.style.display    = 'none';
+      if (noWindowMsg) noWindowMsg.style.display = 'none';
+      if (alreadyMsg)  alreadyMsg.style.display  = 'flex';
+
+      let statusStyle = 'background:rgba(234,179,8,0.15);color:#fbbf24;border:1px solid rgba(234,179,8,0.3);';
+      let statusLabel = '⏳ Pending Review';
+      if (existing.status === 'APPROVED') { statusStyle = 'background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(34,197,94,0.3);'; statusLabel = '✓ Approved'; }
+      if (existing.status === 'REJECTED') { statusStyle = 'background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);'; statusLabel = '✗ Rejected'; }
+
+      const newDate = existing.postponeDate
+        ? new Date(existing.postponeDate).toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' })
+        : '—';
+
+      if (alreadyBody) alreadyBody.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+          <div>
+            <p style="font-size:12px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;">Your Request · ${activeWindow.label}</p>
+            <p style="font-size:13px;color:#e2e8f0;font-weight:700;">↷ Rescheduled to ${newDate}</p>
+            <p style="font-size:12px;color:#64748b;margin-top:4px;">${existing.reason || ''}</p>
+          </div>
+          <span style="font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;${statusStyle}">${statusLabel}</span>
+        </div>`;
+    } else {
+      // No existing — show form
+      if (alreadyMsg)  alreadyMsg.style.display  = 'none';
+      if (formArea)    formArea.style.display     = 'block';
+    }
+  }, { onlyOnce: true }); // Only read once, real-time handled by My Requests
 }
 
 // ── Request Type Toggle ───────────────────────────────────────────────────────
@@ -130,6 +192,7 @@ onAuthStateChanged(auth, (user) => {
     if (avatar)       avatar.textContent       = user.email.charAt(0).toUpperCase();
 
     applyWindowToForm();
+    loadUserWindow(user.email);
     startMyRequestsListener(user.uid);
   } else {
     currentUser = null;
@@ -241,8 +304,8 @@ postponeForm.addEventListener('submit', async (e) => {
       createdAt: serverTimestamp()
     };
     if (requestType === 'postpone') {
-      payload.postponeDate  = postponeDate.value;
-      payload.windowLabel   = activeWindow ? activeWindow.label : '';
+      payload.postponeDate = postponeDate.value;
+      payload.windowLabel  = activeWindow ? activeWindow.quarter : '';
     }
 
     await push(ref(db, 'postponements'), payload);
