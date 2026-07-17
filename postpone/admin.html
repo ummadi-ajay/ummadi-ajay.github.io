@@ -50,55 +50,84 @@
         </div>
       </div>
 
-      <!-- Form -->
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mt-5">
-        <p class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-4">Assign New Window</p>
+      <!-- 2-Step Assign Form -->
+      <div class="mt-5 space-y-4">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Step 1: Search & Select Student -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-indigo-600 text-white text-xs font-black flex items-center justify-center">1</span>
+            Select Student
+          </p>
 
-          <!-- Student selector -->
-          <div class="sm:col-span-2 lg:col-span-1 space-y-2">
-            <label class="block text-xs font-semibold text-slate-500">Student Email</label>
-            <select id="win-student-email"
-              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white">
-              <option value="">Loading students...</option>
-            </select>
-            <p class="text-xs text-slate-400">or type manually:</p>
-            <input type="email" id="win-student-email-manual" placeholder="other@email.com"
-              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white">
+          <!-- Search box -->
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+            <input type="text" id="student-search" placeholder="Type to search student Gmail..."
+              autocomplete="off"
+              class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl text-sm font-medium bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+              oninput="filterStudents(this.value)"
+              onfocus="showStudentList()"
+            />
+            <!-- Dropdown list -->
+            <div id="student-dropdown"
+              class="hidden absolute z-20 w-full mt-1 bg-white border border-slate-200 rounded-xl shadow-lg max-h-52 overflow-y-auto">
+              <div id="student-dropdown-items"></div>
+            </div>
           </div>
 
-          <!-- Quarter selector -->
-          <div>
-            <label class="block text-xs font-semibold text-slate-500 mb-1.5">Quarter</label>
-            <select id="win-quarter"
-              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white h-[44px]">
-              <option value="">Select Quarter</option>
-            </select>
-          </div>
-
-          <!-- Start Date -->
-          <div>
-            <label class="block text-xs font-semibold text-slate-500 mb-1.5">Allowed From</label>
-            <input type="date" id="win-start"
-              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white">
-          </div>
-
-          <!-- End Date -->
-          <div>
-            <label class="block text-xs font-semibold text-slate-500 mb-1.5">Allowed Until</label>
-            <input type="date" id="win-end"
-              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white">
+          <!-- Selected student chip -->
+          <div id="selected-student-chip" class="hidden mt-3 flex items-center gap-2 bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-2.5">
+            <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-sm" id="selected-avatar">?</div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-indigo-900" id="selected-email-label">—</p>
+              <p class="text-xs text-indigo-500">Selected student</p>
+            </div>
+            <button onclick="clearStudentSelection()" class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-base">close</span>
+            </button>
           </div>
         </div>
 
-        <div class="mt-4 flex items-center gap-3">
-          <button id="win-save-btn" onclick="saveWindow()"
-            class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm">add_circle</span>
-            Assign Window
-          </button>
-          <span id="win-msg" class="text-xs font-semibold hidden"></span>
+        <!-- Step 2: Set Time Period (revealed after student selected) -->
+        <div id="step2-panel" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-indigo-600 text-white text-xs font-black flex items-center justify-center">2</span>
+            Set Postponement Period
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1.5">Quarter</label>
+              <select id="win-quarter"
+                class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium bg-white focus:ring-2 focus:ring-indigo-500 outline-none">
+                <option value="">Select Quarter & Year</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1.5">
+                <span class="material-symbols-outlined text-xs align-middle">event</span> Allowed From
+              </label>
+              <input type="date" id="win-start"
+                class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium bg-white focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1.5">
+                <span class="material-symbols-outlined text-xs align-middle">event</span> Allowed Until
+              </label>
+              <input type="date" id="win-end"
+                class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-medium bg-white focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center gap-3">
+            <button id="win-save-btn" onclick="saveWindow()"
+              class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors flex items-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-sm">check_circle</span>
+              Assign Window
+            </button>
+            <span id="win-msg" class="text-xs font-semibold hidden"></span>
+          </div>
         </div>
       </div>
 

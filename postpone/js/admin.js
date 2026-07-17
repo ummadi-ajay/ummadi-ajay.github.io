@@ -17,6 +17,21 @@ const QUARTERS = [
 const currentYear = new Date().getFullYear();
 const years = [currentYear - 1, currentYear, currentYear + 1];
 
+// Populate quarter dropdown
+(function populateQuarterDropdown() {
+  const sel = document.getElementById('win-quarter');
+  if (!sel) return;
+  QUARTERS.forEach(q => {
+    years.forEach(yr => {
+      const opt = document.createElement('option');
+      opt.value       = `${q.value} ${yr}`;
+      opt.textContent = `${q.label} – ${yr}`;
+      sel.appendChild(opt);
+    });
+  });
+})();
+
+
 function showMsg(elId, text, isError = false) {
   const el = document.getElementById(elId);
   if (!el) return;
@@ -29,6 +44,7 @@ function showMsg(elId, text, isError = false) {
 // ── Load enrolled students into dropdown ──────────────────────────────────────
 
 let enrolledEmails = [];
+let selectedStudentEmail = '';
 
 onValue(ref(db, 'enrollments'), (snap) => {
   const data = snap.val();
@@ -36,60 +52,104 @@ onValue(ref(db, 'enrollments'), (snap) => {
   if (data) {
     const seen = new Set();
     Object.values(data).forEach(e => {
-      const email = e.email || e.parentEmail || e.studentEmail;
+      const email = e.email || e.parentEmail || e.studentEmail || e.Email;
       if (email && !seen.has(email)) { seen.add(email); enrolledEmails.push(email); }
     });
     enrolledEmails.sort();
   }
-  populateStudentDropdown();
+  renderDropdownItems(enrolledEmails);
 });
 
-function populateStudentDropdown() {
-  const sel = document.getElementById('win-student-email');
-  if (!sel) return;
-  const current = sel.value;
-  // Keep manual-entry option
-  sel.innerHTML = `<option value="">-- Select or type below --</option>`;
-  enrolledEmails.forEach(email => {
-    const opt = document.createElement('option');
-    opt.value = opt.textContent = email;
-    if (email === current) opt.selected = true;
-    sel.appendChild(opt);
+// ── Student Search UI ─────────────────────────────────────────────────────────
+
+function renderDropdownItems(list) {
+  const container = document.getElementById('student-dropdown-items');
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (list.length === 0) {
+    container.innerHTML = `<p class="p-3 text-xs text-slate-400 italic">No matching students found.</p>`;
+    return;
+  }
+
+  list.forEach(email => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'w-full text-left px-4 py-2.5 hover:bg-indigo-50 transition-colors flex items-center gap-3 border-b border-slate-100 last:border-0';
+    btn.innerHTML = `
+      <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs shrink-0">${email.charAt(0).toUpperCase()}</div>
+      <span class="text-sm font-medium text-slate-800">${email}</span>
+    `;
+    btn.onclick = () => selectStudent(email);
+    container.appendChild(btn);
   });
 }
 
-// Populate quarter select
-function populateQuarterDropdown() {
-  const sel = document.getElementById('win-quarter');
-  if (!sel || sel.children.length > 1) return;
-  QUARTERS.forEach(q => {
-    years.forEach(yr => {
-      const opt = document.createElement('option');
-      opt.value = `${q.value} ${yr}`;
-      opt.textContent = `${q.label} – ${yr}`;
-      sel.appendChild(opt);
-    });
-  });
+window.filterStudents = function(query) {
+  const filtered = query
+    ? enrolledEmails.filter(e => e.toLowerCase().includes(query.toLowerCase()))
+    : enrolledEmails;
+
+  // Also add the typed value if it looks like an email and isn't in list
+  if (query.includes('@') && !enrolledEmails.includes(query)) {
+    filtered.unshift(query); // allow manual entry
+  }
+
+  renderDropdownItems(filtered);
+  document.getElementById('student-dropdown').classList.remove('hidden');
+};
+
+window.showStudentList = function() {
+  renderDropdownItems(enrolledEmails);
+  document.getElementById('student-dropdown').classList.remove('hidden');
+};
+
+// Hide dropdown on outside click
+document.addEventListener('click', (e) => {
+  const dd = document.getElementById('student-dropdown');
+  const input = document.getElementById('student-search');
+  if (dd && input && !dd.contains(e.target) && e.target !== input) {
+    dd.classList.add('hidden');
+  }
+});
+
+function selectStudent(email) {
+  selectedStudentEmail = email;
+  document.getElementById('student-search').value = email;
+  document.getElementById('student-dropdown').classList.add('hidden');
+
+  // Show chip
+  const chip = document.getElementById('selected-student-chip');
+  document.getElementById('selected-email-label').textContent = email;
+  document.getElementById('selected-avatar').textContent = email.charAt(0).toUpperCase();
+  chip.classList.remove('hidden');
+
+  // Reveal Step 2
+  document.getElementById('step2-panel').classList.remove('hidden');
 }
-populateQuarterDropdown();
+
+window.clearStudentSelection = function() {
+  selectedStudentEmail = '';
+  document.getElementById('student-search').value = '';
+  document.getElementById('selected-student-chip').classList.add('hidden');
+  document.getElementById('step2-panel').classList.add('hidden');
+};
 
 // ── Save Per-User Window ──────────────────────────────────────────────────────
 
 window.saveWindow = async function() {
-  const emailSel   = document.getElementById('win-student-email');
-  const emailInput = document.getElementById('win-student-email-manual');
-  const quarter    = document.getElementById('win-quarter').value;
-  const start      = document.getElementById('win-start').value;
-  const end        = document.getElementById('win-end').value;
+  const email   = selectedStudentEmail || document.getElementById('student-search').value.trim();
+  const quarter = document.getElementById('win-quarter').value;
+  const start   = document.getElementById('win-start').value;
+  const end     = document.getElementById('win-end').value;
 
-  // Use dropdown value, fallback to manual text input
-  const email = (emailSel && emailSel.value) ? emailSel.value.trim() : (emailInput ? emailInput.value.trim() : '');
-
-  if (!email || !quarter || !start || !end) { alert('Please fill in all fields.'); return; }
-  if (start > end) { alert('Start date must be before end date.'); return; }
+  if (!email)   { alert('Please select a student first.'); return; }
+  if (!quarter) { alert('Please select a quarter.'); return; }
+  if (!start || !end) { alert('Please set the date range.'); return; }
+  if (start > end)    { alert('Start date must be before end date.'); return; }
 
   const btn = document.getElementById('win-save-btn');
-  btn.disabled = true; btn.textContent = 'Saving...';
+  btn.disabled = true; btn.innerHTML = '<span>Saving...</span>';
 
   try {
     await push(ref(db, 'user_postponement_windows'), {
@@ -97,17 +157,16 @@ window.saveWindow = async function() {
       quarter,
       startDate: start,
       endDate: end,
-      active: true,       // Active by default when assigned
+      active: true,
       createdAt: Date.now()
     });
-    if (emailSel)   emailSel.value   = '';
-    if (emailInput) emailInput.value = '';
+    window.clearStudentSelection();
     document.getElementById('win-quarter').value = '';
     document.getElementById('win-start').value   = '';
     document.getElementById('win-end').value     = '';
     showMsg('win-msg', `✓ Window assigned to ${email}`);
   } catch(e) { alert('Error: ' + e.message); }
-  finally { btn.disabled = false; btn.innerHTML = '<span class="material-symbols-outlined text-sm">add_circle</span> Assign Window'; }
+  finally { btn.disabled = false; btn.innerHTML = '<span class="material-symbols-outlined text-sm">check_circle</span> Assign Window'; }
 };
 
 window.toggleUserWindow = async function(id, isActive) {
