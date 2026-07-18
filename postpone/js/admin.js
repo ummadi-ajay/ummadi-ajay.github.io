@@ -7,30 +7,6 @@ const db  = getDatabase(app);
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-const QUARTERS = [
-  { value: 'Q1', label: 'Q1 (Jan – Mar)' },
-  { value: 'Q2', label: 'Q2 (Apr – Jun)' },
-  { value: 'Q3', label: 'Q3 (Jul – Sep)' },
-  { value: 'Q4', label: 'Q4 (Oct – Dec)' },
-];
-
-const currentYear = new Date().getFullYear();
-const years = [currentYear - 1, currentYear, currentYear + 1];
-
-// Populate quarter dropdown
-(function populateQuarterDropdown() {
-  const sel = document.getElementById('win-quarter');
-  if (!sel) return;
-  QUARTERS.forEach(q => {
-    years.forEach(yr => {
-      const opt = document.createElement('option');
-      opt.value       = `${q.value} ${yr}`;
-      opt.textContent = `${q.label} – ${yr}`;
-      sel.appendChild(opt);
-    });
-  });
-})();
-
 
 function showMsg(elId, text, isError = false) {
   const el = document.getElementById(elId);
@@ -138,13 +114,11 @@ window.clearStudentSelection = function() {
 // ── Save Per-User Window ──────────────────────────────────────────────────────
 
 window.saveWindow = async function() {
-  const email   = selectedStudentEmail || document.getElementById('student-search').value.trim();
-  const quarter = document.getElementById('win-quarter').value;
-  const start   = document.getElementById('win-start').value;
-  const end     = document.getElementById('win-end').value;
+  const email = selectedStudentEmail || document.getElementById('student-search').value.trim();
+  const start = document.getElementById('win-start').value;
+  const end   = document.getElementById('win-end').value;
 
-  if (!email)   { alert('Please select a student first.'); return; }
-  if (!quarter) { alert('Please select a quarter.'); return; }
+  if (!email)         { alert('Please select a student first.'); return; }
   if (!start || !end) { alert('Please set the date range.'); return; }
   if (start > end)    { alert('Start date must be before end date.'); return; }
 
@@ -154,16 +128,14 @@ window.saveWindow = async function() {
   try {
     await push(ref(db, 'user_postponement_windows'), {
       userEmail: email,
-      quarter,
       startDate: start,
       endDate: end,
       active: true,
       createdAt: Date.now()
     });
     window.clearStudentSelection();
-    document.getElementById('win-quarter').value = '';
-    document.getElementById('win-start').value   = '';
-    document.getElementById('win-end').value     = '';
+    document.getElementById('win-start').value = '';
+    document.getElementById('win-end').value   = '';
     showMsg('win-msg', `✓ Window assigned to ${email}`);
   } catch(e) { alert('Error: ' + e.message); }
   finally { btn.disabled = false; btn.innerHTML = '<span class="material-symbols-outlined text-sm">check_circle</span> Assign Window'; }
