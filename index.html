@@ -367,7 +367,222 @@
           </div>
         </div>
       </div>
-          </section>
+      <style>
+        #physical-ai-featured {
+          border-top: 1px solid rgba(0,0,0,0.03);
+          border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .physical-ai-feature-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 20px;
+        }
+
+        .physical-ai-feature {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          min-width: 0;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(13, 110, 253, 0.08);
+          border-radius: 16px;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .physical-ai-feature:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(13, 110, 253, 0.08);
+          border-color: rgba(13, 110, 253, 0.3);
+          background: #ffffff;
+        }
+
+        .physical-ai-feature i {
+          flex: 0 0 auto;
+          display: inline-grid;
+          place-items: center;
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+          background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.1));
+          color: #0d6efd;
+          font-size: 1.4rem;
+          transition: all 0.4s ease;
+        }
+
+        .physical-ai-feature:hover i {
+          background: linear-gradient(135deg, #0d6efd, #6f42c1);
+          color: #ffffff;
+          transform: scale(1.1) rotate(5deg);
+          box-shadow: 0 8px 15px rgba(13, 110, 253, 0.3);
+        }
+
+        .physical-ai-feature span {
+          display: block;
+          color: #6e6e73;
+          font-size: 0.88rem;
+          font-weight: 700;
+          line-height: 1.25;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .physical-ai-feature strong {
+          display: block;
+          color: #1d1d1f;
+          font-size: 1.15rem;
+          line-height: 1.25;
+          margin-top: 2px;
+        }
+
+        .physical-ai-actions {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+        }
+
+        @media (max-width: 575.98px) {
+          .physical-ai-actions {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .physical-ai-action {
+          width: 100%;
+          min-height: 60px;
+          border-radius: 12px;
+          padding: 12px 14px;
+          font-size: 0.95rem;
+          line-height: 1.25;
+          justify-content: center;
+          text-align: center;
+          gap: 8px;
+          white-space: normal;
+          transition: all 0.3s ease;
+        }
+
+        .action-secondary {
+          background: rgba(13, 110, 253, 0.03);
+          border: 1px solid rgba(13, 110, 253, 0.15);
+          color: #0d6efd;
+        }
+        .action-secondary:hover {
+          background: #0d6efd;
+          color: #ffffff;
+          border-color: #0d6efd;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
+        }
+
+        .physical-ai-video-stack {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 24px;
+        }
+
+        .video-card-wrapper {
+          position: relative;
+          height: 100%;
+        }
+
+        .video-card-glow {
+          position: absolute;
+          top: 20px; left: -5px; right: -5px; bottom: -5px;
+          background: linear-gradient(135deg, rgba(13, 110, 253, 0.3), rgba(111, 66, 193, 0.2));
+          filter: blur(25px);
+          opacity: 0;
+          border-radius: 24px;
+          transition: opacity 0.5s ease;
+          z-index: 0;
+        }
+
+        .video-card-wrapper:hover .video-card-glow {
+          opacity: 1;
+        }
+
+        .physical-ai-video-card {
+          position: relative;
+          z-index: 1;
+          height: 100%;
+          min-width: 0;
+          background: #ffffff;
+          border: 1px solid rgba(0,0,0,0.06);
+          border-radius: 20px;
+          overflow: hidden;
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+          display: flex;
+          flex-direction: column;
+        }
+
+        .video-card-wrapper:hover .physical-ai-video-card {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+          border-color: rgba(13, 110, 253, 0.2);
+        }
+
+        .physical-ai-video-frame {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+        }
+
+        .physical-ai-video-frame iframe {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
+
+        .physical-ai-video-body {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+
+        .video-card-title {
+          font-family: 'Bricolage Grotesque', sans-serif;
+          font-weight: 800;
+          font-size: 1.15rem;
+          color: #1d1d1f;
+          margin-bottom: 6px;
+        }
+
+        .video-card-desc {
+          font-size: 0.92rem;
+          color: #6e6e73;
+          margin-bottom: 0;
+          line-height: 1.45;
+        }
+
+        @media (max-width: 1199.98px) {
+          .physical-ai-video-stack {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+          }
+        }
+
+        @media (max-width: 767.98px) {
+          .physical-ai-feature-grid {
+            grid-template-columns: 1fr;
+          }
+          .physical-ai-actions {
+            grid-template-columns: 1fr;
+          }
+          .physical-ai-video-stack {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+        }
+      </style>
+    </section>
     <section id="programs" class="position-relative py-5" style="background-color: #fff;">
       <div class="container py-5">
         <div class="text-center mb-5" data-aos="fade-up">
