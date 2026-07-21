@@ -8,14 +8,15 @@
   
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ["Inter", "sans-serif"] },
+          fontFamily: { sans: ["Plus Jakarta Sans", "sans-serif"] },
           animation: {
             'float': 'float 6s ease-in-out infinite',
             'float-delayed': 'float 6s ease-in-out infinite 2s',
@@ -35,102 +36,100 @@
   <style>
     * { box-sizing: border-box; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: #050d1a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f8fafc;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
     .hidden-state { display: none !important; }
 
-    /* Animated grid background */
-    .grid-bg {
-      background-image: 
-        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    /* Glowing orbs */
+    /* Subtle background accents */
     .orb {
       position: fixed;
       border-radius: 50%;
-      filter: blur(80px);
+      filter: blur(100px);
       pointer-events: none;
       z-index: 0;
     }
-    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%); top: -100px; left: -100px; }
-    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(99, 37, 235, 0.2) 0%, transparent 70%); bottom: -50px; right: -50px; }
-    .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(37, 180, 235, 0.15) 0%, transparent 70%); top: 50%; right: 20%; }
+    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(13, 110, 253, 0.06) 0%, transparent 70%); top: -150px; right: -150px; }
+    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(111, 66, 193, 0.05) 0%, transparent 70%); bottom: -150px; left: -150px; }
 
-    /* Glass card */
+    /* Main card */
     .glass-card {
-      background: rgba(15, 25, 50, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(37, 99, 235, 0.2);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.06), 0 4px 20px rgba(0, 0, 0, 0.03);
     }
 
     /* Left panel */
     .left-panel {
-      background: linear-gradient(160deg, #0f2052 0%, #0a1535 50%, #050d1a 100%);
-      border-right: 1px solid rgba(37, 99, 235, 0.15);
+      background: linear-gradient(160deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .left-panel::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     /* Input styling */
     .form-input {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #e2e8f0;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      color: #0f172a;
       transition: all 0.3s ease;
-      color-scheme: dark;
     }
-    .form-input::placeholder { color: rgba(148, 163, 184, 0.5); }
+    .form-input::placeholder { color: #94a3b8; }
     .form-input:focus {
-      background: rgba(37, 99, 235, 0.08);
-      border-color: rgba(37, 99, 235, 0.6);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      background: #ffffff;
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
       outline: none;
     }
 
     /* Primary button */
     .btn-primary {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      border: 1px solid rgba(96, 165, 250, 0.3);
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      border: none;
+      box-shadow: 0 4px 15px rgba(13, 110, 253, 0.25);
       transition: all 0.3s ease;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.35);
+      background: linear-gradient(135deg, #3b82f6 0%, #0d6efd 100%);
     }
     .btn-primary:active { transform: translateY(0); }
     .btn-primary:disabled {
-      opacity: 0.6;
+      opacity: 0.5;
       cursor: not-allowed;
       transform: none;
     }
 
-    /* Step indicators */
+    /* Policy items */
     .policy-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
       margin-bottom: 10px;
       transition: all 0.3s ease;
     }
-    .policy-item:hover { background: rgba(37, 99, 235, 0.08); border-color: rgba(37,99,235,0.2); }
+    .policy-item:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.3); }
 
     /* Logo icon */
     .logo-icon {
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-      box-shadow: 0 0 30px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     /* Success animation */
@@ -140,37 +139,49 @@
     }
     .checkmark-path { stroke-dasharray: 100; animation: checkmark 0.5s ease-out forwards; }
 
-    /* Spin animation for loading icon */
+    /* Spin animation */
     @keyframes spin { to { transform: rotate(360deg); } }
     .animate-spin { animation: spin 1s linear infinite; display: inline-block; }
 
     /* User info bar */
     .user-bar {
-      background: rgba(37, 99, 235, 0.1);
-      border: 1px solid rgba(37, 99, 235, 0.2);
-      border-radius: 12px;
-      padding: 10px 14px;
+      background: #f0f7ff;
+      border: 1.5px solid #dbeafe;
+      border-radius: 14px;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 20px;
+    }
+
+    /* Request type buttons */
+    .type-btn-active {
+      background: #eff6ff !important;
+      border-color: #0d6efd !important;
+      color: #0d6efd !important;
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1);
+    }
+    .type-btn-inactive {
+      background: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      color: #64748b !important;
     }
   </style>
 </head>
 
-<body class="grid-bg min-h-screen flex items-center justify-center p-4 relative">
+<body class="min-h-screen flex items-center justify-center p-4 relative">
 
   <!-- Background Orbs -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
 
   <!-- Main Card -->
   <div class="glass-card rounded-3xl overflow-hidden w-full max-w-4xl relative z-10 animate-slide-up" style="min-height: 560px;">
     <div class="flex flex-col lg:flex-row min-h-full">
 
       <!-- Left Panel: Branding & Policy -->
-      <div class="left-panel lg:w-2/5 p-8 lg:p-10 flex flex-col justify-between">
+      <div class="left-panel lg:w-2/5 p-8 lg:p-10 flex flex-col justify-between relative z-10">
         
         <!-- Logo -->
         <div>
@@ -178,46 +189,46 @@
             <div class="logo-icon w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-xl">MW</div>
             <div>
               <p class="text-white font-bold text-base leading-none">MakerWorks</p>
-              <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mt-0.5">Lab</p>
+              <p class="text-blue-200 text-xs font-semibold tracking-widest uppercase mt-0.5">Lab</p>
             </div>
           </div>
 
-          <h1 class="text-2xl lg:text-3xl font-black text-white leading-tight mb-2" id="left-heading">
+          <h1 class="text-2xl lg:text-3xl font-extrabold text-white leading-tight mb-2" id="left-heading" style="font-family: 'Bricolage Grotesque', sans-serif;">
             Manage<br>
-            <span style="color: #60a5fa;">Your Class</span>
+            <span class="text-blue-200">Your Class</span>
           </h1>
-          <p class="text-slate-400 text-sm font-medium mb-8" id="left-subheading">
+          <p class="text-blue-100/80 text-sm font-medium mb-8" id="left-subheading">
             Submit a secure, authenticated request to postpone or cancel your session.
           </p>
 
           <!-- Policy Items -->
           <div class="space-y-2">
             <div class="policy-item">
-              <span class="material-symbols-outlined text-blue-400 text-xl mt-0.5">schedule</span>
+              <span class="material-symbols-outlined text-blue-200 text-xl mt-0.5">schedule</span>
               <div>
                 <p class="text-white text-xs font-bold">14-Day Advance Notice</p>
-                <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">All postponements must be requested at least 2 weeks before your class date.</p>
+                <p class="text-blue-100/70 text-xs mt-0.5 leading-relaxed">All postponements must be requested at least 2 weeks before your class date.</p>
               </div>
             </div>
             <div class="policy-item">
-              <span class="material-symbols-outlined text-blue-400 text-xl mt-0.5">verified_user</span>
+              <span class="material-symbols-outlined text-blue-200 text-xl mt-0.5">verified_user</span>
               <div>
                 <p class="text-white text-xs font-bold">Secure & Authenticated</p>
-                <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">Login is required so every request is tied to your student identity.</p>
+                <p class="text-blue-100/70 text-xs mt-0.5 leading-relaxed">Login is required so every request is tied to your student identity.</p>
               </div>
             </div>
             <div class="policy-item">
-              <span class="material-symbols-outlined text-blue-400 text-xl mt-0.5">notifications_active</span>
+              <span class="material-symbols-outlined text-blue-200 text-xl mt-0.5">notifications_active</span>
               <div>
                 <p class="text-white text-xs font-bold">Admin Notification</p>
-                <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">Your mentor is notified instantly and will confirm your rescheduled date.</p>
+                <p class="text-blue-100/70 text-xs mt-0.5 leading-relaxed">Your mentor is notified instantly and will confirm your rescheduled date.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Footer -->
-        <p class="text-slate-600 text-xs mt-8 lg:mt-0">© 2026 MakerWorks Lab. All rights reserved.</p>
+        <p class="text-blue-200/50 text-xs mt-8 lg:mt-0">© 2026 MakerWorks Lab. All rights reserved.</p>
       </div>
 
       <!-- Right Panel: Forms -->
@@ -226,15 +237,15 @@
         <!-- ── LOGIN SECTION ── -->
         <div id="login-section" class="animate-fade-in">
           <div class="mb-8">
-            <h2 class="text-xl font-bold text-white mb-1">Welcome Back</h2>
-            <p class="text-slate-400 text-sm">Sign in with your student account to continue.</p>
+            <h2 class="text-xl font-extrabold text-gray-900 mb-1" style="font-family: 'Bricolage Grotesque', sans-serif;">Welcome Back</h2>
+            <p class="text-gray-500 text-sm">Sign in with your student account to continue.</p>
           </div>
 
           <form id="login-form" class="space-y-5">
             <div>
-              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Student Email</label>
+              <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Student Email</label>
               <div class="relative">
-                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">mail</span>
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">mail</span>
                 <input type="email" id="email" required autocomplete="email"
                   class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium"
                   placeholder="student@example.com" />
@@ -242,9 +253,9 @@
             </div>
 
             <div>
-              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Password</label>
+              <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Password</label>
               <div class="relative">
-                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">lock</span>
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">lock</span>
                 <input type="password" id="password" required autocomplete="current-password"
                   class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium"
                   placeholder="••••••••" />
@@ -252,7 +263,7 @@
             </div>
 
             <!-- Error Message -->
-            <div id="login-error" class="hidden text-xs font-semibold text-red-400 bg-red-500/10 border border-red-500/20 p-3 rounded-xl flex items-center gap-2">
+            <div id="login-error" class="hidden text-xs font-semibold text-red-600 bg-red-50 border border-red-200 p-3 rounded-xl flex items-center gap-2">
               <span class="material-symbols-outlined text-base shrink-0">error</span>
               <span id="login-error-text"></span>
             </div>
@@ -272,28 +283,26 @@
           <div class="user-bar" id="user-bar">
             <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm" id="user-avatar">?</div>
             <div class="flex-1 min-w-0">
-              <p class="text-white text-xs font-bold truncate" id="user-email-display">Loading...</p>
-              <p class="text-blue-400 text-xs">Student Account</p>
+              <p class="text-gray-900 text-xs font-bold truncate" id="user-email-display">Loading...</p>
+              <p class="text-blue-500 text-xs">Student Account</p>
             </div>
             <button id="logout-btn" title="Sign Out"
-              class="text-slate-500 hover:text-red-400 transition-colors flex items-center gap-1 text-xs font-semibold shrink-0 ml-2">
+              class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1 text-xs font-semibold shrink-0 ml-2">
               <span class="material-symbols-outlined text-base">logout</span>
             </button>
           </div>
 
           <!-- Request Type Toggle -->
           <div class="mb-4">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">What would you like to do?</p>
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">What would you like to do?</p>
             <div class="grid grid-cols-2 gap-2">
               <button type="button" id="btn-postpone" onclick="setRequestType('postpone')"
-                class="flex flex-col items-center gap-2 p-3.5 rounded-xl border text-sm font-bold transition-all"
-                style="background: rgba(37,99,235,0.2); border-color: rgba(37,99,235,0.5); color: #93c5fd;">
+                class="type-btn-active flex flex-col items-center gap-2 p-3.5 rounded-xl border text-sm font-bold transition-all">
                 <span class="material-symbols-outlined text-2xl">calendar_clock</span>
                 Postpone Class
               </button>
               <button type="button" id="btn-cancel" onclick="setRequestType('cancel')"
-                class="flex flex-col items-center gap-2 p-3.5 rounded-xl border text-sm font-bold transition-all"
-                style="background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); color: #64748b;">
+                class="type-btn-inactive flex flex-col items-center gap-2 p-3.5 rounded-xl border text-sm font-bold transition-all">
                 <span class="material-symbols-outlined text-2xl">event_busy</span>
                 Cancel Class
               </button>
@@ -301,37 +310,37 @@
           </div>
 
           <!-- Admin Window Banner (shown when window is active) -->
-          <div id="window-banner" class="hidden items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3.5 mb-4">
-            <span class="material-symbols-outlined text-blue-400 text-lg shrink-0 mt-0.5">event_available</span>
-            <p class="text-xs text-blue-300 font-medium leading-relaxed" id="window-banner-text"></p>
+          <div id="window-banner" class="hidden items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl p-3.5 mb-4">
+            <span class="material-symbols-outlined text-blue-500 text-lg shrink-0 mt-0.5">event_available</span>
+            <p class="text-xs text-blue-700 font-medium leading-relaxed" id="window-banner-text"></p>
           </div>
 
           <!-- No Window Open Message -->
-          <div id="no-window-msg" class="hidden items-start gap-3 bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4 mb-4">
-            <span class="material-symbols-outlined text-yellow-400 text-xl shrink-0 mt-0.5">schedule</span>
+          <div id="no-window-msg" class="hidden items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
+            <span class="material-symbols-outlined text-amber-500 text-xl shrink-0 mt-0.5">schedule</span>
             <div>
-              <p class="text-yellow-300 text-xs font-bold mb-1">Postponements Not Currently Open</p>
-              <p class="text-yellow-400/70 text-xs leading-relaxed">The admin has not opened a postponement window for this quarter yet. Please check back later or contact MakerWorks Lab.</p>
+              <p class="text-amber-800 text-xs font-bold mb-1">Postponements Not Currently Open</p>
+              <p class="text-amber-600 text-xs leading-relaxed">The admin has not opened a postponement window for this quarter yet. Please check back later or contact MakerWorks Lab.</p>
             </div>
           </div>
 
-          <!-- Info Banner (cancel / extra context) -->
-          <div id="info-banner" class="flex items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3.5 mb-4">
-            <span class="material-symbols-outlined text-blue-400 text-lg shrink-0 mt-0.5" id="banner-icon">policy</span>
-            <p class="text-xs text-blue-300 font-medium leading-relaxed" id="banner-text">
-              Postponements must fall within the <strong class="text-blue-200">admin-set window</strong> shown above.
+          <!-- Info Banner -->
+          <div id="info-banner" class="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl p-3.5 mb-4">
+            <span class="material-symbols-outlined text-blue-500 text-lg shrink-0 mt-0.5" id="banner-icon">policy</span>
+            <p class="text-xs text-blue-700 font-medium leading-relaxed" id="banner-text">
+              Postponements must fall within the <strong class="text-blue-800">admin-set window</strong> shown above.
             </p>
           </div>
 
-          <!-- Form (hidden when no window + postpone mode) -->
+          <!-- Form -->
           <div id="form-area">
             <form id="postpone-form" class="space-y-4">
 
               <!-- Original Class Date -->
               <div>
-                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Your Original Class Date</label>
+                <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Your Original Class Date</label>
                 <div class="relative">
-                  <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">event</span>
+                  <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">event</span>
                   <input type="date" id="original-class-date" required
                     class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium" />
                 </div>
@@ -339,15 +348,15 @@
 
               <!-- New Date (only for Postpone) -->
               <div id="date-section">
-                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                  Preferred New Date <span class="normal-case text-slate-600 font-normal">(within the open window)</span>
+                <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  Preferred New Date <span class="normal-case text-gray-400 font-normal">(within the open window)</span>
                 </label>
                 <div class="relative">
-                  <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xl">calendar_month</span>
+                  <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">calendar_month</span>
                   <input type="date" id="postpone-date"
                     class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium" />
                 </div>
-                <p id="date-error" class="hidden text-red-400 text-xs font-semibold mt-2 flex items-center gap-1">
+                <p id="date-error" class="hidden text-red-500 text-xs font-semibold mt-2 flex items-center gap-1">
                   <span class="material-symbols-outlined text-sm">warning</span>
                   <span id="date-error-text"></span>
                 </p>
@@ -355,7 +364,7 @@
 
               <!-- Reason -->
               <div>
-                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2" id="reason-label">
+                <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2" id="reason-label">
                   Reason for Postponement
                 </label>
                 <textarea id="postpone-reason" required rows="3"
@@ -374,12 +383,12 @@
           </div>
 
           <!-- My Requests Section -->
-          <div class="mt-6 pt-5 border-t border-white/10">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <div class="mt-6 pt-5 border-t border-gray-100">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
               <span class="material-symbols-outlined text-sm">history</span> My Requests
             </p>
             <div id="my-requests-list">
-              <p class="text-xs text-slate-600 italic">Loading your requests...</p>
+              <p class="text-xs text-gray-400 italic">Loading your requests...</p>
             </div>
           </div>
         </div>
