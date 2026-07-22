@@ -60,7 +60,7 @@ function applyWindowToForm() {
     // Show window banner
     const startFmt = new Date(activeWindow.startDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     const endFmt   = new Date(activeWindow.endDate).toLocaleDateString('en-US',   { month: 'long', day: 'numeric', year: 'numeric' });
-    windowText.innerHTML = `<strong class="text-blue-200">${activeWindow.label}:</strong> You can reschedule to any date between <strong class="text-blue-200">${startFmt}</strong> and <strong class="text-blue-200">${endFmt}</strong>.`;
+    windowText.innerHTML = `<strong>${activeWindow.label}:</strong> You can reschedule to any date between <strong>${startFmt}</strong> and <strong>${endFmt}</strong>.`;
     windowBanner.style.display = 'flex';
 
     // Constrain date picker
@@ -110,10 +110,10 @@ function checkExistingSubmission() {
       if (noWindowMsg) noWindowMsg.style.display = 'none';
       if (alreadyMsg)  alreadyMsg.style.display  = 'flex';
 
-      let statusStyle = 'background:rgba(234,179,8,0.15);color:#fbbf24;border:1px solid rgba(234,179,8,0.3);';
+      let statusStyle = 'background:#fef9c3;color:#92400e;border:1px solid #fde68a;';
       let statusLabel = '⏳ Pending Review';
-      if (existing.status === 'APPROVED') { statusStyle = 'background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(34,197,94,0.3);'; statusLabel = '✓ Approved'; }
-      if (existing.status === 'REJECTED') { statusStyle = 'background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);'; statusLabel = '✗ Rejected'; }
+      if (existing.status === 'APPROVED') { statusStyle = 'background:#dcfce7;color:#166534;border:1px solid #86efac;'; statusLabel = '✓ Approved'; }
+      if (existing.status === 'REJECTED') { statusStyle = 'background:#fee2e2;color:#991b1b;border:1px solid #fecaca;'; statusLabel = '✗ Rejected'; }
 
       const newDate = existing.postponeDate
         ? new Date(existing.postponeDate).toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' })
@@ -122,9 +122,9 @@ function checkExistingSubmission() {
       if (alreadyBody) alreadyBody.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
           <div>
-            <p style="font-size:12px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;">Your Request · ${activeWindow.label}</p>
-            <p style="font-size:13px;color:#e2e8f0;font-weight:700;">↷ Rescheduled to ${newDate}</p>
-            <p style="font-size:12px;color:#64748b;margin-top:4px;">${existing.reason || ''}</p>
+            <p style="font-size:12px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;">Your Request · ${activeWindow.label}</p>
+            <p style="font-size:13px;color:#0f172a;font-weight:700;">↷ Rescheduled to ${newDate}</p>
+            <p style="font-size:12px;color:#94a3b8;margin-top:4px;">${existing.reason || ''}</p>
           </div>
           <span style="font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;${statusStyle}">${statusLabel}</span>
         </div>`;
@@ -154,12 +154,12 @@ window.setRequestType = function(type) {
     if (reasonLabel) reasonLabel.textContent = 'Reason for Postponement';
     if (submitLabel) submitLabel.textContent  = 'Submit Postponement';
     if (bannerIcon)  bannerIcon.textContent   = 'policy';
-    if (bannerText)  bannerText.innerHTML     = 'Postponements must fall within the <strong class="text-blue-200">admin-set window</strong> shown above.';
-    if (infoBanner)  { infoBanner.className = 'flex items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3.5 mb-3'; }
-    if (bannerText)  bannerText.className   = 'text-xs text-blue-300 font-medium leading-relaxed';
-    if (bannerIcon)  bannerIcon.className   = 'material-symbols-outlined text-blue-400 text-lg shrink-0 mt-0.5';
-    if (btnPostpone) btnPostpone.style.cssText = 'background: rgba(37,99,235,0.2); border-color: rgba(37,99,235,0.5); color: #93c5fd;';
-    if (btnCancel)   btnCancel.style.cssText   = 'background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); color: #64748b;';
+    if (bannerText)  bannerText.innerHTML     = 'Postponements must fall within the <strong>admin-set window</strong> shown above.';
+    if (infoBanner)  { infoBanner.className = 'flex items-start gap-3 banner-blue p-3.5 mb-4'; }
+    if (bannerText)  bannerText.className   = 'text-[12px] font-medium leading-relaxed';
+    if (bannerIcon)  bannerIcon.className   = 'material-symbols-outlined text-blue-500 text-lg shrink-0 mt-0.5';
+    if (btnPostpone) { btnPostpone.className = 'type-toggle active-postpone'; btnPostpone.style.cssText = ''; }
+    if (btnCancel)   { btnCancel.className = 'type-toggle'; btnCancel.style.cssText = ''; }
   } else {
     if (dateSection) dateSection.style.display = 'none';
     postponeDate.required = false;
@@ -167,11 +167,11 @@ window.setRequestType = function(type) {
     if (submitLabel) submitLabel.textContent  = 'Submit Cancellation';
     if (bannerIcon)  bannerIcon.textContent   = 'cancel';
     if (bannerText)  bannerText.innerHTML     = 'Please provide a clear reason for cancellation. Our admin team will be notified immediately.';
-    if (infoBanner)  { infoBanner.className = 'flex items-start gap-3 bg-red-500/10 border border-red-500/20 rounded-xl p-3.5 mb-3'; }
-    if (bannerText)  bannerText.className   = 'text-xs text-red-300 font-medium leading-relaxed';
-    if (bannerIcon)  bannerIcon.className   = 'material-symbols-outlined text-red-400 text-lg shrink-0 mt-0.5';
-    if (btnCancel)   btnCancel.style.cssText   = 'background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: #fca5a5;';
-    if (btnPostpone) btnPostpone.style.cssText = 'background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); color: #64748b;';
+    if (infoBanner)  { infoBanner.className = 'flex items-start gap-3 banner-red p-3.5 mb-4'; }
+    if (bannerText)  bannerText.className   = 'text-[12px] font-medium leading-relaxed';
+    if (bannerIcon)  bannerIcon.className   = 'material-symbols-outlined text-red-500 text-lg shrink-0 mt-0.5';
+    if (btnCancel)   { btnCancel.className = 'type-toggle active-cancel'; btnCancel.style.cssText = ''; }
+    if (btnPostpone) { btnPostpone.className = 'type-toggle'; btnPostpone.style.cssText = ''; }
   }
 
   applyWindowToForm();
@@ -211,19 +211,19 @@ function startMyRequestsListener(uid) {
   myRequestsUnsubscribe = onValue(ref(db, 'postponements'), (snapshot) => {
     listEl.innerHTML = '';
     const data = snapshot.val();
-    if (!data) { listEl.innerHTML = `<p class="text-xs text-slate-500 italic">No requests submitted yet.</p>`; return; }
+    if (!data) { listEl.innerHTML = `<p class="text-[12px] text-gray-400 italic">No requests submitted yet.</p>`; return; }
 
     const myRequests = Object.values(data).filter(r => r.uid === uid).sort((a,b) => b.createdAt - a.createdAt);
-    if (myRequests.length === 0) { listEl.innerHTML = `<p class="text-xs text-slate-500 italic">No requests submitted yet.</p>`; return; }
+    if (myRequests.length === 0) { listEl.innerHTML = `<p class="text-[12px] text-gray-400 italic">No requests submitted yet.</p>`; return; }
 
     myRequests.forEach(req => {
       const card = document.createElement('div');
-      card.style.cssText = 'background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;margin-bottom:8px;';
+      card.className = 'request-card';
 
-      let statusStyle = 'background:rgba(234,179,8,0.15);color:#fbbf24;border:1px solid rgba(234,179,8,0.3);';
+      let badgeClass = 'badge-pending';
       let statusLabel = '⏳ Pending';
-      if (req.status === 'APPROVED') { statusStyle = 'background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(34,197,94,0.3);'; statusLabel = '✓ Approved'; }
-      if (req.status === 'REJECTED') { statusStyle = 'background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);'; statusLabel = '✗ Rejected'; }
+      if (req.status === 'APPROVED') { badgeClass = 'badge-approved'; statusLabel = '✓ Approved'; }
+      if (req.status === 'REJECTED') { badgeClass = 'badge-rejected'; statusLabel = '✗ Rejected'; }
 
       const typeLabel  = req.type === 'cancel' ? '✕ Cancel' : '↷ Postpone';
       const dateLabel  = req.postponeDate ? ` → ${new Date(req.postponeDate).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}` : '';
@@ -232,12 +232,12 @@ function startMyRequestsListener(uid) {
       card.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
           <div>
-            <span style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;">${typeLabel}${dateLabel}</span>
+            <span style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;">${typeLabel}${dateLabel}</span>
             <p style="font-size:12px;color:#94a3b8;margin-top:3px;line-height:1.4;">${req.reason || '—'}</p>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;">
-            <span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;${statusStyle}">${statusLabel}</span>
-            <span style="font-size:10px;color:#64748b;">${submitted}</span>
+            <span class="${badgeClass}" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">${statusLabel}</span>
+            <span style="font-size:10px;color:#94a3b8;">${submitted}</span>
           </div>
         </div>`;
       listEl.appendChild(card);
@@ -311,7 +311,7 @@ postponeForm.addEventListener('submit', async (e) => {
     await push(ref(db, 'postponements'), payload);
 
     postponeMessage.innerHTML = `<span class="material-symbols-outlined text-base">check_circle</span> Your request has been submitted successfully.`;
-    postponeMessage.className  = 'text-sm font-semibold p-3.5 rounded-xl flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400';
+    postponeMessage.className  = 'text-[13px] font-semibold p-3.5 rounded-[14px] flex items-center gap-2 bg-green-50 border border-green-200 text-green-700';
     postponeMessage.classList.remove('hidden');
     postponeForm.reset();
     applyWindowToForm(); // Refresh window constraints after reset
@@ -319,7 +319,7 @@ postponeForm.addEventListener('submit', async (e) => {
     let errMsg = 'An error occurred while submitting.';
     if (error && error.message) errMsg = `Error: ${error.message}`;
     postponeMessage.textContent = errMsg;
-    postponeMessage.className   = 'text-sm font-semibold p-3.5 rounded-xl flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400';
+    postponeMessage.className   = 'text-[13px] font-semibold p-3.5 rounded-[14px] flex items-center gap-2 bg-red-50 border border-red-200 text-red-700';
     postponeMessage.classList.remove('hidden');
   } finally {
     submitBtn.disabled = false;

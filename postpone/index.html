@@ -5,7 +5,13 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>MakerWorks Lab | Postpone Class</title>
   <meta name="description" content="Request a class postponement securely with at least 14 days advance notice.">
-  
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -18,14 +24,11 @@
         extend: {
           fontFamily: { sans: ["Plus Jakarta Sans", "sans-serif"] },
           animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'float-delayed': 'float 6s ease-in-out infinite 2s',
-            'slide-up': 'slideUp 0.5s ease-out',
+            'slide-up': 'slideUp 0.6s cubic-bezier(0.16,1,0.3,1)',
             'fade-in': 'fadeIn 0.4s ease-out',
           },
           keyframes: {
-            float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
-            slideUp: { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            slideUp: { '0%': { opacity: 0, transform: 'translateY(24px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
             fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
           }
         }
@@ -44,65 +47,79 @@
 
     .hidden-state { display: none !important; }
 
-    /* Subtle background accents */
+    /* Soft ambient blobs */
     .orb {
       position: fixed;
       border-radius: 50%;
-      filter: blur(100px);
+      filter: blur(120px);
       pointer-events: none;
       z-index: 0;
     }
-    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(13, 110, 253, 0.06) 0%, transparent 70%); top: -150px; right: -150px; }
-    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(111, 66, 193, 0.05) 0%, transparent 70%); bottom: -150px; left: -150px; }
+    .orb-1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(13, 110, 253, 0.05) 0%, transparent 70%); top: -200px; right: -200px; }
+    .orb-2 { width: 550px; height: 550px; background: radial-gradient(circle, rgba(111, 66, 193, 0.04) 0%, transparent 70%); bottom: -200px; left: -200px; }
 
     /* Main card */
     .glass-card {
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.06), 0 4px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.02),
+        0 2px 4px rgba(0,0,0,0.02),
+        0 12px 40px rgba(0,0,0,0.04),
+        0 40px 80px rgba(0,0,0,0.04);
     }
 
-    /* Left panel */
+    /* Left panel — premium gradient */
     .left-panel {
-      background: linear-gradient(160deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+      background: linear-gradient(160deg, #1e40af 0%, #1d4ed8 40%, #2563eb 100%);
       position: relative;
       overflow: hidden;
     }
     .left-panel::before {
       content: '';
       position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+      top: -60%; right: -60%;
+      width: 140%; height: 140%;
+      background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .left-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -30%; left: -30%;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 50%);
       pointer-events: none;
     }
 
     /* Input styling */
     .form-input {
-      background: #f8fafc;
+      background: #ffffff;
       border: 1.5px solid #e2e8f0;
       color: #0f172a;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
+      font-size: 14px;
     }
     .form-input::placeholder { color: #94a3b8; }
     .form-input:focus {
       background: #ffffff;
-      border-color: #0d6efd;
-      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
       outline: none;
     }
 
     /* Primary button */
     .btn-primary {
-      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
       border: none;
-      box-shadow: 0 4px 15px rgba(13, 110, 253, 0.25);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255,255,255,0.15);
       transition: all 0.3s ease;
+      font-size: 14px;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.35);
-      background: linear-gradient(135deg, #3b82f6 0%, #0d6efd 100%);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     }
     .btn-primary:active { transform: translateY(0); }
     .btn-primary:disabled {
@@ -111,25 +128,31 @@
       transform: none;
     }
 
-    /* Policy items */
+    /* Policy items in the left panel */
     .policy-item {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.15);
+      gap: 14px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
       margin-bottom: 10px;
       transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
     }
-    .policy-item:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.3); }
+    .policy-item:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateX(4px);
+    }
 
     /* Logo icon */
     .logo-icon {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     /* Success animation */
@@ -147,129 +170,202 @@
     .user-bar {
       background: #f0f7ff;
       border: 1.5px solid #dbeafe;
-      border-radius: 14px;
-      padding: 12px 16px;
+      border-radius: 16px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
-    /* Request type buttons */
-    .type-btn-active {
-      background: #eff6ff !important;
-      border-color: #0d6efd !important;
-      color: #0d6efd !important;
-      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1);
+    /* Toggle buttons */
+    .type-toggle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1.5px solid #e2e8f0;
+      background: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      color: #64748b;
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      cursor: pointer;
     }
-    .type-btn-inactive {
-      background: #f8fafc !important;
-      border-color: #e2e8f0 !important;
-      color: #64748b !important;
+    .type-toggle:hover { border-color: #cbd5e1; background: #f8fafc; }
+    .type-toggle.active-postpone {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.12);
+    }
+    .type-toggle.active-cancel {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #dc2626;
+      box-shadow: 0 4px 12px rgba(239,68,68,0.1);
+    }
+
+    /* Info banners */
+    .banner-blue {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      color: #1e40af;
+    }
+    .banner-blue strong { color: #1e3a5f; }
+    .banner-red {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 14px;
+      color: #991b1b;
+    }
+    .banner-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 14px;
+    }
+
+    /* Request history cards */
+    .request-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 8px;
+      transition: all 0.25s ease;
+    }
+    .request-card:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    /* Status badges */
+    .badge-pending { background: #fef9c3; color: #92400e; border: 1px solid #fde68a; }
+    .badge-approved { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .badge-rejected { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+    /* Input label style */
+    .input-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    /* Section divider */
+    .section-divider {
+      border-top: 1px solid #f1f5f9;
+      margin-top: 28px;
+      padding-top: 20px;
     }
   </style>
 </head>
 
-<body class="min-h-screen flex items-center justify-center p-4 relative">
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 relative">
 
   <!-- Background Orbs -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
   <!-- Main Card -->
-  <div class="glass-card rounded-3xl overflow-hidden w-full max-w-4xl relative z-10 animate-slide-up" style="min-height: 560px;">
+  <div class="glass-card rounded-[28px] overflow-hidden w-full max-w-[920px] relative z-10 animate-slide-up" style="min-height: 580px;">
     <div class="flex flex-col lg:flex-row min-h-full">
 
-      <!-- Left Panel: Branding & Policy -->
-      <div class="left-panel lg:w-2/5 p-8 lg:p-10 flex flex-col justify-between relative z-10">
-        
-        <!-- Logo -->
+      <!-- ─── Left Panel ─── -->
+      <div class="left-panel lg:w-[42%] p-8 lg:p-10 flex flex-col justify-between relative z-10">
         <div>
+          <!-- Logo -->
           <div class="flex items-center gap-3 mb-10">
-            <div class="logo-icon w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-xl">MW</div>
+            <div class="logo-icon w-11 h-11 rounded-xl flex items-center justify-center text-white font-black text-lg">MW</div>
             <div>
-              <p class="text-white font-bold text-base leading-none">MakerWorks</p>
-              <p class="text-blue-200 text-xs font-semibold tracking-widest uppercase mt-0.5">Lab</p>
+              <p class="text-white font-bold text-[15px] leading-none tracking-tight">MakerWorks</p>
+              <p class="text-blue-200/80 text-[10px] font-bold tracking-[0.2em] uppercase mt-1">Lab</p>
             </div>
           </div>
 
-          <h1 class="text-2xl lg:text-3xl font-extrabold text-white leading-tight mb-2" id="left-heading" style="font-family: 'Bricolage Grotesque', sans-serif;">
+          <!-- Heading -->
+          <h1 class="text-[28px] lg:text-[34px] font-extrabold text-white leading-[1.15] mb-3" id="left-heading" style="font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.5px;">
             Manage<br>
             <span class="text-blue-200">Your Class</span>
           </h1>
-          <p class="text-blue-100/80 text-sm font-medium mb-8" id="left-subheading">
+          <p class="text-blue-100/70 text-[13px] font-medium mb-8 leading-relaxed" id="left-subheading">
             Submit a secure, authenticated request to postpone or cancel your session.
           </p>
 
           <!-- Policy Items -->
-          <div class="space-y-2">
+          <div class="space-y-2.5">
             <div class="policy-item">
-              <span class="material-symbols-outlined text-blue-200 text-xl mt-0.5">schedule</span>
+              <span class="material-symbols-outlined text-blue-200/90 text-xl mt-0.5">schedule</span>
               <div>
-                <p class="text-white text-xs font-bold">14-Day Advance Notice</p>
-                <p class="text-blue-100/70 text-xs mt-0.5 leading-relaxed">All postponements must be requested at least 2 weeks before your class date.</p>
+                <p class="text-white text-[12px] font-bold">14-Day Advance Notice</p>
+                <p class="text-blue-100/60 text-[11px] mt-1 leading-relaxed">All postponements must be requested at least 2 weeks before your class date.</p>
               </div>
             </div>
             <div class="policy-item">
-              <span class="material-symbols-outlined text-blue-200 text-xl mt-0.5">verified_user</span>
+              <span class="material-symbols-outlined text-blue-200/90 text-xl mt-0.5">verified_user</span>
               <div>
-                <p class="text-white text-xs font-bold">Secure & Authenticated</p>
-                <p class="text-blue-100/70 text-xs mt-0.5 leading-relaxed">Login is required so every request is tied to your student identity.</p>
+                <p class="text-white text-[12px] font-bold">Secure & Authenticated</p>
+                <p class="text-blue-100/60 text-[11px] mt-1 leading-relaxed">Login is required so every request is tied to your student identity.</p>
               </div>
             </div>
             <div class="policy-item">
-              <span class="material-symbols-outlined text-blue-200 text-xl mt-0.5">notifications_active</span>
+              <span class="material-symbols-outlined text-blue-200/90 text-xl mt-0.5">notifications_active</span>
               <div>
-                <p class="text-white text-xs font-bold">Admin Notification</p>
-                <p class="text-blue-100/70 text-xs mt-0.5 leading-relaxed">Your mentor is notified instantly and will confirm your rescheduled date.</p>
+                <p class="text-white text-[12px] font-bold">Admin Notification</p>
+                <p class="text-blue-100/60 text-[11px] mt-1 leading-relaxed">Your mentor is notified instantly and will confirm your rescheduled date.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Footer -->
-        <p class="text-blue-200/50 text-xs mt-8 lg:mt-0">© 2026 MakerWorks Lab. All rights reserved.</p>
+        <p class="text-blue-200/30 text-[11px] mt-10 lg:mt-0">© 2026 MakerWorks Lab. All rights reserved.</p>
       </div>
 
-      <!-- Right Panel: Forms -->
+      <!-- ─── Right Panel ─── -->
       <div class="flex-1 p-8 lg:p-10 flex flex-col justify-center">
 
         <!-- ── LOGIN SECTION ── -->
         <div id="login-section" class="animate-fade-in">
           <div class="mb-8">
-            <h2 class="text-xl font-extrabold text-gray-900 mb-1" style="font-family: 'Bricolage Grotesque', sans-serif;">Welcome Back</h2>
-            <p class="text-gray-500 text-sm">Sign in with your student account to continue.</p>
+            <h2 class="text-[22px] font-extrabold text-gray-900 mb-1" style="font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.5px;">Welcome Back</h2>
+            <p class="text-gray-400 text-[13px]">Sign in with your student account to continue.</p>
           </div>
 
           <form id="login-form" class="space-y-5">
             <div>
-              <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Student Email</label>
+              <label class="input-label">Student Email</label>
               <div class="relative">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">mail</span>
                 <input type="email" id="email" required autocomplete="email"
-                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium"
+                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-[14px]"
                   placeholder="student@example.com" />
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Password</label>
+              <label class="input-label">Password</label>
               <div class="relative">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">lock</span>
                 <input type="password" id="password" required autocomplete="current-password"
-                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium"
+                  class="form-input w-full pl-12 pr-4 py-3.5 rounded-[14px]"
                   placeholder="••••••••" />
               </div>
             </div>
 
             <!-- Error Message -->
-            <div id="login-error" class="hidden text-xs font-semibold text-red-600 bg-red-50 border border-red-200 p-3 rounded-xl flex items-center gap-2">
+            <div id="login-error" class="hidden text-[12px] font-semibold text-red-700 bg-red-50 border border-red-200 p-3.5 rounded-[14px] flex items-center gap-2">
               <span class="material-symbols-outlined text-base shrink-0">error</span>
               <span id="login-error-text"></span>
             </div>
 
             <button type="submit" id="login-btn"
-              class="btn-primary w-full text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 text-sm mt-2">
+              class="btn-primary w-full text-white font-bold py-3.5 px-6 rounded-[14px] flex items-center justify-center gap-2 mt-1">
               <span>Sign In</span>
               <span class="material-symbols-outlined text-base">arrow_forward</span>
             </button>
@@ -281,54 +377,60 @@
 
           <!-- User Info Bar -->
           <div class="user-bar" id="user-bar">
-            <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm" id="user-avatar">?</div>
+            <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-sm" id="user-avatar">?</div>
             <div class="flex-1 min-w-0">
-              <p class="text-gray-900 text-xs font-bold truncate" id="user-email-display">Loading...</p>
-              <p class="text-blue-500 text-xs">Student Account</p>
+              <p class="text-gray-900 text-[13px] font-bold truncate" id="user-email-display">Loading...</p>
+              <p class="text-blue-500 text-[11px] font-semibold">Student Account</p>
             </div>
             <button id="logout-btn" title="Sign Out"
-              class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1 text-xs font-semibold shrink-0 ml-2">
-              <span class="material-symbols-outlined text-base">logout</span>
+              class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1 text-[11px] font-bold shrink-0 ml-2 uppercase tracking-wide">
+              <span class="material-symbols-outlined text-lg">logout</span>
             </button>
           </div>
 
           <!-- Request Type Toggle -->
-          <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">What would you like to do?</p>
-            <div class="grid grid-cols-2 gap-2">
+          <div class="mb-5">
+            <p class="input-label mb-3">What would you like to do?</p>
+            <div class="grid grid-cols-2 gap-3">
               <button type="button" id="btn-postpone" onclick="setRequestType('postpone')"
-                class="type-btn-active flex flex-col items-center gap-2 p-3.5 rounded-xl border text-sm font-bold transition-all">
+                class="type-toggle active-postpone">
                 <span class="material-symbols-outlined text-2xl">calendar_clock</span>
                 Postpone Class
               </button>
               <button type="button" id="btn-cancel" onclick="setRequestType('cancel')"
-                class="type-btn-inactive flex flex-col items-center gap-2 p-3.5 rounded-xl border text-sm font-bold transition-all">
+                class="type-toggle">
                 <span class="material-symbols-outlined text-2xl">event_busy</span>
                 Cancel Class
               </button>
             </div>
           </div>
 
-          <!-- Admin Window Banner (shown when window is active) -->
-          <div id="window-banner" class="hidden items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl p-3.5 mb-4">
+          <!-- Admin Window Banner -->
+          <div id="window-banner" class="hidden items-start gap-3 banner-blue p-3.5 mb-4">
             <span class="material-symbols-outlined text-blue-500 text-lg shrink-0 mt-0.5">event_available</span>
-            <p class="text-xs text-blue-700 font-medium leading-relaxed" id="window-banner-text"></p>
+            <p class="text-[12px] font-medium leading-relaxed" id="window-banner-text"></p>
           </div>
 
           <!-- No Window Open Message -->
-          <div id="no-window-msg" class="hidden items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
+          <div id="no-window-msg" class="hidden items-start gap-3 banner-amber p-4 mb-4">
             <span class="material-symbols-outlined text-amber-500 text-xl shrink-0 mt-0.5">schedule</span>
             <div>
-              <p class="text-amber-800 text-xs font-bold mb-1">Postponements Not Currently Open</p>
-              <p class="text-amber-600 text-xs leading-relaxed">The admin has not opened a postponement window for this quarter yet. Please check back later or contact MakerWorks Lab.</p>
+              <p class="text-amber-800 text-[12px] font-bold mb-1">Postponements Not Currently Open</p>
+              <p class="text-amber-600 text-[11px] leading-relaxed">The admin has not opened a postponement window for this quarter yet. Please check back later or contact MakerWorks Lab.</p>
             </div>
           </div>
 
+          <!-- Already Submitted Banner -->
+          <div id="already-submitted-msg" style="display:none;" class="items-start gap-3 banner-blue p-4 mb-4 rounded-[14px]">
+            <span class="material-symbols-outlined text-blue-500 text-lg shrink-0 mt-1">task_alt</span>
+            <div id="already-submitted-body" class="text-sm"></div>
+          </div>
+
           <!-- Info Banner -->
-          <div id="info-banner" class="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl p-3.5 mb-4">
+          <div id="info-banner" class="flex items-start gap-3 banner-blue p-3.5 mb-4">
             <span class="material-symbols-outlined text-blue-500 text-lg shrink-0 mt-0.5" id="banner-icon">policy</span>
-            <p class="text-xs text-blue-700 font-medium leading-relaxed" id="banner-text">
-              Postponements must fall within the <strong class="text-blue-800">admin-set window</strong> shown above.
+            <p class="text-[12px] font-medium leading-relaxed" id="banner-text">
+              Postponements must fall within the <strong>admin-set window</strong> shown above.
             </p>
           </div>
 
@@ -336,46 +438,43 @@
           <div id="form-area">
             <form id="postpone-form" class="space-y-4">
 
-              <!-- Original Class Date -->
               <div>
-                <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Your Original Class Date</label>
+                <label class="input-label">Your Original Class Date</label>
                 <div class="relative">
                   <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">event</span>
                   <input type="date" id="original-class-date" required
-                    class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium" />
+                    class="form-input w-full pl-12 pr-4 py-3.5 rounded-[14px]" />
                 </div>
               </div>
 
-              <!-- New Date (only for Postpone) -->
               <div id="date-section">
-                <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                  Preferred New Date <span class="normal-case text-gray-400 font-normal">(within the open window)</span>
+                <label class="input-label">
+                  Preferred New Date <span class="normal-case text-gray-400 font-normal tracking-normal">(within the open window)</span>
                 </label>
                 <div class="relative">
                   <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">calendar_month</span>
                   <input type="date" id="postpone-date"
-                    class="form-input w-full pl-12 pr-4 py-3.5 rounded-xl text-sm font-medium" />
+                    class="form-input w-full pl-12 pr-4 py-3.5 rounded-[14px]" />
                 </div>
-                <p id="date-error" class="hidden text-red-500 text-xs font-semibold mt-2 flex items-center gap-1">
+                <p id="date-error" class="hidden text-red-500 text-[12px] font-semibold mt-2 flex items-center gap-1">
                   <span class="material-symbols-outlined text-sm">warning</span>
                   <span id="date-error-text"></span>
                 </p>
               </div>
 
-              <!-- Reason -->
               <div>
-                <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2" id="reason-label">
+                <label class="input-label" id="reason-label">
                   Reason for Postponement
                 </label>
                 <textarea id="postpone-reason" required rows="3"
-                  class="form-input w-full p-4 rounded-xl text-sm font-medium resize-none"
+                  class="form-input w-full p-4 rounded-[14px] resize-none"
                   placeholder="Briefly describe why you need to postpone this class..."></textarea>
               </div>
 
-              <div id="postpone-message" class="hidden text-sm font-semibold p-3.5 rounded-xl flex items-center gap-2"></div>
+              <div id="postpone-message" class="hidden text-[13px] font-semibold p-3.5 rounded-[14px] flex items-center gap-2"></div>
 
               <button type="submit" id="submit-btn"
-                class="btn-primary w-full text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 text-sm">
+                class="btn-primary w-full text-white font-bold py-3.5 px-6 rounded-[14px] flex items-center justify-center gap-2">
                 <span id="submit-label">Submit Postponement</span>
                 <span class="material-symbols-outlined text-base">send</span>
               </button>
@@ -383,12 +482,12 @@
           </div>
 
           <!-- My Requests Section -->
-          <div class="mt-6 pt-5 border-t border-gray-100">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <div class="section-divider">
+            <p class="input-label flex items-center gap-2 mb-3">
               <span class="material-symbols-outlined text-sm">history</span> My Requests
             </p>
             <div id="my-requests-list">
-              <p class="text-xs text-gray-400 italic">Loading your requests...</p>
+              <p class="text-[12px] text-gray-400 italic">Loading your requests...</p>
             </div>
           </div>
         </div>
@@ -402,7 +501,6 @@
     const origLoginError = document.getElementById('login-error');
     const origLoginErrorText = document.getElementById('login-error-text');
     
-    // Override textContent setter to populate inner span
     Object.defineProperty(origLoginError, 'textContent', {
       set(val) { origLoginErrorText.textContent = val; },
       get() { return origLoginErrorText.textContent; }
