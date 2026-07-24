@@ -195,6 +195,14 @@
       cursor: pointer;
     }
     .type-toggle:hover { border-color: #cbd5e1; background: #f8fafc; }
+    .type-toggle.active-postpone { background: #eff6ff; border-color: #3b82f6; color: #1d4ed8; box-shadow: 0 4px 12px rgba(59,130,246,0.12); }
+    .type-toggle.active-cancel { background: #fef2f2; border-color: #ef4444; color: #dc2626; box-shadow: 0 4px 12px rgba(239,68,68,0.1); }
+
+    /* Accordion styles */
+    .accordion-header .material-symbols-outlined { transform: rotate(0deg); }
+    .accordion-header.active .material-symbols-outlined { transform: rotate(180deg); }
+    .accordion-content { background: #ffffff; }
+    .type-toggle:hover { border-color: #cbd5e1; background: #f8fafc; }
     .type-toggle.active-postpone {
       background: #eff6ff;
       border-color: #3b82f6;
@@ -245,8 +253,6 @@
     /* Status badges */
     .badge-pending { background: #fef9c3; color: #92400e; border: 1px solid #fde68a; }
     .badge-approved { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
-    .badge-rejected { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
-
     /* Input label style */
     .input-label {
       display: block;
@@ -258,12 +264,81 @@
       margin-bottom: 8px;
     }
 
+    /* Accordion Styles */
+    .accordion-header {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-weight: 600;
+      font-size: 13px;
+      color: #334155;
+    }
+    .accordion-header .material-symbols-outlined {
+      transition: transform 0.3s ease;
+    }
+    .accordion-header.active .material-symbols-outlined {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      padding: 12px 0;
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
     /* Section divider */
     .section-divider {
       border-top: 1px solid #f1f5f9;
       margin-top: 28px;
       padding-top: 20px;
     }
+    /* New card styles for announcements and spotlight */
+    .announcement-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .announcement-card:hover { background: #f8fafc; }
+    .spotlight-card {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 14px;
+    }
+    .spotlight-card h3 { font-size: 15px; font-weight: 700; color: #1d4ed8; margin-bottom: 4px; }
+    .spotlight-card p { font-size: 13px; color: #334155; }
+    .admin-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #3b82f6;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .admin-contact-btn:hover { background: #2563eb; }
+
+    /* New component styles */
+    .class-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); margin-bottom: 12px; }
+    .class-card:hover { background: #f8fafc; }
+    .btn-sm { background: #3b82f6; color: #fff; padding: 6px 10px; border-radius: 8px; font-size: 12px; display: inline-flex; align-items: center; gap: 4px; }
+    .btn-sm:hover { background: #2563eb; }
+    .notification-panel { max-height: 200px; overflow-y: auto; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; }
+    .notification-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .notification-item .material-symbols-outlined { font-size: 16px; color: #3b82f6; }
+    .badge-rejected { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .badge-expired { background: #e2e8f0; color: #64748b; border: 1px solid #cbd5e1; }
+
   </style>
 </head>
 
@@ -490,8 +565,153 @@
               <p class="text-[12px] text-gray-400 italic">Loading your requests...</p>
             </div>
           </div>
+
+          <!-- Helpful Resources for Parents & Admin -->
+          <div class="section-divider mt-8">
+            <p class="input-label flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm">article</span> Helpful Resources
+            </p>
+            <div class="grid grid-cols-1 gap-4">
+              <a href="/refund-policy/" class="request-card flex items-center justify-between hover:bg-gray-100 p-3">
+                <span class="material-symbols-outlined text-blue-600">policy</span>
+                <span class="text-sm font-medium text-gray-800">Refund Policy</span>
+                <span class="material-symbols-outlined text-gray-400">arrow_forward_ios</span>
+              </a>
+              <a href="/contact/" class="request-card flex items-center justify-between hover:bg-gray-100 p-3">
+                <span class="material-symbols-outlined text-blue-600">mail</span>
+                <span class="text-sm font-medium text-gray-800">Contact Support</span>
+                <span class="material-symbols-outlined text-gray-400">arrow_forward_ios</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="section-divider mt-8">
+            <p class="input-label flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm">help_center</span> Frequently Asked Questions
+            </p>
+            <div class="space-y-3" id="faq-accordion">
+              <div class="accordion-item border border-gray-200 rounded-lg overflow-hidden">
+                <button class="accordion-header w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100">
+                  <span class="font-medium text-gray-800">How far in advance must I request a postponement?</span>
+                  <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="accordion-content hidden p-4 text-gray-700">
+                  Requests must be submitted at least 14 days before the original class date unless the admin opens a special window.
+                </div>
+              </div>
+              <div class="accordion-item border border-gray-200 rounded-lg overflow-hidden">
+                <button class="accordion-header w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100">
+                  <span class="font-medium text-gray-800">Can I cancel a class instead of postponing?</span>
+                  <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="accordion-content hidden p-4 text-gray-700">
+                  Yes, select the "Cancel Class" option above and provide a brief reason. Admins will review and confirm.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- System Announcements Banner -->
+          <div class="section-divider mt-8">
+            <p class="input-label flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm">campaign</span> Announcements
+            </p>
+            <div class="notification-panel">
+              <div class="notification-item">
+                <span class="material-symbols-outlined">event_available</span>
+                <span>📢 Postponement requests will open on August 1.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Class Card -->
+          <div class="section-divider mt-8">
+            <p class="input-label flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm">event</span> Upcoming Class
+            </p>
+            <div class="class-card">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900" id="upcoming-class-name">Loading...</h3>
+                  <p class="text-sm text-gray-600" id="upcoming-class-datetime"></p>
+                </div>
+                <button class="admin-contact-btn btn-sm" id="view-class-btn"><span class="material-symbols-outlined text-sm">visibility</span></button>
+              </div>
+              <p class="mt-2 text-sm text-gray-700"><strong>Instructor:</strong> <span id="upcoming-class-instructor"></span></p>
+              <p class="text-sm text-gray-700"><strong>Location:</strong> <span id="upcoming-class-location"></span></p>
+            </div>
+          </div>
+
+          <!-- Class Countdown -->
+          <div class="section-divider mt-4">
+            <p class="input-label flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-sm">hourglass_top</span> Countdown
+            </p>
+            <p class="text-base font-medium text-gray-800" id="class-countdown">Calculating...</p>
+          </div>
+
+          <!-- Notification Center -->
+          <div class="section-divider mt-8">
+            <p class="input-label flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm">notifications</span> Notifications
+            </p>
+            <div id="notification-panel" class="notification-panel"></div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="section-divider mt-8 flex flex-wrap gap-4 justify-center">
+            <button class="admin-contact-btn"><span class="material-symbols-outlined text-sm">person</span> Contact Mentor</button>
+            <button class="admin-contact-btn"><span class="material-symbols-outlined text-sm">policy</span> View Policies</button>
+            <button class="admin-contact-btn"><span class="material-symbols-outlined text-sm">download</span> Download Schedule</button>
+            <button class="admin-contact-btn"><span class="material-symbols-outlined text-sm">support_agent</span> Submit Support Ticket</button>
+          </div>
+
         </div>
 
+          <!-- Latest Announcements -->
+          <div class="section-divider mt-8">
+            <p class="input-label flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm">campaign</span> Latest Announcements
+            </p>
+            <div class="space-y-3">
+              <div class="announcement-card flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">New Summer Workshop Slots Open</p>
+                  <p class="text-xs text-gray-500">Oct 5, 2026 • Register now to secure your spot.</p>
+                </div>
+                <span class="material-symbols-outlined text-gray-400">arrow_forward_ios</span>
+              </div>
+              <div class="announcement-card flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Maintenance Downtime</p>
+                  <p class="text-xs text-gray-500">Oct 12, 2026 • Platform will be unavailable 2‑4 am UTC.</p>
+                </div>
+                <span class="material-symbols-outlined text-gray-400">arrow_forward_ios</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Student Spotlight -->
+          <div class="section-divider mt-8">
+            <p class="input-label flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span> Student Spotlight
+            </p>
+            <div class="spotlight-card">
+              <h3>Alex R. – AI Robotics Enthusiast</h3>
+              <p>Alex successfully completed the LeRobot challenge and shared a tutorial that helped 30+ peers.</p>
+              <a href="/students/alex" class="admin-contact-btn mt-2">
+                <span class="material-symbols-outlined text-sm">visibility</span> View Profile
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Contact for Admin -->
+          <div class="section-divider mt-8 text-center">
+            <a href="mailto:admin@makerworkslab.in" class="admin-contact-btn">
+              <span class="material-symbols-outlined text-sm">mail</span> Contact Admin
+            </a>
+          </div>
       </div>
     </div>
   </div>
