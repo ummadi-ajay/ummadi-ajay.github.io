@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 0,
+  "last_topic_index": 1,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -29,17 +29,11 @@
     "agricultural-robots-cultivating-the-future-of-farming-in-ind",
     "warehouse-wonders-how-robots-power-indias-logistics-future",
     "robot-ethics-safety-building-a-responsible-future-with-ai",
-    "ai-in-robotics-the-brains-behind-smart-machines-makerworks"
+    "ai-in-robotics-the-brains-behind-smart-machines-makerworks",
+    "reinforcement-learning-how-robots-learn-like-us"
   ],
-  "last_run": "2026-07-27T08:00:16.059063",
+  "last_run": "2026-07-30T07:08:49.110784",
   "recent_posts": [
-    {
-      "slug": "squishy-wonders-dive-into-the-world-of-soft-robotics-with-ma",
-      "title": "Squishy Wonders: Dive into the World of Soft Robotics with MakerWorks!",
-      "badge": "Research",
-      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
-      "short_description": "Discover soft robotics: flexible, bio-inspired robots made from squishy materials. Learn how they work, their applications, and how to get started."
-    },
     {
       "slug": "agricultural-robots-cultivating-the-future-of-farming-in-ind",
       "title": "Agricultural Robots: Cultivating the Future of Farming in India",
@@ -67,6 +61,13 @@
       "badge": "AI & Robotics",
       "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
       "short_description": "Dive into AI in Robotics! Learn how AI, machine learning, and neural networks are making robots smarter and more capable."
+    },
+    {
+      "slug": "reinforcement-learning-how-robots-learn-like-us",
+      "title": "Reinforcement Learning: How Robots Learn Like Us!",
+      "badge": "AI & Robotics",
+      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
+      "short_description": "Explore Reinforcement Learning in robotics! Learn how robots use reward systems and trial-and-error to make smart decisions autonomously."
     }
   ]
 }
