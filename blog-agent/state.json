@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 2,
+  "last_topic_index": 3,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -31,17 +31,11 @@
     "robot-ethics-safety-building-a-responsible-future-with-ai",
     "ai-in-robotics-the-brains-behind-smart-machines-makerworks",
     "reinforcement-learning-how-robots-learn-like-us",
-    "computer-vision-for-robotics-giving-robots-the-power-to-see-20260806"
+    "computer-vision-for-robotics-giving-robots-the-power-to-see-20260806",
+    "humanoid-robots-ai-the-future-is-walking-among-us"
   ],
-  "last_run": "2026-08-06T07:12:57.619577",
+  "last_run": "2026-08-10T05:53:04.750083",
   "recent_posts": [
-    {
-      "slug": "warehouse-wonders-how-robots-power-indias-logistics-future",
-      "title": "Warehouse Wonders: How Robots Power India's Logistics Future",
-      "badge": "Logistics",
-      "badge_color": "linear-gradient(135deg, #0d6efd, #0dcaf0)",
-      "short_description": "Discover the fascinating world of warehouse robots! Learn how AGVs, AMRs, and AI are revolutionizing logistics and e-commerce in India."
-    },
     {
       "slug": "robot-ethics-safety-building-a-responsible-future-with-ai",
       "title": "Robot Ethics & Safety: Building a Responsible Future with AI",
@@ -69,6 +63,13 @@
       "badge": "AI & Robotics",
       "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
       "short_description": "Discover how computer vision gives robots 'eyes' to see and understand the world. Learn key concepts, OpenCV, and applications."
+    },
+    {
+      "slug": "humanoid-robots-ai-the-future-is-walking-among-us",
+      "title": "Humanoid Robots & AI: The Future is Walking Among Us",
+      "badge": "AI & Robotics",
+      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
+      "short_description": "Dive into humanoid robots and AI! Discover Boston Dynamics' Atlas, Tesla Optimus, and how these bipedal robots are shaping our future."
     }
   ]
 }
