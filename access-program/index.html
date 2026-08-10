@@ -113,42 +113,151 @@
             }
         }
 
+        /* ── Hero Override ── */
         .hero-section {
+            position: relative !important;
+            min-height: calc(100vh - 90px) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            background: url('../images/Header.webp') no-repeat center center / cover !important;
+            padding: 60px 0 !important;
+            text-align: left !important;
+            overflow: hidden !important;
+        }
+
+        /* Cinematic gradient: dark left → transparent right */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                105deg,
+                rgba(10, 10, 18, 0.88) 0%,
+                rgba(10, 10, 18, 0.72) 40%,
+                rgba(10, 10, 18, 0.25) 70%,
+                rgba(10, 10, 18, 0.05) 100%
+            );
+            z-index: 1;
+        }
+
+        /* Bottom vignette for depth */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,18,0.55) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-inner {
             position: relative;
-            padding: 80px 0 40px;
-            text-align: center;
+            z-index: 2;
+            max-width: 760px;
+            padding: 0 2rem 0 max(2rem, calc((100vw - 1200px) / 2 + 2rem));
         }
 
         .section-tag {
             display: inline-block;
-            background: rgba(13, 110, 253, 0.1);
-            color: var(--primary);
-            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            padding: 7px 16px;
             border-radius: 100px;
             font-weight: 800;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(13, 110, 253, 0.2);
+            letter-spacing: 2.5px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
         }
 
         h1 {
             font-family: 'Bricolage Grotesque', sans-serif;
-            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-size: clamp(1.9rem, 3.2vw, 3rem);
             font-weight: 800;
-            line-height: 1;
+            line-height: 1.12;
             letter-spacing: -0.04em;
-            margin-bottom: 24px;
-            color: var(--dark);
+            margin-bottom: 22px;
+            color: #ffffff;
+            text-shadow: 0 2px 24px rgba(0,0,0,0.3);
+        }
+
+        h1 .text-primary {
+            color: #60a5fa !important;
         }
 
         .hero-desc {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            color: #475569;
-            max-width: 800px;
-            margin: 0 auto 36px;
+            font-size: 1.1rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.78);
+            max-width: 540px;
+            margin: 0 0 32px;
+        }
+
+        /* Billing toggle row – keep it visible on dark bg */
+        .hero-billing-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0;
+        }
+
+        .hero-billing-toggle .fw-bold {
+            color: rgba(255,255,255,0.75) !important;
+        }
+
+        .hero-billing-toggle .fw-bold.text-dark {
+            color: #ffffff !important;
+        }
+
+        /* Hero stat pills */
+        .hero-stats {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 36px;
+        }
+
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 14px;
+            padding: 10px 18px;
+            color: #fff;
+        }
+
+        .hero-stat i {
+            font-size: 1.1rem;
+            color: #60a5fa;
+        }
+
+        .hero-stat .stat-val {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .hero-stat .stat-lbl {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.65);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 50px 0 !important;
+            }
+            .hero-inner {
+                padding: 0 1.25rem 0 1.25rem;
+            }
+            .hero-stats { gap: 10px; }
         }
 
         /* Pricing Switch Custom Toggle */
@@ -688,29 +797,49 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
-            <span class="section-tag" data-aos="fade-down">MakerWorks Access Program</span>
-            <h1 data-aos="fade-up" data-aos-delay="100">Your Space. Your Tools.<br>Your Next <span
-                    class="text-primary">Big Build</span></h1>
-            <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
-                Unlock direct physical access to the MakerWorks Lab makerspace in Mumbai. Whether you are an MVP-stage
-                startup, an early-stage builder, or an ideator student, gain access to advanced prototyping tools,
-                micro-labs, and our collaborative tech ecosystem.
+        <div class="hero-inner">
+            <span class="section-tag" data-aos="fade-right">MakerWorks Access Program</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Your Space. Your Tools.<br>Your Next <span class="text-primary">Big Build</span></h1>
+            <p class="hero-desc" data-aos="fade-up" data-aos-delay="180">
+                Unlock direct physical access to the MakerWorks Lab makerspace in Mumbai — the hub for MVP-stage startups, early-stage builders, and student ideators ready to bring ideas to life.
             </p>
 
-            <!-- Pricing Toggle -->
-            <div class="d-flex justify-content-center align-items-center gap-3 mb-5" data-aos="fade-up"
-                data-aos-delay="250">
-                <span class="fw-bold text-muted">Monthly</span>
-                <div class="form-check form-switch pricing-switch">
+            <!-- Billing Toggle -->
+            <div class="hero-billing-toggle" data-aos="fade-up" data-aos-delay="240">
+                <span class="fw-bold">Monthly</span>
+                <div class="form-check form-switch pricing-switch mb-0">
                     <input class="form-check-input" type="checkbox" id="billingToggle">
                     <label class="form-check-label" for="billingToggle"></label>
                 </div>
                 <span class="fw-bold text-dark d-flex align-items-center gap-2">
                     Annually
-                    <span class="badge bg-danger-subtle text-danger rounded-pill fw-bold"
-                        style="font-size: 0.75rem; padding: 4px 8px;">Save 15%</span>
+                    <span class="badge rounded-pill fw-bold" style="background:rgba(220,38,38,0.85);color:#fff;font-size:0.72rem;padding:4px 9px;">Save 15%</span>
                 </span>
+            </div>
+
+            <!-- Social-proof stats -->
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="310">
+                <div class="hero-stat">
+                    <i class="bi bi-people-fill"></i>
+                    <div>
+                        <div class="stat-val">200+</div>
+                        <div class="stat-lbl">Active Members</div>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <i class="bi bi-tools"></i>
+                    <div>
+                        <div class="stat-val">50+</div>
+                        <div class="stat-lbl">Pro Tools</div>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <div>
+                        <div class="stat-val">Mumbai</div>
+                        <div class="stat-lbl">Andheri East</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
