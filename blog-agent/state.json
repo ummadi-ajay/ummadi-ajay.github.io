@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 3,
+  "last_topic_index": 4,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -32,17 +32,11 @@
     "ai-in-robotics-the-brains-behind-smart-machines-makerworks",
     "reinforcement-learning-how-robots-learn-like-us",
     "computer-vision-for-robotics-giving-robots-the-power-to-see-20260806",
-    "humanoid-robots-ai-the-future-is-walking-among-us"
+    "humanoid-robots-ai-the-future-is-walking-among-us",
+    "unlocking-the-future-a-deep-dive-into-autonomous-vehicles-se"
   ],
-  "last_run": "2026-08-10T05:53:04.750083",
+  "last_run": "2026-08-13T05:54:13.509405",
   "recent_posts": [
-    {
-      "slug": "robot-ethics-safety-building-a-responsible-future-with-ai",
-      "title": "Robot Ethics & Safety: Building a Responsible Future with AI",
-      "badge": "Ethics",
-      "badge_color": "linear-gradient(135deg, #ffc107, #fd7e14)",
-      "short_description": "Dive into robot ethics & safety! Understand AI dilemmas, responsible robotics, and your role in building a better future."
-    },
     {
       "slug": "ai-in-robotics-the-brains-behind-smart-machines-makerworks",
       "title": "AI in Robotics: The Brains Behind Smart Machines | MakerWorks",
@@ -70,6 +64,13 @@
       "badge": "AI & Robotics",
       "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
       "short_description": "Dive into humanoid robots and AI! Discover Boston Dynamics' Atlas, Tesla Optimus, and how these bipedal robots are shaping our future."
+    },
+    {
+      "slug": "unlocking-the-future-a-deep-dive-into-autonomous-vehicles-se",
+      "title": "Unlocking the Future: A Deep Dive into Autonomous Vehicles & Self-Driving Tech",
+      "badge": "Autonomous",
+      "badge_color": "linear-gradient(135deg, #20c997, #0dcaf0)",
+      "short_description": "Discover the magic of self-driving cars! Learn how autonomous vehicles see, think, and navigate, and explore their future in India."
     }
   ]
 }
