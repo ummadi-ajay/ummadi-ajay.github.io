@@ -444,17 +444,6 @@
       "Ansh hegde": { track: "Portfolio", completed: Array.from({length: 45}, (_, i) => i), remarks: "Doing very well mapping circuits in KiCad.", projects: [], joined: "November 2025" }
     };
 
-    // Initialize application data
-    function initializeData() {
-      const stored = localStorage.getItem('mwl_student_data_v3');
-      if (stored) {
-        studentData = JSON.parse(stored);
-      } else {
-        studentData = defaultStudents;
-        localStorage.setItem('mwl_student_data_v3', JSON.stringify(studentData));
-      }
-      populateSelectOptions();
-    }
 
     // Populate dropdown grouped options
     function populateSelectOptions() {
@@ -484,7 +473,7 @@
       // Default load first student
       const firstStudent = Object.keys(studentData)[0];
       loadStudentProfile(firstStudent);
-    }}
+    }
 
     // Switch Role between Parent and Mentor
     function setRole(role) {

@@ -213,14 +213,25 @@ console.log('MakerWorks Navbar Logic 5.0 Initialized');
 
 // Automatically load components when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    // Dynamically determine the base path from this script's URL
+    const scripts = document.getElementsByTagName('script');
+    let basePath = '';
+    for (let script of scripts) {
+        let src = script.getAttribute('src') || '';
+        if (src.includes('components.js')) {
+            basePath = src.split('components.js')[0];
+            break;
+        }
+    }
+
     const navPlaceholder = document.getElementById('navbar-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
     if (navPlaceholder) {
-        loadComponent('navbar-placeholder', '/components/navbar.html?t=' + new Date().getTime());
+        loadComponent('navbar-placeholder', basePath + 'components/navbar.html?t=' + new Date().getTime());
     }
     if (footerPlaceholder) {
-        loadComponent('footer-placeholder', '/components/footer.html?t=' + new Date().getTime());
+        loadComponent('footer-placeholder', basePath + 'components/footer.html?t=' + new Date().getTime());
     }
 
     // Initialize AOS if available
