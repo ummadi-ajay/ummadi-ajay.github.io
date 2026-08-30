@@ -16,7 +16,7 @@ try {
 }
 
 const PRICING = {
-  Beginner: { 2: 9999, 3: 14999, 4: 19999 },
+  Beginner: { 2: 14999, 3: 14999, 4: 19999 },
   Intermediate: { 2: 14999, 3: 22499, 4: 29999 },
   Portfolio: { 2: 24999, 3: 37499, 4: 49999 },
   TINKERING_KIT: 9999
