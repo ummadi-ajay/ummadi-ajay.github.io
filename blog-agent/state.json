@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 9,
+  "last_topic_index": 10,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -38,17 +38,11 @@
     "cobots-your-friendly-robot-coworkers-in-indias-future",
     "industrial-robotics-automation-shaping-indias-future-factori",
     "surgical-medical-robots-the-future-of-healthcare-automation",
-    "space-robots-our-eyes-hands-in-the-cosmos-makerworks"
+    "space-robots-our-eyes-hands-in-the-cosmos-makerworks",
+    "unleash-the-power-of-many-dive-into-swarm-robotics"
   ],
-  "last_run": "2026-08-31T11:01:26.321097",
+  "last_run": "2026-09-03T09:04:19.468603",
   "recent_posts": [
-    {
-      "slug": "soar-high-the-world-of-ai-powered-drones-explained",
-      "title": "Soar High: The World of AI-Powered Drones Explained",
-      "badge": "Drones",
-      "badge_color": "linear-gradient(135deg, #fd7e14, #ffc107)",
-      "short_description": "Explore AI-powered drones: how they work, their applications, and how you can get started in this exciting field."
-    },
     {
       "slug": "cobots-your-friendly-robot-coworkers-in-indias-future",
       "title": "Cobots: Your Friendly Robot Coworkers in India's Future",
@@ -76,6 +70,13 @@
       "badge": "Space",
       "badge_color": "linear-gradient(135deg, #212529, #6c757d)",
       "short_description": "Discover the incredible world of space robots \u2013 from Mars rovers to satellite servicers \u2013 and how they're revolutionizing space exploration."
+    },
+    {
+      "slug": "unleash-the-power-of-many-dive-into-swarm-robotics",
+      "title": "Unleash the Power of Many: Dive into Swarm Robotics!",
+      "badge": "Research",
+      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
+      "short_description": "Discover swarm robotics! Learn how simple robots, like ants or bees, collaborate to solve big problems. A future of collective intelligence awaits."
     }
   ]
 }
