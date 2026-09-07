@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 10,
+  "last_topic_index": 11,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -39,17 +39,11 @@
     "industrial-robotics-automation-shaping-indias-future-factori",
     "surgical-medical-robots-the-future-of-healthcare-automation",
     "space-robots-our-eyes-hands-in-the-cosmos-makerworks",
-    "unleash-the-power-of-many-dive-into-swarm-robotics"
+    "unleash-the-power-of-many-dive-into-swarm-robotics",
+    "squishy-science-diving-into-the-world-of-soft-robotics"
   ],
-  "last_run": "2026-09-03T09:04:19.468603",
+  "last_run": "2026-09-07T09:35:05.240023",
   "recent_posts": [
-    {
-      "slug": "cobots-your-friendly-robot-coworkers-in-indias-future",
-      "title": "Cobots: Your Friendly Robot Coworkers in India's Future",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Discover Cobots, the safe and smart robots designed to work alongside humans. Learn about their benefits, applications in India, and future of STEM."
-    },
     {
       "slug": "industrial-robotics-automation-shaping-indias-future-factori",
       "title": "Industrial Robotics & Automation: Shaping India's Future Factories",
@@ -77,6 +71,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": "Discover swarm robotics! Learn how simple robots, like ants or bees, collaborate to solve big problems. A future of collective intelligence awaits."
+    },
+    {
+      "slug": "squishy-science-diving-into-the-world-of-soft-robotics",
+      "title": "Squishy Science: Diving into the World of Soft Robotics",
+      "badge": "Research",
+      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
+      "short_description": "Discover soft robotics! Learn how flexible, bio-inspired robots made of silicone and rubber are changing the future of tech."
     }
   ]
 }
