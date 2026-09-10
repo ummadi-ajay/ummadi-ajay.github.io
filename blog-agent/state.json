@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 11,
+  "last_topic_index": 12,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -40,17 +40,11 @@
     "surgical-medical-robots-the-future-of-healthcare-automation",
     "space-robots-our-eyes-hands-in-the-cosmos-makerworks",
     "unleash-the-power-of-many-dive-into-swarm-robotics",
-    "squishy-science-diving-into-the-world-of-soft-robotics"
+    "squishy-science-diving-into-the-world-of-soft-robotics",
+    "farm-of-the-future-unearthing-agricultural-robots-automation"
   ],
-  "last_run": "2026-09-07T09:35:05.240023",
+  "last_run": "2026-09-10T09:03:07.768544",
   "recent_posts": [
-    {
-      "slug": "industrial-robotics-automation-shaping-indias-future-factori",
-      "title": "Industrial Robotics & Automation: Shaping India's Future Factories",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Discover how industrial robots and automation are transforming factories in India, from their types to future trends."
-    },
     {
       "slug": "surgical-medical-robots-the-future-of-healthcare-automation",
       "title": "Surgical & Medical Robots: The Future of Healthcare Automation",
@@ -78,6 +72,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": "Discover soft robotics! Learn how flexible, bio-inspired robots made of silicone and rubber are changing the future of tech."
+    },
+    {
+      "slug": "farm-of-the-future-unearthing-agricultural-robots-automation",
+      "title": "Farm of the Future: Unearthing Agricultural Robots & Automation in India",
+      "badge": "Agriculture",
+      "badge_color": "linear-gradient(135deg, #198754, #adb5bd)",
+      "short_description": "Discover how robots are revolutionizing agriculture in India, from planting to harvesting. Explore drone farming and AI in smart farms."
     }
   ]
 }
