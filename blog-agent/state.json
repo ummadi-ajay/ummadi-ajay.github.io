@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 1,
+  "last_topic_index": 2,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -45,17 +45,11 @@
     "untitled-post-20260914",
     "robot-ethics-safety-building-a-responsible-future-with-ai-20260917",
     "ai-in-robotics-how-smart-robots-are-changing-our-world",
-    "reinforcement-learning-in-robots-how-robots-learn-like-you-d"
+    "reinforcement-learning-in-robots-how-robots-learn-like-you-d",
+    "give-your-robot-eyes-unlocking-the-power-of-computer-vision"
   ],
-  "last_run": "2026-09-24T09:25:28.903992",
+  "last_run": "2026-09-28T11:07:10.913328",
   "recent_posts": [
-    {
-      "slug": "farm-of-the-future-unearthing-agricultural-robots-automation",
-      "title": "Farm of the Future: Unearthing Agricultural Robots & Automation in India",
-      "badge": "Agriculture",
-      "badge_color": "linear-gradient(135deg, #198754, #adb5bd)",
-      "short_description": "Discover how robots are revolutionizing agriculture in India, from planting to harvesting. Explore drone farming and AI in smart farms."
-    },
     {
       "slug": "untitled-post-20260914",
       "title": "Untitled Post",
@@ -83,6 +77,13 @@
       "badge": "AI & Robotics",
       "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
       "short_description": "Explore Reinforcement Learning in robots: how they learn through trial and error, rewards, and autonomous decision-making."
+    },
+    {
+      "slug": "give-your-robot-eyes-unlocking-the-power-of-computer-vision",
+      "title": "Give Your Robot Eyes: Unlocking the Power of Computer Vision",
+      "badge": "AI & Robotics",
+      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
+      "short_description": "Discover computer vision for robotics! Learn how robots 'see' and interact with their environment using OpenCV. Start your journey today."
     }
   ]
 }
