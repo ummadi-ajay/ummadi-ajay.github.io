@@ -324,30 +324,35 @@
     /* Mobile Drawer Styles (< 1200px) */
     @media (max-width: 1199px) {
         .navbar-collapse {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            padding: 85px 1.5rem 3rem 1.5rem;
-            display: none !important;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: flex-start;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            height: 100vh;
-            width: 100vw;
-            overflow-y: auto;
-            z-index: 1050;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            padding: 85px 1.5rem 3rem 1.5rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            justify-content: flex-start !important;
+            transform: translateX(100%) !important;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.35s ease !important;
+            height: 100vh !important;
+            width: 100vw !important;
+            overflow-y: auto !important;
+            z-index: 1050 !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
 
         .navbar-collapse.show {
-            display: flex !important;
-            transform: translateX(0);
+            transform: translateX(0) !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
         }
 
         /* Protective header background when mobile menu is active */
@@ -392,6 +397,7 @@
         }
 
         .dropdown-menu {
+            display: none;
             position: static !important;
             float: none;
             width: 100%;
@@ -402,6 +408,10 @@
             margin: 0.35rem 0 0.6rem 0 !important;
             padding: 0.5rem !important;
             border-radius: 14px;
+        }
+
+        .dropdown-menu.show {
+            display: block !important;
         }
 
         .dropdown-item {
@@ -416,6 +426,24 @@
             margin-top: 1rem;
         }
     }
+
+    /* Desktop Styles (>= 1200px) */
+    @media (min-width: 1200px) {
+        .navbar-collapse {
+            position: static !important;
+            height: auto !important;
+            width: auto !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+            pointer-events: auto !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            display: flex !important;
+        }
+    }
 </style>
 
 <nav class="navbar navbar-expand-xl navbar-ultra" id="mainNav">
@@ -426,7 +454,7 @@
         </a>
 
         <!-- Hamburger Toggler (Mobile) -->
-        <button class="navbar-toggler menu-toggler d-xl-none" type="button" data-bs-target="#navbarMain"
+        <button class="navbar-toggler menu-toggler d-xl-none" type="button"
             aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
             <span></span>
             <span></span>

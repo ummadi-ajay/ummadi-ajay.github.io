@@ -89,39 +89,105 @@ function initializeNavbarLogic() {
         });
     }
 
-    // Handle mobile nav collapse
+    // Robust Mobile Nav Drawer Controller
     const navbarCollapse = document.getElementById('navbarMain');
     const toggler = document.getElementById('navbarToggler') || document.querySelector('.navbar-toggler');
     const navBase = document.getElementById('mainNav');
 
-    if (navbarCollapse && toggler) {
-        navbarCollapse.addEventListener('show.bs.collapse', () => {
-            document.body.classList.add('no-scroll');
-            toggler.classList.add('opened');
-            if (navBase) navBase.classList.add('mobile-header-active');
-        });
+    function openMobileNav() {
+        if (!navbarCollapse || !toggler) return;
+        navbarCollapse.classList.add('show');
+        toggler.classList.add('opened');
+        toggler.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('no-scroll');
+        if (navBase) navBase.classList.add('mobile-header-active');
+    }
 
-        navbarCollapse.addEventListener('hidden.bs.collapse', () => {
-            document.body.classList.remove('no-scroll');
-            toggler.classList.remove('opened');
-            if (navBase) navBase.classList.remove('mobile-header-active');
-            // Reset any open submenus
-            document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
-                el.classList.remove('show');
-            });
+    function closeMobileNav() {
+        if (!navbarCollapse || !toggler) return;
+        navbarCollapse.classList.remove('show');
+        toggler.classList.remove('opened');
+        toggler.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+        if (navBase) navBase.classList.remove('mobile-header-active');
+        // Reset open mobile submenus
+        document.querySelectorAll('.dropdown-menu.show, .dropdown-toggle.show').forEach(el => {
+            el.classList.remove('show');
         });
     }
+
+    function toggleMobileNav() {
+        if (!navbarCollapse) return;
+        if (navbarCollapse.classList.contains('show')) {
+            closeMobileNav();
+        } else {
+            openMobileNav();
+        }
+    }
+
+    if (toggler) {
+        toggler.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileNav();
+        });
+    }
+
+    // Mobile Dropdown Accordion Toggle
+    document.querySelectorAll('.navbar-nav .dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+            if (window.innerWidth < 1200) {
+                e.preventDefault();
+                e.stopPropagation();
+                const parentDropdown = this.closest('.dropdown');
+                const menu = parentDropdown ? parentDropdown.querySelector('.dropdown-menu') : this.nextElementSibling;
+                if (!menu) return;
+
+                const isOpen = menu.classList.contains('show');
+
+                // Collapse other open submenus for clean accordion behavior
+                document.querySelectorAll('.navbar-nav .dropdown-menu.show').forEach(m => {
+                    if (m !== menu) m.classList.remove('show');
+                });
+                document.querySelectorAll('.navbar-nav .dropdown-toggle.show').forEach(t => {
+                    if (t !== this) t.classList.remove('show');
+                });
+
+                if (isOpen) {
+                    menu.classList.remove('show');
+                    this.classList.remove('show');
+                } else {
+                    menu.classList.add('show');
+                    this.classList.add('show');
+                }
+            }
+        });
+    });
 
     // Close mobile drawer when clicking any link that navigates
     document.querySelectorAll('.navbar-nav a:not(.dropdown-toggle)').forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth < 1200 && navbarCollapse && navbarCollapse.classList.contains('show')) {
-                if (typeof bootstrap !== 'undefined') {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) bsCollapse.hide();
-                }
+            if (window.innerWidth < 1200) {
+                closeMobileNav();
             }
         });
+    });
+
+    // Close menu when clicking outside the navbar container
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth < 1200 && navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const navContainer = document.querySelector('.navbar-ultra');
+            if (navContainer && !navContainer.contains(e.target)) {
+                closeMobileNav();
+            }
+        }
+    });
+
+    // Close mobile drawer when viewport resized to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1200 && navbarCollapse && navbarCollapse.classList.contains('show')) {
+            closeMobileNav();
+        }
     });
 
     // Desktop Hover Handling (Responsive with Delay)
@@ -151,19 +217,6 @@ function initializeNavbarLogic() {
             });
         });
     }
-
-    // Close menu when clicking outside the navbar container
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth < 1200 && navbarCollapse && navbarCollapse.classList.contains('show')) {
-            const navContainer = document.querySelector('.navbar-ultra');
-            if (navContainer && !navContainer.contains(e.target)) {
-                if (typeof bootstrap !== 'undefined') {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) bsCollapse.hide();
-                }
-            }
-        }
-    });
 }
 console.log('MakerWorks Navbar Logic 5.0 Initialized');
 
