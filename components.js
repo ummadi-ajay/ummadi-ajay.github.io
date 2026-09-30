@@ -133,11 +133,12 @@ function initializeNavbarLogic() {
         });
     }
 
-    // Mobile Dropdown Accordion Toggle
+    // Dropdown Toggles (Desktop anchor prevention & Mobile Accordion)
     document.querySelectorAll('.navbar-nav .dropdown-toggle').forEach(toggle => {
         toggle.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent '#' jump to top of page
+
             if (window.innerWidth < 1200) {
-                e.preventDefault();
                 e.stopPropagation();
                 const parentDropdown = this.closest('.dropdown');
                 const menu = parentDropdown ? parentDropdown.querySelector('.dropdown-menu') : this.nextElementSibling;
@@ -150,15 +151,20 @@ function initializeNavbarLogic() {
                     if (m !== menu) m.classList.remove('show');
                 });
                 document.querySelectorAll('.navbar-nav .dropdown-toggle.show').forEach(t => {
-                    if (t !== this) t.classList.remove('show');
+                    if (t !== this) {
+                        t.classList.remove('show');
+                        t.setAttribute('aria-expanded', 'false');
+                    }
                 });
 
                 if (isOpen) {
                     menu.classList.remove('show');
                     this.classList.remove('show');
+                    this.setAttribute('aria-expanded', 'false');
                 } else {
                     menu.classList.add('show');
                     this.classList.add('show');
+                    this.setAttribute('aria-expanded', 'true');
                 }
             }
         });
@@ -189,34 +195,6 @@ function initializeNavbarLogic() {
             closeMobileNav();
         }
     });
-
-    // Desktop Hover Handling (Responsive with Delay)
-    if (typeof bootstrap !== 'undefined') {
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            let timer;
-            dropdown.addEventListener('mouseenter', function () {
-                if (window.innerWidth >= 1200) {
-                    clearTimeout(timer);
-                    let toggle = this.querySelector('.dropdown-toggle');
-                    if (toggle) {
-                        const instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
-                        instance.show();
-                    }
-                }
-            });
-            dropdown.addEventListener('mouseleave', function () {
-                if (window.innerWidth >= 1200) {
-                    timer = setTimeout(() => {
-                        let toggle = this.querySelector('.dropdown-toggle');
-                        if (toggle) {
-                            const instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
-                            instance.hide();
-                        }
-                    }, 180);
-                }
-            });
-        });
-    }
 }
 console.log('MakerWorks Navbar Logic 5.0 Initialized');
 
