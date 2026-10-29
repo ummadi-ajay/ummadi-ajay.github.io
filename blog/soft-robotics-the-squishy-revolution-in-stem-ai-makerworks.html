@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soft Robotics: The Squishy Revolution in STEM & AI | MakerWorks | MakerWorks Blog</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Soft Robotics: The Squishy Revolution in STEM & AI | MakerWorks | MakerWorks Blog">
+    <meta name="description" content="Explore the fascinating world of soft robotics! Learn about flexible actuators, bio-inspired designs, pneumatic robots, and their exciting applications in STEM, medicine, and exploration. Discover how these squishy robots are changing the future.">
+    <meta name="keywords" content="soft robots, flexible actuators, bio-inspired robots, pneumatic robots, silicone robots">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="MakerWorks Lab">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://makerworkslab.in/blog/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.html">
+    <meta property="og:title" content="MakerWorks Lab | Robotics &amp; AI">
+    <meta property="og:description" content="Explore the fascinating world of soft robotics! Learn about flexible actuators, bio-inspired designs, pneumatic robots, and their exciting applications in STEM, medicine, and exploration. Discover how these squishy robots are changing the future.">
+    
+    <meta property="og:image" content="https://makerworkslab.in/blog/blogphotos/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.jpg">
+    <meta property="og:image:secure_url" content="https://makerworkslab.in/blog/blogphotos/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.jpg">
+    
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://makerworkslab.in/blog/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.html">
+    <meta name="twitter:title" content="MakerWorks Lab | Robotics &amp; AI">
+    <meta name="twitter:description" content="Explore the fascinating world of soft robotics! Learn about flexible actuators, bio-inspired designs, pneumatic robots, and their exciting applications in STEM, medicine, and exploration. Discover how these squishy robots are changing the future.">
+    
+    <meta name="twitter:image" content="https://makerworkslab.in/blog/blogphotos/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.jpg">
+    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="canonical" href="https://makerworkslab.in/blog/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.html">
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts -->
+    <script src="/components.js" defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Soft Robotics: The Squishy Revolution in STEM & AI | MakerWorks",
+        "description": "Explore the fascinating world of soft robotics! Learn about flexible actuators, bio-inspired designs, pneumatic robots, and their exciting applications in STEM, medicine, and exploration. Discover how these squishy robots are changing the future.",
+        "author": {
+            "@type": "Organization",
+            "name": "MakerWorks"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MakerWorks",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://makerworkslab.in/images/logo.png"
+            }
+        },
+        "datePublished": "2026-10-29T11:00:44+05:30",
+        "dateModified": "2026-10-29T11:00:44+05:30",
+        "mainEntityOfPage": "https://makerworkslab.in/blog/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.html"
+    }
+    </script>
+
+    <style>
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content pre {
+            background-color: #282c34;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid #ff6600;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: #f8f9fa;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 60px;
+            margin-bottom: 60px;
+        }
+
+        .featured-image-placeholder {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #6610f2, #6f42c1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .featured-image-placeholder i {
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-credit {
+            font-size: 0.85rem;
+            color: #6c757d;
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+
+        .image-credit a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .image-credit a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Article Header -->
+    <header class="blog-header">
+        <div class="container text-center">
+            <span class="badge mb-3 rounded-pill px-3 py-2" style="background: linear-gradient(135deg, #6610f2, #6f42c1); color: white;">Research</span>
+            <h1 class="display-4 fw-bold mb-3">Soft Robotics: The Squishy Revolution in STEM & AI | MakerWorks</h1>
+            <div class="text-muted">
+                <i class="bi bi-calendar3 me-2"></i>October 29, 2026
+                <span class="mx-2">&bull;</span>
+                <i class="bi bi-person me-2"></i>MakerWorks Team
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 blog-content">
+                
+                <img src="blogphotos/soft-robotics-the-squishy-revolution-in-stem-ai-makerworks.jpg" alt="Soft Robotics: The Squishy Revolution in STEM & AI | MakerWorks" class="featured-image img-fluid">
+                <div class="image-credit">
+                    Photo by <a href="https://www.pexels.com/@pavel-danilyuk" target="_blank">Pavel Danilyuk</a> on <a href="https://www.pexels.com/photo/robot-massaging-a-womans-back-8439075/" target="_blank">Pexels</a>
+                </div>
+                
+
+                <p class="lead">Imagine a world where robots aren't just rigid, clunky machines made of metal and gears, but soft, squishy, and incredibly flexible creatures that can adapt to any shape, squeeze into tiny spaces, and even gently interact with humans without fear of injury. Sounds like science fiction, right? Well, welcome to the exciting realm of <strong>Soft Robotics</strong>, a revolutionary field that's turning our traditional understanding of robots on its head. At MakerWorks, we believe in exploring the cutting edge of technology, and soft robots are undoubtedly one of the most fascinating frontiers in STEM!</p>
+
+<h2>What are Soft Robots? The Squishy Revolution!</h2>
+<p>For decades, robots have been built primarily from hard materials like metal, plastic, and rigid circuit boards. Think of industrial robotic arms in factories – precise, strong, but also stiff and potentially dangerous if they come into contact with a human. These traditional robots excel at repetitive tasks in controlled environments.</p>
+<p><strong>Soft robots</strong>, on the other hand, are a new breed. As their name suggests, they are made predominantly from compliant (flexible) materials such as silicone, rubber, and various polymers. Unlike their rigid cousins, soft robots are designed to be:</p>
+<ul>
+    <li><strong>Deformable:</strong> They can change their shape dramatically.</li>
+    <li><strong>Adaptable:</strong> They conform to the objects they interact with or the environments they navigate.</li>
+    <li><strong>Inherently Safe:</strong> Their softness makes them much safer for human interaction.</li>
+</ul>
+<p>This fundamental difference in material choice opens up a universe of possibilities that rigid robots simply cannot achieve.</p>
+
+<h2>Why Soft Robots? The Need for 'Squishy' Intelligence</h2>
+<p>Why are scientists and engineers so excited about soft robotics? The answer lies in their unique capabilities, which address many limitations of traditional robots:</p>
+
+<h3>Safety First: Human-Robot Interaction</h3>
+<p>One of the biggest challenges in robotics is creating machines that can work closely and safely with humans. Imagine a robot assisting in a hospital or helping an elderly person at home. If it's made of hard materials, accidental collisions could be harmful. Soft robots, with their gentle and deformable bodies, drastically reduce this risk, making them ideal candidates for collaborative tasks and assistive technologies.</p>
+
+<h3>Navigating Complex and Unstructured Environments</h3>
+<p>Our world is messy and unpredictable. Rigid robots struggle with uneven surfaces, delicate objects, or tight spaces. Soft robots, inspired by nature's most adaptable creatures, can:</p>
+<ul>
+    <li><strong>Squeeze through gaps:</strong> Like an octopus slipping through a tiny crevice.</li>
+    <li><strong>Grasp delicate objects:</strong> Imagine picking up a ripe tomato or a fragile egg without crushing it.</li>
+    <li><strong>Absorb impacts:</strong> Bouncing off obstacles rather than breaking.</li>
+</ul>
+
+<h3>Bio-inspiration: Learning from Nature's Masterpieces</h3>
+<p>Nature is the ultimate engineer. Many soft robots are <strong>bio-inspired robots</strong>, meaning their design and function are drawn from biological systems. Think about:</p>
+<ul>
+    <li>The incredible dexterity and strength of an elephant's trunk.</li>
+    <li>The mesmerizing ability of an octopus to change shape and grip objects with its tentacles.</li>
+    <li>The way a caterpillar moves or a snake slithers.</li>
+</ul>
+<p>These natural wonders demonstrate complex movements and interactions using only soft tissues, providing a blueprint for engineers to mimic in artificial systems.</p>
+
+<blockquote>
+    "The beauty of soft robotics lies in its ability to emulate the natural world, allowing robots to move, feel, and interact in ways previously thought impossible for machines."
+</blockquote>
+
+<h2>How Do They Work? The Magic Behind the Flexibility</h2>
+<p>So, how do these squishy wonders actually move and operate? It's all about clever material science and innovative actuation methods.</p>
+
+<h3>Materials: The Building Blocks of Softness</h3>
+<p>The core of any soft robot is its material. Common choices include:</p>
+<ul>
+    <li><strong>Silicone:</strong> Durable, flexible, and easy to mold.</li>
+    <li><strong>Rubber:</strong> Offers elasticity and resilience.</li>
+    <li><strong>Elastomers:</strong> Polymers with high elasticity, capable of stretching and returning to their original shape.</li>
+</ul>
+<p>These materials are often cast into intricate molds to create specific shapes and internal channels.</p>
+
+<h3>Flexible Actuators: The Muscles of Soft Robots</h3>
+<p>Instead of electric motors and gears, soft robots use specialized "muscles" called <strong>flexible actuators</strong>:</p>
+
+<h4>Pneumatic Robots: Air Power!</h4>
+<p>One of the most common and effective ways to make soft robots move is through air pressure. These are known as <strong>pneumatic robots</strong>. Here's how they often work:</p>
+<ul>
+    <li><strong>Internal Channels:</strong> The soft material (like silicone) is molded with internal hollow channels or chambers.</li>
+    <li><strong>Air Inflation:</strong> When air is pumped into these channels, the pressure causes the material to expand, bend, or curl in a controlled way.</li>
+    <li><strong>PneuNets:</strong> A popular design uses a network of pneumatic (air-filled) chambers, often called "PneuNets," which inflate to create complex movements.</li>
+    <li><strong>McKibben Actuators:</strong> Another type uses a flexible bladder inside a braided mesh. When inflated, the bladder expands, and the mesh constricts, causing the actuator to shorten and pull, mimicking a muscle.</li>
+</ul>
+<p>By controlling the air pressure in different chambers, engineers can achieve a wide range of movements, from simple bending to complex grasping actions.</p>
+
+<h4>Other Actuation Methods</h4>
+<p>While pneumatics are dominant, other methods include:</p>
+<ul>
+    <li><strong>Hydraulic Actuators:</strong> Similar to pneumatics but use liquid (like water or oil) instead of air, offering greater force.</li>
+    <li><strong>Electroactive Polymers (EAPs):</strong> These "artificial muscles" change shape or size when an electric voltage is applied. They offer quiet and precise movements but are still largely in the research phase for widespread use.</li>
+</ul>
+
+<h3>Sensing and Control: Giving Soft Robots Awareness</h3>
+<p>To perform useful tasks, soft robots need to "feel" their environment and be controlled precisely. This involves:</p>
+<ul>
+    <li><strong>Stretch Sensors:</strong> Embedded within the soft material, these change resistance as the robot deforms, providing feedback on its shape.</li>
+    <li><strong>Pressure Sensors:</strong> Measure the internal pressure within actuators, allowing for precise control of movement.</li>
+    <li><strong>Microcontrollers:</strong> Like Arduino or Raspberry Pi, these act as the "brain," processing sensor data and sending commands to pumps and valves to control the actuators.</li>
+</ul>
+
+<h2>Applications: Where Can We See Soft Robots in Action?</h2>
+<p>The potential applications of soft robots are vast and incredibly exciting:</p>
+<ul>
+    <li><strong>Medicine:</strong>
+        <ul>
+            <li><strong>Surgical Tools:</strong> Flexible endoscopes that can navigate delicate internal organs with minimal invasiveness.</li>
+            <li><strong>Assistive Devices:</strong> Soft exoskeletons or rehabilitation gloves that gently help patients regain movement.</li>
+            <li><strong>Wearable Robotics:</strong> Smart clothing that monitors health or provides support.</li>
+        </ul>
+    </li>
+    <li><strong>Exploration:</strong>
+        <ul>
+            <li><strong>Deep Sea:</strong> Robots that can withstand extreme pressures and navigate complex underwater environments, inspired by marine life.</li>
+            <li><strong>Search and Rescue:</strong> Robots that can squeeze through rubble to find survivors.</li>
+            <li><strong>Space:</strong> Lightweight, deformable robots for planetary exploration.</li>
+        </ul>
+    </li>
+    <li><strong>Manufacturing and Logistics:</strong>
+        <ul>
+            <li><strong>Delicate Object Handling:</strong> Grippers that can pick up fragile items like fruits, vegetables, or electronic components without damage.</li>
+            <li><strong>Collaborative Robots (Cobots):</strong> Working alongside humans in factories safely.</li>
+        </ul>
+    </li>
+    <li><strong>Everyday Life:</strong>
+        <ul>
+            <li><strong>Interactive Toys:</strong> More lifelike and safer robotic companions.</li>
+            <li><strong>Smart Prosthetics:</strong> More natural and comfortable artificial limbs.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Building Your Own Soft Robot: A Glimpse into the MakerWorld</h2>
+<p>The beauty of soft robotics is that many fundamental concepts can be explored with relatively accessible materials. With silicone, molds, and small air pumps, you can start experimenting! Understanding how to control these flexible actuators is key. Here's a conceptual look at how you might program a simple pneumatic actuator:</p>
+<p>Imagine you have a single soft "finger" actuator that bends when air is pumped into it. You'd need a microcontroller (like an Arduino or Raspberry Pi), a small air pump, a solenoid valve (to control air flow), and maybe a pressure sensor. Your code would tell the valve when to open and close to achieve a desired bend.</p>
+<pre><code class="language-python"># Conceptual Python code for controlling a pneumatic actuator
+# This assumes a microcontroller (e.g., Raspberry Pi)
+# connected to a pressure sensor and a solenoid valve for an air pump.
+
+import time
+
+# --- Hardware Abstraction (simplified for conceptual understanding) ---
+class ActuatorController:
+    def __init__(self, pump_valve_pin, vent_valve_pin, pressure_sensor_pin):
+        self.pump_valve_pin = pump_valve_pin
+        self.vent_valve_pin = vent_valve_pin
+        self.pressure_sensor_pin = pressure_sensor_pin
+        self.current_pressure = 0 # kPa
+
+        # In a real system, you'd initialize GPIO pins here
+        print(f"Controller initialized for pump pin {pump_valve_pin}, vent pin {vent_valve_pin}, sensor pin {pressure_sensor_pin}")
+
+    def read_pressure(self):
+        # Simulate reading pressure from a sensor
+        # In reality: analog_read(self.pressure_sensor_pin) and convert to kPa
+        return self.current_pressure
+
+    def set_pump_valve(self, state): # True for open, False for closed
+        # In reality: GPIO.output(self.pump_valve_pin, GPIO.HIGH if state else GPIO.LOW)
+        print(f"Pump valve on pin {self.pump_valve_pin} set to {'OPEN' if state else 'CLOSED'}")
+
+    def set_vent_valve(self, state): # True for open, False for closed
+        # In reality: GPIO.output(self.vent_valve_pin, GPIO.HIGH if state else GPIO.LOW)
+        print(f"Vent valve on pin {self.vent_valve_pin} set to {'OPEN' if state else 'CLOSED'}")
+
+# --- Control Logic ---
+def control_actuator(controller, target_pressure_kPa, duration_s=1):
+    print(f"\n--- Moving actuator to target pressure: {target_pressure_kPa} kPa ---")
+    start_time = time.time()
+
+    while time.time() - start_time &lt; duration_s:
+        current_pressure = controller.read_pressure()
+        print(f"Current pressure: {current_pressure} kPa")
+
+        if current_pressure &lt; target_pressure_kPa:
+            controller.set_pump_valve(True)  # Open pump valve to inflate
+            controller.set_vent_valve(False) # Close vent valve
+            controller.current_pressure += 2 # Simulate pressure increase
+        elif current_pressure &gt; target_pressure_kPa:
+            controller.set_pump_valve(False) # Close pump valve
+            controller.set_vent_valve(True)  # Open vent valve to deflate
+            controller.current_pressure -= 2 # Simulate pressure decrease
+        else:
+            controller.set_pump_valve(False)
+            controller.set_vent_valve(False)
+            print("Target pressure reached.")
+            break
+        time.sleep(0.1) # Small delay for simulation
+
+    controller.set_pump_valve(False) # Ensure valves are closed at end
+    controller.set_vent_valve(False)
+    print(f"Actuator settled at {controller.read_pressure()} kPa.")
+
+
+# --- Main program simulation ---
+if __name__ == "__main__":
+    # Initialize our conceptual controller
+    my_actuator = ActuatorController(pump_valve_pin=17, vent_valve_pin=18, pressure_sensor_pin=0)
+
+    # Sequence of movements
+    control_actuator(my_actuator, target_pressure_kPa=20, duration_s=3) # Inflate to 20 kPa
+    time.sleep(1) # Hold for 1 second
+    control_actuator(my_actuator, target_pressure_kPa=5, duration_s=2)  # Deflate to 5 kPa
+    time.sleep(1) # Hold for 1 second
+    control_actuator(my_actuator, target_pressure_kPa=15, duration_s=2) # Inflate to 15 kPa
+
+    print("\nSoft robot movement sequence complete!")
+</code></pre>
+<p>This code illustrates the basic idea: read sensor data, compare it to a target, and then activate the appropriate valves to adjust the pressure. In a real-world project, you'd use actual hardware libraries (like <code>RPi.GPIO</code> for Raspberry Pi or Arduino's digital/analog functions) and more sophisticated control algorithms, but the core principle remains the same.</p>
+
+<h2>The Future is Flexible! Challenges and Opportunities</h2>
+<p>While incredibly promising, soft robotics is still a relatively young field. There are challenges to overcome, such as:</p>
+<ul>
+    <li><strong>Precision:</strong> Achieving the same level of precise, repeatable movements as rigid robots can be difficult.</li>
+    <li><strong>Speed:</strong> Many soft actuators are slower than traditional motors.</li>
+    <li><strong>Energy Efficiency:</strong> Pumps and compressors can sometimes be power-hungry.</li>
+    <li><strong>Durability:</strong> Soft materials can be more susceptible to wear and tear.</li>
+</ul>
+<p>However, the opportunities far outweigh these challenges. As materials science advances and control algorithms become more sophisticated, soft robots will undoubtedly become an integral part of our lives, transforming industries from healthcare to manufacturing and even personal assistance.</p>
+
+<h2>Conclusion: Embrace the Squishy Side of Robotics!</h2>
+<p>Soft robotics is not just a niche area; it represents a paradigm shift in how we design, build, and interact with robots. By embracing flexibility, adaptability, and bio-inspiration, these squishy machines are poised to solve complex problems and open doors to applications we can only dream of today. From delicate surgical procedures to exploring uncharted territories, <strong>soft robots</strong> are proving that sometimes, the best way to be strong is to be soft.</p>
+<p>Are you excited by the prospect of building robots that can bend, squeeze, and gently interact with the world? Dive into the world of soft robotics! Explore online resources, experiment with simple materials, and keep an eye on the incredible innovations happening right here in India and around the globe. At MakerWorks, we encourage you to get your hands dirty, experiment, and perhaps even design the next generation of flexible, bio-inspired robots!</p>
+<p><strong>What kind of soft robot would YOU like to build? Share your ideas in the comments below!</strong></p>
+
+                <hr class="my-5">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/blog/" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>

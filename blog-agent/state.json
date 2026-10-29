@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 10,
+  "last_topic_index": 11,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -54,17 +54,11 @@
     "industrial-robotics-automation-powering-indias-factories",
     "surgical-medical-robots-saving-lives-transforming-healthcare",
     "space-robots-our-eyes-hands-in-the-cosmos-makerworks-20261022",
-    "swarm-robotics-the-power-of-many-small-robots-working-togeth"
+    "swarm-robotics-the-power-of-many-small-robots-working-togeth",
+    "soft-robotics-the-squishy-revolution-in-stem-ai-makerworks"
   ],
-  "last_run": "2026-10-26T10:22:12.345188",
+  "last_run": "2026-10-29T11:00:44.612669",
   "recent_posts": [
-    {
-      "slug": "cobots-the-future-of-human-robot-collaboration-makerworks",
-      "title": "Cobots: The Future of Human-Robot Collaboration | MakerWorks",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Discover cobots! Learn how these safe, collaborative robots are transforming industries and creating new opportunities in India."
-    },
     {
       "slug": "industrial-robotics-automation-powering-indias-factories",
       "title": "Industrial Robotics & Automation: Powering India's Factories",
@@ -92,6 +86,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": "Discover swarm robotics! Learn how many small robots work together using swarm intelligence for amazing collective tasks."
+    },
+    {
+      "slug": "soft-robotics-the-squishy-revolution-in-stem-ai-makerworks",
+      "title": "Soft Robotics: The Squishy Revolution in STEM & AI | MakerWorks",
+      "badge": "Research",
+      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
+      "short_description": "Dive into soft robotics! Learn about flexible, bio-inspired robots, pneumatic actuators, and their amazing applications in STEM."
     }
   ]
 }
