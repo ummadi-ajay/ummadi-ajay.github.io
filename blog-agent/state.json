@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 11,
+  "last_topic_index": 12,
   "published_posts": [
     "computer-vision-for-robotics-giving-robots-the-gift-of-sight",
     "humanoid-robots-ai-the-future-walking-among-us",
@@ -55,17 +55,11 @@
     "surgical-medical-robots-saving-lives-transforming-healthcare",
     "space-robots-our-eyes-hands-in-the-cosmos-makerworks-20261022",
     "swarm-robotics-the-power-of-many-small-robots-working-togeth",
-    "soft-robotics-the-squishy-revolution-in-stem-ai-makerworks"
+    "soft-robotics-the-squishy-revolution-in-stem-ai-makerworks",
+    "agricultural-robots-cultivating-the-future-of-farming-in-ind-20261102"
   ],
-  "last_run": "2026-10-29T11:00:44.612669",
+  "last_run": "2026-11-02T12:44:00.928276",
   "recent_posts": [
-    {
-      "slug": "industrial-robotics-automation-powering-indias-factories",
-      "title": "Industrial Robotics & Automation: Powering India's Factories",
-      "badge": "Industrial",
-      "badge_color": "linear-gradient(135deg, #dc3545, #e83e8c)",
-      "short_description": "Dive into industrial robotics! Learn how factory robots and automation are revolutionizing manufacturing in India and beyond."
-    },
     {
       "slug": "surgical-medical-robots-saving-lives-transforming-healthcare",
       "title": "Surgical & Medical Robots: Saving Lives, Transforming Healthcare in India",
@@ -93,6 +87,13 @@
       "badge": "Research",
       "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
       "short_description": "Dive into soft robotics! Learn about flexible, bio-inspired robots, pneumatic actuators, and their amazing applications in STEM."
+    },
+    {
+      "slug": "agricultural-robots-cultivating-the-future-of-farming-in-ind-20261102",
+      "title": "Agricultural Robots: Cultivating the Future of Farming in India",
+      "badge": "Agriculture",
+      "badge_color": "linear-gradient(135deg, #198754, #adb5bd)",
+      "short_description": "Discover how agricultural robots are transforming farming in India, from planting to harvesting, making agriculture smarter and more sustainable."
     }
   ]
 }
