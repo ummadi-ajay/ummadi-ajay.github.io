@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Humanoid Robots & AI: The Future Walking Among Us | MakerWorks Blog</title>
@@ -46,7 +47,7 @@
     <link rel="stylesheet" href="/styles.css">
 
     <!-- Scripts -->
-    <script src="/components.js" defer></script>
+    <script src="/components.js?v=3" defer></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -189,7 +190,652 @@
 
 <body>
 
-    <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"><!-- navbar:start --><style>
+    /* Ultra-Premium Navbar 4.0 */
+    :root {
+        --nav-glass-bg: rgba(255, 255, 255, 0.88);
+        --nav-glass-scrolled: rgba(255, 255, 255, 0.96);
+        --primary-gradient: linear-gradient(135deg, #0d6efd 0%, #4f46e5 100%);
+        --text-primary: #111827;
+        --text-secondary: #4b5563;
+        --text-muted: #6b7280;
+    }
+
+    .navbar-ultra {
+        background: var(--nav-glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 0.85rem 1.5rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2000;
+    }
+
+    /* Prevent background scroll when mobile menu is open */
+    body.no-scroll {
+        overflow: hidden !important;
+        height: 100vh;
+    }
+
+    /* Sticky Scrolled State (triggered by components.js) */
+    .navbar-ultra.floating {
+        padding-top: 0.65rem;
+        padding-bottom: 0.65rem;
+        background: var(--nav-glass-scrolled);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Brand Styling */
+    .navbar-brand {
+        position: relative;
+        z-index: 2200;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 0;
+    }
+
+    .brand-title {
+        color: #0f172a;
+        font-weight: 800;
+        font-family: 'Outfit', sans-serif;
+        letter-spacing: -0.02em;
+        font-size: clamp(1.25rem, 3.5vw, 1.45rem);
+        line-height: 1;
+        transition: color 0.2s ease;
+    }
+
+    .navbar-brand:hover .brand-title {
+        color: #0d6efd;
+    }
+
+    /* Top-Level Nav Links */
+    .navbar-ultra .nav-link {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--text-secondary) !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.85rem !important;
+        border-radius: 9999px;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        position: relative;
+        text-decoration: none;
+        white-space: nowrap !important;
+    }
+
+    .navbar-ultra .nav-link:hover {
+        color: #0d6efd !important;
+        background: rgba(13, 110, 253, 0.06);
+    }
+
+    .navbar-ultra .nav-link.active {
+        color: #0d6efd !important;
+        background: rgba(13, 110, 253, 0.08);
+        font-weight: 700;
+    }
+
+    /* Chevron rotation on dropdown */
+    .dropdown-toggle::after {
+        border-top-width: 0.3em;
+        border-right-width: 0.3em;
+        border-bottom-width: 0;
+        border-left-width: 0.3em;
+        vertical-align: 0.15em !important;
+        margin-left: 0.35rem !important;
+        opacity: 0.6;
+        transition: transform 0.25s ease;
+    }
+
+    .dropdown-toggle.show::after,
+    .nav-item.dropdown:hover .dropdown-toggle::after {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+
+    /* Dropdown Hover & Styling for Desktop (>= 1200px) */
+    @media (min-width: 1200px) {
+        .nav-item.dropdown {
+            position: relative;
+        }
+
+        /* Hover bridge: keeps dropdown open when moving cursor over the gap */
+        .nav-item.dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 18px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .dropdown-menu {
+            display: block !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            margin-top: 10px !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(8px) !important;
+            transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease !important;
+            pointer-events: none !important;
+            z-index: 1100 !important;
+        }
+
+        .nav-item.dropdown:hover > .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            pointer-events: auto !important;
+        }
+    }
+
+    /* Modern Glassmorphic Dropdown Menu Base */
+    .dropdown-menu {
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 18px;
+        box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        padding: 0.6rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        min-width: 275px;
+    }
+
+    .dropdown-item {
+        border-radius: 12px;
+        padding: 0.65rem 0.85rem;
+        color: #1f2937;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s ease;
+        margin-bottom: 2px;
+        text-decoration: none;
+    }
+
+    .dropdown-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+        background: rgba(13, 110, 253, 0.06);
+        color: #0d6efd;
+        transform: translateX(3px);
+    }
+
+    .dropdown-item.active {
+        background: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+    }
+
+    .dropdown-item .item-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: #f1f5f9;
+        color: #475569;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+        transition: all 0.25s ease;
+    }
+
+    .dropdown-item:hover .item-icon {
+        background: var(--primary-gradient);
+        color: #ffffff;
+        box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+    }
+
+    .dropdown-item .item-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.25;
+    }
+
+    .dropdown-item .item-title {
+        font-weight: 600;
+        font-size: 0.88rem;
+        color: inherit;
+    }
+
+    .dropdown-item .item-desc {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-top: 1px;
+    }
+
+    .dropdown-divider {
+        margin: 0.4rem 0.5rem;
+        border-color: rgba(0, 0, 0, 0.06);
+        opacity: 1;
+    }
+
+    /* Primary CTA Button ("Join & Enroll") */
+    .btn-navbar-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: var(--primary-gradient);
+        color: #ffffff !important;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+        font-size: 0.88rem;
+        padding: 0.55rem 1.35rem;
+        border-radius: 9999px;
+        border: none;
+        text-decoration: none !important;
+        box-shadow: 0 4px 14px rgba(13, 110, 253, 0.32);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-navbar-cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: 0.5s ease;
+    }
+
+    .btn-navbar-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 22px rgba(13, 110, 253, 0.42);
+        color: #ffffff !important;
+    }
+
+    .btn-navbar-cta:hover::before {
+        left: 100%;
+    }
+
+    .btn-navbar-cta:active {
+        transform: translateY(1px);
+    }
+
+    .btn-navbar-cta i {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+    }
+
+    .btn-navbar-cta:hover i {
+        transform: translateX(3px);
+    }
+
+    /* Mobile Toggler */
+    .menu-toggler {
+        border: none;
+        background: rgba(13, 110, 253, 0.08);
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2200;
+        padding: 0;
+    }
+
+    .menu-toggler:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+    }
+
+    .menu-toggler span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: #0d6efd;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 4px;
+        transform-origin: center;
+    }
+
+    .menu-toggler.opened span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggler.opened span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    .menu-toggler.opened span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer Styles (< 1200px) */
+    @media (max-width: 1199px) {
+        .navbar-collapse {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            padding: 85px 1.5rem 3rem 1.5rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            justify-content: flex-start !important;
+            transform: translateX(100%) !important;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.35s ease !important;
+            height: 100vh !important;
+            width: 100vw !important;
+            overflow-y: auto !important;
+            z-index: 1050 !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        .navbar-collapse.show {
+            transform: translateX(0) !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+
+        /* Protective header background when mobile menu is active */
+        .navbar-ultra::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 2100;
+            display: none;
+        }
+
+        .navbar-ultra.mobile-header-active::before {
+            display: block;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            gap: 0.35rem !important;
+        }
+
+        .navbar-ultra .nav-link {
+            justify-content: space-between !important;
+            font-size: 1rem !important;
+            padding: 0.75rem 1rem !important;
+            border-radius: 12px;
+            color: #1f2937 !important;
+            font-weight: 600;
+            background: transparent;
+        }
+
+        .navbar-ultra .nav-link:hover,
+        .navbar-ultra .nav-link.active {
+            background: #eff6ff !important;
+            color: #0d6efd !important;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: static !important;
+            float: none;
+            width: 100%;
+            transform: none !important;
+            background: #f8fafc !important;
+            box-shadow: none;
+            border: 1px solid #e2e8f0;
+            margin: 0.35rem 0 0.6rem 0 !important;
+            padding: 0.5rem !important;
+            border-radius: 14px;
+        }
+
+        .dropdown-menu.show {
+            display: block !important;
+        }
+
+        .dropdown-item {
+            padding: 0.6rem 0.75rem !important;
+            border-radius: 10px;
+        }
+
+        .btn-navbar-cta {
+            width: 100%;
+            padding: 0.85rem 1.5rem;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+    }
+
+    /* Desktop Styles (>= 1200px) */
+    @media (min-width: 1200px) {
+        .navbar-collapse {
+            position: static !important;
+            height: auto !important;
+            width: auto !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+            pointer-events: auto !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            display: flex !important;
+        }
+    }
+</style>
+
+<nav class="navbar navbar-expand-xl navbar-ultra" id="mainNav">
+    <div class="container-fluid px-lg-5">
+        <!-- Brand Title -->
+        <a class="navbar-brand" href="/">
+            <span class="brand-title">MAKERWORKS</span>
+        </a>
+
+        <!-- Hamburger Toggler (Mobile) -->
+        <button class="navbar-toggler menu-toggler d-xl-none" type="button"
+            aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navbar Links Collapsible Container -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+            <ul class="navbar-nav align-items-xl-center">
+                <!-- 1. Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <!-- 2. Programs Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                        aria-expanded="false">
+                        Programs
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="/programs/beginner/">
+                                <span class="item-icon"><i class="bi bi-1-circle-fill"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Beginner Level</span>
+                                    <span class="item-desc">Ages 8–10 · Start your journey</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/programs/intermediate/">
+                                <span class="item-icon"><i class="bi bi-2-circle-fill"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Intermediate Level</span>
+                                    <span class="item-desc">Ages 11–14 · Level up skills</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/programs/portfolio/">
+                                <span class="item-icon"><i class="bi bi-3-circle-fill"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Portfolio Program</span>
+                                    <span class="item-desc">Grade 8+ · Projects & proof</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 3. Competitions Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                        aria-expanded="false">
+                        Competitions
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="/competetions/vex/">
+                                <span class="item-icon"><i class="bi bi-robot"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">VEX IQ</span>
+                                    <span class="item-desc">Team robotics challenge</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/competetions/wro/">
+                                <span class="item-icon"><i class="bi bi-cpu"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">WRO</span>
+                                    <span class="item-desc">World Robot Olympiad</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/competetions/coolest/">
+                                <span class="item-icon"><i class="bi bi-snow"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Coolest Projects</span>
+                                    <span class="item-desc">Showcase innovation</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="/competetions/mekathalon/">
+                                <span class="item-icon"><i class="bi bi-star"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Mekathalon</span>
+                                    <span class="item-desc">STEM tournament</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 4. Access Program -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/access-program/">Access Program</a>
+                </li>
+
+                <!-- 5. Explore Dropdown (Blog, Gallery, App, Reschedule, Hiring) -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                        aria-expanded="false">
+                        Explore
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="/blog/">
+                                <span class="item-icon"><i class="bi bi-newspaper"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Blog</span>
+                                    <span class="item-desc">Robotics guides & articles</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/gallery/">
+                                <span class="item-icon"><i class="bi bi-image-fill"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Gallery</span>
+                                    <span class="item-desc">Photos of student builds & lab</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="https://makerworkslab.in/Micro-Bit-control-App/">
+                                <span class="item-icon"><i class="bi bi-controller"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Micro:bit App</span>
+                                    <span class="item-desc">Interactive controller tool</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/postpone/">
+                                <span class="item-icon"><i class="bi bi-calendar-event-fill"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Reschedule Class</span>
+                                    <span class="item-desc">Self-service session changes</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="/hiring/">
+                                <span class="item-icon"><i class="bi bi-briefcase-fill"></i></span>
+                                <span class="item-info">
+                                    <span class="item-title">Hiring</span>
+                                    <span class="item-desc">Join our educator & maker team</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 6. Book a Visit -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/visit/">Book a Visit</a>
+                </li>
+
+                <!-- 7. Join & Enroll CTA Button -->
+                <li class="nav-item ms-xl-2 mt-2 mt-xl-0">
+                    <a class="btn-navbar-cta" href="/enrol/">
+                        <span>Join & Enroll</span>
+                        <i class="bi bi-arrow-right-short"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav><!-- navbar:end --></div>
 
     <!-- Article Header -->
     <header class="blog-header">

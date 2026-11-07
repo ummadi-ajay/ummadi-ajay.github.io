@@ -215,10 +215,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
     if (navPlaceholder) {
-        loadComponent('navbar-placeholder', basePath + 'components/navbar.html?t=' + new Date().getTime());
+        if (navPlaceholder.children.length) {
+            // Navbar is already inlined in the page (see _internal/scripts/inline-navbar.py)
+            updateActiveNavLink();
+            initializeNavbarLogic();
+        } else {
+            loadComponent('navbar-placeholder', basePath + 'components/navbar.html?v=3');
+        }
     }
     if (footerPlaceholder) {
-        loadComponent('footer-placeholder', basePath + 'components/footer.html?t=' + new Date().getTime());
+        loadComponent('footer-placeholder', basePath + 'components/footer.html?v=3');
     }
 
     // Initialize AOS if available
