@@ -20,7 +20,7 @@ from PIL import Image
 # Paths
 SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent
-GALLERY_DIR = REPO_ROOT / "_gallery"  # kept in the repo but not published on the website
+GALLERY_DIR = REPO_ROOT / "gallery"
 PHOTOS_DIR = GALLERY_DIR / "galleryphotos"
 STATE_FILE = SCRIPT_DIR / "state.json"
 
