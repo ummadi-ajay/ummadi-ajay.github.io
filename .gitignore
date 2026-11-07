@@ -17,3 +17,6 @@ __pycache__/
 # Private recipient lists must not be committed
 email/*recipients*.txt
 !email_recipients.example.txt
+
+# Private recipient lists (moved with the internal tools)
+_internal/email/*recipients*.txt
