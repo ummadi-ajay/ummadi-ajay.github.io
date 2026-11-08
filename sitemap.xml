@@ -297,4 +297,19 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://makerworkslab.in/access-program/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://makerworkslab.in/programs/advanced/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://makerworkslab.in/visit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
