@@ -1,5 +1,5 @@
 {
-  "last_topic_index": 14,
+  "last_topic_index": 0,
   "published_posts": [
     "agricultural-robots-cultivating-the-future-of-farming-in-ind",
     "ai-in-robotics-how-smart-robots-are-changing-our-world",
@@ -54,17 +54,11 @@
     "robots-in-scrubs-exploring-surgical-and-medical-robotics",
     "warehouse-wonders-how-robots-power-indias-logistics-future",
     "swarm-robotics-the-power-of-many-little-robots-working-toget",
-    "robot-ethics-safety-building-a-responsible-future-for-ai-in-"
+    "robot-ethics-safety-building-a-responsible-future-for-ai-in-",
+    "ai-in-robotics-giving-robots-a-brain-makerworks"
   ],
-  "last_run": "2026-11-09T13:10:20.376903",
+  "last_run": "2026-11-12T13:02:03.938738",
   "recent_posts": [
-    {
-      "slug": "swarm-robotics-the-power-of-many-small-robots-working-togeth",
-      "title": "Swarm Robotics: The Power of Many Small Robots Working Together",
-      "badge": "Research",
-      "badge_color": "linear-gradient(135deg, #6610f2, #6f42c1)",
-      "short_description": "Discover swarm robotics! Learn how many small robots work together using swarm intelligence for amazing collective tasks."
-    },
     {
       "slug": "soft-robotics-the-squishy-revolution-in-stem-ai-makerworks",
       "title": "Soft Robotics: The Squishy Revolution in STEM & AI | MakerWorks",
@@ -92,6 +86,13 @@
       "badge": "Ethics",
       "badge_color": "linear-gradient(135deg, #ffc107, #fd7e14)",
       "short_description": "Dive into robot ethics and AI safety. Understand privacy, bias, and responsible robotics for a secure, ethical future in India."
+    },
+    {
+      "slug": "ai-in-robotics-giving-robots-a-brain-makerworks",
+      "title": "AI in Robotics: Giving Robots a Brain! | MakerWorks",
+      "badge": "AI & Robotics",
+      "badge_color": "linear-gradient(135deg, #6f42c1, #0d6efd)",
+      "short_description": "Discover how AI gives robots intelligence, enabling them to learn, adapt, and make decisions. Explore real-world applications and start your robotics journey with MakerWorks!"
     }
   ]
 }
